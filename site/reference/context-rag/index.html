@@ -1,0 +1,1409 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify.">
+      
+      
+        <meta name="author" content="AIperture">
+      
+      
+        <link rel="canonical" href="https://your-domain.com/reference/context-rag/">
+      
+      
+        <link rel="prev" href="../context-llm/">
+      
+      
+        <link rel="next" href="../context-mcp/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>RAG - AetherGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aethergraph-contextrag-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AetherGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RAG
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-dark" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    AetherGraph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph_fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Recipes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Recipes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submit + Poll + Notify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iterative Data Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini Memory-RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decorators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decorators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    RAG
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragadd_corpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.add_corpus
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragupsert_docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.upsert_docs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragretrieve" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.retrieve
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raganswer" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.answer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ragresolve_citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag.resolve_citations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes &amp; behaviors
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools-facade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools Facade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="aethergraph-contextrag-reference">AetherGraph — <code>context.rag()</code> Reference<a class="headerlink" href="#aethergraph-contextrag-reference" title="Permanent link">&para;</a></h1>
+<p>This page documents the <strong>RAGFacade</strong> returned by <code>context.rag()</code> in a concise format: signature, brief description, parameters, returns, and practical examples.</p>
+<p>The facade covers: <strong>corpus management</strong>, <strong>document ingestion (upsert)</strong>, <strong>retrieval (search/retrieve)</strong>, and <strong>question answering</strong> with optional citation resolution.</p>
+<hr />
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><code>context.rag()</code> provides high‑level helpers backed by:</p>
+<ul>
+<li>an <strong>Artifact Store</strong> (for persisted doc assets),</li>
+<li>an <strong>Embedding client</strong> (e.g., <code>context.llm().embed()</code>),</li>
+<li>a <strong>Vector index backend</strong> (add/search),</li>
+<li>a <strong>TextSplitter</strong> (chunking before embedding), and</li>
+<li>an optional <strong>LLM client</strong> for QA.</li>
+</ul>
+<hr />
+<h2 id="ragadd_corpus">rag.add_corpus<a class="headerlink" href="#ragadd_corpus" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>add_corpus(corpus_id: str, meta: dict | None = None) -&gt; None
+</code></pre></div>
+Create a new corpus directory with metadata if it does not exist.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Unique identifier for the corpus.</p>
+</li>
+<li>
+<p><strong>meta</strong> (<em>dict, optional</em>) – Arbitrary metadata stored alongside the corpus.</p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<code>None</code></p>
+<hr />
+<h2 id="ragupsert_docs">rag.upsert_docs<a class="headerlink" href="#ragupsert_docs" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>upsert_docs(corpus_id: str, docs: list[dict]) -&gt; dict
+</code></pre></div>
+Ingest and index a list of documents (file‑based or inline text). Handles artifact persistence, chunking, embedding, and index add.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus identifier.</p>
+</li>
+<li>
+<p><strong>docs</strong> (<em>list[dict]</em>) – Each doc is either:</p>
+</li>
+<li>
+<p><strong>File doc</strong>: <code>{ "path": "/path/to/file.pdf", "labels": {...}, "title": "Optional" }</code></p>
+</li>
+<li>
+<p><strong>Inline text doc</strong>: <code>{ "text": "...", "title": "Optional", "labels": {...} }</code></p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<em>dict</em> – Summary like <code>{ "added": int, "chunks": int, "index": "BackendName" }</code>.</p>
+<p><strong>Notes</strong>
+- PDFs and Markdown are parsed with built‑in extractors; other files default to text.</p>
+<ul>
+<li>Each doc and chunk is assigned a stable SHA‑derived ID and recorded in <code>docs.jsonl</code> / <code>chunks.jsonl</code> under the corpus folder.</li>
+</ul>
+<hr />
+<h2 id="ragsearch">rag.search<a class="headerlink" href="#ragsearch" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>search(corpus_id: str, query: str, k: int = 8, filters: dict | None = None, mode: str = &quot;hybrid&quot;) -&gt; list[SearchHit]
+</code></pre></div>
+Hybrid retrieval: dense vector search with optional lexical fusion, returning the top‑k chunks.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
+</li>
+<li>
+<p><strong>query</strong> (<em>str</em>) – Natural language query.</p>
+</li>
+<li>
+<p><strong>k</strong> (<em>int</em>) – Number of results (default 8).</p>
+</li>
+<li>
+<p><strong>filters</strong> (<em>dict, optional</em>) – Reserved for metadata filtering (adapter‑specific).</p>
+</li>
+<li>
+<p><strong>mode</strong> (<em>{"dense","hybrid"}</em>) – Retrieval mode (default <code>"hybrid"</code>).</p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<em>list[SearchHit]</em> – Ranked hits with <code>chunk_id</code>, <code>doc_id</code>, <code>corpus_id</code>, <code>score</code>, <code>text</code>, <code>meta</code>.</p>
+<hr />
+<h2 id="ragretrieve">rag.retrieve<a class="headerlink" href="#ragretrieve" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>retrieve(corpus_id: str, query: str, k: int = 6, rerank: bool = True) -&gt; list[SearchHit]
+</code></pre></div>
+Convenience wrapper over <code>search(..., mode="hybrid")</code> for top‑k retrieval.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
+</li>
+<li>
+<p><strong>query</strong> (<em>str</em>) – Natural language query.</p>
+</li>
+<li>
+<p><strong>k</strong> (<em>int</em>) – Number of results (default 6).</p>
+</li>
+<li>
+<p><strong>rerank</strong> (<em>bool</em>) – Currently ignored (hybrid already fuses scores).</p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<em>list[SearchHit]</em> – Ranked hits.</p>
+<hr />
+<h2 id="raganswer">rag.answer<a class="headerlink" href="#raganswer" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>answer(corpus_id: str, question: str, *, llm: GenericLLMClient | None = None, style: str = &quot;concise&quot;, with_citations: bool = True, k: int = 6) -&gt; dict
+</code></pre></div>
+Answer a question using retrieved context and an LLM.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
+</li>
+<li>
+<p><strong>question</strong> (<em>str</em>) – End‑user question.</p>
+</li>
+<li>
+<p><strong>llm</strong> (<em>GenericLLMClient, optional</em>) – LLM to use; defaults to the facade’s configured client.</p>
+</li>
+<li>
+<p><strong>style</strong> (<em>{"concise","detailed"}</em>) – Answer verbosity/style.</p>
+</li>
+<li>
+<p><strong>with_citations</strong> (<em>bool</em>) – Whether to include resolved citations.</p>
+</li>
+<li>
+<p><strong>k</strong> (<em>int</em>) – Retrieval depth (default 6).</p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<em>dict</em> – <code>{ "answer": str, "citations": [...], "usage": {...}, "resolved_citations": [...]? }</code>.</p>
+<p><strong>Behavior</strong>
+- Builds a context block from top‑k chunks (numbered <code>[1]</code>, <code>[2]</code>, ...).</p>
+<ul>
+<li>Prompts the LLM to answer <strong>only</strong> from the provided context and cite chunk numbers.</li>
+</ul>
+<hr />
+<h2 id="ragresolve_citations">rag.resolve_citations<a class="headerlink" href="#ragresolve_citations" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>resolve_citations(corpus_id: str, citations: list[dict]) -&gt; list[dict]
+</code></pre></div>
+Resolve citation metadata for display/download.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>
+<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
+</li>
+<li>
+<p><strong>citations</strong> (<em>list[dict]</em>) – Items like <code>{ "chunk_id", "doc_id", "rank" }</code>.</p>
+</li>
+</ul>
+<p><strong>Returns</strong><br />
+<em>list[dict]</em> – Sorted by <code>rank</code>, each <code>{ rank, doc_id, title, uri, chunk_id, snippet }</code>.</p>
+<hr />
+<h2 id="practical-examples">Practical examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2>
+<p><strong>1) Create a corpus and ingest docs</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
+
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_ingest&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_ingest</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">add_corpus</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">upsert_docs</span><span class="p">(</span>
+        <span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span>
+        <span class="n">docs</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Optics basics: Snell&#39;s law relates angles of incidence and refraction.&quot;</span> <span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;optics&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/papers/holography.md&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;holography&quot;</span><span class="p">}},</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RAG upsert: </span><span class="si">{</span><span class="n">stats</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>2) Search and preview hits</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_search_preview&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_search_preview</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hits</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">] score=</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  doc=</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">doc_id</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>3) Answer with citations</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_answer_with_citations&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_answer_with_citations</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;concise&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;answer&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">cites</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resolved_citations&quot;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cites</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[#</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="notes-behaviors">Notes &amp; behaviors<a class="headerlink" href="#notes-behaviors" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Chunking &amp; Embedding</strong>: Documents are split via <code>TextSplitter</code> then embedded in batch; the index stores <code>(chunk_id, vector, meta)</code>.</p>
+</li>
+<li>
+<p><strong>Artifacts</strong>: File docs and inline text are persisted to the Artifact Store; returned URIs appear in doc metadata and resolved citations.</p>
+</li>
+<li>
+<p><strong>IDs</strong>: <code>doc_id</code> and <code>chunk_id</code> are stable SHA‑derived IDs; re‑ingesting the same content usually yields the same IDs (subject to meta changes).</p>
+</li>
+<li>
+<p><strong>Filters</strong>: <code>filters</code> is reserved for future adapter support (label‑based narrowing).</p>
+</li>
+<li>
+<p><strong>LLM &amp; Usage</strong>: <code>answer()</code> returns provider usage where available; some providers may omit it.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../context-llm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LLM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                LLM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../context-mcp/" class="md-footer__link md-footer__link--next" aria-label="Next: MCP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                MCP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1495 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify.">
+      
+      
+        <meta name="author" content="AIperture">
+      
+      
+        <link rel="canonical" href="https://your-domain.com/reference/context-mcp/">
+      
+      
+        <link rel="prev" href="../context-rag/">
+      
+      
+        <link rel="next" href="../tools-facade/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>MCP - AetherGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aethergraph-contextmcp-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AetherGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MCP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-dark" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    AetherGraph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graph_fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Recipes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Recipes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submit + Poll + Notify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iterative Data Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini Memory-RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decorators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decorators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MCP
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcpservice-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCPService (registry)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MCPService (registry)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register" class="md-nav__link">
+    <span class="md-ellipsis">
+      register
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      remove
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has-names-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      has / names / get
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-close" class="md-nav__link">
+    <span class="md-ellipsis">
+      open / close
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      call helpers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-secretsruntime-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      optional secrets/runtime headers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transport-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transport clients
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transport clients">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stdiomcpclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      StdioMCPClient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wsmcpclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      WsMCPClient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpmcpclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      HttpMCPClient
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextmcpname" class="md-nav__link">
+    <span class="md-ellipsis">
+      context.mcp(name)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calling-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calling tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listing-tools-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listing tools &amp; resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endtoend-setup-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      End‑to‑end setup (startup)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-inside-a-graph-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using inside a graph function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-transport" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing a transport
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auth &amp; headers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools-facade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools Facade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="aethergraph-contextmcp-reference">AetherGraph — <code>context.mcp()</code> Reference<a class="headerlink" href="#aethergraph-contextmcp-reference" title="Permanent link">&para;</a></h1>
+<p>This page documents the <strong>Model Context Protocol (MCP)</strong> client you obtain with <code>context.mcp(name)</code>. Use it to call tools, list resources, or read resources exposed by a remote/local MCP server over <strong>stdio</strong>, <strong>WebSocket</strong>, or <strong>HTTP</strong>.</p>
+<blockquote>
+<p>Import surface (for examples below):
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">MCPService</span><span class="p">,</span>
+    <span class="n">StdioMCPClient</span><span class="p">,</span>
+    <span class="n">WsMCPClient</span><span class="p">,</span>
+    <span class="n">HttpMCPClient</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+</blockquote>
+<hr />
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>MCPService</strong>: registry of named MCP clients (e.g., <code>"local"</code>, <code>"ws"</code>, <code>"http"</code>), handles lazy open/close and convenience calls.</li>
+<li><strong>MCPClientProtocol</strong>: transport‑specific client implementing <code>open()</code>, <code>close()</code>, <code>call(tool, params)</code>, <code>list_tools()</code>, <code>list_resources()</code>, <code>read_resource(uri)</code>.</li>
+<li><strong>Tools</strong>: remote RPCs exposed by the MCP server (e.g., <code>readFile</code>, <code>search</code>, <code>stat</code>).</li>
+<li><strong>Resources</strong>: server‑advertised URIs you can <code>read_resource()</code> (e.g., <code>file://…</code>, <code>repo://…</code>).</li>
+</ul>
+<p><code>context.mcp(name)</code> returns the client registered under <code>name</code> via your process‑global <code>MCPService</code>.</p>
+<hr />
+<h2 id="mcpservice-registry">MCPService (registry)<a class="headerlink" href="#mcpservice-registry" title="Permanent link">&para;</a></h2>
+<h3 id="register">register<a class="headerlink" href="#register" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>register(name: str, client: MCPClientProtocol) -&gt; None
+</code></pre></div>
+Register a client under a name.</p>
+<h3 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>remove(name: str) -&gt; None
+</code></pre></div>
+Unregister a client.</p>
+<h3 id="has-names-get">has / names / get<a class="headerlink" href="#has-names-get" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>has(name: str) -&gt; bool
+names() -&gt; list[str]
+get(name: str = &quot;default&quot;) -&gt; MCPClientProtocol
+</code></pre></div>
+Query and retrieve clients by name.</p>
+<h3 id="open-close">open / close<a class="headerlink" href="#open-close" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>open(name: str) -&gt; None
+close(name: str) -&gt; None
+open_all() -&gt; None
+close_all() -&gt; None
+</code></pre></div>
+Manage client lifecycles. <code>call()/list_*()</code> implicitly <code>open()</code> on first use.</p>
+<h3 id="call-helpers">call helpers<a class="headerlink" href="#call-helpers" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>call(name: str, tool: str, params: dict | None = None) -&gt; dict
+list_tools(name: str) -&gt; list[MCPTool]
+list_resources(name: str) -&gt; list[MCPResource]
+read_resource(name: str, uri: str) -&gt; dict
+</code></pre></div>
+Thin wrappers to keep call sites small; auto‑open if needed.</p>
+<h3 id="optional-secretsruntime-headers">optional secrets/runtime headers<a class="headerlink" href="#optional-secretsruntime-headers" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>set_header(name: str, key: str, value: str) -&gt; None
+persist_secret(secret_name: str, value: str) -&gt; None
+</code></pre></div>
+<code>set_header()</code> is handy for WS/HTTP auth tokens at runtime. <code>persist_secret()</code> stores a credential via your Secrets provider (if writable).</p>
+<hr />
+<h2 id="transport-clients">Transport clients<a class="headerlink" href="#transport-clients" title="Permanent link">&para;</a></h2>
+<h3 id="stdiomcpclient">StdioMCPClient<a class="headerlink" href="#stdiomcpclient" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>StdioMCPClient(cmd: list[str], env: dict[str,str] | None = None, timeout: float = 60.0)
+</code></pre></div>
+Spawn a subprocess and speak JSON‑RPC over stdio.</p>
+<h3 id="wsmcpclient">WsMCPClient<a class="headerlink" href="#wsmcpclient" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>WsMCPClient(url: str, *, headers: dict[str,str] | None = None, timeout: float = 60.0, ping_interval: float = 20.0, ping_timeout: float = 10.0)
+</code></pre></div>
+Connect to an MCP server over WebSocket.</p>
+<h3 id="httpmcpclient">HttpMCPClient<a class="headerlink" href="#httpmcpclient" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>HttpMCPClient(base_url: str, *, headers: dict[str,str] | None = None, timeout: float = 60.0)
+</code></pre></div>
+Call an MCP server over HTTP (JSON).</p>
+<hr />
+<h2 id="contextmcpname">context.mcp(name)<a class="headerlink" href="#contextmcpname" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>context.mcp(name: str) -&gt; MCPClientProtocol
+</code></pre></div>
+Return the named client. Typically you register names like <code>"local"</code>, <code>"ws"</code>, <code>"http"</code> during app startup, then retrieve them inside tools/agents.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;holography&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</code></pre></div></p>
+<hr />
+<h2 id="calling-tools">Calling tools<a class="headerlink" href="#calling-tools" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>client.call(tool: str, params: dict | None = None) -&gt; dict
+</code></pre></div>
+Invoke a remote tool by name with JSON‑serializable params.</p>
+<p><strong>Parameters</strong>
+- <strong>tool</strong> (<em>str</em>) – Tool name (server‑defined).
+- <strong>params</strong> (<em>dict, optional</em>) – Arguments for the tool.</p>
+<p><strong>Returns</strong><br />
+<em>dict</em> – Tool result payload (shape defined by the server).</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Filesystem‑like server</span>
+<span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;readFile&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/notes.txt&quot;</span><span class="p">})</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;len=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="listing-tools-resources">Listing tools &amp; resources<a class="headerlink" href="#listing-tools-resources" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>client.list_tools() -&gt; list[MCPTool]
+client.list_resources() -&gt; list[MCPResource]
+client.read_resource(uri: str) -&gt; dict
+</code></pre></div>
+Enumerate server capabilities and read advertised resources.</p>
+<p><strong>Example</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Tool discovery</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">list_tools</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tool: </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Resource fetch</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">list_resources</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;file://&quot;</span><span class="p">):</span>
+        <span class="n">blob</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_resource</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;read </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">uri</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> chars&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="endtoend-setup-startup">End‑to‑end setup (startup)<a class="headerlink" href="#endtoend-setup-startup" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">MCPService</span><span class="p">,</span> <span class="n">StdioMCPClient</span><span class="p">,</span> <span class="n">WsMCPClient</span><span class="p">,</span> <span class="n">HttpMCPClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.v3.core.runtime.runtime_services</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_mcp_service</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">DEMO_HTTP_TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;DEMO_HTTP_TOKEN&quot;</span><span class="p">,</span> <span class="s2">&quot;demo_token_123&quot;</span><span class="p">)</span>
+
+<span class="n">mcp</span> <span class="o">=</span> <span class="n">MCPService</span><span class="p">()</span>
+<span class="n">mcp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">,</span> <span class="n">StdioMCPClient</span><span class="p">(</span><span class="n">cmd</span><span class="o">=</span><span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">&quot;-m&quot;</span><span class="p">,</span> <span class="s2">&quot;aethergraph.plugins.mcp.fs_server&quot;</span><span class="p">]))</span>
+<span class="n">mcp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">,</span> <span class="n">WsMCPClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8765&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer demo_token_123&quot;</span><span class="p">}))</span>
+<span class="n">mcp</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="n">HttpMCPClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8769&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">DEMO_HTTP_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}))</span>
+
+<span class="n">set_mcp_service</span><span class="p">(</span><span class="n">mcp</span><span class="p">)</span>  <span class="c1"># make available to NodeContext</span>
+</code></pre></div>
+<hr />
+<h2 id="using-inside-a-graph-function">Using inside a graph function<a class="headerlink" href="#using-inside-a-graph-function" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
+
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mcp_search_demo&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mcp_search_demo</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">text</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;…&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="choosing-a-transport">Choosing a transport<a class="headerlink" href="#choosing-a-transport" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>stdio</strong>: best when you ship or control the server process (local tools, file system, Git, CLI wrappers). Minimal latency, simple auth via env.</li>
+<li><strong>WebSocket</strong>: interactive servers that push events, need long‑lived sessions, or custom headers/tokens.</li>
+<li><strong>HTTP</strong>: stateless request/response, easy to deploy behind gateways; good fit for cloud MCP services.</li>
+</ul>
+<p><strong>Tip</strong>: You can register multiple transports to the <strong>same</strong> logical backend under different names (<code>"fs-local"</code>, <code>"fs-ws"</code>) and switch per call.</p>
+<hr />
+<h2 id="auth-headers">Auth &amp; headers<a class="headerlink" href="#auth-headers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pass headers at client construction (<code>headers={"Authorization": "Bearer …"}</code>).</li>
+<li>Update at runtime via <code>MCPService.set_header(name, key, value)</code> for WS/HTTP clients.</li>
+<li>Persist tokens via <code>MCPService.persist_secret(...)</code> when your Secrets provider supports writes.</li>
+</ul>
+<hr />
+<h2 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>Wrap calls to surface clear messages back to the user.
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;mtf&quot;</span><span class="p">})</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Unknown MCP profile. Did you register it?&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MCP error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Register your clients at startup with <code>MCPService.register()</code> and wire the service into runtime so <code>context.mcp(name)</code> can retrieve them.</li>
+<li>Use <code>.call()</code> for tools, <code>.list_tools()/.list_resources()</code> for discovery, and <code>.read_resource()</code> to fetch URIs.</li>
+<li>Choose stdio/WS/HTTP based on deployment and interaction needs; manage auth via headers/</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../context-rag/" class="md-footer__link md-footer__link--prev" aria-label="Previous: RAG">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                RAG
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../tools-facade/" class="md-footer__link md-footer__link--next" aria-label="Next: Tools Facade">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Tools Facade
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
+      
+    
+  </body>
+</html>

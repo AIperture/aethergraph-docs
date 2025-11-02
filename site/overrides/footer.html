@@ -1,0 +1,11 @@
+{% set year = (config.extra.year or "2025") %}
+<footer class="md-footer__inner">
+  <div class="md-footer__highlight">
+    <div class="md-grid">
+      <div class="md-footer__title">AetherGraph</div>
+      <div class="md-footer__description">
+        <p>{{ config.extra.copyright or ("© " ~ year ~ " AIperture LLC — All rights reserved.") }}</p>
+      </div>
+    </div>
+  </div>
+</footer>
