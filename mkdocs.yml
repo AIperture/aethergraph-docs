@@ -1,0 +1,116 @@
+site_name: AetherGraph
+site_description: "A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify."
+site_author: "AIperture"
+site_url: https://your-domain.com  # optional
+repo_url: https://github.com/AIperture/aethergraph
+repo_name: AIperture/aethergraph
+edit_uri: edit/main/docs/
+pygments_style: github-light
+pygments_dark_style: github-dark
+
+theme:
+  name: material
+  logo: assets/logo.png          # put files in docs/assets/
+  favicon: assets/favicon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.expand
+    - navigation.instant
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - navigation.footer      # <— add this
+  custom_dir: docs/overrides   # optional: for custom HTML/CSS overrides
+
+  palette:
+    - scheme: aether-light
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: aether-dark
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - assets/extra.css
+  # - assets/compact.css   # <- add this when you want denser pages
+
+
+extra_javascript:
+  # Load fonts (swap to self-hosted later for performance if you want)
+  - https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap
+
+# Optional social icons (footer/header)
+extra:
+  # social:
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/your-org/aethergraph
+  #   - icon: fontawesome/brands/x-twitter
+  #     link: https://twitter.com/your-handle
+  # copyright: "© 2025 AIperture LLC — All rights reserved."
+  generator: false   # hides 'Made with Material...' line if you want
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Core:
+      - Start the Server: server.md
+      - Graph Function: graph_fn.md
+      - Context Method: context.md
+      - Tools: tools.md
+      - Graphify: graphify.md
+  - Recipes:
+      - Submit + Poll + Notify: recipes/job-submit-poll.md
+      - Iterative Data Analysis: recipes/data-analysis-loop.md
+      - Mini Memory-RAG: recipes/memory-rag-mini.md
+  - Reference:
+      - Decorators: reference/decorators.md
+      - Context API:
+          - Channel: reference/context-channel.md
+          - Artifacts: reference/context-artifacts.md
+          - Memory: reference/context-memory.md
+          - Logger: reference/context-logger.md
+          - KV: reference/context-kv.md
+          - LLM: reference/context-llm.md
+          - RAG: reference/context-rag.md
+          - MCP: reference/context-mcp.md
+      - Tools Facade: reference/tools-facade.md
+      - Config: reference/config.md
+      - REST API: reference/rest-api.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+plugins:
+  - search
+  # Enable when you add Protocols/interfaces for auto API docs:
+  # - mkdocstrings:
+  #     handlers:
+  #       python:
+  #         options:
+  #           docstring_style: google
+  #           show_source: false
+  #           separate_signature: true
+  #           show_if_no_docstring: true
+
+# Optional: mike (versioned docs) – uncomment if you use mike
+# extra:
+#   version:
+#     provider: mike
+#     default: latest
