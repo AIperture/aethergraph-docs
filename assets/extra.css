@@ -1,0 +1,197 @@
+/* AetherGraph – MkDocs Material color/tint-only overrides
+   - Softer accent (blue-adjacent), minimal orange
+   - Subtle brand gradient under top bar
+   - Darker site title
+   - Glassier, fuzzier header with visible search
+*/
+
+/* ---------- AetherGraph palette: LIGHT ---------- */
+:root,
+[data-md-color-scheme="aether-light"] {
+  --aeg-brand: #2e90ff;
+  --aeg-brand-light: #5aa7ff;
+  --aeg-brand-dark: #1e73e6;
+
+  /* If you prefer blue-adjacent accent instead of orange */
+  --aeg-accent: #3aa0ff;
+  --aeg-accent-dark: #2b86e8;
+
+  /* Material tokens */
+  --md-primary-fg-color: var(--aeg-brand);
+  --md-primary-fg-color--light: var(--aeg-brand-light);
+  --md-primary-fg-color--dark: var(--aeg-brand-dark);
+  --md-accent-fg-color: var(--aeg-accent);
+
+  /* Tints / surfaces */
+  --aeg-inline-code-fg: #0f172a;
+  --aeg-inline-code-bg: color-mix(in srgb, var(--aeg-brand) 6%, #ffffff);
+  --aeg-code-bg: #f7fafc;
+  --aeg-table-hdr-bg: color-mix(in srgb, var(--aeg-brand) 12%, #ffffff);
+  --aeg-table-border: rgba(15,23,42,0.08);
+
+  /* Glassy header (light) */
+  --aeg-header-bg: linear-gradient(180deg, color-mix(in srgb, var(--aeg-brand) 9%, transparent) 0%, transparent 70%), rgba(255,255,255,0.72);
+  --aeg-header-border: rgba(15,23,42,0.08);
+  --aeg-header-shadow: 0 6px 24px rgba(2,6,23,0.06);
+
+  --aeg-header-ctrl: #0b1220;
+  --aeg-header-ctrl-muted: #334155;
+}
+
+/* Toggle icon + header buttons */
+:root .md-header .md-header__button,
+:root .md-header .md-icon {
+  color: var(--aeg-header-ctrl);
+}
+:root .md-header .md-header__button:hover,
+:root .md-header .md-icon:hover {
+  color: var(--md-primary-fg-color); /* nice blue hover */
+}
+/* GitHub block: make the text darker without touching spacing */
+:root .md-header .md-source,
+:root .md-header .md-source a,
+:root .md-header .md-source__repository {
+  color: var(--aeg-header-ctrl) !important;
+}
+
+/* Hover: use brand blue for a subtle cue */
+:root .md-header .md-source a:hover {
+  color: var(--md-primary-fg-color) !important;
+}
+
+
+/* Search input text/placeholder in light mode */
+:root .md-search__input {
+  color: var(--aeg-header-ctrl);
+}
+:root .md-search__input::placeholder {
+  color: var(--aeg-header-ctrl-muted);
+}
+
+/* ---------- AetherGraph palette: DARK ---------- */
+[data-md-color-scheme="aether-dark"] {
+  --md-primary-fg-color: var(--aeg-brand-light);
+  --md-primary-fg-color--light: #78b6ff;
+  --md-primary-fg-color--dark: var(--aeg-brand);
+  --md-accent-fg-color: #63b4ff;
+
+  --aeg-inline-code-fg: #e5e7eb;
+  --aeg-inline-code-bg: color-mix(in srgb, var(--aeg-brand) 22%, #0b1020);
+  --aeg-code-bg: #0f172a;
+  --aeg-table-hdr-bg: color-mix(in srgb, var(--aeg-brand) 16%, #0b1020);
+  --aeg-table-border: rgba(148,163,184,0.18);
+
+  /* Glassy header (dark) */
+  --aeg-header-bg: linear-gradient(180deg, color-mix(in srgb, var(--aeg-brand) 14%, transparent) 0%, transparent 70%), rgba(10,15,28,0.56);
+  --aeg-header-border: rgba(148,163,184,0.18);
+  --aeg-header-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+/* Header uses the scheme variables above */
+.md-header {
+  backdrop-filter: saturate(170%) blur(16px);
+  -webkit-backdrop-filter: saturate(170%) blur(16px);
+  background: var(--aeg-header-bg);
+  border-bottom: 1px solid var(--aeg-header-border);
+  box-shadow: var(--aeg-header-shadow);
+}
+
+/* Darker site title for contrast on glass */
+.md-header__title { color: #0b1220; }
+[data-md-color-scheme="aether-dark"] .md-header__title { color: #e5e7eb; }
+
+/* Search remains legible on glass */
+.md-search__input {
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(2,6,23,0.12);
+  box-shadow: 0 2px 10px rgba(2,6,23,0.06);
+}
+[data-md-color-scheme="aether-dark"] .md-search__input {
+  background: rgba(11,16,32,0.72);
+  border: 1px solid rgba(148,163,184,0.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* Links, buttons, code, tables – same as before, now scheme-aware via vars */
+.md-typeset a { color: var(--md-primary-fg-color); text-underline-offset: 2px; }
+.md-typeset a:hover { color: var(--md-primary-fg-color--dark); }
+
+.md-button--primary {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+.md-button--primary:hover {
+  background: var(--md-primary-fg-color--dark);
+  border-color: var(--md-primary-fg-color--dark);
+}
+
+.md-typeset code:not(pre code) {
+  color: var(--aeg-inline-code-fg);
+  background: var(--aeg-inline-code-bg);
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 0.375rem;
+  padding: .1em .35em;
+}
+.md-typeset pre > code {
+  background: var(--aeg-code-bg);
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 0.5rem;
+}
+
+.md-typeset table:not([class]) th { background: var(--aeg-table-hdr-bg); }
+.md-typeset table:not([class]),
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th { border-color: var(--aeg-table-border); }
+
+
+/* ---------- Admonitions (blue-tinted; no bright orange) ---------- */
+:root .md-typeset .admonition.note,
+:root .md-typeset details.note,
+:root .md-typeset .admonition.info,
+:root .md-typeset details.info,
+:root .md-typeset .admonition.tip,
+:root .md-typeset details.tip {
+  border-color: var(--aeg-brand);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--aeg-brand) 7%, transparent),
+    transparent
+  );
+}
+:root .md-typeset .admonition > .admonition-title::before {
+  background-color: var(--aeg-brand);
+}
+
+/* ---------- ToC / sidebar ---------- */
+.md-nav__item .md-nav__link--active,
+.md-nav__link:focus-visible { color: var(--aeg-brand-dark); }
+.md-nav__link:hover { color: var(--aeg-accent); }
+
+/* ---------- Blockquotes / search hover ---------- */
+.md-typeset blockquote {
+  border-left: 3px solid var(--aeg-brand);
+  background: color-mix(in srgb, var(--aeg-brand) 5%, transparent);
+}
+.md-search-result__link:hover,
+.md-search-result__link:focus-visible {
+  background: color-mix(in srgb, var(--aeg-brand) 10%, transparent);
+}
+
+
+
+/* Footer tint */
+.md-footer__highlight {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 6%, transparent),
+    transparent 80%
+  );
+  border-top: 1px solid var(--md-border-color, rgba(15,23,42,0.08));
+}
+[data-md-color-scheme="aether-dark"] .md-footer__highlight {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent),
+    transparent 80%
+  );
+}
