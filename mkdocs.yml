@@ -68,6 +68,7 @@ nav:
       - Context Method: context.md
       - Tools: tools.md
       - Graphify: graphify.md
+      - External Contexts: external-context-services.md
   - Recipes:
       - Submit + Poll + Notify: recipes/job-submit-poll.md
       - Iterative Data Analysis: recipes/data-analysis-loop.md

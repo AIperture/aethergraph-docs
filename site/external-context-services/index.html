@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/graphify/">
+        <link rel="canonical" href="https://your-domain.com/external-context-services/">
       
       
-        <link rel="prev" href="../tools/">
+        <link rel="prev" href="../graphify/">
       
       
-        <link rel="next" href="../external-context-services/">
+        <link rel="next" href="../recipes/job-submit-poll/">
       
       
       <link rel="icon" href="../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Graphify - AetherGraph</title>
+        <title>External Contexts - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aethergraph-graphify-builder-decorator" class="md-skip">
+        <a href="#external-context-services-revised" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graphify
+              External Contexts
             
           </span>
         </div>
@@ -442,6 +442,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -459,7 +482,7 @@
   
   
   <span class="md-ellipsis">
-    Graphify
+    External Contexts
     
   </span>
   
@@ -472,7 +495,7 @@
   
   
   <span class="md-ellipsis">
-    Graphify
+    External Contexts
     
   </span>
   
@@ -495,37 +518,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-graphify-vs-graph_fn" class="md-nav__link">
+  <a href="#1-what-is-an-external-context-service" class="md-nav__link">
     <span class="md-ellipsis">
-      Why graphify vs graph_fn?
+      1) What is an external context service?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decorator-signature" class="md-nav__link">
+  <a href="#2-highlevel-usage-sketch" class="md-nav__link">
     <span class="md-ellipsis">
-      Decorator Signature
+      2) High‑level usage sketch
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-a-graphify-body" class="md-nav__link">
-    <span class="md-ellipsis">
-      Writing a @graphify Body
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Writing a @graphify Body">
+    <nav class="md-nav" aria-label="2) High‑level usage sketch">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#control-dependencies-without-data-edges" class="md-nav__link">
+  <a href="#define-highlevel" class="md-nav__link">
     <span class="md-ellipsis">
-      Control Dependencies without Data Edges
+      Define (high‑level)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-at-app-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register (at app startup)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-in-a-graph-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use in a graph function
     </span>
   </a>
   
@@ -537,27 +569,111 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#registration" class="md-nav__link">
+  <a href="#3-why-use-external-context-benefits-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Registration
+      3) Why use external context? (Benefits + use cases)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Why use external context? (Benefits + use cases)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#example-endtoend-pipeline" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#itemized-scenarios-no-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: End‑to‑End Pipeline
+      Itemized scenarios (no code)
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#using-tool-inside-graph_fn-brief" class="md-nav__link">
+  <a href="#4-apis-defining-registering-and-binding-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Using @tool Inside @graph_fn (Brief)
+      4) APIs: defining, registering, and binding services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4) APIs: defining, registering, and binding services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-lifecycle-today-vs-serversidecar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Lifecycle (today vs. server/sidecar)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-registry-functions-runtimelevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Registry functions (runtime‑level)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-base-class-service-aka-basecontextservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Base class: Service (aka BaseContextService)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-accessing-services-from-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Accessing services from nodes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-accessing-nodecontext-from-inside-a-service-essential" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Accessing NodeContext from inside a service (essential)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-event-loop-locking-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Event loop &amp; locking model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Summary
     </span>
   </a>
   
@@ -567,29 +683,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1120,175 +1213,170 @@
   
 
 
-<h1 id="aethergraph-graphify-builder-decorator">AetherGraph — <code>@graphify</code> (Builder Decorator)<a class="headerlink" href="#aethergraph-graphify-builder-decorator" title="Permanent link">&para;</a></h1>
-<p><code>@graphify</code> lets you write a plain Python function whose body <em>builds</em> a <code>TaskGraph</code> using tool calls.
-Instead of executing immediately, the function becomes a <strong>graph factory</strong>: call <code>.build()</code> to get a concrete graph,
-<code>.spec()</code> to inspect, and <code>.io()</code> to see its input/output signature.</p>
+<h1 id="external-context-services-revised">External Context Services (Revised)<a class="headerlink" href="#external-context-services-revised" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Make reusable, lifecycle‑aware helpers available as <code>context.&lt;name&gt;</code> inside any <code>@graph_fn</code>.</p>
+</blockquote>
+<p>This page explains what an <strong>external context service</strong> is, why you might use one, how it looks at a high level, and the APIs you’ll use to define and register services. It also clarifies lifecycle behavior <strong>today</strong> vs. <strong>after</strong> you add a server/sidecar, and shows how services can access the active <code>NodeContext</code>.</p>
 <hr />
-<h2 id="why-graphify-vs-graph_fn">Why <code>graphify</code> vs <code>graph_fn</code>?<a class="headerlink" href="#why-graphify-vs-graph_fn" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Aspect</th>
-<th><code>graph_fn</code></th>
-<th><code>graphify</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Primary purpose</td>
-<td><strong>Execute now</strong> as a single graph node</td>
-<td><strong>Build a graph</strong> (explicit fan‑in/fan‑out wiring)</td>
-</tr>
-<tr>
-<td>Return at call</td>
-<td>Dict of outputs (or awaitable)</td>
-<td>A <strong>builder</strong> you later <code>.build()</code> into a graph</td>
-</tr>
-<tr>
-<td>Control‑flow</td>
-<td>Pythonic, implicit graph behind the scenes</td>
-<td>Explicit nodes &amp; edges via tool calls (<code>NodeHandle</code>)</td>
-</tr>
-<tr>
-<td>Best for</td>
-<td>Orchestration + <code>context.*</code> services</td>
-<td>Pipelines, DAGs, reusable subgraphs</td>
-</tr>
-</tbody>
-</table>
-<p>Use <strong><code>graphify</code></strong> when you want:</p>
+<h2 id="1-what-is-an-external-context-service">1) What is an external context service?<a class="headerlink" href="#1-what-is-an-external-context-service" title="Permanent link">&para;</a></h2>
+<p>An <strong>external context service</strong> is a Python object managed by AetherGraph’s runtime and exposed to your graph functions through the <code>NodeContext</code>. Once registered, you can access it as <code>context.svc("name")</code> or simply <code>context.&lt;name&gt;</code>.</p>
+<p>Key ideas:</p>
 <ul>
-<li>Multiple tool calls as separate nodes</li>
-<li>Explicit dependencies (<code>_after</code>) and fan‑in/fan‑out</li>
-<li>To inspect/serialize the graph spec for registry/UI</li>
-<li>To reuse the same pipeline with different inputs</li>
+<li><strong>Dependency injection</strong>: Centralize clients, caches, and policies in one place and inject them wherever needed.</li>
+<li><strong>Lifecycle‑ready</strong>: Services can implement <code>start()</code> and <code>close()</code> for setup/teardown (e.g., open a pool, kick off a background task). <em>Today these hooks are optional and not auto‑invoked unless you wire them (see §4.1).</em></li>
+<li><strong>Concurrency controls</strong>: Built‑in mutex and read/write helpers to safely share state across concurrent nodes.</li>
+<li><strong>Per‑run binding</strong>: Each call is bound to a <code>NodeContext</code> so the service can access run_id, logger, artifacts, memory, etc.</li>
+<li><strong>Uniform surface</strong>: The same service works in local scripts today and can be proxied or hosted later without changing call sites.</li>
 </ul>
-<p>Use <strong><code>graph_fn</code></strong> when you want:</p>
-<ul>
-<li>A simple function that runs immediately and returns values</li>
-<li>Access to <code>context.channel()/memory()/artifacts()/llm()</code> services</li>
-<li>Minimal ceremony (one decorator and go)</li>
-</ul>
+<p>Use services when logic benefits from a <strong>long‑lived instance</strong>, <strong>shared state</strong>, or <strong>orchestration</strong>—not for tiny, pure functions (plain imports are fine there).</p>
 <hr />
-<h2 id="decorator-signature">Decorator Signature<a class="headerlink" href="#decorator-signature" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graphify</span>
+<h2 id="2-highlevel-usage-sketch">2) High‑level usage sketch<a class="headerlink" href="#2-highlevel-usage-sketch" title="Permanent link">&para;</a></h2>
+<p>Below is a <strong>conceptual</strong> outline (intentionally abstract) of how you would define and call a service.</p>
+<h3 id="define-highlevel">Define (high‑level)<a class="headerlink" href="#define-highlevel" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nd">@graphify</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;default_graph&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">(),</span> <span class="n">outputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">build_fn</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="o">...</span>  <span class="c1"># tool calls returning NodeHandles</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">handle</span><span class="o">.</span><span class="n">y</span><span class="p">}</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># optional: warm up connections, threads, or caches</span>
+        <span class="o">...</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># optional: flush or close resources</span>
+        <span class="o">...</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># example: consult cache, maybe call out to an API, return a value</span>
+        <span class="o">...</span>
 </code></pre></div>
-<p><strong>Parameters</strong></p>
-<ul>
-<li><strong>name</strong> (<em>str</em>) — Graph identifier.</li>
-<li><strong>inputs</strong> (<em>Iterable[str] or dict</em>) — Declare required/optional inputs.  </li>
-<li>If <code>list/tuple</code>: treated as <strong>required</strong> input names.  </li>
-<li>If <code>dict</code>: <code>{required_name: ..., ...}</code> for optional mapping; builder will declare required/optional accordingly.</li>
-<li><strong>outputs</strong> (<em>list[str] | None</em>) — Names to expose. If you return a single literal, you must declare exactly one.</li>
-<li><strong>version</strong> (<em>str</em>) — Semantic version for registry/spec metadata.</li>
-<li><strong>agent</strong> (<em>str | None</em>) — Optionally register the built graph under <code>agent</code> namespace.</li>
-</ul>
-<p><strong>Return value</strong></p>
-<p>The decorated symbol becomes a <strong>builder function</strong> with helpers:</p>
-<ul>
-<li><code>.build() -&gt; TaskGraph</code></li>
-<li><code>.spec() -&gt; GraphSpec</code></li>
-<li><code>.io() -&gt; IOSignature</code></li>
-<li>Attributes: <code>.graph_name</code>, <code>.version</code></li>
-</ul>
-<hr />
-<h2 id="writing-a-graphify-body">Writing a <code>@graphify</code> Body<a class="headerlink" href="#writing-a-graphify-body" title="Permanent link">&para;</a></h2>
-<p>Inside the function:</p>
-<ol>
-<li><strong>Use <code>arg("name")</code></strong> to reference declared inputs.</li>
-<li><strong>Call <code>@tool</code> functions</strong> (or <code>call_tool("pkg.mod:fn", ...)</code>) — each returns a <code>NodeHandle</code> in build mode.</li>
-<li><strong>Return outputs</strong> as:</li>
-<li>A dict mapping names → <code>NodeHandle</code> outputs or refs/literals, or</li>
-<li>A single <code>NodeHandle</code> (its outputs will be exposed), or</li>
-<li>A single literal <em>only if</em> <code>outputs</code> has length 1.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graphify</span><span class="p">,</span> <span class="n">tool</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">arg</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;embedded&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">score</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">query_vec</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ranker&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;texts&quot;</span><span class="p">,</span><span class="s2">&quot;query&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;scores&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">ranker</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="n">embed</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
-    <span class="c1"># fan‑out: call `embed` for each text</span>
-    <span class="n">vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">embed</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>  <span class="c1"># list[NodeHandle]</span>
-    <span class="c1"># fan‑in: score each against query vec</span>
-    <span class="n">scs</span> <span class="o">=</span> <span class="p">[</span><span class="n">score</span><span class="p">(</span><span class="n">vec</span><span class="o">=</span><span class="n">v</span><span class="o">.</span><span class="n">embedded</span><span class="p">,</span> <span class="n">query_vec</span><span class="o">=</span><span class="n">q</span><span class="o">.</span><span class="n">embedded</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vecs</span><span class="p">]</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;scores&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">score</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scs</span><span class="p">]}</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">ranker</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<h3 id="register-at-app-startup">Register (at app startup)<a class="headerlink" href="#register-at-app-startup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">register_context_service</span><span class="p">(</span><span class="s2">&quot;myservice&quot;</span><span class="p">,</span> <span class="n">MyService</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;dev&quot;</span><span class="p">}))</span>
 </code></pre></div>
-<h3 id="control-dependencies-without-data-edges">Control Dependencies without Data Edges<a class="headerlink" href="#control-dependencies-without-data-edges" title="Permanent link">&para;</a></h3>
-<p>Use <code>_after</code> when you must enforce order but don’t pass outputs:
-<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">():</span> <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">():</span> <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-
-<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;seq&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">seq</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">()</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">_after</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>   <span class="c1"># run b after a</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">done</span><span class="p">}</span>
-</code></pre></div></p>
-<hr />
-<h2 id="registration">Registration<a class="headerlink" href="#registration" title="Permanent link">&para;</a></h2>
-<p>If a registry is active, <code>@graphify</code> registers the <strong>built graph</strong> under <code>nspace="graph"</code> with <code>name</code>/<code>version</code> so it can be listed or launched elsewhere. You can also register it as an <code>agent</code> via the <code>agent=</code> parameter.</p>
-<hr />
-<h2 id="example-endtoend-pipeline">Example: End‑to‑End Pipeline<a class="headerlink" href="#example-endtoend-pipeline" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span><span class="p">,</span> <span class="n">graphify</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">arg</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">data</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="n">model</span><span class="p">):</span> <span class="o">...</span>
-
-<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;etl_train_report&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csv_path&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">etl_train_report</span><span class="p">(</span><span class="n">csv_path</span><span class="p">):</span>
-    <span class="n">raw</span>  <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">arg</span><span class="p">(</span><span class="s2">&quot;csv_path&quot;</span><span class="p">))</span>
-    <span class="n">tidy</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">rows</span><span class="p">)</span>
-    <span class="n">mod</span>  <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tidy</span><span class="o">.</span><span class="n">clean</span><span class="p">)</span>
-    <span class="n">rep</span>  <span class="o">=</span> <span class="n">report</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="n">rep</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">etl_train_report</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<h3 id="use-in-a-graph-function">Use in a graph function<a class="headerlink" href="#use-in-a-graph-function" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">myservice</span><span class="o">.</span><span class="n">do_something</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
 </code></pre></div>
+<p>That’s it: once registered, your service is reachable from any node via <code>context</code>.</p>
 <hr />
-<h2 id="using-tool-inside-graph_fn-brief">Using <code>@tool</code> Inside <code>@graph_fn</code> (Brief)<a class="headerlink" href="#using-tool-inside-graph_fn-brief" title="Permanent link">&para;</a></h2>
-<p>While <code>@graph_fn</code> is for immediate execution, you <em>can</em> drop explicit tool nodes inside a <code>graph_fn</code> when you want finer‑grained tracing or parallelism:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">tool</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">}</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mix&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mix</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>                 <span class="c1"># schedules a tool node in the implicit graph</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;running square…&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">h</span><span class="o">.</span><span class="n">y</span><span class="p">}</span>               <span class="c1"># exposes tool output as graph_fn output</span>
+<h2 id="3-why-use-external-context-benefits-use-cases">3) Why use external context? (Benefits + use cases)<a class="headerlink" href="#3-why-use-external-context-benefits-use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Replaceable implementations</strong>: Swap local vs. remote, mock vs. real, dev vs. prod—without editing call sites.</li>
+<li><strong>Centralized auth &amp; config</strong>: Put tokens, endpoints, retry/timeout policy, telemetry in one place.</li>
+<li><strong>Lifecycle &amp; performance</strong>: Reuse clients, connection pools, thread pools; warm caches once.</li>
+<li><strong>Concurrency safety</strong>: Use the provided <code>critical()</code> mutex or <code>AsyncRWLock</code> to protect shared state.</li>
+<li><strong>Per‑run awareness</strong>: Access <code>self.ctx()</code> to reach logger, artifacts, memory, continuations, etc.</li>
+<li><strong>Future‑proof</strong>: The same surface can later be proxied (sidecar/hosted) while keeping your graph code unchanged.</li>
+</ul>
+<h3 id="itemized-scenarios-no-code">Itemized scenarios (no code)<a class="headerlink" href="#itemized-scenarios-no-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Model/Tool Clients</strong>: Wrap an LLM, embedding service, vector DB, or a simulation engine with retry, rate limit, and consistent API.</li>
+<li><strong>Job Orchestration</strong>: Submit long‑running jobs to a queue/cluster and expose <code>submit/status/wait</code> for nodes.</li>
+<li><strong>Caching/Indexing</strong>: Provide a shared in‑memory or on‑disk cache with strict read (R/W lock) semantics.</li>
+<li><strong>Policy Enforcement</strong>: Centralize tenant limits, quotas, audit logging, and redaction.</li>
+<li><strong>Data Access Facades</strong>: Read domain data (materials table, experiment registry) with local cache + background refresh.</li>
+<li><strong>Adapters</strong>: Present a unified interface over heterogeneous backends (e.g., multiple vendor APIs behind one broker).</li>
+</ul>
+<hr />
+<h2 id="4-apis-defining-registering-and-binding-services">4) APIs: defining, registering, and binding services<a class="headerlink" href="#4-apis-defining-registering-and-binding-services" title="Permanent link">&para;</a></h2>
+<p>AetherGraph provides small primitives for service registration and a base class with helpful utilities.</p>
+<h3 id="41-lifecycle-today-vs-serversidecar">4.1 Lifecycle (today vs. server/sidecar)<a class="headerlink" href="#41-lifecycle-today-vs-serversidecar" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Today (no server yet):</strong> <code>start()</code>/<code>close()</code> exist but are <strong>not auto‑invoked</strong>. You can omit them or leave them as no‑ops.</li>
+<li><strong>When you add a server/sidecar:</strong> wire lifecycle once at boot/shutdown (pseudo‑code):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># After install_services(...) and registrations</span>
+<span class="k">await</span> <span class="n">start_all_services</span><span class="p">()</span>
+<span class="c1"># ... run your app/sidecar ...</span>
+<span class="k">await</span> <span class="n">close_all_services</span><span class="p">()</span>
 </code></pre></div>
 <blockquote>
-<p>Prefer <code>@graphify</code> for full pipeline construction; use <code>@graph_fn</code> when you want to orchestrate services (<code>context.*</code>) and run quickly.</p>
+<p>Until those hooks are added, services work fine without lifecycle calls.</p>
 </blockquote>
+<h3 id="42-registry-functions-runtimelevel">4.2 Registry functions (runtime‑level)<a class="headerlink" href="#42-registry-functions-runtimelevel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>install_services(container)</code> – Set the process‑wide service container at startup.</li>
+<li><code>ensure_services_installed(factory)</code> – Lazily create/install the container if missing.</li>
+<li><code>register_context_service(name, instance)</code> – Add a concrete service instance under <code>name</code>.</li>
+<li><code>get_context_service(name)</code> – Retrieve a registered instance.</li>
+<li><code>list_context_services()</code> – List the names currently registered.</li>
+</ul>
+<h3 id="43-base-class-service-aka-basecontextservice">4.3 Base class: <code>Service</code> (aka <code>BaseContextService</code>)<a class="headerlink" href="#43-base-class-service-aka-basecontextservice" title="Permanent link">&para;</a></h3>
+<p>The base class gives you batteries‑included ergonomics:</p>
+<ul>
+<li>
+<p><strong>Lifecycle</strong></p>
+</li>
+<li>
+<p><code>async def start(self) -&gt; None</code> – Optional setup hook.</p>
+</li>
+<li>
+<p><code>async def close(self) -&gt; None</code> – Optional teardown hook.</p>
+</li>
+<li>
+<p><strong>Binding</strong></p>
+</li>
+<li>
+<p><code>def bind(self, *, context: NodeContext) -&gt; Service</code> – Called by the runtime so <code>self.ctx()</code> works.</p>
+</li>
+<li>
+<p><code>def ctx(self) -&gt; NodeContext</code> – Access the current node context (logger, memory, artifacts, etc.).</p>
+</li>
+<li>
+<p><strong>Concurrency</strong></p>
+</li>
+<li>
+<p><code>self._lock</code> – An async mutex available for your own critical sections.</p>
+</li>
+<li><code>def critical()(fn)</code> – Decorator that serializes an <strong>async</strong> method (easy mutual exclusion).</li>
+<li>
+<p><code>class AsyncRWLock</code> – Many‑readers/one‑writer lock for shared tables and caches.</p>
+</li>
+<li>
+<p><strong>Offloading</strong></p>
+</li>
+<li>
+<p><code>async def run_blocking(self, fn, *a, **kw)</code> – Run CPU or blocking I/O on a worker thread (keeps the event loop responsive).</p>
+</li>
+</ul>
+<h3 id="44-accessing-services-from-nodes">4.4 Accessing services from nodes<a class="headerlink" href="#44-accessing-services-from-nodes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dynamic attribute</strong>: <code>context.&lt;name&gt;</code> resolves to the registered service (e.g., <code>context.myservice</code>).</li>
+<li><strong>Explicit lookup</strong>: <code>context.svc("name")</code> (equivalent to the dynamic attribute).</li>
+</ul>
+<h3 id="45-accessing-nodecontext-from-inside-a-service-essential">4.5 Accessing <code>NodeContext</code> from <em>inside</em> a service (essential)<a class="headerlink" href="#45-accessing-nodecontext-from-inside-a-service-essential" title="Permanent link">&para;</a></h3>
+<p>Services frequently need run‑scoped utilities (logger, memory, artifacts, kv, llm, rag, etc.). Enable <strong>per‑call binding</strong> so <code>self.ctx()</code> returns the right <code>NodeContext</code>.</p>
+<p><strong>Use <code>self.ctx()</code> in the service</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">do_work</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="p">()</span>  <span class="c1"># NodeContext bound for this call</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;working&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span>
+        <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;note&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">put_text</span><span class="p">(</span><span class="s2">&quot;result.txt&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;value=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<h3 id="46-event-loop-locking-model">4.6 Event loop &amp; locking model<a class="headerlink" href="#46-event-loop-locking-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>External services run on the <strong>main event loop</strong> used by the executing node.</li>
+<li>Locks (<code>_lock</code>, <code>AsyncRWLock</code>) coordinate on that loop; use <code>run_blocking()</code> for CPU/IO work.</li>
+</ul>
+<hr />
+<h2 id="5-summary">5) Summary<a class="headerlink" href="#5-summary" title="Permanent link">&para;</a></h2>
+<p>External context services provide a clean way to share long‑lived capabilities across nodes while keeping graph code small and portable:</p>
+<ul>
+<li><strong>Inject</strong> reusable helpers via <code>context.&lt;name&gt;</code> (or <code>context.svc(name)</code>).</li>
+<li><strong>Manage</strong> concurrency and performance in one place; offload blocking work with <code>run_blocking()</code>.</li>
+<li><strong>Abstract</strong> environments (mock/local/dev/prod) without touching business logic.</li>
+<li><strong>Bind</strong> to <code>NodeContext</code> automatically so services can use logger, memory, artifacts, kv, llm/rag, etc.</li>
+<li><strong>Lifecycle now vs later</strong>: Today you can skip <code>start()</code>/<code>close()</code>; add startup/shutdown hooks when you introduce a server/sidecar.</li>
+</ul>
+<p>Use services for shared state, orchestration, specialized clients, or cross‑cutting policies. Use plain imports for tiny, stateless helpers.</p>
+<hr />
 
 
 
@@ -1318,7 +1406,7 @@ Instead of executing immediately, the function becomes a <strong>graph factory</
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../tools/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tools">
+          <a href="../graphify/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graphify">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1328,20 +1416,20 @@ Instead of executing immediately, the function becomes a <strong>graph factory</
                 Previous
               </span>
               <div class="md-ellipsis">
-                Tools
+                Graphify
               </div>
             </div>
           </a>
         
         
           
-          <a href="../external-context-services/" class="md-footer__link md-footer__link--next" aria-label="Next: External Contexts">
+          <a href="../recipes/job-submit-poll/" class="md-footer__link md-footer__link--next" aria-label="Next: Submit + Poll + Notify">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                External Contexts
+                Submit + Poll + Notify
               </div>
             </div>
             <div class="md-footer__button md-icon">
