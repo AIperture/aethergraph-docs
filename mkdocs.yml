@@ -62,6 +62,10 @@ extra:
 nav:
   - Home: index.md
   - Quickstart: quickstart.md
+  - Key Concepts:
+      - Agent via Graph Function: key-concepts/agent-via-graph-fn.md
+      - Context Services: key-concepts/context-services.md
+      - Artifacts and Memory: key-concepts/artifacts-memory.md
   - Core:
       - Start the Server: server.md
       - Graph Function: graph_fn.md

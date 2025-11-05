@@ -12,28 +12,28 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/context/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/context-services/">
       
       
-        <link rel="prev" href="../graph_fn/">
+        <link rel="prev" href="../agent-via-graph-fn/">
       
       
-        <link rel="next" href="../tools/">
+        <link rel="next" href="../artifacts-memory/">
       
       
-      <link rel="icon" href="../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Context Method - AetherGraph</title>
+        <title>Context Services - AetherGraph</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/extra.css">
+      <link rel="stylesheet" href="../../assets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -96,9 +96,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Context Method
+              Context Services
             
           </span>
         </div>
@@ -200,7 +200,7 @@
         <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     AIperture/aethergraph
@@ -235,9 +235,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     AetherGraph
@@ -247,7 +247,7 @@
       <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     AIperture/aethergraph
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -286,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../quickstart/" class="md-nav__link">
         
   
   
@@ -331,7 +331,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Key Concepts
     
   </span>
   
@@ -342,7 +342,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Core
+            Key Concepts
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -353,35 +353,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../server/" class="md-nav__link">
+      <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
+    Agent via Graph Function
     
   </span>
   
@@ -413,7 +390,7 @@
   
   
   <span class="md-ellipsis">
-    Context Method
+    Context Services
     
   </span>
   
@@ -426,7 +403,7 @@
   
   
   <span class="md-ellipsis">
-    Context Method
+    Context Services
     
   </span>
   
@@ -449,9 +426,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#why-context-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Context Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick start
+      Quick Start
     </span>
   </a>
   
@@ -460,29 +446,62 @@
         <li class="md-nav__item">
   <a href="#what-the-context-contains" class="md-nav__link">
     <span class="md-ellipsis">
-      What the Context contains
+      What the Context Contains
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-methods-oneliners" class="md-nav__link">
+  <a href="#context-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Core methods (one‑liners)
+      Context Methods
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Context Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-services-require-extra-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Services (require extra configuration)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utility-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utility Helpers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#typical-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical patterns
+      Typical Patterns
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Typical patterns">
+    <nav class="md-nav" aria-label="Typical Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -497,7 +516,7 @@
           <li class="md-nav__item">
   <a href="#2-stream-progress" class="md-nav__link">
     <span class="md-ellipsis">
-      2) Stream + progress
+      2) Stream + Progress
     </span>
   </a>
   
@@ -506,7 +525,7 @@
           <li class="md-nav__item">
   <a href="#3-artifacts-memory" class="md-nav__link">
     <span class="md-ellipsis">
-      3) Artifacts + memory
+      3) Artifacts + Memory
     </span>
   </a>
   
@@ -515,7 +534,7 @@
           <li class="md-nav__item">
   <a href="#4-rag-answer-using-llm" class="md-nav__link">
     <span class="md-ellipsis">
-      4) RAG answer using LLM
+      4) RAG Answer using LLM
     </span>
   </a>
   
@@ -524,7 +543,7 @@
           <li class="md-nav__item">
   <a href="#5-external-tools-via-mcp" class="md-nav__link">
     <span class="md-ellipsis">
-      5) External tools via MCP
+      5) External Tools via MCP
     </span>
   </a>
   
@@ -536,27 +555,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#choosing-a-channel" class="md-nav__link">
+  <a href="#custom-context-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Choosing a channel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error handling &amp; logging
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#server-wiring-very-short" class="md-nav__link">
-    <span class="md-ellipsis">
-      Server wiring (very short)
+      Custom Context Services
     </span>
   </a>
   
@@ -574,7 +575,7 @@
         <li class="md-nav__item">
   <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
-      See also
+      See Also
     </span>
   </a>
   
@@ -596,58 +597,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/" class="md-nav__link">
+      <a href="../artifacts-memory/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
+    Artifacts and Memory
     
   </span>
   
@@ -695,7 +650,7 @@
   
   
   <span class="md-ellipsis">
-    Recipes
+    Core
     
   </span>
   
@@ -706,7 +661,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Recipes
+            Core
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -717,12 +672,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/job-submit-poll/" class="md-nav__link">
+      <a href="../../server/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Submit + Poll + Notify
+    Start the Server
     
   </span>
   
@@ -740,12 +695,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/data-analysis-loop/" class="md-nav__link">
+      <a href="../../graph_fn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Iterative Data Analysis
+    Graph Function
     
   </span>
   
@@ -763,12 +718,81 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/memory-rag-mini/" class="md-nav__link">
+      <a href="../../context.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Mini Memory-RAG
+    Context Method
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external-context-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    External Contexts
     
   </span>
   
@@ -816,7 +840,7 @@
   
   
   <span class="md-ellipsis">
-    Reference
+    Recipes
     
   </span>
   
@@ -826,6 +850,127 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Recipes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submit + Poll + Notify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Iterative Data Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini Memory-RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -838,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/decorators/" class="md-nav__link">
+      <a href="../../reference/decorators/" class="md-nav__link">
         
   
   
@@ -873,10 +1018,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
             
   
   
@@ -889,8 +1034,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -903,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-channel/" class="md-nav__link">
+      <a href="../../reference/context-channel/" class="md-nav__link">
         
   
   
@@ -926,7 +1071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-artifacts/" class="md-nav__link">
+      <a href="../../reference/context-artifacts/" class="md-nav__link">
         
   
   
@@ -949,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-memory/" class="md-nav__link">
+      <a href="../../reference/context-memory/" class="md-nav__link">
         
   
   
@@ -972,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-logger/" class="md-nav__link">
+      <a href="../../reference/context-logger/" class="md-nav__link">
         
   
   
@@ -995,7 +1140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-kv/" class="md-nav__link">
+      <a href="../../reference/context-kv/" class="md-nav__link">
         
   
   
@@ -1018,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-llm/" class="md-nav__link">
+      <a href="../../reference/context-llm/" class="md-nav__link">
         
   
   
@@ -1041,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-rag/" class="md-nav__link">
+      <a href="../../reference/context-rag/" class="md-nav__link">
         
   
   
@@ -1064,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/context-mcp/" class="md-nav__link">
+      <a href="../../reference/context-mcp/" class="md-nav__link">
         
   
   
@@ -1095,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/tools-facade/" class="md-nav__link">
+      <a href="../../reference/tools-facade/" class="md-nav__link">
         
   
   
@@ -1118,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/config/" class="md-nav__link">
+      <a href="../../reference/config/" class="md-nav__link">
         
   
   
@@ -1141,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/rest-api/" class="md-nav__link">
+      <a href="../../reference/rest-api/" class="md-nav__link">
         
   
   
@@ -1184,12 +1329,22 @@
 
 
 <h1 id="context-overview">Context Overview<a class="headerlink" href="#context-overview" title="Permanent link">&para;</a></h1>
-<p><strong>Context</strong> is the lightweight runtime handle your tools/agents receive at execution time. It encapsulates the current <strong>run/graph/node scope</strong> and provides access to built‑in <strong>services</strong> (channels, memory, artifacts, kv, LLM, RAG, MCP, logger, continuations, clock, etc.) via concise helper methods.</p>
+<p><strong>Context</strong> is the lightweight runtime handle that your <strong>agents</strong> and <strong>tools</strong> receive at execution time. It represents the current <strong>run</strong>, <strong>graph</strong>, and <strong>node</strong> scope, and provides access to the runtime’s built‑in <strong>services</strong> (like channels, memory, artifacts, etc.) through a clean, composable Python interface.</p>
 <blockquote>
-<p>In short: <strong>do your work with plain Python</strong>, and when you need IO, state, or orchestration, call <code>context.&lt;service&gt;()</code>.</p>
+<p><strong>In essence:</strong> Context is what lets AetherGraph “come alive.” It connects your pure Python logic to external I/O, state, orchestration, and AI‑augmented services — without introducing a new DSL.</p>
 </blockquote>
 <hr />
-<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h2 id="why-context-matters">Why Context Matters<a class="headerlink" href="#why-context-matters" title="Permanent link">&para;</a></h2>
+<p>AetherGraph’s design principle is <em>Python‑first orchestration</em>. The context system enables this by:</p>
+<ul>
+<li><strong>Decoupling logic from infrastructure</strong> – you can build tools and agents that call <code>context.&lt;service&gt;()</code> without caring about the backend implementation.</li>
+<li><strong>Maintaining provenance and state</strong> – each call is aware of its <code>run_id</code>, <code>graph_id</code>, and <code>node_id</code>, so results and events are recorded with full traceability.</li>
+<li><strong>Enabling orchestration without overhead</strong> – context manages message passing, persistence, and coordination automatically.</li>
+<li><strong>Integrating optional intelligence</strong> – attach LLMs, RAG corpora, or external MCP tool servers only when needed.</li>
+</ul>
+<p>Ultimately, <code>NodeContext</code> is what transforms plain async functions into <strong>interactive, stateful agents</strong> — giving you the ability to talk, remember, reason, and orchestrate in one consistent runtime.</p>
+<hr />
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
 
 <span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello_context&quot;</span><span class="p">)</span>
@@ -1197,14 +1352,13 @@
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Hello from AetherGraph!&quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
         <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span>
-        <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;hello&quot;</span><span class="p">}],</span>
+        <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;msg&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">}],</span>
         <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;demo&quot;</span><span class="p">],</span>
     <span class="p">)</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="s2">&quot;finish&quot;</span><span class="p">})</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="s2">&quot;finish&quot;</span><span class="p">})</span>
 </code></pre></div>
 <hr />
-<h2 id="what-the-context-contains">What the Context contains<a class="headerlink" href="#what-the-context-contains" title="Permanent link">&para;</a></h2>
+<h2 id="what-the-context-contains">What the Context Contains<a class="headerlink" href="#what-the-context-contains" title="Permanent link">&para;</a></h2>
 <p>Each <code>NodeContext</code> carries stable identifiers and bound services for the current execution scope.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">NodeContext</span><span class="p">:</span>
@@ -1213,12 +1367,54 @@
     <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">services</span><span class="p">:</span> <span class="n">NodeServices</span>  <span class="c1"># wiring for all built‑ins</span>
 </code></pre></div>
-<p><strong>IDs</strong>
-- <strong>run_id</strong> — unique per execution run
-- <strong>graph_id</strong> — which graph this node belongs to
-- <strong>node_id</strong> — unique node invocation id</p>
+<p><strong>Identifiers</strong></p>
+<ul>
+<li><strong>run_id</strong> — unique per execution run</li>
+<li><strong>graph_id</strong> — which graph this node belongs to</li>
+<li><strong>node_id</strong> — unique node invocation id</li>
+</ul>
 <hr />
-<h2 id="core-methods-oneliners">Core methods (one‑liners)<a class="headerlink" href="#core-methods-oneliners" title="Permanent link">&para;</a></h2>
+<h2 id="context-methods">Context Methods<a class="headerlink" href="#context-methods" title="Permanent link">&para;</a></h2>
+<p>AetherGraph divides context services into <strong>core</strong>, <strong>optional</strong>, and <strong>utility</strong> groups.</p>
+<h3 id="core-services">Core Services<a class="headerlink" href="#core-services" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>context.channel(key: str | None = None)</code></td>
+<td>Message &amp; interaction bus (text, buttons, files, streaming, progress). Defaults to configured channel.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>context.memory()</code></td>
+<td>Session/run memory façade — record events, write results, query history, build RAG indices.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>context.artifacts()</code></td>
+<td>Artifact store/index façade — save or retrieve files, manage experiment outputs.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>context.kv()</code></td>
+<td>Transient key–value store for coordination, small caches, and ephemeral synchronization.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>context.logger()</code></td>
+<td>Structured Python logger with <code>{run_id, graph_id, node_id}</code> automatically injected.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="optional-services-require-extra-configuration">Optional Services (require extra configuration)<a class="headerlink" href="#optional-services-require-extra-configuration" title="Permanent link">&para;</a></h3>
+<p>These depend on environment/API keys and are only available if configured at runtime.</p>
 <table>
 <thead>
 <tr>
@@ -1228,120 +1424,90 @@
 </thead>
 <tbody>
 <tr>
-<td><code>context.channel(key: str | None = None)</code></td>
-<td>Message &amp; interaction bus (text, buttons, files, streaming, progress). Defaults to configured channel; pass a key to target another (e.g., <code>"slack:#lab"</code>).</td>
-</tr>
-<tr>
-<td><code>context.memory()</code></td>
-<td>Session/run memory façade (record events, write typed results, query recent/indices, rolling &amp; episode summaries, optional RAG helpers).</td>
-</tr>
-<tr>
-<td><code>context.artifacts()</code></td>
-<td>Artifact store/index façade (stage/save/write files/dirs, search/best, pin).</td>
-</tr>
-<tr>
-<td><code>context.kv()</code></td>
-<td>Small, transient key–value store for coordination and short‑lived caches.</td>
-</tr>
-<tr>
 <td><code>context.llm(profile="default")</code></td>
-<td>LLM client for <code>chat()</code> and <code>embed()</code>; switch keys via <code>context.llm_set_key(...)</code>.</td>
+<td>LLM client for <code>chat()</code> or <code>embed()</code> operations; plug in OpenAI, Anthropic, or local models.</td>
 </tr>
 <tr>
 <td><code>context.rag()</code></td>
-<td>RAG façade: create corpora, upsert docs, search/retrieve, answer with citations.</td>
+<td>Retrieval‑augmented generation façade; create corpora, upsert docs, search, and answer with citations.</td>
 </tr>
 <tr>
 <td><code>context.mcp(name)</code></td>
-<td>MCP client to call external tool servers (stdio/ws/http), list/read resources.</td>
+<td>MCP client to connect to external tool servers via stdio/websocket/HTTP.</td>
 </tr>
+</tbody>
+</table>
+<h3 id="utility-helpers">Utility Helpers<a class="headerlink" href="#utility-helpers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
 <tr>
-<td><code>context.logger()</code></td>
-<td>Scoped Python logger with <code>{run_id, graph_id, node_id}</code> auto‑injected.</td>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>context.clock()</code></td>
+<td>Clock/time helpers for timestamps, scheduling, and delays.</td>
 </tr>
 <tr>
 <td><code>context.continuations()</code></td>
-<td>Access to continuation store (usually used indirectly via <code>channel().ask_*</code>).</td>
-</tr>
-<tr>
-<td><code>context.clock()</code></td>
-<td>Clock/time helpers (scheduling, timestamps) if bound.</td>
+<td>Access to continuation store (usually used indirectly by <code>channel().ask_*</code>).</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>If a service is not configured in your runtime, its accessor raises a clear error (e.g., <code>LLMService not available</code>).</p>
+<p>If a service is unavailable, its accessor raises a clear error (e.g., <code>LLMService not available</code>). Configure them at startup or through the environment.</p>
 </blockquote>
 <hr />
-<h2 id="typical-patterns">Typical patterns<a class="headerlink" href="#typical-patterns" title="Permanent link">&para;</a></h2>
+<h2 id="typical-patterns">Typical Patterns<a class="headerlink" href="#typical-patterns" title="Permanent link">&para;</a></h2>
 <h3 id="1-ask-wait-continue">1) Ask → Wait → Continue<a class="headerlink" href="#1-ask-wait-continue" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="s2">&quot;Provide a dataset path&quot;</span><span class="p">)</span>
-<span class="c1"># runtime yields, persists a continuation; resumes with user input</span>
+<span class="c1"># runtime yields, persists a continuation, resumes with user input</span>
 </code></pre></div>
-<h3 id="2-stream-progress">2) Stream + progress<a class="headerlink" href="#2-stream-progress" title="Permanent link">&para;</a></h3>
+<h3 id="2-stream-progress">2) Stream + Progress<a class="headerlink" href="#2-stream-progress" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
     <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Parsing… &quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;OK. &quot;</span><span class="p">)</span>
+
 <span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Training&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
         <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">current</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="3-artifacts-memory">3) Artifacts + memory<a class="headerlink" href="#3-artifacts-memory" title="Permanent link">&para;</a></h3>
+<h3 id="3-artifacts-memory">3) Artifacts + Memory<a class="headerlink" href="#3-artifacts-memory" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span><span class="s2">&quot;A&quot;</span><span class="p">})</span>
 <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
     <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span>
-    <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;uri&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span><span class="p">}],</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span><span class="p">}],</span>
 <span class="p">)</span>
 </code></pre></div>
-<h3 id="4-rag-answer-using-llm">4) RAG answer using LLM<a class="headerlink" href="#4-rag-answer-using-llm" title="Permanent link">&para;</a></h3>
+<h3 id="4-rag-answer-using-llm">4) RAG Answer using LLM<a class="headerlink" href="#4-rag-answer-using-llm" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="s2">&quot;What is MTF?&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What is MTF?&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;concise&quot;</span><span class="p">)</span>
-<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span> 
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span>
 </code></pre></div>
-<h3 id="5-external-tools-via-mcp">5) External tools via MCP<a class="headerlink" href="#5-external-tools-via-mcp" title="Permanent link">&para;</a></h3>
+<h3 id="5-external-tools-via-mcp">5) External Tools via MCP<a class="headerlink" href="#5-external-tools-via-mcp" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
 </code></pre></div>
 <hr />
-<h2 id="choosing-a-channel">Choosing a channel<a class="headerlink" href="#choosing-a-channel" title="Permanent link">&para;</a></h2>
+<h2 id="custom-context-services">Custom Context Services<a class="headerlink" href="#custom-context-services" title="Permanent link">&para;</a></h2>
+<p>AetherGraph’s context system is <strong>extensible</strong>. You can register your own service and make it available as <code>context.&lt;your_service&gt;()</code>. This allows you to:</p>
 <ul>
-<li>By default, <code>context.channel()</code> resolves to the runtime’s configured default (e.g., console).</li>
-<li>Pass a <strong>channel key</strong> to target a specific adapter:</li>
-<li><code>"console:stdin"</code></li>
-<li><code>"slack:#research"</code> or <code>"slack:@alice"</code></li>
-<li><code>"telegram:chat:&lt;id&gt;"</code></li>
-<li>You can override per call: <code>context.channel("slack:#lab").send_text("hi")</code> or <code>context.channel().send_text("hi", channel="slack:#lab")</code>.</li>
+<li>Extend the runtime with <strong>custom persistence layers</strong>, schedulers, or storage models.</li>
+<li>Encapsulate <strong>domain‑specific APIs</strong> (e.g., simulation, materials database, experiment tracker).</li>
+<li>Implement <strong>persistent stages</strong> that survive restarts or act as bridges between distributed components.</li>
 </ul>
-<hr />
-<h2 id="error-handling-logging">Error handling &amp; logging<a class="headerlink" href="#error-handling-logging" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Service calls raise <code>RuntimeError</code> if the service is missing; wire them at server startup.</li>
-<li>Use <code>context.logger().exception("...")</code> inside <code>except</code> blocks to capture tracebacks.</li>
-<li>Prefer logging artifact URIs and metrics over large payloads.</li>
-</ul>
-<hr />
-<h2 id="server-wiring-very-short">Server wiring (very short)<a class="headerlink" href="#server-wiring-very-short" title="Permanent link">&para;</a></h2>
-<p>Make services available before running graphs/tools.
-<div class="highlight"><pre><span></span><code><span class="c1"># Pseudo-bootstrap</span>
-<span class="n">services</span> <span class="o">=</span> <span class="n">build_runtime_services</span><span class="p">(</span>
-    <span class="n">logger</span><span class="o">=</span><span class="n">StdLoggerService</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
-    <span class="n">llm</span><span class="o">=</span><span class="n">make_llm_service</span><span class="p">(),</span>
-    <span class="n">memory</span><span class="o">=</span><span class="n">make_memory_facade_factory</span><span class="p">(),</span>
-    <span class="n">artifacts</span><span class="o">=</span><span class="n">make_artifact_facade</span><span class="p">(),</span>
-    <span class="n">kv</span><span class="o">=</span><span class="n">EphemeralKV</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;ag:&quot;</span><span class="p">),</span>
-    <span class="n">rag</span><span class="o">=</span><span class="n">make_rag_facade</span><span class="p">(),</span>
-    <span class="n">mcp</span><span class="o">=</span><span class="n">make_mcp_service</span><span class="p">(),</span>
-<span class="p">)</span>
-<span class="n">start_server</span><span class="p">(</span><span class="n">services</span><span class="p">)</span>
-</code></pre></div></p>
+<p>Custom contexts are defined and registered via <code>register_context_service()</code> (see the <em>External Context</em> section for details and benefits).</p>
 <hr />
 <h2 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Python‑first</strong>: context calls are <strong>helpers</strong>, not a DSL. Keep your logic in plain Python.</li>
-<li><strong>Minimal surface</strong>: each service exposes a small, composable API.</li>
-<li><strong>Swappable backends</strong>: you can replace services (e.g., LLM provider, KV backend) without changing your tools.</li>
+<li><strong>Python‑first</strong>: context calls are helpers, not a DSL. Keep logic in plain Python.</li>
+<li><strong>Minimal surface</strong>: each service has a small, composable API.</li>
+<li><strong>Composable orchestration</strong>: mix local and remote services freely.</li>
+<li><strong>Swappable backends</strong>: replace services (e.g., LLM provider, KV backend) without changing agent code.</li>
 </ul>
 <hr />
-<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>context.channel()</code> — cooperative waits, streaming, progress</li>
 <li><code>context.memory()</code> — event log, typed results, summaries, RAG helpers</li>
@@ -1381,7 +1547,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../graph_fn/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graph Function">
+          <a href="../agent-via-graph-fn/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Agent via Graph Function">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1391,20 +1557,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Graph Function
+                Agent via Graph Function
               </div>
             </div>
           </a>
         
         
           
-          <a href="../tools/" class="md-footer__link md-footer__link--next" aria-label="Next: Tools">
+          <a href="../artifacts-memory/" class="md-footer__link md-footer__link--next" aria-label="Next: Artifacts and Memory">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Tools
+                Artifacts and Memory
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1435,10 +1601,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
       

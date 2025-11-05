@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/reference/tools-facade/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/artifacts-memory/">
       
       
-        <link rel="prev" href="../context-mcp/">
+        <link rel="prev" href="../context-services/">
       
       
-        <link rel="next" href="../config/">
+        <link rel="next" href="../../server/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Tools Facade - AetherGraph</title>
+        <title>Artifacts and Memory - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tools-facade" class="md-skip">
+        <a href="#artifacts-memory" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tools Facade
+              Artifacts and Memory
             
           </span>
         </div>
@@ -305,8 +305,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -317,13 +319,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -339,7 +339,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Key Concepts
@@ -353,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../key-concepts/agent-via-graph-fn/" class="md-nav__link">
+      <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
   
@@ -376,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../key-concepts/context-services/" class="md-nav__link">
+      <a href="../context-services/" class="md-nav__link">
         
   
   
@@ -396,10 +396,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../key-concepts/artifacts-memory/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Artifacts and Memory
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -410,6 +432,194 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-artifacts-persistent-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Artifacts — Persistent Assets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Artifacts — Persistent Assets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-artifacts-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Artifacts Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artifacts-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artifacts Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save a File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-after-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search After Save
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-memory-structured-event-result-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Memory — Structured Event &amp; Result Log
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Memory — Structured Event &amp; Result Log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-memory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Memory Matters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-in-a-graph_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use in a graph_fn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-memory-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Memory Facets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-with-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combining with RAG
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -737,8 +947,6 @@
       
   
   
-    
-  
   
   
     
@@ -751,11 +959,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -771,7 +981,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -785,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../decorators/" class="md-nav__link">
+      <a href="../../reference/decorators/" class="md-nav__link">
         
   
   
@@ -850,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-channel/" class="md-nav__link">
+      <a href="../../reference/context-channel/" class="md-nav__link">
         
   
   
@@ -873,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-artifacts/" class="md-nav__link">
+      <a href="../../reference/context-artifacts/" class="md-nav__link">
         
   
   
@@ -896,7 +1106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-memory/" class="md-nav__link">
+      <a href="../../reference/context-memory/" class="md-nav__link">
         
   
   
@@ -919,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-logger/" class="md-nav__link">
+      <a href="../../reference/context-logger/" class="md-nav__link">
         
   
   
@@ -942,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-kv/" class="md-nav__link">
+      <a href="../../reference/context-kv/" class="md-nav__link">
         
   
   
@@ -965,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-llm/" class="md-nav__link">
+      <a href="../../reference/context-llm/" class="md-nav__link">
         
   
   
@@ -988,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-rag/" class="md-nav__link">
+      <a href="../../reference/context-rag/" class="md-nav__link">
         
   
   
@@ -1011,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../context-mcp/" class="md-nav__link">
+      <a href="../../reference/context-mcp/" class="md-nav__link">
         
   
   
@@ -1039,32 +1249,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Tools Facade
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/tools-facade/" class="md-nav__link">
         
   
   
@@ -1075,44 +1263,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#registerfunc-namenone-inputsnone-outputsnone-str" class="md-nav__link">
-    <span class="md-ellipsis">
-      register(func, *, name=None, inputs=None, outputs=None) → str
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#callname-args-dict-dict" class="md-nav__link">
-    <span class="md-ellipsis">
-      call(name, args: dict) → dict
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1125,7 +1275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/" class="md-nav__link">
+      <a href="../../reference/config/" class="md-nav__link">
         
   
   
@@ -1148,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rest-api/" class="md-nav__link">
+      <a href="../../reference/rest-api/" class="md-nav__link">
         
   
   
@@ -1190,11 +1340,205 @@
   
 
 
-<h1 id="tools-facade">Tools Facade<a class="headerlink" href="#tools-facade" title="Permanent link">&para;</a></h1>
-<h3 id="registerfunc-namenone-inputsnone-outputsnone-str">register(func, *, name=None, inputs=None, outputs=None) → str<a class="headerlink" href="#registerfunc-namenone-inputsnone-outputsnone-str" title="Permanent link">&para;</a></h3>
-<p>Registers a tool and returns its name/id.</p>
-<h3 id="callname-args-dict-dict">call(name, args: dict) → dict<a class="headerlink" href="#callname-args-dict-dict" title="Permanent link">&para;</a></h3>
-<p>Invokes a tool by name with validated args.</p>
+<h1 id="artifacts-memory">Artifacts &amp; Memory<a class="headerlink" href="#artifacts-memory" title="Permanent link">&para;</a></h1>
+<p>This section explains two foundational components of AetherGraph’s runtime: <strong>Artifacts</strong> and <strong>Memory</strong>. Together, they form the system’s provenance backbone — ensuring every result, file, and intermediate step can be saved, indexed, and revisited.</p>
+<hr />
+<h2 id="1-artifacts-persistent-assets">1. Artifacts — Persistent Assets<a class="headerlink" href="#1-artifacts-persistent-assets" title="Permanent link">&para;</a></h2>
+<p><strong>Artifacts</strong> are immutable, content-addressed assets produced or consumed by agents and tools. They may be files, directories, JSON payloads, or serialized objects.</p>
+<h3 id="why-artifacts-matter">Why Artifacts Matter<a class="headerlink" href="#why-artifacts-matter" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Reproducibility:</strong> Everything an agent produces can be saved and reloaded later by URI.</li>
+<li><strong>Traceability:</strong> Each artifact is stamped with <code>{run_id, graph_id, node_id, tool_name, tool_version}</code>.</li>
+<li><strong>Discoverability:</strong> Artifacts are indexed by kind, labels, and metrics, making it easy to search or rank results (e.g., best model checkpoint by validation score).</li>
+</ul>
+<h3 id="artifacts-architecture">Artifacts Architecture<a class="headerlink" href="#artifacts-architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
+          │   (context)
+          ▼
+[ NodeContext ]
+          │
+          ▼
+[ context.artifacts()  — Artifact Facade ]
+     ├───────────────┬────────────────┐
+     │               │                │
+     │ save / writer │ stage/ingest   │ list/search/best/pin
+     ▼               ▼                ▼
+[ Artifact Store ]  [ Staging Area ]  [ Artifact Index ]
+   (CAS/FS)             (tmp)            (SQLite/kv)
+</code></pre></div>
+<p><code>context.artifacts()</code> saves immutable outputs (CAS URIs) and allows you to query them later. Typical flow: save/writer → (Store) → upsert → (Index) → search/best. </p>
+<h3 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stage()</code> / <code>stage_dir()</code></td>
+<td>Reserve a temporary path for producing files or directories.</td>
+</tr>
+<tr>
+<td><code>save(path, kind, labels, metrics, pin)</code></td>
+<td>Save an existing file and index it.</td>
+</tr>
+<tr>
+<td><code>save_text(content)</code> / <code>save_json(payload)</code></td>
+<td>Quickly store small artifacts.</td>
+</tr>
+<tr>
+<td><code>writer(kind, planned_ext)</code></td>
+<td>Context manager to stream-write binary content safely.</td>
+</tr>
+<tr>
+<td><code>list(scope)</code> / <code>search(...)</code> / <code>best(...)</code></td>
+<td>Query artifacts by scope, kind, label, or metric.</td>
+</tr>
+<tr>
+<td><code>pin(artifact_id)</code></td>
+<td>Mark an artifact as retained.</td>
+</tr>
+<tr>
+<td><code>to_local_path(uri)</code></td>
+<td>Resolve file URIs for local access.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<h4 id="save-a-file">Save a File<a class="headerlink" href="#save-a-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;produce_artifact&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;report_uri&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">produce_artifact</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="c1"># assume the file has been exported to tmp path &quot;/tmp/report.pdf&quot;</span>
+    <span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;report_uri&quot;</span><span class="p">:</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
+</code></pre></div>
+<h4 id="search-after-save">Search After Save<a class="headerlink" href="#search-after-save" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;search_reports&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;top_uri&quot;</span><span class="p">])</span> 
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">search_reports</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="c1"># Find the best report by a metric (if indexed) within current run</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">best</span><span class="p">(</span>
+        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;val_score&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;run&quot;</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">top</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;top_uri&quot;</span><span class="p">:</span> <span class="n">top</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
+    <span class="c1"># Or general search by labels/kind</span>
+    <span class="n">reports</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;top_uri&quot;</span><span class="p">:</span> <span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">uri</span> <span class="k">if</span> <span class="n">reports</span> <span class="k">else</span> <span class="kc">None</span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="2-memory-structured-event-result-log">2. Memory — Structured Event &amp; Result Log<a class="headerlink" href="#2-memory-structured-event-result-log" title="Permanent link">&para;</a></h2>
+<p><strong>Memory</strong> provides a unified façade for recording, persisting, and querying events during an agent’s lifetime. It keeps <strong>raw logs</strong>, <strong>typed results</strong>, and <strong>derived indices</strong> in sync.</p>
+<h3 id="why-memory-matters">Why Memory Matters<a class="headerlink" href="#why-memory-matters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Provenance:</strong> Tracks everything your graph or agent does — messages, results, metrics.</li>
+<li><strong>Contextual recall:</strong> Enables reactive behavior by letting agents recall previous states.</li>
+<li><strong>Analytics:</strong> Supports summaries, distillation, and RAG promotion for long-term memory.</li>
+</ul>
+<h3 id="core-methods">Core Methods<a class="headerlink" href="#core-methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>record_raw(base, text, metrics)</code></td>
+<td>Append a low-level event to logs and persistence.</td>
+</tr>
+<tr>
+<td><code>record(kind, data, tags, ...)</code></td>
+<td>Convenience for structured logging.</td>
+</tr>
+<tr>
+<td><code>write_result(topic, inputs, outputs)</code></td>
+<td>Log a typed output event; updates indices.</td>
+</tr>
+<tr>
+<td><code>recent(kinds, limit)</code></td>
+<td>Fetch recent events from the hot log.</td>
+</tr>
+<tr>
+<td><code>last_by_name(name)</code></td>
+<td>Fetch the last output value by name.</td>
+</tr>
+<tr>
+<td><code>latest_refs_by_kind(kind)</code></td>
+<td>Retrieve last references of a given kind.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="memory-architecture">Memory Architecture<a class="headerlink" href="#memory-architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
+          │   (context)
+          ▼
+[ NodeContext ]
+          │
+          ▼
+[ context.memory()  — Memory Facade ]
+        ├───────────────┬──────────────────┬───────────────┐
+        │               │                  │               │
+        ▼               ▼                  ▼               ▼
+   [ HotLog ]      [ Persistence ]     [ Indices ]     [ RAG (FAISS) ]
+ (ephemeral KV)   (JSONL append-only)   (SQLite)      (vector index)
+        │               │                  │               │
+   recent()/tail   replay/export      last_by_name     search/answer*
+                                      last_outputs     promote_events
+</code></pre></div>
+<h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
+<h4 id="use-in-a-graph_fn">Use in a graph_fn<a class="headerlink" href="#use-in-a-graph_fn" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;remember_output&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">remember_output</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
+        <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;calc&quot;</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">}]</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h4 id="using-memory-facets">Using Memory Facets<a class="headerlink" href="#using-memory-facets" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Retrieve recent events</span>
+<span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Get last stored output</span>
+<span class="n">last_y</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">last_by_name</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="c1"># Summarize conversation or run</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_rolling_chat</span><span class="p">(</span><span class="n">max_turns</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="combining-with-rag">Combining with RAG<a class="headerlink" href="#combining-with-rag" title="Permanent link">&para;</a></h4>
+<p>Memory can promote important events into a RAG corpus for question‑answering and retrieval. <strong>RAG requires an LLM configuration</strong> (<code>context.llm()</code>), and the default vector index is <strong>FAISS</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bind or create a RAG corpus for the &quot;project&quot; scope and get its id</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="c1"># Promote recent events into the bound corpus so they become retrievable</span>
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
+
+<span class="c1"># Query the RAG corpus to answer a question (returns the retrieved/LLM answer)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What was the best run?&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Artifacts</strong> ensure files and datasets are traceable, reproducible, and searchable.</li>
+<li><strong>Memory</strong> provides structured logging and retrieval of all runtime events.</li>
+<li><strong>RAG</strong> is available out‑of‑the‑box via FAISS (LLM required) and can be swapped via external services.</li>
+<li>If you have your own memory system, <strong>External Context Services</strong> let you add custom memory with advanced capability (e.g., FAISS → managed vector DB, FS CAS → S3/GCS) without changing the main agent code.</li>
+</ul>
+<hr />
+<p><strong>See also:</strong></p>
+<ul>
+<li><code>context.artifacts()</code> — artifact storage façade</li>
+<li><code>context.memory()</code> — session memory façade</li>
+<li><code>context.rag()</code> — retrieval‑augmented interface (requires LLM)</li>
+<li><em>External Context</em> — extend/replace local services for scale or compliance</li>
+</ul>
 
 
 
@@ -1224,7 +1568,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../context-mcp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MCP">
+          <a href="../context-services/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Context Services">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1234,20 +1578,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                MCP
+                Context Services
               </div>
             </div>
           </a>
         
         
           
-          <a href="../config/" class="md-footer__link md-footer__link--next" aria-label="Next: Config">
+          <a href="../../server/" class="md-footer__link md-footer__link--next" aria-label="Next: Start the Server">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Config
+                Start the Server
               </div>
             </div>
             <div class="md-footer__button md-icon">
