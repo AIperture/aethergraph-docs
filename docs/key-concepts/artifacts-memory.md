@@ -1,4 +1,4 @@
-# Artifacts & Memory
+# Artifacts and Memory
 
 This section explains two foundational components of AetherGraph’s runtime: **Artifacts** and **Memory**. Together, they form the system’s provenance backbone — ensuring every result, file, and intermediate step can be saved, indexed, and revisited.
 

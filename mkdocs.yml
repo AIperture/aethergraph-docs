@@ -65,7 +65,14 @@ nav:
   - Key Concepts:
       - Agent via Graph Function: key-concepts/agent-via-graph-fn.md
       - Context Services: key-concepts/context-services.md
+      - Channels and Interaction: key-concepts/channels-interaction.md
       - Artifacts and Memory: key-concepts/artifacts-memory.md
+      - Core Services Overview: key-concepts/services-at-a-glance.md
+      - Extending Context: key-concepts/extending-context.md
+      - Static Graph Agent: key-concepts/static-graph-agent.md
+      - Event-Driven Waits: key-concepts/event-driven-waits.md
+      - Graph Executor & Scheduling: key-concepts/graph-executor.md
+      - Server Start: key-concepts/server-start-sidecar.md
   - Core:
       - Start the Server: server.md
       - Graph Function: graph_fn.md

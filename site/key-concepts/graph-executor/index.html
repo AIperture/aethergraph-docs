@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/key-concepts/artifacts-memory/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/graph-executor/">
       
       
-        <link rel="prev" href="../channels-interaction/">
+        <link rel="prev" href="../event-driven-waits/">
       
       
-        <link rel="next" href="../services-at-a-glance/">
+        <link rel="next" href="../server-start-sidecar/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Artifacts and Memory - AetherGraph</title>
+        <title>Graph Executor & Scheduling - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#artifacts-and-memory" class="md-skip">
+        <a href="#graph-executor-schedulers" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Artifacts and Memory
+              Graph Executor & Scheduling
             
           </span>
         </div>
@@ -419,32 +419,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Artifacts and Memory
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../artifacts-memory/" class="md-nav__link">
         
   
   
@@ -455,194 +433,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-artifacts-persistent-assets" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Artifacts — Persistent Assets
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Artifacts — Persistent Assets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-artifacts-matter" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Artifacts Matter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#artifacts-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Artifacts Architecture
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#core-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#save-a-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Save a File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#search-after-save" class="md-nav__link">
-    <span class="md-ellipsis">
-      Search After Save
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-memory-structured-event-result-log" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Memory — Structured Event &amp; Result Log
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Memory — Structured Event &amp; Result Log">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-memory-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Memory Matters
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#core-methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Methods
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memory-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Memory Architecture
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-in-a-graph_fn" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use in a graph_fn
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-memory-facets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Memory Facets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#combining-with-rag" class="md-nav__link">
-    <span class="md-ellipsis">
-      Combining with RAG
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -744,10 +534,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Graph Executor & Scheduling
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -758,6 +570,128 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-local-vs-global-schedulers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Local vs Global Schedulers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Local vs Global Schedulers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-scheduler-used-by-graph_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Scheduler (used by @graph_fn)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-scheduler-used-by-graphify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Scheduler (used by @graphify)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptual-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Conceptual Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-scheduler-algorithm-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Scheduler Algorithm Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Scheduler Algorithm Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-loop-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Loop Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplified-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplified Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-resource-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Resource Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-why-this-design-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Why This Design Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1501,205 +1435,155 @@
   
 
 
-<h1 id="artifacts-and-memory">Artifacts and Memory<a class="headerlink" href="#artifacts-and-memory" title="Permanent link">&para;</a></h1>
-<p>This section explains two foundational components of AetherGraph’s runtime: <strong>Artifacts</strong> and <strong>Memory</strong>. Together, they form the system’s provenance backbone — ensuring every result, file, and intermediate step can be saved, indexed, and revisited.</p>
-<hr />
-<h2 id="1-artifacts-persistent-assets">1. Artifacts — Persistent Assets<a class="headerlink" href="#1-artifacts-persistent-assets" title="Permanent link">&para;</a></h2>
-<p><strong>Artifacts</strong> are immutable, content-addressed assets produced or consumed by agents and tools. They may be files, directories, JSON payloads, or serialized objects.</p>
-<h3 id="why-artifacts-matter">Why Artifacts Matter<a class="headerlink" href="#why-artifacts-matter" title="Permanent link">&para;</a></h3>
+<h1 id="graph-executor-schedulers">Graph Executor — Schedulers<a class="headerlink" href="#graph-executor-schedulers" title="Permanent link">&para;</a></h1>
+<p>AetherGraph’s execution model uses <strong>schedulers</strong> to drive node execution, handle dependencies, and coordinate events across graphs. There are two major modes:</p>
 <ul>
-<li><strong>Reproducibility:</strong> Everything an agent produces can be saved and reloaded later by URI.</li>
-<li><strong>Traceability:</strong> Each artifact is stamped with <code>{run_id, graph_id, node_id, tool_name, tool_version}</code>.</li>
-<li><strong>Discoverability:</strong> Artifacts are indexed by kind, labels, and metrics, making it easy to search or rank results (e.g., best model checkpoint by validation score).</li>
+<li><strong>Local scheduler</strong> – lightweight, per‑graph control loop used by <code>@graph_fn</code>.</li>
+<li><strong>Global scheduler</strong> – centralized, event‑driven scheduler managing all graphs submitted by <code>@graphify</code>.</li>
 </ul>
-<h3 id="artifacts-architecture">Artifacts Architecture<a class="headerlink" href="#artifacts-architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.artifacts()  — Artifact Facade ]
-     ├───────────────┬────────────────┐
-     │               │                │
-     │ save / writer │ stage/ingest   │ list/search/best/pin
-     ▼               ▼                ▼
-[ Artifact Store ]  [ Staging Area ]  [ Artifact Index ]
-   (CAS/FS)             (tmp)            (SQLite/kv)
+<hr />
+<h2 id="1-local-vs-global-schedulers">1. Local vs Global Schedulers<a class="headerlink" href="#1-local-vs-global-schedulers" title="Permanent link">&para;</a></h2>
+<h3 id="local-scheduler-used-by-graph_fn">Local Scheduler (used by <code>@graph_fn</code>)<a class="headerlink" href="#local-scheduler-used-by-graph_fn" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Each <code>@graph_fn</code> invocation runs in its <strong>own event loop context</strong>, orchestrated directly by Python’s async runtime.</li>
+<li>It executes sequentially or with lightweight concurrency (via <code>await</code> and tasks).</li>
+<li><strong>No graph queueing</strong> — tool calls execute immediately or schedule via local awaits.</li>
+<li>Ideal for <strong>reactive, interactive agents</strong> where quick iteration matters.</li>
+<li>Regular Python functions (non‑tool calls) <strong>bypass scheduling entirely</strong>, running through the native Python runtime.</li>
+</ul>
+<h3 id="global-scheduler-used-by-graphify">Global Scheduler (used by <code>@graphify</code>)<a class="headerlink" href="#global-scheduler-used-by-graphify" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A <strong>single global event loop</strong> drives all active graphs and nodes across runs.</li>
+<li>Implements <strong>fair, event‑driven scheduling</strong> with per‑run capacity, retry policies, and backoff.</li>
+<li>Nodes enter the global queue when ready, and yield back control when waiting for continuations or dependencies.</li>
+<li>Perfect for <strong>static DAGs</strong>, <strong>multi‑run orchestration</strong>, and <strong>large‑scale deployments</strong>.</li>
+</ul>
+<hr />
+<h2 id="2-conceptual-diagram">2. Conceptual Diagram<a class="headerlink" href="#2-conceptual-diagram" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>          ┌────────────────────────────┐
+          │        Local Scheduler     │
+          │  (per @graph_fn runtime)   │
+          │                            │
+   async →│ executes Python awaitables │
+  calls → │ immediate tool invocations │
+          │  small scale, no registry  │
+          └────────────┬───────────────┘
+                       │ submits TaskGraph (optional)
+                       ▼
+          ┌────────────────────────────┐
+          │       Global Scheduler     │
+          │ (multi‑graph orchestrator) │
+          │  • One event loop          │
+          │  • Runs across all graphs  │
+          │  • Event‑driven resumes    │
+          │  • Backoff &amp; retries       │
+          └────────────────────────────┘
 </code></pre></div>
-<p><code>context.artifacts()</code> saves immutable outputs (CAS URIs) and allows you to query them later. Typical flow: save/writer → (Store) → upsert → (Index) → search/best. </p>
-<h3 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="3-scheduler-algorithm-overview">3. Scheduler Algorithm Overview<a class="headerlink" href="#3-scheduler-algorithm-overview" title="Permanent link">&para;</a></h2>
+<h3 id="core-loop-type">Core Loop Type<a class="headerlink" href="#core-loop-type" title="Permanent link">&para;</a></h3>
+<p>The <strong>GlobalForwardScheduler</strong> is <strong>event‑driven</strong>, not polling‑based.</p>
+<ul>
+<li>It sleeps until an event (resume, wakeup, or node completion) is emitted.</li>
+<li>Once awakened, it drains queued events, checks for ready nodes, and dispatches eligible tasks.</li>
+<li>Each run has bounded concurrency, and optionally, a global cap across all runs.</li>
+</ul>
+<h3 id="simplified-flow">Simplified Flow<a class="headerlink" href="#simplified-flow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>while not terminated:
+    drain control events (resume, wakeup)
+    schedule resumed nodes first
+    schedule ready nodes (deps satisfied)
+    await first_completed(running_tasks or new events)
+    on node_done → emit event → unblock dependents
+</code></pre></div>
+<ul>
+<li><strong>Event sources:</strong> resume signals, new runs, wakeups, and node completions.</li>
+<li><strong>Scheduling order:</strong> resumed nodes → explicitly pending → dependency‑ready nodes.</li>
+<li><strong>Fairness:</strong> round‑robin across runs.</li>
+<li><strong>Idle handling:</strong> if no nodes running, block until the next event.</li>
+</ul>
+<hr />
+<h2 id="4-resource-model">4. Resource Model<a class="headerlink" href="#4-resource-model" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Purpose</th>
+<th>Resource</th>
+<th>Local Scheduler (<code>@graph_fn</code>)</th>
+<th>Global Scheduler (<code>@graphify</code>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>stage()</code> / <code>stage_dir()</code></td>
-<td>Reserve a temporary path for producing files or directories.</td>
+<td><strong>CPU</strong></td>
+<td>Uses local async tasks; minimal overhead</td>
+<td>Centralized asyncio event loop with per‑run task pools</td>
 </tr>
 <tr>
-<td><code>save(path, kind, labels, metrics, pin)</code></td>
-<td>Save an existing file and index it.</td>
+<td><strong>Memory</strong></td>
+<td>In‑process; short‑lived per function</td>
+<td>Persistent per‑run state tables (node states, queues)</td>
 </tr>
 <tr>
-<td><code>save_text(content)</code> / <code>save_json(payload)</code></td>
-<td>Quickly store small artifacts.</td>
+<td><strong>Disk</strong></td>
+<td>None unless memory/artifact writes used</td>
+<td>Writes resumable states and continuations (~1–10 KB/node)</td>
 </tr>
 <tr>
-<td><code>writer(kind, planned_ext)</code></td>
-<td>Context manager to stream-write binary content safely.</td>
-</tr>
-<tr>
-<td><code>list(scope)</code> / <code>search(...)</code> / <code>best(...)</code></td>
-<td>Query artifacts by scope, kind, label, or metric.</td>
-</tr>
-<tr>
-<td><code>pin(artifact_id)</code></td>
-<td>Mark an artifact as retained.</td>
-</tr>
-<tr>
-<td><code>to_local_path(uri)</code></td>
-<td>Resolve file URIs for local access.</td>
+<td><strong>Network</strong></td>
+<td>Only if context services use remote backends</td>
+<td>Communicates via Resume/Wakeup buses for distributed runs</td>
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<h4 id="save-a-file">Save a File<a class="headerlink" href="#save-a-file" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;produce_artifact&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;report_uri&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">produce_artifact</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="c1"># assume the file has been exported to tmp path &quot;/tmp/report.pdf&quot;</span>
-    <span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
-        <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;report_uri&quot;</span><span class="p">:</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
-</code></pre></div>
-<h4 id="search-after-save">Search After Save<a class="headerlink" href="#search-after-save" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;search_reports&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;top_uri&quot;</span><span class="p">])</span> 
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">search_reports</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="c1"># Find the best report by a metric (if indexed) within current run</span>
-    <span class="n">top</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">best</span><span class="p">(</span>
-        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;val_score&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;run&quot;</span>
-    <span class="p">)</span>
-    <span class="k">if</span> <span class="n">top</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;top_uri&quot;</span><span class="p">:</span> <span class="n">top</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
-    <span class="c1"># Or general search by labels/kind</span>
-    <span class="n">reports</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">})</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;top_uri&quot;</span><span class="p">:</span> <span class="n">reports</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">uri</span> <span class="k">if</span> <span class="n">reports</span> <span class="k">else</span> <span class="kc">None</span><span class="p">}</span>
-</code></pre></div>
 <hr />
-<h2 id="2-memory-structured-event-result-log">2. Memory — Structured Event &amp; Result Log<a class="headerlink" href="#2-memory-structured-event-result-log" title="Permanent link">&para;</a></h2>
-<p><strong>Memory</strong> provides a unified façade for recording, persisting, and querying events during an agent’s lifetime. It keeps <strong>raw logs</strong>, <strong>typed results</strong>, and <strong>derived indices</strong> in sync.</p>
-<h3 id="why-memory-matters">Why Memory Matters<a class="headerlink" href="#why-memory-matters" title="Permanent link">&para;</a></h3>
+<h2 id="5-why-this-design-works">5. Why This Design Works<a class="headerlink" href="#5-why-this-design-works" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Provenance:</strong> Tracks everything your graph or agent does — messages, results, metrics.</li>
-<li><strong>Contextual recall:</strong> Enables reactive behavior by letting agents recall previous states.</li>
-<li><strong>Analytics:</strong> Supports summaries, distillation, and RAG promotion for long-term memory.</li>
+<li><strong>Local scheduler</strong> — fast, minimal overhead, ideal for reactive research and small DAGs.</li>
+<li><strong>Global scheduler</strong> — durable, resumable, and optimized for long‑running or large workflows.</li>
+<li><strong>Event‑driven architecture</strong> — ensures zero busy‑waiting and minimal CPU when idle.</li>
+<li><strong>Per‑run independence</strong> — each graph maintains its own capacity, backoff, and retry settings.</li>
 </ul>
-<h3 id="core-methods">Core Methods<a class="headerlink" href="#core-methods" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="6-summary">6. Summary<a class="headerlink" href="#6-summary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Purpose</th>
+<th>Aspect</th>
+<th>Local Scheduler (<code>@graph_fn</code>)</th>
+<th>Global Scheduler (<code>@graphify</code>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>record_raw(base, text, metrics)</code></td>
-<td>Append a low-level event to logs and persistence.</td>
+<td><strong>Scope</strong></td>
+<td>One runtime function</td>
+<td>Many graphs, many runs</td>
 </tr>
 <tr>
-<td><code>record(kind, data, tags, ...)</code></td>
-<td>Convenience for structured logging.</td>
+<td><strong>Control</strong></td>
+<td>Immediate async execution</td>
+<td>Central event bus + scheduling queues</td>
 </tr>
 <tr>
-<td><code>write_result(topic, inputs, outputs)</code></td>
-<td>Log a typed output event; updates indices.</td>
+<td><strong>Scheduling granularity</strong></td>
+<td>Function level</td>
+<td>Node level (with retries/resume)</td>
 </tr>
 <tr>
-<td><code>recent(kinds, limit)</code></td>
-<td>Fetch recent events from the hot log.</td>
+<td><strong>Persistence</strong></td>
+<td>Ephemeral</td>
+<td>Durable; resumable</td>
 </tr>
 <tr>
-<td><code>last_by_name(name)</code></td>
-<td>Fetch the last output value by name.</td>
-</tr>
-<tr>
-<td><code>latest_refs_by_kind(kind)</code></td>
-<td>Retrieve last references of a given kind.</td>
+<td><strong>Best for</strong></td>
+<td>Interactive or exploratory runs</td>
+<td>Deterministic, large‑scale orchestration</td>
 </tr>
 </tbody>
 </table>
-<h3 id="memory-architecture">Memory Architecture<a class="headerlink" href="#memory-architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.memory()  — Memory Facade ]
-        ├───────────────┬──────────────────┬───────────────┐
-        │               │                  │               │
-        ▼               ▼                  ▼               ▼
-   [ HotLog ]      [ Persistence ]     [ Indices ]     [ RAG (FAISS) ]
- (ephemeral KV)   (JSONL append-only)   (SQLite)      (vector index)
-        │               │                  │               │
-   recent()/tail   replay/export      last_by_name     search/answer*
-                                      last_outputs     promote_events
-</code></pre></div>
-<h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
-<h4 id="use-in-a-graph_fn">Use in a graph_fn<a class="headerlink" href="#use-in-a-graph_fn" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;remember_output&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">remember_output</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
-        <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;calc&quot;</span><span class="p">,</span>
-        <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">}]</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
-</code></pre></div>
-<hr />
-<h4 id="using-memory-facets">Using Memory Facets<a class="headerlink" href="#using-memory-facets" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Retrieve recent events</span>
-<span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="c1"># Get last stored output</span>
-<span class="n">last_y</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">last_by_name</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-
-<span class="c1"># Summarize conversation or run</span>
-<span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_rolling_chat</span><span class="p">(</span><span class="n">max_turns</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</code></pre></div>
-<h4 id="combining-with-rag">Combining with RAG<a class="headerlink" href="#combining-with-rag" title="Permanent link">&para;</a></h4>
-<p>Memory can promote important events into a RAG corpus for question‑answering and retrieval. <strong>RAG requires an LLM configuration</strong> (<code>context.llm()</code>), and the default vector index is <strong>FAISS</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Bind or create a RAG corpus for the &quot;project&quot; scope and get its id</span>
-<span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
-
-<span class="c1"># Promote recent events into the bound corpus so they become retrievable</span>
-<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
-
-<span class="c1"># Query the RAG corpus to answer a question (returns the retrieved/LLM answer)</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What was the best run?&quot;</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Artifacts</strong> ensure files and datasets are traceable, reproducible, and searchable.</li>
-<li><strong>Memory</strong> provides structured logging and retrieval of all runtime events.</li>
-<li><strong>RAG</strong> is available out‑of‑the‑box via FAISS (LLM required) and can be swapped via external services.</li>
-<li>If you have your own memory system, <strong>External Context Services</strong> let you add custom memory with advanced capability (e.g., FAISS → managed vector DB, FS CAS → S3/GCS) without changing the main agent code.</li>
-</ul>
-<hr />
-<p><strong>See also:</strong></p>
-<ul>
-<li><code>context.artifacts()</code> — artifact storage façade</li>
-<li><code>context.memory()</code> — session memory façade</li>
-<li><code>context.rag()</code> — retrieval‑augmented interface (requires LLM)</li>
-<li><em>External Context</em> — extend/replace local services for scale or compliance</li>
-</ul>
+<blockquote>
+<p>In short: <strong><code>@graph_fn</code></strong> runs live, reactive agents; <strong><code>@graphify</code></strong> builds orchestrated pipelines under a global, event‑driven scheduler.</p>
+</blockquote>
 
 
 
@@ -1729,7 +1613,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../channels-interaction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Channels and Interaction">
+          <a href="../event-driven-waits/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Event-Driven Waits">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1739,20 +1623,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Channels and Interaction
+                Event-Driven Waits
               </div>
             </div>
           </a>
         
         
           
-          <a href="../services-at-a-glance/" class="md-footer__link md-footer__link--next" aria-label="Next: Core Services Overview">
+          <a href="../server-start-sidecar/" class="md-footer__link md-footer__link--next" aria-label="Next: Server Start">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Core Services Overview
+                Server Start
               </div>
             </div>
             <div class="md-footer__button md-icon">
