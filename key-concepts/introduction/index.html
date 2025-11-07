@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/key-concepts/services-at-a-glance/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/introduction/">
       
       
-        <link rel="prev" href="../artifacts-memory/">
+        <link rel="prev" href="../../quickstart/">
       
       
-        <link rel="next" href="../extending-context/">
+        <link rel="next" href="../agent-via-graph-fn/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Core Services Overview - AetherGraph</title>
+        <title>Introduction - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#core-services-at-a-glance" class="md-skip">
+        <a href="#aethergraph-key-concepts-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Core Services Overview
+              Introduction
             
           </span>
         </div>
@@ -350,6 +350,182 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-graphs-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction: Graphs + Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-graphs-as-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Graphs as Agents
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Graphs as Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reactive-agent-graph_fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reactive agent — @graph_fn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-agent-graphify" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static agent — @graphify
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-context-as-the-runtime-fabric" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Context as the Runtime Fabric
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-eventdriven-execution-waits" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Event‑Driven Execution &amp; Waits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-execution-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Execution &amp; Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Execution &amp; Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crossgraph-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross‑graph orchestration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-extensibility-everywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Extensibility Everywhere
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-aethergraph-differs" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. How AetherGraph Differs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -442,116 +618,20 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Core Services Overview
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-kv-ephemeral-coordination" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. KV — Ephemeral Coordination
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-logger-structured-logs-with-provenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Logger — Structured Logs with Provenance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-llm-unified-chat-embeddings-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. LLM — Unified Chat &amp; Embeddings (optional)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-rag-long-term-semantic-recall-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. RAG — Long-Term Semantic Recall (optional)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-mcp-external-tool-bridges" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. MCP — External Tool Bridges
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -610,58 +690,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Event-Driven Waits
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Executor & Scheduling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Server Start
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
     
   </span>
   
@@ -709,7 +766,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -719,317 +776,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1077,10 +823,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1093,8 +839,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1387,88 +1133,190 @@
   
 
 
-<h1 id="core-services-at-a-glance">Core Services at a Glance<a class="headerlink" href="#core-services-at-a-glance" title="Permanent link">&para;</a></h1>
-<p>AetherGraph’s <strong>context</strong> provides a unified interface to access runtime services — from lightweight coordination to AI-powered reasoning. This page offers a concise overview of these services with minimal examples, showing what’s available beyond <strong>Channels, Artifacts, and Memory</strong>.</p>
+<h1 id="aethergraph-key-concepts-overview">AetherGraph — Key Concepts Overview<a class="headerlink" href="#aethergraph-key-concepts-overview" title="Permanent link">&para;</a></h1>
+<p>AetherGraph rethinks how agentic systems are built: <strong>graphs are agents</strong>, <strong>context is the runtime fabric</strong>, and <strong>execution is event‑driven</strong>. This document lays out the philosophy and the essential architecture so you can quickly reason about how it differs from typical frameworks—and how to use it effectively.</p>
+<hr />
+<h2 id="1-introduction-graphs-context">1. Introduction: Graphs + Context<a class="headerlink" href="#1-introduction-graphs-context" title="Permanent link">&para;</a></h2>
+<p><img alt="overview" src="../../assets/images/key-concept-overview.png" /></p>
+<p>AetherGraph departs from most agent frameworks in two fundamental ways:</p>
+<ol>
+<li><strong>Every agent is a graph.</strong> You model behavior as a directed acyclic graph (DAG) with nodes that can expand dynamically (reactive) or be planned statically.</li>
+<li><strong>Every node runs inside a <code>NodeContext</code>.</strong> The context is your per‑node control plane that exposes rich, injectable services.</li>
+</ol>
+<p><strong>NodeContext services</strong> include (built‑ins plus anything you add):</p>
+<ul>
+<li><strong>Channels</strong> (Slack, Console/Web, …) for I/O and interaction</li>
+<li><strong>Artifacts</strong> (blob store) for large files and generated assets</li>
+<li><strong>Memory</strong> (history + summaries + optional RAG)</li>
+<li><strong>KV &amp; Logger</strong> for quick state and observability</li>
+<li><strong>LLM / MCP / RAG</strong> bridges for model calls and tool use</li>
+<li><strong>Your custom services</strong> registered at runtime</li>
+</ul>
+<p>The system is <strong>pythonic</strong>, <strong>reactive</strong>, and <strong>extensible</strong>: author graphs directly in Python, then let context services handle communication, persistence, and orchestration details.</p>
+<hr />
+<h2 id="2-graphs-as-agents">2. Graphs as Agents<a class="headerlink" href="#2-graphs-as-agents" title="Permanent link">&para;</a></h2>
+<p>AetherGraph unifies two modes under one mental model:</p>
+<h3 id="reactive-agent-graph_fn">Reactive agent — <code>@graph_fn</code><a class="headerlink" href="#reactive-agent-graph_fn" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Executes immediately when called (behaves like an async Python function).</li>
+<li>Expands into an implicit DAG as tools run.</li>
+<li>Perfect for interactive, service‑rich, or conversational workflows.</li>
+</ul>
+<h3 id="static-agent-graphify">Static agent — <code>@graphify</code><a class="headerlink" href="#static-agent-graphify" title="Permanent link">&para;</a></h3>
+<ul>
+<li>First builds a concrete <code>TaskGraph</code>, then executes it via the scheduler.</li>
+<li>Ideal for stable, deterministic, or large‑scale workflows.</li>
+</ul>
 <blockquote>
-<p><strong>Goal:</strong> Keep your logic pure-Python and call <code>context.&lt;service&gt;()</code> only when you need I/O, coordination, or intelligence.</p>
+<p><strong>One model, two tempos.</strong> Iterate fast with <code>@graph_fn</code>; snap to repeatable DAGs with <code>@graphify</code>.</p>
 </blockquote>
 <hr />
-<h2 id="1-kv-ephemeral-coordination">1. KV — Ephemeral Coordination<a class="headerlink" href="#1-kv-ephemeral-coordination" title="Permanent link">&para;</a></h2>
-<p>A lightweight key–value store for transient synchronization, small caches, and locks.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;kv_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">kv_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">kv</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">kv</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">kv</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span> <span class="s2">&quot;preflight&quot;</span><span class="p">,</span> <span class="n">ttl_s</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-    <span class="n">stage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>  <span class="c1"># &quot;preflight&quot;</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;preflight&quot;</span><span class="p">}</span>
-</code></pre></div>
-<p><strong>Default backend:</strong> ephemeral in-memory KV.
-<strong>Use for:</strong> feature flags, shared state, short coordination.
-<strong>See:</strong> KV Service Deep Dive →</p>
-<hr />
-<h2 id="2-logger-structured-logs-with-provenance">2. Logger — Structured Logs with Provenance<a class="headerlink" href="#2-logger-structured-logs-with-provenance" title="Permanent link">&para;</a></h2>
-<p>Structured Python logger that automatically includes <code>{run_id, graph_id, node_id}</code> in every record.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;log_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">log_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span>
-    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;starting&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;ingest&quot;</span><span class="p">})</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="o">...</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;finished&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;ingest&quot;</span><span class="p">})</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;ingest failed&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-</code></pre></div>
-<p><strong>Default backend:</strong> standard Python logging.
-<strong>Use for:</strong> lifecycle traces, metrics, structured error reports.
-<strong>See:</strong> Logging Deep Dive →</p>
-<hr />
-<h2 id="3-llm-unified-chat-embeddings-optional">3. LLM — Unified Chat &amp; Embeddings <em>(optional)</em><a class="headerlink" href="#3-llm-unified-chat-embeddings-optional" title="Permanent link">&para;</a></h2>
-<p>An abstraction over multiple model providers. Requires configuration (API keys, profile).</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;llm_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;reply&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">llm_demo</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">([{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}])</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;reply&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]}</span>
-</code></pre></div>
-<p><strong>Use for:</strong> chat completions, summarization, embeddings.
-<strong>Backend:</strong> pluggable clients (OpenAI, Anthropic, local).
-<strong>See:</strong> LLM Service Deep Dive →</p>
-<hr />
-<h2 id="4-rag-long-term-semantic-recall-optional">4. RAG — Long-Term Semantic Recall <em>(optional)</em><a class="headerlink" href="#4-rag-long-term-semantic-recall-optional" title="Permanent link">&para;</a></h2>
-<p>Build searchable corpora from events or docs, then retrieve or answer with citations. Requires an LLM for answering.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_demo</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">mem</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
-    <span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
-    <span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">ans</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]}</span>
-</code></pre></div>
-<p><strong>Default backend:</strong> FAISS (local).
-<strong>Use for:</strong> semantic search and retrieval-augmented QA.
-<strong>See:</strong> RAG Deep Dive → · External Context →</p>
-<hr />
-<h2 id="5-mcp-external-tool-bridges">5. MCP — External Tool Bridges<a class="headerlink" href="#5-mcp-external-tool-bridges" title="Permanent link">&para;</a></h2>
-<p>Connect to external tool servers over stdio, WebSocket, or HTTP using the <strong>Model Context Protocol (MCP)</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mcp_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hits&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mcp_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">ws</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span>  <span class="c1"># adapter name</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ws</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[])}</span>
-</code></pre></div>
-<p><strong>Use for:</strong> safe integration with non-Python tools and structured external APIs.
-<strong>See:</strong> MCP Deep Dive →</p>
-<hr />
-<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
+<h2 id="3-context-as-the-runtime-fabric">3. Context as the Runtime Fabric<a class="headerlink" href="#3-context-as-the-runtime-fabric" title="Permanent link">&para;</a></h2>
+<p>Every node (and each <code>graph_fn</code> invocation) receives a <strong>NodeContext</strong>. Think of it as a scoped service locator with lifecycle hooks.</p>
 <ul>
-<li>All services are accessible through <code>context.&lt;service&gt;()</code> — no imports or globals.</li>
-<li>Core defaults (KV, Logger) work locally out of the box.</li>
-<li>LLM, RAG, and MCP are optional; enable them via environment or external context configuration.</li>
-<li>Backends are swappable — you can move from local to managed services without changing agent code.</li>
+<li><strong>Per‑node scoping</strong> → independent logging, persistence, messaging.</li>
+<li><strong>Injectable services</strong> → bind built‑ins or your own with simple registration.</li>
+<li><strong>Sidecar‑friendly</strong> → channel adapters and stores can run out‑of‑process.</li>
 </ul>
-<p><strong>Next:</strong> Explore <a href="../channels.md">Channels &amp; Interaction →</a> or <a href="../artifacts_memory.md">Artifacts &amp; Memory →</a></p>
+<p><strong>Common patterns</strong>:</p>
+<ul>
+<li><code>context.channel().ask_text()</code> to collect input from a user/UI.</li>
+<li><code>context.artifacts().save(...)</code> to persist files and structured outputs.</li>
+<li><code>context.memory().record(...)</code> to capture provenance and summaries.</li>
+<li><code>context.llm().chat(...)</code> to call your configured model provider.</li>
+</ul>
+<hr />
+<h2 id="4-eventdriven-execution-waits">4. Event‑Driven Execution &amp; Waits<a class="headerlink" href="#4-eventdriven-execution-waits" title="Permanent link">&para;</a></h2>
+<p>AetherGraph is event‑driven (not polling). Nodes suspend when waiting for input or an external event; the runtime persists and resumes continuations on demand so suspended nodes consume little to no CPU/RAM. Two primary wait styles are exposed:</p>
+<ul>
+<li><strong>Cooperative waits</strong> — inline <code>await</code> for short, interactive flows where the coroutine remains in memory for low‑latency response.</li>
+<li><strong>Dual‑stage waits</strong> — split a node into setup and resume phases; the continuation is durably stored so the process can free resources until an event triggers resume.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+<th>CPU/RAM</th>
+<th>Ideal for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cooperative waits</strong></td>
+<td>Inline <code>await</code> (e.g., <code>await context.channel().ask_text()</code>); coroutine stays in memory</td>
+<td>Minimal</td>
+<td>Small reactive loops, interactive sessions</td>
+</tr>
+<tr>
+<td><strong>Dual‑stage waits</strong></td>
+<td>Split node into setup/resume; continuation stored in a durable store</td>
+<td>Zero when paused</td>
+<td>Large DAGs, long‑lived pipelines</td>
+</tr>
+<tr>
+<td><strong>Manual checkpoints</strong></td>
+<td>User‑managed state snapshot/restore</td>
+<td>User‑managed</td>
+<td>Legacy integration, custom control</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Dual‑stage waits + event routing enable massive concurrency with tiny footprint.</p>
+</blockquote>
+<hr />
+<h2 id="5-execution-scheduling">5. Execution &amp; Scheduling<a class="headerlink" href="#5-execution-scheduling" title="Permanent link">&para;</a></h2>
+<p>Each graph runs under a scheduler that selects ready nodes and respects your concurrency caps. Within a graph you get <strong>async DAG orchestration</strong> by default.</p>
+<h3 id="crossgraph-orchestration">Cross‑graph orchestration<a class="headerlink" href="#crossgraph-orchestration" title="Permanent link">&para;</a></h3>
+<p>AetherGraph intentionally avoids a heavyweight orchestrator in the OSS core. For concurrent runs across multiple agents/graphs, use idiomatic Python:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Concurrent reactive runs</span>
+<span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+    <span class="n">graph_fn_agent_a</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>   <span class="c1"># a @graph_fn with async __call__</span>
+    <span class="n">graph_fn_agent_b</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Sequential orchestration</span>
+<span class="k">await</span> <span class="n">graph_fn_agent_a</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">graph_fn_agent_b</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="6-extensibility-everywhere">6. Extensibility Everywhere<a class="headerlink" href="#6-extensibility-everywhere" title="Permanent link">&para;</a></h2>
+<p>Pure Python—no DSLs, no codegen.</p>
+<ul>
+<li><strong>Tools</strong>: <code>@tool</code> to define reusable, typed primitives.</li>
+<li><strong>Graphs</strong>: <code>@graphify</code> to materialize a DAG for repeatable runs.</li>
+<li><strong>Services</strong>: <code>register_context_service()</code> to inject your own capabilities.</li>
+<li><strong>Adapters</strong>: extend ChannelBus to new transports (Slack, Web, PyQt, …).</li>
+</ul>
+<p><strong>Example (sketch)</strong></p>
+<p>Define a <code>@tool</code>:
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;analyze&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;val&quot;</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+</code></pre></div></p>
+<p>Define a <code>@graph_fn</code> (<code>@tool</code> is optional)
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="k">await</span> <span class="n">analyze</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Answer: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="7-how-aethergraph-differs">7. How AetherGraph Differs<a class="headerlink" href="#7-how-aethergraph-differs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>AetherGraph</th>
+<th>Typical frameworks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Runtime</td>
+<td>Unified Python, event‑driven</td>
+<td>Split control planes, mixed models</td>
+</tr>
+<tr>
+<td>Waits</td>
+<td>Zero‑CPU dual‑stage waits</td>
+<td>Blocking awaits, threads, polling</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Rich per‑node runtime fabric</td>
+<td>Globals, hidden singletons</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td>Dynamic (<code>graph_fn</code>) + Static (<code>@graphify</code>)</td>
+<td>Usually one or the other</td>
+</tr>
+<tr>
+<td>Scheduling</td>
+<td>Async DAG scheduling per graph</td>
+<td>Step‑based loops, less reactive</td>
+</tr>
+<tr>
+<td>Extensibility</td>
+<td>Decorators + Python APIs</td>
+<td>Fixed plugin systems</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>Built‑in memory/artifacts</td>
+<td>External or ad‑hoc</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-takeaways">8. Takeaways<a class="headerlink" href="#8-takeaways" title="Permanent link">&para;</a></h2>
+<p>AetherGraph bridges <strong>interactive research</strong> and <strong>deterministic automation</strong>:</p>
+<ul>
+<li>React first, then structure for production.</li>
+<li>Keep state, context, and scheduling where they belong—<strong>with the nodes</strong>.</li>
+<li>Use event‑driven waits to scale without idle compute.</li>
+</ul>
 
 
 
@@ -1498,7 +1346,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../artifacts-memory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Artifacts and Memory">
+          <a href="../../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1508,20 +1356,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Artifacts and Memory
+                Quickstart
               </div>
             </div>
           </a>
         
         
           
-          <a href="../extending-context/" class="md-footer__link md-footer__link--next" aria-label="Next: Extending Context">
+          <a href="../agent-via-graph-fn/" class="md-footer__link md-footer__link--next" aria-label="Next: Agent via Graph Function">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Extending Context
+                Agent via Graph Function
               </div>
             </div>
             <div class="md-footer__button md-icon">

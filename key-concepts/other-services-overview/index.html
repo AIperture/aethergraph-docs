@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/key-concepts/server-start-sidecar/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/other-services-overview/">
       
       
-        <link rel="prev" href="../static-graph-agent/">
+        <link rel="prev" href="../artifacts-memory/">
       
       
-        <link rel="next" href="../concurrency-orchestration/">
+        <link rel="next" href="../extending-context/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Sidecar Server - AetherGraph</title>
+        <title>Other Services Overview - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#server-sidecar-overview" class="md-skip">
+        <a href="#other-services-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Sidecar Server
+              Other Services Overview
             
           </span>
         </div>
@@ -465,10 +465,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../other-services-overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Other Services Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -479,6 +501,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-kv-ephemeral-coordination" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. KV — Ephemeral Coordination
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-logger-structured-logs-with-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Logger — Structured Logs with Provenance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llm-unified-chat-embeddings-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. LLM — Unified Chat &amp; Embeddings (optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rag-longterm-semantic-recall-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. RAG — Long‑Term Semantic Recall (optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mcp-external-tool-bridges-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. MCP — External Tool Bridges (optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -534,32 +630,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Sidecar Server
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
@@ -570,89 +644,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Start
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-start-does" class="md-nav__link">
-    <span class="md-ellipsis">
-      What start() Does
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minimal-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Minimal API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-the-sidecar" class="md-nav__link">
-    <span class="md-ellipsis">
-      When to Use the Sidecar
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-issues-fixes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues &amp; Fixes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes-on-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes on Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1085,86 +1076,87 @@
   
 
 
-<h1 id="server-sidecar-overview">Server (Sidecar) Overview<a class="headerlink" href="#server-sidecar-overview" title="Permanent link">&para;</a></h1>
-<p>The <strong>AetherGraph sidecar</strong> is a lightweight process that boots your runtime services and exposes a tiny HTTP/WebSocket surface for <strong>adapters</strong> (Slack, Web, Telegram, …) and <strong>continuations</strong> (event‑driven waits). You can run <code>@graph_fn</code> in pure Python without it (console only), but start the sidecar when you need:</p>
-<ul>
-<li><strong>Real interactions</strong>: <code>ask_text/approval/files</code> from Slack/Web/Telegram and resume the run</li>
-<li><strong>Centralized service wiring</strong>: artifacts, memory, kv, llm, rag, mcp, logger</li>
-<li><strong>A shared control plane</strong>: health, upload hooks, progress streams, basic inspect</li>
-</ul>
+<h1 id="other-services-overview">Other Services Overview<a class="headerlink" href="#other-services-overview" title="Permanent link">&para;</a></h1>
+<p>AetherGraph’s <strong>context</strong> exposes a set of lightweight, composable runtime services that complement <strong>Channels</strong>, <strong>Artifacts</strong>, and <strong>Memory</strong>. Use them when your agent needs coordination, observability, or intelligent reasoning — while keeping your core logic pure Python.</p>
 <blockquote>
-<p><strong>In short:</strong> keep your agents plain Python; start the sidecar for <strong>I/O, resumability, and shared services</strong>.</p>
+<p><strong>Philosophy:</strong> keep code idiomatic; reach for <code>context.&lt;service&gt;()</code> only when you need I/O, coordination, or intelligence.</p>
 </blockquote>
 <hr />
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="n">start</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># FastAPI + Uvicorn in a background thread</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sidecar:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-
-<span class="c1"># ... run @graph_fn / @graphify normally ...</span>
-
-<span class="n">stop</span><span class="p">()</span>  <span class="c1"># optional (handy in tests/CI)</span>
+<h2 id="1-kv-ephemeral-coordination">1. KV — Ephemeral Coordination<a class="headerlink" href="#1-kv-ephemeral-coordination" title="Permanent link">&para;</a></h2>
+<p>A minimal key–value store for transient state, synchronization, and quick signals between nodes/agents.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;kv_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">kv_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">kv</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">kv</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">kv</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;stage&quot;</span><span class="p">,</span> <span class="s2">&quot;preflight&quot;</span><span class="p">,</span> <span class="n">ttl_s</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">stage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;stage&quot;</span><span class="p">)</span>  <span class="c1"># → &quot;preflight&quot;</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;preflight&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p><strong>Tips</strong></p>
-<ul>
-<li>Use <code>port=0</code> to pick a free port automatically. </li>
-<li>Start it once per process; reuse the base URL across adapters/UI.</li>
-</ul>
+<p><strong>Why/When:</strong> feature flags, locks/counters, short-lived coordination.</p>
+<p><strong>Default backend:</strong> in-memory KV.</p>
+<p><strong>Deep dive:</strong> KV Service →</p>
 <hr />
-<h2 id="what-start-does">What <code>start()</code> Does<a class="headerlink" href="#what-start-does" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Load config &amp; workspace</strong> — resolve paths, secrets, and profiles; make the workspace if needed.</li>
-<li><strong>Build &amp; register services</strong> — channels, artifacts (store/index), memory (hotlog/persistence/indices), kv, llm, rag, mcp, logger.</li>
-<li>
-<p><strong>Expose endpoints</strong> —</p>
-<ul>
-<li><strong>Continuations</strong>: resume callbacks for <code>ask_text / ask_approval / ask_files</code></li>
-<li><strong>Adapters</strong>: chat/events, uploads, progress streams</li>
-</ul>
-</li>
-<li>
-<p><strong>Launch Uvicorn</strong> — run the app in a background thread and return the <strong>base URL</strong>.</p>
-</li>
-</ol>
+<h2 id="2-logger-structured-logs-with-provenance">2. Logger — Structured Logs with Provenance<a class="headerlink" href="#2-logger-structured-logs-with-provenance" title="Permanent link">&para;</a></h2>
+<p>Structured logging with <code>{run_id, graph_id, node_id}</code> automatically injected.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;log_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">log_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;starting&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;ingest&quot;</span><span class="p">})</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;finished&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;ingest&quot;</span><span class="p">})</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;ingest failed&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Why/When:</strong> lifecycle traces, metrics, error reporting.</p>
+<p><strong>Default backend:</strong> Python <code>logging</code>.</p>
+<p><strong>Deep dive:</strong> Logging →</p>
 <hr />
-<h2 id="minimal-api">Minimal API<a class="headerlink" href="#minimal-api" title="Permanent link">&para;</a></h2>
-<p><code>start(host="127.0.0.1", port=0, workspace=None, log_level="info") -&gt; str</code></p>
-<p>Starts the sidecar <strong>in‑process</strong> and returns the base URL.</p>
-<p><code>start_async(...) -&gt; str</code></p>
-<p>Async‑friendly variant (still hosts the server in a thread), convenient inside async apps/tests.</p>
-<p><code>stop() -&gt; None</code></p>
-<p>Stops the background server. Useful for teardown in tests/CI.</p>
+<h2 id="3-llm-unified-chat-embeddings-optional">3. LLM — Unified Chat &amp; Embeddings <em>(optional)</em><a class="headerlink" href="#3-llm-unified-chat-embeddings-optional" title="Permanent link">&para;</a></h2>
+<p>Provider-agnostic interface for chat/completions and embeddings. Requires configuration (API keys, profile).</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;llm_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;reply&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">llm_demo</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">([{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}])</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;reply&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p><strong>Why/When:</strong> summarization, drafting, tool-use planning, embeddings.</p>
+<p><strong>Backends:</strong> OpenAI, Anthropic, local, etc.</p>
+<p><strong>Deep dive:</strong> LLM Service →</p>
 <hr />
-<h2 id="when-to-use-the-sidecar">When to Use the Sidecar<a class="headerlink" href="#when-to-use-the-sidecar" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Event‑driven waits</strong> from non‑console adapters (Slack/Web/Telegram)</li>
-<li><strong>File uploads &amp; artifact routing</strong> from a browser/UI</li>
-<li><strong>Progress/streaming</strong> to external UIs</li>
-<li><strong>Shared settings &amp; service wiring</strong> across multiple agents</li>
-</ul>
-<p>You <strong>don’t</strong> need it for: simple console demos, unit tests without external I/O, or pure compute.</p>
+<h2 id="4-rag-longterm-semantic-recall-optional">4. RAG — Long‑Term Semantic Recall <em>(optional)</em><a class="headerlink" href="#4-rag-longterm-semantic-recall-optional" title="Permanent link">&para;</a></h2>
+<p>Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_demo</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">mem</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
+    <span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">ans</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p><strong>Why/When:</strong> semantic search, project recall, retrieval‑augmented QA.</p>
+<p><strong>Default backend:</strong> FAISS (local).</p>
+<p><strong>Deep dive:</strong> RAG → · External Context →</p>
 <hr />
-<h2 id="common-issues-fixes">Common Issues &amp; Fixes<a class="headerlink" href="#common-issues-fixes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>No reply after <code>ask_text()</code></strong> → The adapter isn’t posting <strong>resume</strong> events to the sidecar. Verify the sidecar base URL and token in the adapter config.</li>
-<li><strong>CORS blocked</strong> in web UI → Allow your UI origin in sidecar settings (CORS <code>allow_origins</code>).</li>
-<li><strong>Port busy</strong> → Use <code>port=0</code> or pick an open port.</li>
-<li><strong>Service not available</strong> (e.g., LLM/RAG) → Ensure your <code>create_app()</code> wires those services or provide the required credentials.</li>
-</ul>
-<hr />
-<h2 id="notes-on-architecture">Notes on Architecture<a class="headerlink" href="#notes-on-architecture" title="Permanent link">&para;</a></h2>
-<ul>
-<li>The sidecar runs its <strong>own event loop/thread</strong>; your agents/tools run on the <strong>main loop</strong>. They communicate via the ChannelBus/HTTP hooks.</li>
-<li>External context services you register as <strong>instances</strong> run on the <strong>main loop</strong>, so <code>asyncio</code> locks work as expected.</li>
-</ul>
+<h2 id="5-mcp-external-tool-bridges-optional">5. MCP — External Tool Bridges <em>(optional)</em><a class="headerlink" href="#5-mcp-external-tool-bridges-optional" title="Permanent link">&para;</a></h2>
+<p>Connect to external tool servers over stdio/WebSocket/HTTP via <strong>Model Context Protocol (MCP)</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mcp_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hits&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mcp_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">ws</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">)</span>  <span class="c1"># adapter name</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ws</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance analysis&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[])}</span>
+</code></pre></div>
+<p><strong>Why/When:</strong> integrate non-Python tools or remote services with structured contracts.</p>
+<p><strong>Deep dive:</strong> MCP →</p>
 <hr />
 <h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The sidecar is your <strong>local control plane</strong>: services + continuations + adapters.</li>
-<li>Start it with <code>start()</code> when you need <strong>interactions, persistence, or shared wiring</strong>.</li>
-<li>Your agent code stays <strong>plain Python</strong> either way; the sidecar simply adds I/O and resumability.</li>
+<li>Access everything through <code>context.&lt;service&gt;()</code> — no globals or custom wiring.</li>
+<li>KV and Logger work out of the box; LLM/RAG/MCP are optional and enabled by config.</li>
+<li>Backends are pluggable; you can move from local to managed services without changing agent code.</li>
 </ul>
+<p><strong>Next:</strong> Explore [Channels &amp; Interaction →] or [Artifacts &amp; Memory →]</p>
 
 
 
@@ -1194,7 +1186,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../static-graph-agent/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Static Graph Agent">
+          <a href="../artifacts-memory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Artifacts and Memory">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1204,20 +1196,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Static Graph Agent
+                Artifacts and Memory
               </div>
             </div>
           </a>
         
         
           
-          <a href="../concurrency-orchestration/" class="md-footer__link md-footer__link--next" aria-label="Next: Concurrency and Orchestration">
+          <a href="../extending-context/" class="md-footer__link md-footer__link--next" aria-label="Next: Extending Context">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Concurrency and Orchestration
+                Extending Context
               </div>
             </div>
             <div class="md-footer__button md-icon">
