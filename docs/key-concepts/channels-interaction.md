@@ -1,30 +1,23 @@
 # Channels and Interaction
 
-A **channel** is how your agent *talks* to the outside world (Slack, Telegram, Console, Web, …). `context.channel()` returns a **ChannelSession** — a small helper you use to send/receive messages, buttons, files, streams, and progress with the same Python API, regardless of adapter.
+A **channel** is how an agent *communicates* with the outside world — Slack, Telegram, Console, Web, or any other adapter. The `context.channel()` method returns a **ChannelSession**, a lightweight helper that provides a consistent Python API for sending and receiving messages, buttons, files, streams, and progress updates — regardless of which adapter you use.
 
-> **Defaults:** If you haven't configured any adapters, AetherGraph uses the console (`"console:stdin"`) as the default channel for all communication. To target Slack/Telegram/Web, see the adapter setup guides and provide credentials/keys; your agent code does not change.
+> **Default behavior:** If no adapters are configured, AetherGraph automatically uses the console (`"console:stdin"`) as the default channel for input/output. To target Slack, Telegram, or Web, configure their adapters with valid credentials; your agent code remains unchanged.
 
-> **In short:** Switch destinations without changing your agent logic. Use a bound session for many messages, or override per call.
+> **In short:** Switch communication targets freely. The agent logic stays identical.
 
 ---
 
-## 1. What is a Channel?
+## 1. What Is a Channel?
 
-A **routing target** for interaction. You can invoke a channel session using a key like `"slack:#research"`, or rely on the default configuration.
+A **channel** is a routing target for interaction. It represents where your agent sends or receives messages. You can specify a channel key (e.g., `"slack:#research"`) or rely on the system default.
 
-**Common keys**
+### Resolution Order
 
-* `slack:#research`  (channel)
-* `slack:@alice`     (DM)
-* `telegram:@mybot`  (chat)
-* `console:stdin`    (default fallback)
-
-**Resolution order**
-
-1. Per‑call override → `await context.channel().send_text("hi", channel="slack:#alerts")`
-2. Bound session key → `ch = context.channel("slack:#research"); await ch.send_text("hi")`
-3. Bus default → `services.channels.get_default_channel_key()`
-4. Fallback → `console:stdin`
+1. **Per-call override:** `await context.channel().send_text("hi", channel="slack:#alerts")`
+2. **Bound session key:** `ch = context.channel("slack:#research"); await ch.send_text("hi")`
+3. **Bus default:** taken from `services.channels.get_default_channel_key()`
+4. **Fallback:** `console:stdin`
 
 ---
 
@@ -37,35 +30,39 @@ from aethergraph import graph_fn
 async def channel_demo(*, context):
     ch = context.channel("slack:#research")
     await ch.send_text("Starting experiment…")
-    resp = await ch.ask_approval("Proceed?", options=["Yes", "No"])  # {approved, choice}
+    resp = await ch.ask_approval("Proceed?", options=["Yes", "No"])
     if resp["approved"]:
-        await ch.send_text("Great — launching run.")
+        await ch.send_text("✅ Launching run.")
 ```
+
+> Channels handle both output and input asynchronously — messages, approvals, file uploads, and more — using cooperative waits under the hood.
 
 ---
 
 ## 3. Core Methods
 
-| Method                                                                                   | Purpose                                            |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `send_text(text, *, channel=None)`                                                       | Send a plain text message.                         |
-| `send_image(url, *, alt="image", title=None, channel=None)`                              | Post an image by URL.                              |
-| `send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)` | Upload or attach a file.                           |
-| `send_buttons(text, buttons, *, channel=None)`                                           | Message with interactive buttons.                  |
-| `ask_text(prompt, *, timeout_s=3600, channel=None)`                                      | Ask for free‑text (cooperative wait).              |
-| `ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None)`    | Approve/pick an option.                            |
-| `ask_files(prompt, *, accept=None, multiple=True, timeout_s=3600, channel=None)`         | Request file upload(s).                            |
-| `ask_text_or_files(prompt, *, timeout_s=3600, channel=None)`                             | Let user reply with text or files.                 |
-| `stream(channel=None)`                                                                   | Async context for incremental token/delta updates. |
-| `progress(title="Working...", total=None, *, channel=None)`                              | Async context for live progress.                   |
+> Availability depends on the adapter’s capabilities (e.g., file uploads are not supported in the console channel).
 
-> All *ask* methods use cooperative waits with continuations; replies are correlated to the originating thread.
+| Method                                                                                   | Purpose                                           |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `send_text(text, *, channel=None)`                                                       | Send a plain text message.                        |
+| `send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)` | Upload or attach a file.                          |
+| `send_buttons(text, buttons, *, channel=None)`                                           | Send a message with interactive buttons.          |
+| `ask_text(prompt, *, timeout_s=3600, channel=None)`                                      | Ask for free-text input (cooperative wait).       |
+| `ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None)`    | Request approval or a choice.                     |
+| `ask_files(prompt, *, accept=None, multiple=True, timeout_s=3600, channel=None)`         | Request file upload(s).                           |
+| `stream(channel=None)`                                                                   | Open a streaming session for incremental updates. |
+| `progress(title="Working...", total=None, *, channel=None)`                              | Create a live progress bar context.               |
+
+> All `ask_*` methods use event-driven continuations, ensuring replies are properly correlated to their originating node.
 
 ---
 
-## 4. Streaming & Progress
+## 4. Streaming and Progress
 
-**Streams** are ideal for tokenized outputs or live logs:
+### Streaming
+
+Use streams for live token or log updates:
 
 ```python
 @graph_fn(name="stream_demo")
@@ -74,9 +71,12 @@ async def stream_demo(*, context):
         for chunk in ["Hello", " ", "world", "…"]:
             await s.delta(chunk)
         await s.end("Hello world!")
+    return {"ok": True}
 ```
 
-**Progress** exposes structured updates (current/total/percent/ETA):
+### Progress
+
+Track task progress with structured updates (current, total, percent, ETA):
 
 ```python
 @graph_fn(name="progress_demo")
@@ -84,30 +84,35 @@ async def progress_demo(*, context):
     async with context.channel().progress(title="Crunching", total=5) as bar:
         for i in range(5):
             await bar.update(current=i+1, eta_seconds=(4-i)*0.5, subtitle=f"step {i+1}/5")
-        await bar.end(subtitle="All set!", success=True)
+        await bar.end(subtitle="All done!", success=True)
+    return {"ok": True}
 ```
 
 ---
 
-## 5. File Uploads & Mixed Replies
+## 5. File Uploads and Mixed Replies
 
-Request files (optionally with a text note):
+Request files, optionally with a text comment:
 
 ```python
 @graph_fn(name="upload_demo")
 async def upload_demo(*, context):
     ans = await context.channel().ask_files(
-        prompt="Upload your dataset and add a brief note:", accept=[".csv", "application/zip"], multiple=True
+        prompt="Upload your dataset and add a note:",
+        accept=[".csv", "application/zip"],
+        multiple=True,
     )
-    # ans = { "text": str, "files": list[FileRef] }
     await context.channel().send_text(f"Received {len(ans['files'])} file(s). Thanks!")
+    return {"ok": True}
 ```
+
+`ans` contains both `text` and `files`, where each file is a structured `FileRef` object with metadata and a retrievable URI.
 
 ---
 
-## 6. Concurrency Pattern (fan‑out)
+## 6. Concurrency and Fan-Out
 
-You can issue concurrent asks to the **same bound session** and correlate the replies:
+You can launch multiple concurrent asks in the same bound channel session and correlate the results:
 
 ```python
 import asyncio
@@ -115,20 +120,43 @@ import asyncio
 @graph_fn(name="concurrent_asks")
 async def concurrent_asks(*, context):
     ch = context.channel("slack:#research")
+
     async def one(tag):
-        name = await ch.ask_text(f"[{tag}] What's your name?")
-        await ch.send_text(f"[{tag}] thanks, {name}!")
+        name = await ch.ask_text(f"[{tag}] What’s your name?")
+        await ch.send_text(f"[{tag}] Thanks, {name}!")
         return {tag: name}
+
     a, b = await asyncio.gather(one("A"), one("B"))
     return {"names": a | b}
 ```
 
 ---
 
-## 7. Guarantees & Notes
+## 7. Extensibility
 
-* **Idempotent upserts**: streams/progress use stable keys derived from `(run_id, node_id, suffix)`.
-* **Thread correlation**: ask/wait methods bind correlators so replies route to the right node.
-* **Adapter agnostic**: change destinations by key; your agent code stays the same.
+The channel interface can be extended to support **any platform** with a compatible API (HTTP, WebSocket, SDK). In practice, the inbound method for resuming interactions depends heavily on the target platform’s event model.
 
-**See also**: Context Overview → Channels · Continuations & Waits · Slack/Telegram/Web adapters
+* For **notification-only** channels, the API is straightforward — send events, no continuations.
+* For **interactive channels** (e.g., Slack, Telegram, Web), resumptions rely on correlation IDs and continuation stores.
+
+In the OSS edition, AetherGraph currently includes built-in support for **Console**, **Slack**, and **Telegram**. Support for additional adapters (e.g., Web or REST endpoints) will be provided in future releases.
+
+---
+
+## 8. Guarantees and Notes
+
+* **Idempotent updates:** `stream()` and `progress()` use stable keys derived from `(run_id, node_id, suffix)`.
+* **Thread-safe correlation:** all `ask_*` calls automatically bind correlators for proper reply routing.
+* **Adapter-agnostic:** switch destinations by changing the channel key — agent logic remains identical.
+* **Unified abstraction:** all adapters implement the same interface; only configuration changes per environment.
+
+---
+
+## Summary
+
+* Channels unify all interaction patterns (text, files, approvals, progress, and streaming) under one async API.
+* Default channel is console; others (Slack, Telegram, Web) are pluggable.
+* All `ask_*` methods suspend execution via event-driven continuations, resuming seamlessly upon reply.
+* Channels are **adapter-agnostic** and **fully extensible** — swap backends, not code.
+
+> Write once, interact anywhere — your agents stay Pythonic, event‑driven, and platform‑neutral.

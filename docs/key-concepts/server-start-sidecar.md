@@ -1,12 +1,12 @@
 # Server (Sidecar) Overview
 
-The **AetherGraph server** is a lightweight **sidecar** that boots your runtime services and exposes a tiny HTTP/WebSocket surface for adapters and continuations. You can run `@graph_fn` without it (pure Python, console I/O), but the sidecar is required for:
+The **AetherGraph sidecar** is a lightweight process that boots your runtime services and exposes a tiny HTTP/WebSocket surface for **adapters** (Slack, Web, Telegram, …) and **continuations** (event‑driven waits). You can run `@graph_fn` in pure Python without it (console only), but start the sidecar when you need:
 
-* **Event‑driven waits** (`ask_*` via Slack/Telegram/Web UI beyong Console → resume your run)
-* **Centralized service wiring** (artifacts, memory, kv, rag, llm, mcp)
-* **Global scheduling** for `@graphify` pipelines
+* **Real interactions**: `ask_text/approval/files` from Slack/Web/Telegram and resume the run
+* **Centralized service wiring**: artifacts, memory, kv, llm, rag, mcp, logger
+* **A shared control plane**: health, upload hooks, progress streams, basic inspect
 
-> In short: start the sidecar when you need real interactions, resumability, or a shared control plane.
+> **In short:** keep your agents plain Python; start the sidecar for **I/O, resumability, and shared services**.
 
 ---
 
@@ -15,81 +15,79 @@ The **AetherGraph server** is a lightweight **sidecar** that boots your runtime 
 ```python
 from aethergraph.server import start, stop
 
-url = start(host="127.0.0.1", port=0)  # launches FastAPI+Uvicorn in a background thread
+url = start(host="127.0.0.1", port=0)  # FastAPI + Uvicorn in a background thread
 print("sidecar:", url)
 
 # ... run @graph_fn / @graphify normally ...
 
-stop()  # optional (useful for tests/CI)
+stop()  # optional (handy in tests/CI)
 ```
+
+**Tips**
+
+* Use `port=0` to pick a free port automatically. 
+* Start it once per process; reuse the base URL across adapters/UI.
 
 ---
 
-## What `start()` actually does
+## What `start()` Does
 
-1. **Load config & workspace** (paths, secrets, profiles) and install them as current settings.
-2. **Build services** and register them (channels, artifacts, memory hotlog/persistence/indices, kv, llm, rag, mcp, logger).
-3. **Expose endpoints** for:
-    * **Continuations** (resume callbacks for `ask_text/approval/files`),
-    * **Adapters** (chat/events, uploads, progress),
-    * **Health/inspect** (minimal status routes).
+1. **Load config & workspace** — resolve paths, secrets, and profiles; make the workspace if needed.
+2. **Build & register services** — channels, artifacts (store/index), memory (hotlog/persistence/indices), kv, llm, rag, mcp, logger.
+3. **Expose endpoints** —
 
-4. **Launch Uvicorn** in a background thread and return the **base URL**.
+    * **Continuations**: resume callbacks for `ask_text / ask_approval / ask_files`
+    * **Adapters**: chat/events, uploads, progress streams
+
+4. **Launch Uvicorn** — run the app in a background thread and return the **base URL**.
 
 ---
 
 ## Minimal API
 
-### `start(...) -> str`
+`start(host="127.0.0.1", port=0, workspace=None, log_level="info") -> str`
 
-Starts the sidecar in‑process and returns the base URL.
+Starts the sidecar **in‑process** and returns the base URL.
 
-* `workspace`: root dir for artifacts/logs/corpora (auto‑created)
-* `host`, `port`: bind address; `port=0` picks a free port
-* `log_level`: Uvicorn verbosity
+`start_async(...) -> str`
 
-### `start_async(...) -> str`
+Async‑friendly variant (still hosts the server in a thread), convenient inside async apps/tests.
 
-Async‑friendly variant (still runs the server in a thread).
+`stop() -> None`
 
-### `stop() -> None`
-
-Stops the background server (useful in tests/CI).
+Stops the background server. Useful for teardown in tests/CI.
 
 ---
 
-## When do I *not* need it?
+## When to Use the Sidecar
 
-* Pure `@graph_fn` runs that only print to **console** and don’t use `ask_*`, external channels, or global scheduling. Those run directly in Python’s event loop. 
+* **Event‑driven waits** from non‑console adapters (Slack/Web/Telegram)
+* **File uploads & artifact routing** from a browser/UI
+* **Progress/streaming** to external UIs
+* **Shared settings & service wiring** across multiple agents
 
-## When do I *need* it?
-
-* Any **interactive** or **resumable** flow (cooperative or dual‑stage waits).
-* Using **Slack/Telegram/Web** channels or file uploads.
-* Running **static DAGs** built with `@graphify` under the **global scheduler**.
-
-If you don't know whether to use it, start the server anyway. 
+You **don’t** need it for: simple console demos, unit tests without external I/O, or pure compute.
 
 ---
 
-## Security & Networking (short)
+## Common Issues & Fixes
 
-* Default bind: `127.0.0.1` (local only). Use `0.0.0.0` only on trusted networks.
-* Put auth on WS/HTTP if exposed beyond localhost. Never log plaintext API keys.
+* **No reply after `ask_text()`** → The adapter isn’t posting **resume** events to the sidecar. Verify the sidecar base URL and token in the adapter config.
+* **CORS blocked** in web UI → Allow your UI origin in sidecar settings (CORS `allow_origins`).
+* **Port busy** → Use `port=0` or pick an open port.
+* **Service not available** (e.g., LLM/RAG) → Ensure your `create_app()` wires those services or provide the required credentials.
 
 ---
 
-## Troubleshooting (quick)
+## Notes on Architecture
 
-* **No reply after `ask_text()`** → adapter isn’t posting resumes to the sidecar URL/token.
-* **CORS error from web UI** → allow the UI origin in sidecar settings.
-* **Port busy** → pass `port=0` or another free port.
-* **Services unavailable** → ensure your `create_app()` wires llm/rag/kv/etc., or use defaults.
+* The sidecar runs its **own event loop/thread**; your agents/tools run on the **main loop**. They communicate via the ChannelBus/HTTP hooks.
+* External context services you register as **instances** run on the **main loop**, so `asyncio` locks work as expected.
 
 ---
 
 ## Takeaways
 
-* The sidecar is your **local control plane**: services + continuations + adapters + global scheduling.
-* Start it once with `start()`; keep your agents **plain Python**.
-* Use it whenever you need **interactions, persistence, or scale**.
+* The sidecar is your **local control plane**: services + continuations + adapters.
+* Start it with `start()` when you need **interactions, persistence, or shared wiring**.
+* Your agent code stays **plain Python** either way; the sidecar simply adds I/O and resumability.

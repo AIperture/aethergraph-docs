@@ -353,6 +353,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
@@ -451,9 +474,24 @@
         <li class="md-nav__item">
   <a href="#1-what-is-a-channel" class="md-nav__link">
     <span class="md-ellipsis">
-      1. What is a Channel?
+      1. What Is a Channel?
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. What Is a Channel?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolution Order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -476,36 +514,78 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-streaming-progress" class="md-nav__link">
+  <a href="#4-streaming-and-progress" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Streaming &amp; Progress
+      4. Streaming and Progress
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Streaming and Progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Streaming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progress
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-file-uploads-and-mixed-replies" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. File Uploads and Mixed Replies
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-file-uploads-mixed-replies" class="md-nav__link">
+  <a href="#6-concurrency-and-fan-out" class="md-nav__link">
     <span class="md-ellipsis">
-      5. File Uploads &amp; Mixed Replies
+      6. Concurrency and Fan-Out
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-concurrency-pattern-fanout" class="md-nav__link">
+  <a href="#7-extensibility" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Concurrency Pattern (fan‑out)
+      7. Extensibility
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-guarantees-notes" class="md-nav__link">
+  <a href="#8-guarantees-and-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Guarantees &amp; Notes
+      8. Guarantees and Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
     </span>
   </a>
   
@@ -550,12 +630,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../services-at-a-glance/" class="md-nav__link">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
@@ -619,58 +699,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Event-Driven Waits
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Executor & Scheduling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Server Start
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
     
   </span>
   
@@ -718,7 +775,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -728,317 +785,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1086,10 +832,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1102,8 +848,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1397,27 +1143,20 @@
 
 
 <h1 id="channels-and-interaction">Channels and Interaction<a class="headerlink" href="#channels-and-interaction" title="Permanent link">&para;</a></h1>
-<p>A <strong>channel</strong> is how your agent <em>talks</em> to the outside world (Slack, Telegram, Console, Web, …). <code>context.channel()</code> returns a <strong>ChannelSession</strong> — a small helper you use to send/receive messages, buttons, files, streams, and progress with the same Python API, regardless of adapter.</p>
+<p>A <strong>channel</strong> is how an agent <em>communicates</em> with the outside world — Slack, Telegram, Console, Web, or any other adapter. The <code>context.channel()</code> method returns a <strong>ChannelSession</strong>, a lightweight helper that provides a consistent Python API for sending and receiving messages, buttons, files, streams, and progress updates — regardless of which adapter you use.</p>
 <blockquote>
-<p><strong>Defaults:</strong> If you haven't configured any adapters, AetherGraph uses the console (<code>"console:stdin"</code>) as the default channel for all communication. To target Slack/Telegram/Web, see the adapter setup guides and provide credentials/keys; your agent code does not change.</p>
-<p><strong>In short:</strong> Switch destinations without changing your agent logic. Use a bound session for many messages, or override per call.</p>
+<p><strong>Default behavior:</strong> If no adapters are configured, AetherGraph automatically uses the console (<code>"console:stdin"</code>) as the default channel for input/output. To target Slack, Telegram, or Web, configure their adapters with valid credentials; your agent code remains unchanged.</p>
+<p><strong>In short:</strong> Switch communication targets freely. The agent logic stays identical.</p>
 </blockquote>
 <hr />
-<h2 id="1-what-is-a-channel">1. What is a Channel?<a class="headerlink" href="#1-what-is-a-channel" title="Permanent link">&para;</a></h2>
-<p>A <strong>routing target</strong> for interaction. You can invoke a channel session using a key like <code>"slack:#research"</code>, or rely on the default configuration.</p>
-<p><strong>Common keys</strong></p>
-<ul>
-<li><code>slack:#research</code>  (channel)</li>
-<li><code>slack:@alice</code>     (DM)</li>
-<li><code>telegram:@mybot</code>  (chat)</li>
-<li><code>console:stdin</code>    (default fallback)</li>
-</ul>
-<p><strong>Resolution order</strong></p>
+<h2 id="1-what-is-a-channel">1. What Is a Channel?<a class="headerlink" href="#1-what-is-a-channel" title="Permanent link">&para;</a></h2>
+<p>A <strong>channel</strong> is a routing target for interaction. It represents where your agent sends or receives messages. You can specify a channel key (e.g., <code>"slack:#research"</code>) or rely on the system default.</p>
+<h3 id="resolution-order">Resolution Order<a class="headerlink" href="#resolution-order" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Per‑call override → <code>await context.channel().send_text("hi", channel="slack:#alerts")</code></li>
-<li>Bound session key → <code>ch = context.channel("slack:#research"); await ch.send_text("hi")</code></li>
-<li>Bus default → <code>services.channels.get_default_channel_key()</code></li>
-<li>Fallback → <code>console:stdin</code></li>
+<li><strong>Per-call override:</strong> <code>await context.channel().send_text("hi", channel="slack:#alerts")</code></li>
+<li><strong>Bound session key:</strong> <code>ch = context.channel("slack:#research"); await ch.send_text("hi")</code></li>
+<li><strong>Bus default:</strong> taken from <code>services.channels.get_default_channel_key()</code></li>
+<li><strong>Fallback:</strong> <code>console:stdin</code></li>
 </ol>
 <hr />
 <h2 id="2-quick-start">2. Quick Start<a class="headerlink" href="#2-quick-start" title="Permanent link">&para;</a></h2>
@@ -1427,12 +1166,18 @@
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">channel_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:#research&quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Starting experiment…&quot;</span><span class="p">)</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span><span class="s2">&quot;Proceed?&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">])</span>  <span class="c1"># {approved, choice}</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span><span class="s2">&quot;Proceed?&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">resp</span><span class="p">[</span><span class="s2">&quot;approved&quot;</span><span class="p">]:</span>
-        <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Great — launching run.&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;✅ Launching run.&quot;</span><span class="p">)</span>
 </code></pre></div>
+<blockquote>
+<p>Channels handle both output and input asynchronously — messages, approvals, file uploads, and more — using cooperative waits under the hood.</p>
+</blockquote>
 <hr />
 <h2 id="3-core-methods">3. Core Methods<a class="headerlink" href="#3-core-methods" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Availability depends on the adapter’s capabilities (e.g., file uploads are not supported in the console channel).</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1446,98 +1191,118 @@
 <td>Send a plain text message.</td>
 </tr>
 <tr>
-<td><code>send_image(url, *, alt="image", title=None, channel=None)</code></td>
-<td>Post an image by URL.</td>
-</tr>
-<tr>
 <td><code>send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)</code></td>
 <td>Upload or attach a file.</td>
 </tr>
 <tr>
 <td><code>send_buttons(text, buttons, *, channel=None)</code></td>
-<td>Message with interactive buttons.</td>
+<td>Send a message with interactive buttons.</td>
 </tr>
 <tr>
 <td><code>ask_text(prompt, *, timeout_s=3600, channel=None)</code></td>
-<td>Ask for free‑text (cooperative wait).</td>
+<td>Ask for free-text input (cooperative wait).</td>
 </tr>
 <tr>
 <td><code>ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None)</code></td>
-<td>Approve/pick an option.</td>
+<td>Request approval or a choice.</td>
 </tr>
 <tr>
 <td><code>ask_files(prompt, *, accept=None, multiple=True, timeout_s=3600, channel=None)</code></td>
 <td>Request file upload(s).</td>
 </tr>
 <tr>
-<td><code>ask_text_or_files(prompt, *, timeout_s=3600, channel=None)</code></td>
-<td>Let user reply with text or files.</td>
-</tr>
-<tr>
 <td><code>stream(channel=None)</code></td>
-<td>Async context for incremental token/delta updates.</td>
+<td>Open a streaming session for incremental updates.</td>
 </tr>
 <tr>
 <td><code>progress(title="Working...", total=None, *, channel=None)</code></td>
-<td>Async context for live progress.</td>
+<td>Create a live progress bar context.</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>All <em>ask</em> methods use cooperative waits with continuations; replies are correlated to the originating thread.</p>
+<p>All <code>ask_*</code> methods use event-driven continuations, ensuring replies are properly correlated to their originating node.</p>
 </blockquote>
 <hr />
-<h2 id="4-streaming-progress">4. Streaming &amp; Progress<a class="headerlink" href="#4-streaming-progress" title="Permanent link">&para;</a></h2>
-<p><strong>Streams</strong> are ideal for tokenized outputs or live logs:</p>
+<h2 id="4-streaming-and-progress">4. Streaming and Progress<a class="headerlink" href="#4-streaming-and-progress" title="Permanent link">&para;</a></h2>
+<h3 id="streaming">Streaming<a class="headerlink" href="#streaming" title="Permanent link">&para;</a></h3>
+<p>Use streams for live token or log updates:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;stream_demo&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">stream_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="s2">&quot;…&quot;</span><span class="p">]:</span>
             <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
         <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 </code></pre></div>
-<p><strong>Progress</strong> exposes structured updates (current/total/percent/ETA):</p>
+<h3 id="progress">Progress<a class="headerlink" href="#progress" title="Permanent link">&para;</a></h3>
+<p>Track task progress with structured updates (current, total, percent, ETA):</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;progress_demo&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">progress_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Crunching&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">bar</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
             <span class="k">await</span> <span class="n">bar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">current</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">eta_seconds</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;step </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/5&quot;</span><span class="p">)</span>
-        <span class="k">await</span> <span class="n">bar</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;All set!&quot;</span><span class="p">,</span> <span class="n">success</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">bar</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;All done!&quot;</span><span class="p">,</span> <span class="n">success</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="5-file-uploads-mixed-replies">5. File Uploads &amp; Mixed Replies<a class="headerlink" href="#5-file-uploads-mixed-replies" title="Permanent link">&para;</a></h2>
-<p>Request files (optionally with a text note):</p>
+<h2 id="5-file-uploads-and-mixed-replies">5. File Uploads and Mixed Replies<a class="headerlink" href="#5-file-uploads-and-mixed-replies" title="Permanent link">&para;</a></h2>
+<p>Request files, optionally with a text comment:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;upload_demo&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_files</span><span class="p">(</span>
-        <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Upload your dataset and add a brief note:&quot;</span><span class="p">,</span> <span class="n">accept</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;application/zip&quot;</span><span class="p">],</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Upload your dataset and add a note:&quot;</span><span class="p">,</span>
+        <span class="n">accept</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;application/zip&quot;</span><span class="p">],</span>
+        <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="c1"># ans = { &quot;text&quot;: str, &quot;files&quot;: list[FileRef] }</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">&#39;files&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> file(s). Thanks!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
 </code></pre></div>
+<p><code>ans</code> contains both <code>text</code> and <code>files</code>, where each file is a structured <code>FileRef</code> object with metadata and a retrievable URI.</p>
 <hr />
-<h2 id="6-concurrency-pattern-fanout">6. Concurrency Pattern (fan‑out)<a class="headerlink" href="#6-concurrency-pattern-fanout" title="Permanent link">&para;</a></h2>
-<p>You can issue concurrent asks to the <strong>same bound session</strong> and correlate the replies:</p>
+<h2 id="6-concurrency-and-fan-out">6. Concurrency and Fan-Out<a class="headerlink" href="#6-concurrency-and-fan-out" title="Permanent link">&para;</a></h2>
+<p>You can launch multiple concurrent asks in the same bound channel session and correlate the results:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
 <span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;concurrent_asks&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">concurrent_asks</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:#research&quot;</span><span class="p">)</span>
+
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">one</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] What&#39;s your name?&quot;</span><span class="p">)</span>
-        <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] thanks, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] What’s your name?&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] Thanks, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="n">tag</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">one</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">),</span> <span class="n">one</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">}</span>
 </code></pre></div>
 <hr />
-<h2 id="7-guarantees-notes">7. Guarantees &amp; Notes<a class="headerlink" href="#7-guarantees-notes" title="Permanent link">&para;</a></h2>
+<h2 id="7-extensibility">7. Extensibility<a class="headerlink" href="#7-extensibility" title="Permanent link">&para;</a></h2>
+<p>The channel interface can be extended to support <strong>any platform</strong> with a compatible API (HTTP, WebSocket, SDK). In practice, the inbound method for resuming interactions depends heavily on the target platform’s event model.</p>
 <ul>
-<li><strong>Idempotent upserts</strong>: streams/progress use stable keys derived from <code>(run_id, node_id, suffix)</code>.</li>
-<li><strong>Thread correlation</strong>: ask/wait methods bind correlators so replies route to the right node.</li>
-<li><strong>Adapter agnostic</strong>: change destinations by key; your agent code stays the same.</li>
+<li>For <strong>notification-only</strong> channels, the API is straightforward — send events, no continuations.</li>
+<li>For <strong>interactive channels</strong> (e.g., Slack, Telegram, Web), resumptions rely on correlation IDs and continuation stores.</li>
 </ul>
-<p><strong>See also</strong>: Context Overview → Channels · Continuations &amp; Waits · Slack/Telegram/Web adapters</p>
+<p>In the OSS edition, AetherGraph currently includes built-in support for <strong>Console</strong>, <strong>Slack</strong>, and <strong>Telegram</strong>. Support for additional adapters (e.g., Web or REST endpoints) will be provided in future releases.</p>
+<hr />
+<h2 id="8-guarantees-and-notes">8. Guarantees and Notes<a class="headerlink" href="#8-guarantees-and-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Idempotent updates:</strong> <code>stream()</code> and <code>progress()</code> use stable keys derived from <code>(run_id, node_id, suffix)</code>.</li>
+<li><strong>Thread-safe correlation:</strong> all <code>ask_*</code> calls automatically bind correlators for proper reply routing.</li>
+<li><strong>Adapter-agnostic:</strong> switch destinations by changing the channel key — agent logic remains identical.</li>
+<li><strong>Unified abstraction:</strong> all adapters implement the same interface; only configuration changes per environment.</li>
+</ul>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Channels unify all interaction patterns (text, files, approvals, progress, and streaming) under one async API.</li>
+<li>Default channel is console; others (Slack, Telegram, Web) are pluggable.</li>
+<li>All <code>ask_*</code> methods suspend execution via event-driven continuations, resuming seamlessly upon reply.</li>
+<li>Channels are <strong>adapter-agnostic</strong> and <strong>fully extensible</strong> — swap backends, not code.</li>
+</ul>
+<blockquote>
+<p>Write once, interact anywhere — your agents stay Pythonic, event‑driven, and platform‑neutral.</p>
+</blockquote>
 
 
 

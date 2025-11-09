@@ -12,13 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/key-concepts/graph-executor/">
+        <link rel="canonical" href="https://your-domain.com/key-concepts/concurrency-orchestration/">
       
       
-        <link rel="prev" href="../event-driven-waits/">
+        <link rel="prev" href="../server-start-sidecar/">
       
       
-        <link rel="next" href="../server-start-sidecar/">
+        <link rel="next" href="../../reference/decorators/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Graph Executor & Scheduling - AetherGraph</title>
+        <title>Concurrency and Orchestration - AetherGraph</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graph-executor-schedulers" class="md-skip">
+        <a href="#concurrency-faninfanout-graphlevel-orchestration" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graph Executor & Scheduling
+              Concurrency and Orchestration
             
           </span>
         </div>
@@ -353,6 +353,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
@@ -445,12 +468,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../services-at-a-glance/" class="md-nav__link">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
@@ -514,12 +537,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
+      <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Event-Driven Waits
+    Sidecar Server
     
   </span>
   
@@ -551,7 +574,7 @@
   
   
   <span class="md-ellipsis">
-    Graph Executor & Scheduling
+    Concurrency and Orchestration
     
   </span>
   
@@ -564,7 +587,7 @@
   
   
   <span class="md-ellipsis">
-    Graph Executor & Scheduling
+    Concurrency and Orchestration
     
   </span>
   
@@ -587,28 +610,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-local-vs-global-schedulers" class="md-nav__link">
+  <a href="#1-graph_fn-pythonic-concurrency-for-reactive-agents" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Local vs Global Schedulers
+      1. @graph_fn — Pythonic Concurrency for Reactive Agents
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Local vs Global Schedulers">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-graphify-schedulercontrolled-static-dags" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. @graphify — Scheduler‑Controlled Static DAGs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-graphlevel-orchestration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Graph‑Level Orchestration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Graph‑Level Orchestration Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#local-scheduler-used-by-graph_fn" class="md-nav__link">
+  <a href="#a-sequential-orchestration-plain-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Local Scheduler (used by @graph_fn)
+      A) Sequential orchestration (plain Python)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#global-scheduler-used-by-graphify" class="md-nav__link">
+  <a href="#b-concurrent-graph_fn-runs-asyncfriendly" class="md-nav__link">
     <span class="md-ellipsis">
-      Global Scheduler (used by @graphify)
+      B) Concurrent graph_fn runs (async‑friendly)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-concurrent-graph-runner-works-for-both-graph_fn-and-graphify" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Concurrent graph runner (works for both graph_fn and graphify)
     </span>
   </a>
   
@@ -620,69 +670,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-conceptual-diagram" class="md-nav__link">
+  <a href="#4-nested-and-multigraph-execution" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Conceptual Diagram
+      4. Nested and Multi‑Graph Execution
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-scheduler-algorithm-overview" class="md-nav__link">
+  <a href="#5-concurrency-comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Scheduler Algorithm Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Scheduler Algorithm Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-loop-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Loop Type
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#simplified-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Simplified Flow
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-resource-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Resource Model
+      5. Concurrency Comparison
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-why-this-design-works" class="md-nav__link">
+  <a href="#takeaways" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Why This Design Works
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Summary
+      Takeaways
     </span>
   </a>
   
@@ -692,29 +700,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../server-start-sidecar/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Server Start
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -757,7 +742,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -767,317 +752,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1125,10 +799,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1141,8 +815,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1435,155 +1109,150 @@
   
 
 
-<h1 id="graph-executor-schedulers">Graph Executor — Schedulers<a class="headerlink" href="#graph-executor-schedulers" title="Permanent link">&para;</a></h1>
-<p>AetherGraph’s execution model uses <strong>schedulers</strong> to drive node execution, handle dependencies, and coordinate events across graphs. There are two major modes:</p>
-<ul>
-<li><strong>Local scheduler</strong> – lightweight, per‑graph control loop used by <code>@graph_fn</code>.</li>
-<li><strong>Global scheduler</strong> – centralized, event‑driven scheduler managing all graphs submitted by <code>@graphify</code>.</li>
-</ul>
+<h1 id="concurrency-faninfanout-graphlevel-orchestration">Concurrency, Fan‑In/Fan‑Out &amp; Graph‑Level Orchestration<a class="headerlink" href="#concurrency-faninfanout-graphlevel-orchestration" title="Permanent link">&para;</a></h1>
+<p>AetherGraph provides <strong>Python‑first concurrency</strong> that scales from small reactive agents to globally scheduled DAGs. You can orchestrate parallelism naturally in Python, while the runtime enforces safe scheduling and per‑run concurrency caps.</p>
 <hr />
-<h2 id="1-local-vs-global-schedulers">1. Local vs Global Schedulers<a class="headerlink" href="#1-local-vs-global-schedulers" title="Permanent link">&para;</a></h2>
-<h3 id="local-scheduler-used-by-graph_fn">Local Scheduler (used by <code>@graph_fn</code>)<a class="headerlink" href="#local-scheduler-used-by-graph_fn" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Each <code>@graph_fn</code> invocation runs in its <strong>own event loop context</strong>, orchestrated directly by Python’s async runtime.</li>
-<li>It executes sequentially or with lightweight concurrency (via <code>await</code> and tasks).</li>
-<li><strong>No graph queueing</strong> — tool calls execute immediately or schedule via local awaits.</li>
-<li>Ideal for <strong>reactive, interactive agents</strong> where quick iteration matters.</li>
-<li>Regular Python functions (non‑tool calls) <strong>bypass scheduling entirely</strong>, running through the native Python runtime.</li>
-</ul>
-<h3 id="global-scheduler-used-by-graphify">Global Scheduler (used by <code>@graphify</code>)<a class="headerlink" href="#global-scheduler-used-by-graphify" title="Permanent link">&para;</a></h3>
-<ul>
-<li>A <strong>single global event loop</strong> drives all active graphs and nodes across runs.</li>
-<li>Implements <strong>fair, event‑driven scheduling</strong> with per‑run capacity, retry policies, and backoff.</li>
-<li>Nodes enter the global queue when ready, and yield back control when waiting for continuations or dependencies.</li>
-<li>Perfect for <strong>static DAGs</strong>, <strong>multi‑run orchestration</strong>, and <strong>large‑scale deployments</strong>.</li>
-</ul>
-<hr />
-<h2 id="2-conceptual-diagram">2. Conceptual Diagram<a class="headerlink" href="#2-conceptual-diagram" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>          ┌────────────────────────────┐
-          │        Local Scheduler     │
-          │  (per @graph_fn runtime)   │
-          │                            │
-   async →│ executes Python awaitables │
-  calls → │ immediate tool invocations │
-          │  small scale, no registry  │
-          └────────────┬───────────────┘
-                       │ submits TaskGraph (optional)
-                       ▼
-          ┌────────────────────────────┐
-          │       Global Scheduler     │
-          │ (multi‑graph orchestrator) │
-          │  • One event loop          │
-          │  • Runs across all graphs  │
-          │  • Event‑driven resumes    │
-          │  • Backoff &amp; retries       │
-          └────────────────────────────┘
+<h2 id="1-graph_fn-pythonic-concurrency-for-reactive-agents">1. <code>@graph_fn</code> — Pythonic Concurrency for Reactive Agents<a class="headerlink" href="#1-graph_fn-pythonic-concurrency-for-reactive-agents" title="Permanent link">&para;</a></h2>
+<p><code>@graph_fn</code> functions execute through normal Python async semantics. <strong>Plain Python awaits run directly on the event loop</strong>, while <strong>any <code>@tool</code> calls inside a <code>@graph_fn</code> become implicit nodes</strong> managed by the agent’s internal scheduler.</p>
+<p><strong>Example: bounded fan‑out using a semaphore</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
+
+<span class="n">sem</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># cap concurrent jobs (user-managed)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_capped</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">sem</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">fn</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;batch_agent&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">batch_agent</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;processing </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()}</span>
+
+    <span class="c1"># fan‑out with manual cap</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">run_capped</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+
+    <span class="c1"># fan‑in</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]}</span>
 </code></pre></div>
-<hr />
-<h2 id="3-scheduler-algorithm-overview">3. Scheduler Algorithm Overview<a class="headerlink" href="#3-scheduler-algorithm-overview" title="Permanent link">&para;</a></h2>
-<h3 id="core-loop-type">Core Loop Type<a class="headerlink" href="#core-loop-type" title="Permanent link">&para;</a></h3>
-<p>The <strong>GlobalForwardScheduler</strong> is <strong>event‑driven</strong>, not polling‑based.</p>
+<p><strong>Notes:</strong></p>
 <ul>
-<li>It sleeps until an event (resume, wakeup, or node completion) is emitted.</li>
-<li>Once awakened, it drains queued events, checks for ready nodes, and dispatches eligible tasks.</li>
-<li>Each run has bounded concurrency, and optionally, a global cap across all runs.</li>
+<li>Plain Python steps execute immediately — <strong>not capped</strong> by the scheduler.</li>
+<li><code>@tool</code> calls are scheduled and counted toward the agent’s concurrency cap through <code>max_concurrency</code> (default = <strong>4</strong>).</li>
+<li>You can override per‑run limits by passing <code>max_concurrency=&lt;int&gt;</code> to <code>run()</code> or <code>run_async()</code> or use <code>graph_fn(.., max_concurrency=&lt;int&gt;)</code>.</li>
+<li>For nested or composed agents, effective concurrency multiplies; use semaphores or pools to control load.</li>
+<li>Ideal for reactive, exploratory agents or mixed I/O + compute logic.</li>
 </ul>
-<h3 id="simplified-flow">Simplified Flow<a class="headerlink" href="#simplified-flow" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>while not terminated:
-    drain control events (resume, wakeup)
-    schedule resumed nodes first
-    schedule ready nodes (deps satisfied)
-    await first_completed(running_tasks or new events)
-    on node_done → emit event → unblock dependents
+<hr />
+<h2 id="2-graphify-schedulercontrolled-static-dags">2. <code>@graphify</code> — Scheduler‑Controlled Static DAGs<a class="headerlink" href="#2-graphify-schedulercontrolled-static-dags" title="Permanent link">&para;</a></h2>
+<p>In static DAGs built with <code>@graphify</code>, every <code>@tool</code> call becomes a node in a <strong>TaskGraph</strong>. Concurrency is automatically managed by the runtime scheduler, respecting per‑run limits.</p>
+<p><strong>Minimal fan‑in/fan‑out example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graphify</span><span class="p">,</span> <span class="n">tool</span>
+
+<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;out&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;out&quot;</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+
+<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">reduce_sum</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">)}</span>
+
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;map_reduce&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;vals&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sum&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">map_reduce</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+    <span class="n">outs</span> <span class="o">=</span> <span class="p">[</span><span class="n">work</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">]</span>       <span class="c1"># fan‑out</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">reduce_sum</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="p">[</span><span class="n">o</span><span class="o">.</span><span class="n">out</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">outs</span><span class="p">])</span>  <span class="c1"># fan‑in</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="n">total</span><span class="o">.</span><span class="n">sum</span><span class="p">}</span>
 </code></pre></div>
+<p><strong>Key points:</strong></p>
 <ul>
-<li><strong>Event sources:</strong> resume signals, new runs, wakeups, and node completions.</li>
-<li><strong>Scheduling order:</strong> resumed nodes → explicitly pending → dependency‑ready nodes.</li>
-<li><strong>Fairness:</strong> round‑robin across runs.</li>
-<li><strong>Idle handling:</strong> if no nodes running, block until the next event.</li>
+<li>The scheduler enforces <code>max_concurrency</code> automatically (default = <strong>4</strong>).</li>
+<li>You can override per‑run limits by passing <code>max_concurrency=&lt;int&gt;</code> to <code>run()</code>, or <code>run_async()</code>.</li>
+<li>Static DAG concurrency is global and consistent across all tool nodes.</li>
+<li>Each node runs once dependencies resolve; no explicit <code>await</code> is required.</li>
 </ul>
 <hr />
-<h2 id="4-resource-model">4. Resource Model<a class="headerlink" href="#4-resource-model" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Local Scheduler (<code>@graph_fn</code>)</th>
-<th>Global Scheduler (<code>@graphify</code>)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>CPU</strong></td>
-<td>Uses local async tasks; minimal overhead</td>
-<td>Centralized asyncio event loop with per‑run task pools</td>
-</tr>
-<tr>
-<td><strong>Memory</strong></td>
-<td>In‑process; short‑lived per function</td>
-<td>Persistent per‑run state tables (node states, queues)</td>
-</tr>
-<tr>
-<td><strong>Disk</strong></td>
-<td>None unless memory/artifact writes used</td>
-<td>Writes resumable states and continuations (~1–10 KB/node)</td>
-</tr>
-<tr>
-<td><strong>Network</strong></td>
-<td>Only if context services use remote backends</td>
-<td>Communicates via Resume/Wakeup buses for distributed runs</td>
-</tr>
-</tbody>
-</table>
+<h2 id="3-graphlevel-orchestration-patterns">3. Graph‑Level Orchestration Patterns<a class="headerlink" href="#3-graphlevel-orchestration-patterns" title="Permanent link">&para;</a></h2>
+<p>All orchestration in AetherGraph is <strong>just Python</strong>. You can run sequentially or concurrently using standard async primitives.</p>
+<h3 id="a-sequential-orchestration-plain-python">A) Sequential orchestration (plain Python)<a class="headerlink" href="#a-sequential-orchestration-plain-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">res1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">graph_fn1</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">graph_fn2</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="b-concurrent-graph_fn-runs-asyncfriendly">B) Concurrent <code>graph_fn</code> runs (async‑friendly)<a class="headerlink" href="#b-concurrent-graph_fn-runs-asyncfriendly" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">res1</span><span class="p">,</span> <span class="n">res2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+    <span class="n">graph_fn1</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">graph_fn2</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="c-concurrent-graph-runner-works-for-both-graph_fn-and-graphify">C) Concurrent graph runner (works for both <code>graph_fn</code> and <code>graphify</code>)<a class="headerlink" href="#c-concurrent-graph-runner-works-for-both-graph_fn-and-graphify" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_async</span>
+
+<span class="n">res1</span><span class="p">,</span> <span class="n">res2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+    <span class="n">run_async</span><span class="p">(</span><span class="n">graph1</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+    <span class="n">run_async</span><span class="p">(</span><span class="n">graph2</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Default concurrency for <strong>each</strong> graph is <strong>4</strong>, but you can override it per call with <code>max_concurrency</code> in either <code>run()</code> or <code>run_async()</code>.
+Becareful of global concurrency limit. Use semaphores or pools to control load. </p>
+</blockquote>
 <hr />
-<h2 id="5-why-this-design-works">5. Why This Design Works<a class="headerlink" href="#5-why-this-design-works" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Local scheduler</strong> — fast, minimal overhead, ideal for reactive research and small DAGs.</li>
-<li><strong>Global scheduler</strong> — durable, resumable, and optimized for long‑running or large workflows.</li>
-<li><strong>Event‑driven architecture</strong> — ensures zero busy‑waiting and minimal CPU when idle.</li>
-<li><strong>Per‑run independence</strong> — each graph maintains its own capacity, backoff, and retry settings.</li>
-</ul>
+<h2 id="4-nested-and-multigraph-execution">4. Nested and Multi‑Graph Execution<a class="headerlink" href="#4-nested-and-multigraph-execution" title="Permanent link">&para;</a></h2>
+<p><strong>Nested <code>@graph_fn</code></strong> — supported. Each agent has its own scheduler; nested agents may multiply total concurrency. Use global semaphores or resource pools to cap total parallelism.</p>
+<p><strong>Nested <code>@graphify</code></strong> — not supported yet. Static graphs cannot call other static graphs as nodes; compose them at the orchestration layer instead.</p>
 <hr />
-<h2 id="6-summary">6. Summary<a class="headerlink" href="#6-summary" title="Permanent link">&para;</a></h2>
+<h2 id="5-concurrency-comparison">5. Concurrency Comparison<a class="headerlink" href="#5-concurrency-comparison" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Aspect</th>
-<th>Local Scheduler (<code>@graph_fn</code>)</th>
-<th>Global Scheduler (<code>@graphify</code>)</th>
+<th><code>@graph_fn</code> (Reactive)</th>
+<th><code>@graphify</code> (Static)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Scope</strong></td>
-<td>One runtime function</td>
-<td>Many graphs, many runs</td>
+<td>Concurrency Control</td>
+<td>Automatic via scheduler (<code>max_concurrency</code>)</td>
+<td>Automatic via scheduler (<code>max_concurrency</code>)</td>
 </tr>
 <tr>
-<td><strong>Control</strong></td>
-<td>Immediate async execution</td>
-<td>Central event bus + scheduling queues</td>
+<td>Default Limit</td>
+<td>Default 4 per run, multiply with nested calls</td>
+<td>Default 4 per run</td>
 </tr>
 <tr>
-<td><strong>Scheduling granularity</strong></td>
-<td>Function level</td>
-<td>Node level (with retries/resume)</td>
+<td>Plain Python Awaitables</td>
+<td>Run immediately, outside scheduler</td>
+<td>Not applicable (only tool nodes)</td>
 </tr>
 <tr>
-<td><strong>Persistence</strong></td>
-<td>Ephemeral</td>
-<td>Durable; resumable</td>
+<td>Nested Calls</td>
+<td>Supported</td>
+<td>Not yet supported</td>
 </tr>
 <tr>
-<td><strong>Best for</strong></td>
-<td>Interactive or exploratory runs</td>
-<td>Deterministic, large‑scale orchestration</td>
+<td>Failure Behavior</td>
+<td>Caught at runtime; user decides</td>
+<td>Scheduler stops on first error (configurable)</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Agents, exploration, hybrid control</td>
+<td>Pipelines, batch workflows, reproducible DAGs</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>In short: <strong><code>@graph_fn</code></strong> runs live, reactive agents; <strong><code>@graphify</code></strong> builds orchestrated pipelines under a global, event‑driven scheduler.</p>
-</blockquote>
+<hr />
+<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Reactive vs Deterministic:</strong> <code>graph_fn</code> for interactive exploration; <code>graphify</code> for reproducible pipelines.</li>
+<li><strong>Fan‑In/Fan‑Out:</strong> Async patterns in <code>graph_fn</code>; data edges in <code>graphify</code>.</li>
+<li><strong>Concurrency Control:</strong> Default cap = 4; override per run with <code>max_concurrency</code>.</li>
+<li><strong>Scalability:</strong> Local schedulers per agent; a global scheduler orchestrates multiple runs.</li>
+<li><strong>Everything is Python:</strong> The runtime extends standard async execution into persistent, inspectable DAG scheduling.</li>
+</ul>
 
 
 
@@ -1613,7 +1282,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../event-driven-waits/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Event-Driven Waits">
+          <a href="../server-start-sidecar/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sidecar Server">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1623,20 +1292,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Event-Driven Waits
+                Sidecar Server
               </div>
             </div>
           </a>
         
         
           
-          <a href="../server-start-sidecar/" class="md-footer__link md-footer__link--next" aria-label="Next: Server Start">
+          <a href="../../reference/decorators/" class="md-footer__link md-footer__link--next" aria-label="Next: Decorators">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Server Start
+                Decorators
               </div>
             </div>
             <div class="md-footer__button md-icon">

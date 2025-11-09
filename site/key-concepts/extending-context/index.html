@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://your-domain.com/key-concepts/extending-context/">
       
       
-        <link rel="prev" href="../services-at-a-glance/">
+        <link rel="prev" href="../other-services-overview/">
       
       
         <link rel="next" href="../static-graph-agent/">
@@ -353,6 +353,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
@@ -445,12 +468,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../services-at-a-glance/" class="md-nav__link">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
@@ -518,19 +541,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-an-external-context-service" class="md-nav__link">
+  <a href="#1-what-is-an-external-context-service" class="md-nav__link">
     <span class="md-ellipsis">
-      What Is an External Context Service?
+      1. What is an External Context Service?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What Is an External Context Service?">
+    <nav class="md-nav" aria-label="1. What is an External Context Service?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-use-it" class="md-nav__link">
+  <a href="#whywhen-to-use" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Use It
+      Why/When to Use
     </span>
   </a>
   
@@ -542,28 +565,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
+  <a href="#2-naming-boundaries-important" class="md-nav__link">
     <span class="md-ellipsis">
-      Minimal Example
+      2. Naming &amp; Boundaries (Important)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Minimal Example">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-minimal-service-instancebased" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Minimal Service (Instance‑based)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Minimal Service (Instance‑based)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#define-a-service" class="md-nav__link">
+  <a href="#define-a-service-and-use-selfctx" class="md-nav__link">
     <span class="md-ellipsis">
-      Define a Service
+      Define a service and use self.ctx()
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#register-at-startup" class="md-nav__link">
+  <a href="#register-at-startup-pass-an-instance" class="md-nav__link">
     <span class="md-ellipsis">
-      Register at Startup
+      Register at startup (pass an instance)
     </span>
   </a>
   
@@ -575,27 +607,96 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-custom-services" class="md-nav__link">
+  <a href="#4-usage-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      When to Use Custom Services
+      4. Usage Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Usage Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-submit-training-link-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      A) Submit training &amp; link artifacts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-inspect-status-in-another-nodetool" class="md-nav__link">
+    <span class="md-ellipsis">
+      B) Inspect status in another node/tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-backgroundblocking-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Background/Blocking helpers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-concurrency-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Concurrency &amp; Lifecycle
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lifecycle-concurrency" class="md-nav__link">
+  <a href="#6-testing-mocking" class="md-nav__link">
     <span class="md-ellipsis">
-      Lifecycle &amp; Concurrency
+      6. Testing &amp; Mocking
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
+  <a href="#7-error-handling-observability" class="md-nav__link">
     <span class="md-ellipsis">
-      Takeaways
+      7. Error Handling &amp; Observability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-common-service-patterns-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Common Service Patterns (Examples)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-optional-callable-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Optional callable services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Recap
     </span>
   </a>
   
@@ -640,58 +741,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Event-Driven Waits
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Executor & Scheduling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Server Start
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
     
   </span>
   
@@ -739,7 +817,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -749,317 +827,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1107,10 +874,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1123,8 +890,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1418,90 +1185,192 @@
 
 
 <h1 id="extending-context-services">Extending Context Services<a class="headerlink" href="#extending-context-services" title="Permanent link">&para;</a></h1>
-<p>AetherGraph lets you <strong>extend the runtime</strong> by adding your own <code>context.&lt;name&gt;</code> methods. These <em>external context services</em> are reusable, lifecycle-aware helpers that live alongside the built-ins (<code>channel</code>, <code>memory</code>, <code>artifacts</code>, etc.) and can hold shared state, wrap APIs, or orchestrate external systems — all without changing your agent code.</p>
+<p>AetherGraph lets you <strong>extend the runtime</strong> by adding your own <code>context.&lt;name&gt;</code> methods. These <em>external context services</em> live <strong>alongside</strong> built‑ins like <code>channel</code>, <code>memory</code>, and <code>artifacts</code>, and provide reusable, lifecycle‑aware helpers for clients, caches, orchestration, or domain APIs — <strong>without changing your agent code</strong>.</p>
+<blockquote>
+<p><strong>Key idea:</strong> keep agent logic pure‑Python; move integration glue and shared state into <strong>services</strong> that the runtime injects per node.</p>
+</blockquote>
 <hr />
-<h2 id="what-is-an-external-context-service">What Is an External Context Service?<a class="headerlink" href="#what-is-an-external-context-service" title="Permanent link">&para;</a></h2>
-<p>A <strong>context service</strong> is a registered Python object that AetherGraph injects into every node’s <code>NodeContext</code>. Once registered, it’s available anywhere inside a graph:</p>
+<h2 id="1-what-is-an-external-context-service">1. What is an External Context Service?<a class="headerlink" href="#1-what-is-an-external-context-service" title="Permanent link">&para;</a></h2>
+<p>A <strong>context service</strong> is a registered Python object bound into every <code>NodeContext</code>. After registration, you can use it anywhere inside a graph or tool:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;demo&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">myservice</span><span class="o">.</span><span class="n">do_something</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;val&quot;</span><span class="p">:</span> <span class="n">val</span><span class="p">}</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">trainer</span><span class="p">()</span><span class="o">.</span><span class="n">inspect_job</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="s2">&quot;abc123&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]}</span>
 </code></pre></div>
-<h3 id="why-use-it">Why Use It<a class="headerlink" href="#why-use-it" title="Permanent link">&para;</a></h3>
+<h3 id="whywhen-to-use">Why/When to Use<a class="headerlink" href="#whywhen-to-use" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Reusable helpers</strong> – share clients, caches, or models across nodes.</li>
-<li><strong>Shared state</strong> – coordinate progress or reuse expensive objects.</li>
-<li><strong>Centralized config</strong> – keep API keys, timeouts, or policies in one place.</li>
-<li><strong>Lifecycle control</strong> – optional <code>start()</code>/<code>close()</code> for setup or teardown.</li>
-<li><strong>Per-run binding</strong> – each call knows its <code>run_id</code>, <code>graph_id</code>, and <code>node_id</code>.</li>
+<li><strong>Reusable helpers</strong> — share clients (e.g., HPC, S3, DB, solver), connection pools, or token buckets.</li>
+<li><strong>Shared state</strong> — memoize expensive lookups; coordinate across nodes within a run.</li>
+<li><strong>Centralized config</strong> — keep API keys, timeouts, routing, or policies in one place.</li>
+<li><strong>Lifecycle control</strong> — optional <code>start()/close()</code> hooks for setup/teardown.</li>
+<li><strong>Per‑node awareness</strong> — access <code>run_id/graph_id/node_id</code> for provenance or multi‑tenancy.</li>
 </ul>
-<p>Use a service when you need a <em>long-lived instance</em> or <em>cross-node coordination</em>. For small, stateless helpers, plain imports are simpler.</p>
+<blockquote>
+<p>Use a service for <em>long‑lived instances</em> or <em>cross‑node coordination</em>. For tiny stateless helpers, plain imports are fine.</p>
+</blockquote>
 <hr />
-<h2 id="minimal-example">Minimal Example<a class="headerlink" href="#minimal-example" title="Permanent link">&para;</a></h2>
-<h3 id="define-a-service">Define a Service<a class="headerlink" href="#define-a-service" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.v3.core.runtime.base_service</span><span class="w"> </span><span class="kn">import</span> <span class="n">Service</span>
+<h2 id="2-naming-boundaries-important">2. Naming &amp; Boundaries (Important)<a class="headerlink" href="#2-naming-boundaries-important" title="Permanent link">&para;</a></h2>
+<p>Built‑ins (<code>context.artifacts()</code>, <code>context.memory()</code>, etc.) are <strong>not swappable</strong> in OSS. To extend the system, register <strong>new services with new names</strong> (e.g., <code>context.trainer()</code>, <code>context.datasets()</code>, <code>context.lineage_store()</code>).</p>
+<ul>
+<li>Keep agent code explicit about which storage or API it’s using.</li>
+<li>If mirroring/exporting, record links (artifact URIs, memory event IDs) inside your external system for provenance.</li>
+</ul>
+<hr />
+<h2 id="3-minimal-service-instancebased">3. Minimal Service (Instance‑based)<a class="headerlink" href="#3-minimal-service-instancebased" title="Permanent link">&para;</a></h2>
+<h3 id="define-a-service-and-use-selfctx">Define a service and use <code>self.ctx()</code><a class="headerlink" href="#define-a-service-and-use-selfctx" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Service</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MyService</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="p">()</span>  <span class="c1"># current NodeContext</span>
-        <span class="n">ctx</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;working on </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;done:</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RunAware</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">tag_current</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># Access the *current* NodeContext lazily</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;run=</span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">run_id</span><span class="si">}</span><span class="s2"> node=</span><span class="si">{</span><span class="n">ctx</span><span class="o">.</span><span class="n">node_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Trainer</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># Submit a training job to your HPC/cluster</span>
+        <span class="n">job_id</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_cluster</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+        <span class="c1"># Log provenance to the *current* node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="p">()</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;trainer.submit&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;job_id&quot;</span><span class="p">:</span> <span class="n">job_id</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">job_id</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">inspect_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_query_cluster</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;job_id&quot;</span><span class="p">:</span> <span class="n">job_id</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">status</span><span class="p">}</span>
 </code></pre></div>
-<h3 id="register-at-startup">Register at Startup<a class="headerlink" href="#register-at-startup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.v3.core.runtime.runtime_services</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_context_service</span>
-<span class="n">register_context_service</span><span class="p">(</span><span class="s2">&quot;myservice&quot;</span><span class="p">,</span> <span class="n">MyService</span><span class="p">())</span>
+<h3 id="register-at-startup-pass-an-instance">Register at startup (pass an <strong>instance</strong>)<a class="headerlink" href="#register-at-startup-pass-an-instance" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_context_service</span>
+
+<span class="n">register_context_service</span><span class="p">(</span><span class="s2">&quot;runaware&quot;</span><span class="p">,</span> <span class="n">RunAware</span><span class="p">())</span>
+<span class="n">register_context_service</span><span class="p">(</span><span class="s2">&quot;trainer&quot;</span><span class="p">,</span>  <span class="n">Trainer</span><span class="p">())</span>
 </code></pre></div>
-<p>Now <code>context.myservice</code> is available to all nodes in that runtime.</p>
+<blockquote>
+<p>After this, <code>context.runaware()</code> and <code>context.trainer()</code> are available everywhere in the runtime.</p>
+</blockquote>
 <hr />
-<h2 id="when-to-use-custom-services">When to Use Custom Services<a class="headerlink" href="#when-to-use-custom-services" title="Permanent link">&para;</a></h2>
+<h2 id="4-usage-patterns">4. Usage Patterns<a class="headerlink" href="#4-usage-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="a-submit-training-link-artifacts">A) Submit training &amp; link artifacts<a class="headerlink" href="#a-submit-training-link-artifacts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;train_model&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;job_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ckpt_uri&quot;</span><span class="p">])</span> 
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">train_model</span><span class="p">(</span><span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="c1"># 1) Submit to your cluster via the custom service</span>
+    <span class="n">job_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">trainer</span><span class="p">()</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+    <span class="c1"># other waiting or inspection logic ...</span>
+
+    <span class="c1"># 2) Imagine your trainer writes a checkpoint to /tmp/ckpt.bin </span>
+    <span class="c1"># (NOTE: you need to ensure the job finishes, this is a simplification)</span>
+    <span class="n">ckpt</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/ckpt.bin&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;checkpoint&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;job&quot;</span><span class="p">:</span> <span class="n">job_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;job_id&quot;</span><span class="p">:</span> <span class="n">job_id</span><span class="p">,</span> <span class="s2">&quot;ckpt_uri&quot;</span><span class="p">:</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="b-inspect-status-in-another-nodetool">B) Inspect status in another node/tool<a class="headerlink" href="#b-inspect-status-in-another-nodetool" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;wait_for_training&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ready&quot;</span><span class="p">])</span> 
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">wait_for_training</span><span class="p">(</span><span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">trainer</span><span class="p">()</span><span class="o">.</span><span class="n">inspect_job</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ready&quot;</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;COMPLETED&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="c-backgroundblocking-helpers">C) Background/Blocking helpers<a class="headerlink" href="#c-backgroundblocking-helpers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Heavy</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="c1"># Offload CPU/binding operations without blocking the event loop</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_blocking</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">slow_cpu_fn</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+<hr />
+<h2 id="5-concurrency-lifecycle">5. Concurrency &amp; Lifecycle<a class="headerlink" href="#5-concurrency-lifecycle" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Lifecycle hooks:</strong> <code>start()</code> / <code>close()</code> are optional; call them from your app/server bootstrap.</li>
+<li><strong>Shared access:</strong> use <code>self.critical()</code> or an <code>AsyncRWLock</code> to protect mutable shared state.</li>
+<li><strong>Per‑node context:</strong> call <code>self.ctx()</code> whenever you need <code>{run_id, graph_id, node_id}</code>.</li>
+<li><strong>Backpressure:</strong> expose async APIs; if integrating queues, consider <code>asyncio.Queue</code> or your platform’s client backpressure.</li>
+</ul>
+<hr />
+<h2 id="6-testing-mocking">6. Testing &amp; Mocking<a class="headerlink" href="#6-testing-mocking" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Provide a <strong>fake implementation</strong> with the same interface for unit tests.</li>
+<li>Register your fake with the same name (e.g., <code>"trainer"</code>) in the test harness.</li>
+<li>Use in‑memory structures (dicts, temp dirs) for deterministic tests.</li>
+</ul>
+<hr />
+<h2 id="7-error-handling-observability">7. Error Handling &amp; Observability<a class="headerlink" href="#7-error-handling-observability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Emit structured logs via <code>context.logger()</code> with operation names and durations.</li>
+<li>Normalize exceptions from vendor SDKs into your own error types.</li>
+<li>Consider retry/backoff wrappers in the service (centralized, consistent).</li>
+</ul>
+<hr />
+<h2 id="8-common-service-patterns-examples">8. Common Service Patterns (Examples)<a class="headerlink" href="#8-common-service-patterns-examples" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Scenario</th>
-<th>Example</th>
+<th>Suggested accessor</th>
+<th>What it abstracts</th>
+<th>Typical operations</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Model/Tool Wrappers</strong></td>
-<td>unify access to LLMs, simulation engines, or APIs</td>
+<td><strong>HPC / Training orchestration</strong></td>
+<td><code>context.trainer()</code></td>
+<td>Submit/track jobs on Slurm/K8s/Ray</td>
+<td><code>submit(spec)</code>, <code>inspect_job(id)</code>, <code>cancel(id)</code></td>
 </tr>
 <tr>
-<td><strong>Shared Caches</strong></td>
-<td>memoize expensive lookups or material tables</td>
+<td><strong>External object storage</strong></td>
+<td><code>context.storage()</code></td>
+<td>S3/GCS/MinIO buckets &amp; signed URLs</td>
+<td><code>put(path)</code>, <code>get(uri)</code>, <code>sign(uri)</code>, <code>list(prefix)</code></td>
 </tr>
 <tr>
-<td><strong>Job Orchestration</strong></td>
-<td>submit/track remote compute jobs</td>
+<td><strong>Vendor API client</strong></td>
+<td><code>context.apiclient()</code></td>
+<td>Rate‑limited, retried HTTP SDK</td>
+<td><code>get/put/post</code>, <code>batch()</code>, <code>retry/backoff</code></td>
 </tr>
 <tr>
-<td><strong>Policy / Governance</strong></td>
-<td>enforce tenant limits, logging, or auditing</td>
+<td><strong>In‑house AI models</strong></td>
+<td><code>context.models()</code></td>
+<td>Local inference endpoints</td>
+<td><code>embed(texts)</code>, <code>generate(prompt)</code></td>
 </tr>
 <tr>
-<td><strong>Adapters / Brokers</strong></td>
-<td>expose multiple vendor APIs under one interface</td>
+<td><strong>Materials DB / domain registry</strong></td>
+<td><code>context.materials()</code></td>
+<td>Domain lookups &amp; cached tables</td>
+<td><code>get_index(name)</code>, <code>search(filters)</code></td>
+</tr>
+<tr>
+<td><strong>Lineage export</strong></td>
+<td><code>context.lineage_store()</code></td>
+<td>Mirror core provenance to BI/warehouse</td>
+<td><code>export_run(run_id)</code>, <code>push(events)</code></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="lifecycle-concurrency">Lifecycle &amp; Concurrency<a class="headerlink" href="#lifecycle-concurrency" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Services can optionally implement <code>start()</code> / <code>close()</code>; these are manual today but can be auto-wired when running under a server/sidecar.</li>
-<li>Use <code>self.critical()</code> or <code>AsyncRWLock</code> for safe shared access.</li>
-<li><code>self.run_blocking(fn)</code> helps offload CPU or blocking I/O.</li>
-</ul>
-<hr />
-<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
-<ul>
-<li>External services make AetherGraph modular and composable.</li>
-<li>They behave like built-in context methods — bound automatically per node.</li>
-<li>Use them to manage clients, caches, orchestration, or background work.</li>
-<li>Configure once; your <code>@graph_fn</code> and <code>@tool</code> logic remains unchanged.</li>
-</ul>
 <blockquote>
-<p>See also: <a href="../external_context.md">External Context Deep Dive →</a> for advanced registration, lifecycle management, and hosted modes.</p>
+<p>Pick names that are <strong>explicit</strong> in your org (e.g., <code>context.k8s_jobs()</code>, <code>context.minio()</code>). Avoid names that shadow built‑ins.</p>
 </blockquote>
+<hr />
+<h2 id="9-optional-callable-services">9. Optional callable services<a class="headerlink" href="#9-optional-callable-services" title="Permanent link">&para;</a></h2>
+<p>You may define <code>__call__</code> on a service to allow a compact form like <code>await context.trainer(spec)</code> in addition to <code>await context.trainer().submit(spec)</code>. This can be handy when switching model profiles or submitting a quick spec inline. It's supported, but for clarity we generally <strong>recommend explicit method calls</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Trainer</span><span class="p">(</span><span class="n">Service</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="o">...</span>
+
+<span class="c1"># Both are valid</span>
+<span class="n">job_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">trainer</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">job_id</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">trainer</span><span class="p">()</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="10-recap">10. Recap<a class="headerlink" href="#10-recap" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>External services</strong> add named capabilities to <code>context</code> without changing agent code.</li>
+<li>Built‑ins remain stable; extend via <strong>new names</strong> (no in‑place swaps).</li>
+<li>Register <strong>instances</strong>, not factories; services run on the <strong>main event loop</strong>.</li>
+<li><code>ServiceHandle</code> supports both <code>context.svc()</code> (instance) and optional callable forwarding if your service implements <code>__call__</code>.</li>
+<li>Use <code>self.ctx()</code> to fetch per‑node provenance on demand; protect shared state with <code>AsyncRWLock</code> or <code>critical()</code>.</li>
+</ul>
+<p><strong>See also:</strong> External Context Deep Dive → · Channels &amp; Interaction → · Artifacts &amp; Memory →</p>
 
 
 
@@ -1531,7 +1400,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../services-at-a-glance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Core Services Overview">
+          <a href="../other-services-overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Other Services Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1541,7 +1410,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Core Services Overview
+                Other Services Overview
               </div>
             </div>
           </a>

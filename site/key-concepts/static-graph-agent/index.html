@@ -18,7 +18,7 @@
         <link rel="prev" href="../extending-context/">
       
       
-        <link rel="next" href="../event-driven-waits/">
+        <link rel="next" href="../server-start-sidecar/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -353,6 +353,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../agent-via-graph-fn/" class="md-nav__link">
         
   
@@ -445,12 +468,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../services-at-a-glance/" class="md-nav__link">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
@@ -543,20 +566,29 @@
         <li class="md-nav__item">
   <a href="#1-what-is-a-static-graph" class="md-nav__link">
     <span class="md-ellipsis">
-      1 What is a Static Graph?
+      1. What Is a Static Graph?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-define-and-build-a-graph" class="md-nav__link">
+  <a href="#2-graphify-vs-graph_fn" class="md-nav__link">
     <span class="md-ellipsis">
-      2 Define and Build a Graph
+      2. @graphify vs @graph_fn
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2 Define and Build a Graph">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-define-and-build-a-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Define and Build a Graph
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Define and Build a Graph">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -568,42 +600,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#referencing-tool-outputs-dot-vs-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencing Tool Outputs (dot vs. key)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-run-a-built-graph" class="md-nav__link">
+  <a href="#4-fanin-fanout-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      3 Run a Built Graph
+      4. Fan‑in / Fan‑out Patterns
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-inspect-and-explore-a-graph" class="md-nav__link">
+  <a href="#5-run-a-built-graph" class="md-nav__link">
     <span class="md-ellipsis">
-      4 Inspect and Explore a Graph
+      5. Run a Built Graph
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-recall-use-tool-inside-graph_fn" class="md-nav__link">
+  <a href="#6-inspect-and-explore" class="md-nav__link">
     <span class="md-ellipsis">
-      5 Recall: Use @tool inside @graph_fn
+      6. Inspect and Explore
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-key-points" class="md-nav__link">
+  <a href="#7-recall-use-tool-inside-graph_fn" class="md-nav__link">
     <span class="md-ellipsis">
-      6 Key Points
+      7. Recall: Use @tool inside @graph_fn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Key Points
     </span>
   </a>
   
@@ -625,58 +675,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Event-Driven Waits
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Executor & Scheduling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Server Start
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
     
   </span>
   
@@ -724,7 +751,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -734,317 +761,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1092,10 +808,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1108,8 +824,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1403,32 +1119,62 @@
 
 
 <h1 id="static-graphs-with-graphify">Static Graphs with <code>@graphify</code><a class="headerlink" href="#static-graphs-with-graphify" title="Permanent link">&para;</a></h1>
-<p><code>@graphify</code> turns a plain Python function into a <strong>graph builder</strong>. Instead of executing immediately (like <code>@graph_fn</code>), it <strong>constructs a TaskGraph</strong> from <code>@tool</code> calls, which you build once and run later.</p>
+<p><code>@graphify</code> transforms a plain Python function into a <strong>graph builder</strong>. Instead of running immediately (like <code>@graph_fn</code>), it <strong>constructs a TaskGraph</strong> from <code>@tool</code> calls — a reusable, explicit DAG that you can run later.</p>
+<p><strong>In short:</strong></p>
 <blockquote>
-<p><strong>In short:</strong> <code>@graph_fn</code> = execute now (implicit, reactive).
-<code>@graphify</code> = build first, then run (explicit DAG).</p>
+<ul>
+<li><code>@graph_fn</code> → executes now (reactive, dynamic)</li>
+<li><code>@graphify</code> → builds first, runs later (deterministic DAG)</li>
+</ul>
 </blockquote>
 <hr />
-<h2 id="1-what-is-a-static-graph">1 What is a Static Graph?<a class="headerlink" href="#1-what-is-a-static-graph" title="Permanent link">&para;</a></h2>
-<p>A <strong>static graph</strong> is an explicit DAG of tool nodes and dependencies. All internal steps must be <code>@tool</code> calls; the builder wires nodes and returns exposed outputs. You can then:</p>
-<ul>
-<li>inspect the spec / IO signature</li>
-<li>persist or visualize the graph</li>
-<li>run it under the <strong>global scheduler</strong></li>
-</ul>
-<p><strong>Why static?</strong> Repeatability, inspectability, and clear fan‑in/fan‑out. Ideal for pipelines and reproducible experiments.</p>
-<p><strong>How it differs from <code>@graph_fn</code>:</strong></p>
-<ul>
-<li><code>@graph_fn</code> executes immediately with a per‑function scheduler and rich <code>context.*</code> calls.</li>
-<li><code>@graphify</code> <strong>builds</strong> a DAG; you run it later (typically using the global scheduler).</li>
-</ul>
+<h2 id="1-what-is-a-static-graph">1. What Is a Static Graph?<a class="headerlink" href="#1-what-is-a-static-graph" title="Permanent link">&para;</a></h2>
+<p>A <strong>static graph</strong> is a declarative DAG of tool nodes and dependencies. Each node is a <code>@tool</code> call; edges represent data flow or forced ordering. You build it once, then you can inspect, persist, visualize, and run it repeatedly.</p>
+<p><strong>Why static?</strong> Repeatability, inspectability, and clear fan‑in/fan‑out. Static graphs shine for pipelines and reproducible experiments where determinism and analysis matter.</p>
+<hr />
+<h2 id="2-graphify-vs-graph_fn">2. <code>@graphify</code> vs <code>@graph_fn</code><a class="headerlink" href="#2-graphify-vs-graph_fn" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th><code>@graph_fn</code> (Reactive)</th>
+<th><code>@graphify</code> (Static)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execution</td>
+<td>Runs immediately when called</td>
+<td>Builds a DAG first; run later</td>
+</tr>
+<tr>
+<td>Composition</td>
+<td>Mix plain Python + <code>@tool</code> (implicit nodes)</td>
+<td>Only <code>@tool</code> nodes are valid steps</td>
+</tr>
+<tr>
+<td>Context usage</td>
+<td>Rich <code>context.*</code> available inline</td>
+<td>Need to wrap <code>context.*</code> in a tool to access it</td>
+</tr>
+<tr>
+<td>Inspectability</td>
+<td>Inspect implicit graph via <code>graph_fn.last_graph()</code></td>
+<td>Full spec via <code>.io()</code>, <code>.spec()</code>, <code>TaskGraph.pretty()</code></td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Interactive agents, quick iteration</td>
+<td>Pipelines, reproducible runs, analytics</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>When to use it: <code>@graphify</code> asks for a bit more code up front (declared inputs, explicit <code>@tool</code> nodes, <code>_after</code> for ordering), but you get stability, efficiency, and inspectability in return—deterministic runs, clearer fan-in/out, easier caching/retries, and better debugging/analytics. For reactive exploration, stick with <code>@graph_fn</code> until your flow settles; switch to <code>@graphify</code> when the pipeline is stabilized or when product environments demand determinism and performance.</p>
+<p><strong>Note:</strong> Nested static‑graph calls are <strong>not supported</strong> at the moment (no calling one <code>@graphify</code> from another as a node). Compose via tools or run graphs separately.</p>
 </blockquote>
 <hr />
-<h2 id="2-define-and-build-a-graph">2 Define and Build a Graph<a class="headerlink" href="#2-define-and-build-a-graph" title="Permanent link">&para;</a></h2>
+<h2 id="3-define-and-build-a-graph">3. Define and Build a Graph<a class="headerlink" href="#3-define-and-build-a-graph" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graphify</span><span class="p">,</span> <span class="n">tool</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">arg</span>
 
 <span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">])</span>       
 <span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span> <span class="o">...</span>
@@ -1442,9 +1188,9 @@
 <span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">])</span>        
 <span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="n">model</span><span class="p">):</span> <span class="o">...</span>
 
-<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;etl_train_report&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csv_path&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">])</span>
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;etl_train_report&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csv_path&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">])</span> 
 <span class="k">def</span><span class="w"> </span><span class="nf">etl_train_report</span><span class="p">(</span><span class="n">csv_path</span><span class="p">):</span>
-    <span class="n">raw</span>  <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">arg</span><span class="p">(</span><span class="s2">&quot;csv_path&quot;</span><span class="p">))</span>
+    <span class="n">raw</span>  <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">csv_path</span><span class="p">)</span>
     <span class="n">tidy</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">rows</span><span class="p">)</span>
     <span class="n">mod</span>  <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tidy</span><span class="o">.</span><span class="n">clean</span><span class="p">)</span>
     <span class="n">rep</span>  <span class="o">=</span> <span class="n">report</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mod</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
@@ -1453,86 +1199,142 @@
 <span class="n">G</span> <span class="o">=</span> <span class="n">etl_train_report</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>     <span class="c1"># → TaskGraph</span>
 </code></pre></div>
 <h3 id="control-ordering-without-data-edges">Control ordering without data edges<a class="headerlink" href="#control-ordering-without-data-edges" title="Permanent link">&para;</a></h3>
-<p>Use <code>_after</code> to enforce sequence when you don’t pass outputs:</p>
+<p>Use <code>_after</code> to enforce sequence when there’s no data dependency:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">])</span>    
 <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">():</span> <span class="o">...</span>
 
 <span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>  
 <span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">():</span> <span class="o">...</span>
 
-<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;seq&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span>
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;seq&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;done&quot;</span><span class="p">])</span> 
 <span class="k">def</span><span class="w"> </span><span class="nf">seq</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">()</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">_after</span><span class="o">=</span><span class="n">a</span><span class="p">)</span>        <span class="c1"># run `train` after `fetch`</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="n">b</span><span class="o">.</span><span class="n">done</span><span class="p">}</span>
 </code></pre></div>
-<hr />
-<h2 id="3-run-a-built-graph">3 Run a Built Graph<a class="headerlink" href="#3-run-a-built-graph" title="Permanent link">&para;</a></h2>
-<p>Static graphs typically run under the <strong>global scheduler</strong> (centralized control over node scheduling). You can only run a static graph using runner function. </p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Pseudocode — exact runner API depends on your hosting layer</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
+<h3 id="referencing-tool-outputs-dot-vs-key">Referencing Tool Outputs (dot vs. key)<a class="headerlink" href="#referencing-tool-outputs-dot-vs-key" title="Permanent link">&para;</a></h3>
+<p>Each <code>@tool</code> must declare its outputs. AetherGraph wraps the call in a handle whose fields mirror those names, so you can access them either as <strong>attributes</strong> or <strong>dict keys</strong> — both are equivalent.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="c1"># must return a dict matching declared outputs</span>
+<span class="k">return</span> <span class="p">{</span><span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="n">parse_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)}</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;csv_path&quot;</span><span class="p">:</span> <span class="s2">&quot;data/train.csv&quot;</span><span class="p">})</span>
-<span class="c1"># `result` contains graph-level outputs, e.g., {&quot;uri&quot;: &quot;file://...&quot;}</span>
+
+<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+<span class="k">return</span> <span class="p">{</span><span class="s2">&quot;clean&quot;</span><span class="p">:</span> <span class="n">tidy</span><span class="p">(</span><span class="n">rows</span><span class="p">)}</span>
+
+
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;etl&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;csv_path&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">etl</span><span class="p">(</span><span class="n">csv_path</span><span class="p">):</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">csv_path</span><span class="p">)</span>
+<span class="c1"># Access either way; these are equivalent</span>
+<span class="n">tidy1</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">raw</span><span class="o">.</span><span class="n">rows</span><span class="p">)</span> <span class="c1"># dot access</span>
+<span class="n">tidy2</span> <span class="o">=</span> <span class="n">clean</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="n">raw</span><span class="p">[</span><span class="s2">&quot;rows&quot;</span><span class="p">])</span> <span class="c1"># key access</span>
+<span class="k">return</span> <span class="p">{</span><span class="s2">&quot;clean&quot;</span><span class="p">:</span> <span class="n">tidy1</span><span class="o">.</span><span class="n">clean</span><span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p><strong>Note:</strong> <code>@graph_fn</code> uses its own lightweight scheduler for immediate execution, while <code>@graphify</code> graphs are designed to be scheduled by the <strong>global</strong> scheduler for observability, resumability, and concurrency control.</p>
+<p>Consistency matters: declared output names (e.g.,<code>outputs=["rows"]</code>) must match the keys you return from the tool (e.g., <code>{"rows": ...}</code>). Mismatches raise clear build/runtime errors.</p>
+</blockquote>
+<p><strong>Multiple outputs</strong>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]):</span>
+<span class="k">return</span> <span class="p">{</span><span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">avg</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">stdev</span><span class="p">(</span><span class="n">xs</span><span class="p">)}</span>
+
+
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;use_stats&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;xs&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">use_stats</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">stats</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">xs</span><span class="p">)</span>
+<span class="k">return</span> <span class="p">{</span><span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">}</span> <span class="c1"># or s[&quot;mean&quot;]</span>
+</code></pre></div></p>
+<blockquote>
+<p>Think of tool calls as <strong>typed nodes</strong> whose declared outputs become fields on the node handle.</p>
 </blockquote>
 <hr />
-<h2 id="4-inspect-and-explore-a-graph">4 Inspect and Explore a Graph<a class="headerlink" href="#4-inspect-and-explore-a-graph" title="Permanent link">&para;</a></h2>
-<p><code>@graphify</code> builders expose helpers:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sig</span> <span class="o">=</span> <span class="n">etl_train_report</span><span class="o">.</span><span class="n">io</span><span class="p">()</span>      <span class="c1"># inputs/outputs signature</span>
+<h2 id="4-fanin-fanout-patterns">4. Fan‑in / Fan‑out Patterns<a class="headerlink" href="#4-fanin-fanout-patterns" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">])</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span> <span class="o">...</span>
+
+<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="o">...</span>
+
+<span class="nd">@graphify</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;fan&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">fan</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">arg</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">))</span>  <span class="c1"># fan‑out 1</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">arg</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">))</span>  <span class="c1"># fan‑out 2</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>  <span class="c1"># fan‑in</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">z</span><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Tips: you can use for loop to create fan-in and fan-out</p>
+</blockquote>
+<hr />
+<h2 id="5-run-a-built-graph">5. Run a Built Graph<a class="headerlink" href="#5-run-a-built-graph" title="Permanent link">&para;</a></h2>
+<p>Run the materialized DAG with the runner (sync or async):</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">run_async</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;csv_path&quot;</span><span class="p">:</span> <span class="s2">&quot;data/train.csv&quot;</span><span class="p">})</span>
+<span class="c1"># → {&quot;uri&quot;: &quot;file://...&quot;}</span>
+
+<span class="c1"># Async form (e.g., inside another async function)</span>
+<span class="n">final</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_async</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;csv_path&quot;</span><span class="p">:</span> <span class="s2">&quot;data/train.csv&quot;</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="6-inspect-and-explore">6. Inspect and Explore<a class="headerlink" href="#6-inspect-and-explore" title="Permanent link">&para;</a></h2>
+<p><code>@graphify</code> builders expose helpers for IO/signature and full spec:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sig</span>  <span class="o">=</span> <span class="n">etl_train_report</span><span class="o">.</span><span class="n">io</span><span class="p">()</span>     <span class="c1"># inputs/outputs signature</span>
 <span class="n">spec</span> <span class="o">=</span> <span class="n">etl_train_report</span><span class="o">.</span><span class="n">spec</span><span class="p">()</span>   <span class="c1"># GraphSpec (nodes, edges, metadata)</span>
 </code></pre></div>
 <p><strong>Runtime helpers on <code>TaskGraph</code>:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">pretty</span><span class="p">())</span>                <span class="c1"># human-friendly table</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">ascii_overview</span><span class="p">())</span>        <span class="c1"># compact ASCII view</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">pretty</span><span class="p">())</span>                <span class="c1"># human‑friendly table</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">ascii_overview</span><span class="p">())</span>        <span class="c1"># compact overview</span>
 
 <span class="c1"># Select / find nodes</span>
-<span class="n">ids</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>                         <span class="c1"># all non-internal node_ids</span>
+<span class="n">ids</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">list_nodes</span><span class="p">()</span>                         <span class="c1"># visible node_ids</span>
 <span class="n">first_c</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">find_by_logic</span><span class="p">(</span><span class="s2">&quot;clean&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># by tool/logic name</span>
 <span class="n">some</span>    <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">find_by_label</span><span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>              <span class="c1"># by label</span>
-<span class="n">sel</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;@my_alias&quot;</span><span class="p">)</span>                  <span class="c1"># mini-DSL (@alias, #label, logic:, name:, id:, /regex/)</span>
+<span class="n">sel</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;@my_alias&quot;</span><span class="p">)</span>                 <span class="c1"># mini‑DSL (@alias, #label, logic:, name:, id:, /regex/)</span>
 
 <span class="c1"># Topology &amp; subgraphs</span>
-<span class="n">order</span>   <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">topological_order</span><span class="p">()</span>                  <span class="c1"># raise if cycles</span>
-<span class="n">up</span>      <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_upstream_nodes</span><span class="p">(</span><span class="n">first_c</span><span class="p">)</span>          <span class="c1"># closure of dependencies</span>
-<span class="n">sub</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_subgraph_nodes</span><span class="p">(</span><span class="n">first_c</span><span class="p">)</span>          <span class="c1"># downstream dependents</span>
+<span class="n">order</span>   <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">topological_order</span><span class="p">()</span>                  <span class="c1"># raises if cycles</span>
+<span class="n">up</span>      <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_upstream_nodes</span><span class="p">(</span><span class="n">first_c</span><span class="p">)</span>          <span class="c1"># dependency closure</span>
+<span class="n">sub</span>     <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_subgraph_nodes</span><span class="p">(</span><span class="n">first_c</span><span class="p">)</span>          <span class="c1"># downstream closure</span>
 </code></pre></div>
 <p><strong>Export / visualize</strong></p>
 <div class="highlight"><pre><span></span><code><span class="n">dot</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">to_dot</span><span class="p">()</span>                 <span class="c1"># Graphviz DOT</span>
 <span class="c1"># G.visualize()                  # if enabled: render to file/viewer</span>
 </code></pre></div>
 <hr />
-<h2 id="5-recall-use-tool-inside-graph_fn">5 Recall: Use <code>@tool</code> inside <code>@graph_fn</code><a class="headerlink" href="#5-recall-use-tool-inside-graph_fn" title="Permanent link">&para;</a></h2>
-<p>While <code>@graph_fn</code> executes immediately, you <strong>can</strong> embed <code>@tool</code> calls to create explicit nodes for tracing or parallelism within a reactive agent:</p>
+<h2 id="7-recall-use-tool-inside-graph_fn">7. Recall: Use <code>@tool</code> inside <code>@graph_fn</code><a class="headerlink" href="#7-recall-use-tool-inside-graph_fn" title="Permanent link">&para;</a></h2>
+<p>While <code>@graph_fn</code> executes immediately, <strong>you can embed <code>@tool</code> calls</strong> to create explicit nodes for tracing or parallelism within a reactive agent:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">tool</span>
 
 <span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span> 
-<span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">}</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">}</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mix&quot;</span><span class="p">)</span>
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mix&quot;</span><span class="p">)</span> 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mix</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">h</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>                 <span class="c1"># schedules a tool node in the implicit graph</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;running square…&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">h</span><span class="o">.</span><span class="n">y</span><span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>Prefer <code>@graphify</code> for full pipelines and reproducible DAGs; prefer <code>@graph_fn</code> for interactive/reactive agents that lean on <code>context.*</code>.</p>
+<p>Prefer <code>@graphify</code> for full, reproducible pipelines; prefer <code>@graph_fn</code> for interactive/reactive agents that lean on <code>context.*</code>.</p>
 </blockquote>
-<hr />
 <p>If you executed a <code>@graph_fn</code> and want to inspect the <strong>implicit</strong> graph of tool nodes it created:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
-<span class="n">G_last</span> <span class="o">=</span> <span class="n">graph_fn</span><span class="o">.</span><span class="n">last_graph</span><span class="p">()</span>    <span class="c1"># TaskGraph of the most recent run (if available)</span>
+<div class="highlight"><pre><span></span><code><span class="n">G_last</span> <span class="o">=</span> <span class="n">graph_fn</span><span class="o">.</span><span class="n">last_graph</span><span class="p">()</span>    <span class="c1"># TaskGraph of the most recent run (if available)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">G_last</span><span class="o">.</span><span class="n">pretty</span><span class="p">())</span>
 </code></pre></div>
 <hr />
-<h2 id="6-key-points">6 Key Points<a class="headerlink" href="#6-key-points" title="Permanent link">&para;</a></h2>
+<h2 id="8-key-points">8. Key Points<a class="headerlink" href="#8-key-points" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>@graphify</code> <strong>builds</strong> a DAG from <code>@tool</code> calls; you <strong>run it later</strong> (usually with the global scheduler).</li>
-<li>Use <code>arg("name")</code> inside the builder to reference declared inputs.</li>
+<li><code>@graphify</code> <strong>builds</strong> a DAG from <code>@tool</code> calls; you <strong>run it later</strong>.</li>
+<li>Use <code>arg("name")</code> to reference declared inputs inside the builder.</li>
 <li>Use <code>_after</code> to force ordering without data edges.</li>
+<li>Fan‑out/fan‑in is natural with multiple <code>@tool</code> calls and a later join.</li>
 <li>Inspect via <code>.io()</code>, <code>.spec()</code>, <code>TaskGraph.pretty()</code>, <code>ascii_overview()</code>, <code>to_dot()</code>.</li>
+<li><strong>No nested static graphs</strong> currently (don’t call one <code>@graphify</code> from another as a node).</li>
 <li>For reactive agents, stick with <code>@graph_fn</code>; for pipelines, prefer <code>@graphify</code>.</li>
 </ul>
 
@@ -1581,13 +1383,13 @@
         
         
           
-          <a href="../event-driven-waits/" class="md-footer__link md-footer__link--next" aria-label="Next: Event-Driven Waits">
+          <a href="../server-start-sidecar/" class="md-footer__link md-footer__link--next" aria-label="Next: Sidecar Server">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Event-Driven Waits
+                Sidecar Server
               </div>
             </div>
             <div class="md-footer__button md-icon">

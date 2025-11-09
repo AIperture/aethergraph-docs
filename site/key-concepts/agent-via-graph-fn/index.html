@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://your-domain.com/key-concepts/agent-via-graph-fn/">
       
       
-        <link rel="prev" href="../../quickstart/">
+        <link rel="prev" href="../introduction/">
       
       
         <link rel="next" href="../context-services/">
@@ -350,6 +350,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -403,23 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-graph_fn" class="md-nav__link">
+  <a href="#1-what-is-a-graph_fn" class="md-nav__link">
     <span class="md-ellipsis">
-      What is a graph_fn?
+      1. What is a graph_fn?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is a graph_fn?">
+    <nav class="md-nav" aria-label="1. What is a graph_fn?">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#decorator-signature" class="md-nav__link">
-    <span class="md-ellipsis">
-      Decorator signature
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#function-shape" class="md-nav__link">
@@ -436,19 +450,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-intro-to-tool-nodes-on-the-fly" class="md-nav__link">
+  <a href="#2-tools-nodes-on-the-fly" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick intro to @tool — nodes on the fly
+      2. Tools: nodes on the fly
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quick intro to @tool — nodes on the fly">
+    <nav class="md-nav" aria-label="2. Tools: nodes on the fly">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decorator-signature_1" class="md-nav__link">
+  <a href="#example-a-simple-sum-tool" class="md-nav__link">
     <span class="md-ellipsis">
-      Decorator signature
+      Example: a simple sum tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-lightweight-http-fetch-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: lightweight HTTP fetch tool
     </span>
   </a>
   
@@ -460,13 +483,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#async-functions-chaining-nesting-and-running" class="md-nav__link">
+  <a href="#3-async-first-chaining-nesting-and-concurrency" class="md-nav__link">
     <span class="md-ellipsis">
-      Async functions: chaining, nesting, and running
+      3. Async-first: chaining, nesting, and concurrency
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Async functions: chaining, nesting, and running">
+    <nav class="md-nav" aria-label="3. Async-first: chaining, nesting, and concurrency">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -481,16 +504,7 @@
           <li class="md-nav__item">
   <a href="#fan-out-concurrency" class="md-nav__link">
     <span class="md-ellipsis">
-      Fan-out / concurrency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-a-graph_fn-like-any-async-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running a graph_fn like any async function
+      Fan-out concurrency
     </span>
   </a>
   
@@ -502,9 +516,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#4-running-a-graph_fn" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary
+      4. Running a graph_fn
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Running a graph_fn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-direct-await" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option A – Direct await
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-synchronous-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option B – Synchronous helper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-c-explicit-async-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option C – Explicit async runner
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Summary
     </span>
   </a>
   
@@ -595,12 +651,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../services-at-a-glance/" class="md-nav__link">
+      <a href="../other-services-overview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Core Services Overview
+    Other Services Overview
     
   </span>
   
@@ -664,58 +720,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../event-driven-waits/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Event-Driven Waits
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-executor/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Executor & Scheduling
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../server-start-sidecar/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Server Start
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
     
   </span>
   
@@ -763,7 +796,7 @@
   
   
   <span class="md-ellipsis">
-    Core
+    Reference
     
   </span>
   
@@ -773,317 +806,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Core
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../server/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Start the Server
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graph_fn/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graph Function
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../context.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Context Method
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Tools
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Graphify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../external-context-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    External Contexts
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Recipes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Recipes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/job-submit-poll/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Submit + Poll + Notify
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/data-analysis-loop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Iterative Data Analysis
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../recipes/memory-rag-mini/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Mini Memory-RAG
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Reference
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
           </label>
@@ -1131,10 +853,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1147,8 +869,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Context API
           </label>
@@ -1442,106 +1164,58 @@
 
 
 <h1 id="agents-via-graph_fn">Agents via <code>@graph_fn</code><a class="headerlink" href="#agents-via-graph_fn" title="Permanent link">&para;</a></h1>
-<p>This page introduces <strong>agents</strong> in AetherGraph through the <code>@graph_fn</code> decorator, shows how <code>@tool</code> functions become <strong>nodes</strong> on the fly, and explains why/when to write <strong>async</strong> functions and how to chain/nest them.</p>
+<p>This chapter introduces <strong>agents</strong> in AetherGraph through the <code>@graph_fn</code> decorator. You’ll learn how <code>@tool</code> functions become <strong>nodes</strong> on the fly, when and why to use <strong>async</strong> functions, and how to chain or nest them to form structured yet reactive agentic workflows.</p>
 <hr />
-<h2 id="what-is-a-graph_fn">What is a <code>graph_fn</code>?<a class="headerlink" href="#what-is-a-graph_fn" title="Permanent link">&para;</a></h2>
-<p>A <code>graph_fn</code> turns a plain Python function into an <strong>agent</strong> with access to rich <strong>context services</strong> (channel, memory, artifacts, logger, etc.). <strong>By default, it runs in normal Python runtime</strong>—no DAG is constructed just because you called the function. For most agentic workflows, this is <strong>sufficient and preferred</strong>: you get an ergonomic async function with <code>context</code> methods for interaction, memory, and side effects, without forcing a graph capture.</p>
-<h3 id="decorator-signature">Decorator signature<a class="headerlink" href="#decorator-signature" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-    <span class="n">agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># optional: also register as an agent name</span>
-<span class="p">)</span>
-</code></pre></div>
-<p><strong>Required</strong></p>
-<ul>
-<li><strong>name</strong> (str) – Unique identifier for this graph function.</li>
-</ul>
-<p><strong>Optional</strong></p>
-<ul>
-<li><strong>inputs</strong> (list[str]) – Declares input names for docs/registry (not enforced at call time).</li>
-<li><strong>outputs</strong> (list[str]) – Declares output names/order; enables single‑literal returns. Required if you do not return a <code>dict</code></li>
-<li><strong>version</strong> (str) – Semantic version for registry/discovery.</li>
-<li><strong>agent</strong> (str) – Also register in the <code>agent</code> namespace (advanced).</li>
-</ul>
+<h2 id="1-what-is-a-graph_fn">1. What is a <code>graph_fn</code>?<a class="headerlink" href="#1-what-is-a-graph_fn" title="Permanent link">&para;</a></h2>
+<p>A <code>graph_fn</code> turns a plain Python function into an <strong>agent</strong> with access to rich <strong>context services</strong>—channel, memory, artifacts, logger, and more. It runs in the <strong>normal Python runtime</strong> by default; no DAG is captured automatically when you invoke it. For most interactive or agentic workflows, this lightweight mode is ideal: you get an ergonomic async function with context utilities for I/O, persistence, and orchestration without committing to graph capture.</p>
 <h3 id="function-shape">Function shape<a class="headerlink" href="#function-shape" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
+
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="c1"># use services via context: channel/memory/artifacts/kv/llm/rag/mcp/logger</span>
+    <span class="c1"># Access runtime services from the context</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Positional/keyword parameters are <strong>your</strong> API.</li>
-<li>Include <code>*, context</code> to receive the <code>NodeContext</code>. If you don’t declare it, nothing is injected.</li>
+<li>Define your own API through standard parameters.</li>
+<li>Include <code>*, context</code> to access the <code>NodeContext</code>; if omitted, nothing is injected.</li>
 </ul>
 <p>Minimal example:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello_agent&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello_agent&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello_agent</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="c1"># Uses standard Python execution; no nodes are created just by running this.</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;👋 Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;greet&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;who&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;usr_data&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
     <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Greeted user&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p><strong>Key idea:</strong> <code>@graph_fn</code> gives you an <strong>agent surface</strong> (context + async) while keeping execution <strong>lightweight and reactive</strong>. The runtime will only add nodes when you explicitly opt in (see §2).</p>
+<p><strong>Key idea:</strong> <code>@graph_fn</code> provides a <strong>reactive agent interface</strong>—async execution with contextual power—while keeping runtime overhead minimal. Nodes are only added when you explicitly use <code>@tool</code> or call other graphs.</p>
 </blockquote>
 <hr />
-<h2 id="quick-intro-to-tool-nodes-on-the-fly">Quick intro to <code>@tool</code> — nodes on the fly<a class="headerlink" href="#quick-intro-to-tool-nodes-on-the-fly" title="Permanent link">&para;</a></h2>
-<p><code>@tool</code> marks a regular Python function as a <strong>tool node</strong>. <strong>When a <code>graph_fn</code> calls a tool, the runtime creates a node on the fly</strong> and can optionally capture its inputs/outputs for <strong>inspection, provenance, and later features like persisted waits</strong> (introduced later). This is useful when you want <strong>traceable state</strong> or need to <strong>persist / resume</strong> around boundaries.</p>
+<h2 id="2-tools-nodes-on-the-fly">2. Tools: nodes on the fly<a class="headerlink" href="#2-tools-nodes-on-the-fly" title="Permanent link">&para;</a></h2>
+<p>The <code>@tool</code> decorator marks a Python function as a <strong>tool node</strong>. When called inside a <code>graph_fn</code>, the runtime creates a <strong>node on the fly</strong> and records its inputs/outputs for provenance, inspection, or future resumptions.</p>
 <blockquote>
-<p><strong>Pragmatic guidance:</strong> for exploratory, reactive research flows, you often <strong>don’t need</strong> tools—just call normal Python and use <code>context</code> for I/O, memory, and messaging. Reach for <code>@tool</code> when you want <strong>graph/state capture</strong> or durability guarantees.</p>
+<p><strong>Rule of thumb:</strong> for exploratory, reactive development, call regular Python functions freely. Reach for <code>@tool</code> when you need <strong>traceable state</strong>, <strong>durability</strong>, or <strong>resume checkpoints</strong>.</p>
 </blockquote>
-<h3 id="decorator-signature_1">Decorator signature<a class="headerlink" href="#decorator-signature_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nd">@tool</span><span class="p">(</span>
-    <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-<p><strong>Required</strong></p>
-<ul>
-<li><strong>outputs</strong> (str) – List of output keys</li>
-</ul>
-<p><strong>Optional</strong></p>
-<ul>
-<li><strong>inputs</strong> (list[str]) – Declares input names for docs/registry (not enforced at call time).</li>
-<li><strong>name</strong> (str) – optional name of a tool.</li>
-<li><strong>version</strong> (str) – Semantic version for registry/discovery.</li>
-</ul>
-<p>Works on any plain Python function.</p>
-<p><strong>Execution mode:</strong></p>
-<ul>
-<li><strong>Graph mode:</strong> inside a <code>graph_fn</code>, calling the tool <strong>builds a node</strong> (returns a handle under the hood).</li>
-<li><strong>Immediate mode:</strong> outside a graph, executes immediately (sync returns <code>dict</code>; async returns awaitable).</li>
-</ul>
-<p>You can <strong>mix</strong> regular Python and <code>@tool</code> calls inside a <code>graph_fn</code>; only the <code>@tool</code> calls create nodes.</p>
+<h3 id="example-a-simple-sum-tool">Example: a simple sum tool<a class="headerlink" href="#example-a-simple-sum-tool" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
 
-<span class="nd">@tool</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sum_vec&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span>  <span class="c1"># declare outgoing fields</span>
+<span class="nd">@tool</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sum_vec&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">sum_vec</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">))}</span>
 </code></pre></div>
 <p>Use inside a <code>graph_fn</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;tool_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;tool_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">tool_demo</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="c1"># regular Python is just executed; @tool creates a node and is captured</span>
-    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>                 <span class="c1"># no node</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">sum_vec</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>                       <span class="c1"># ← node is captured</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>             <span class="c1"># executed inline</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">sum_vec</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>                  <span class="c1"># ← captured as a node</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, sum=</span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">]}</span>
 </code></pre></div>
-<p>A slightly richer tool (e.g., lightweight HTTP fetch):</p>
+<p>You can mix normal Python code and <code>@tool</code> calls seamlessly. Only <code>@tool</code> calls create nodes.</p>
+<h3 id="example-lightweight-http-fetch-tool">Example: lightweight HTTP fetch tool<a class="headerlink" href="#example-lightweight-http-fetch-tool" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">urllib.request</span>
 
@@ -1550,26 +1224,25 @@
     <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">r</span><span class="p">)}</span>
 </code></pre></div>
-<p>Then, in a <code>graph_fn</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;use_fetch&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span> 
+<p>Then call it inside a <code>graph_fn</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;use_fetch&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">use_fetch</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">fetch_json</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>                        <span class="c1"># node is created on call</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">fetch_json</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>                   <span class="c1"># node created dynamically</span>
     <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;fetched&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">})</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]}</span>
 </code></pre></div>
+<p>To inspect the implicit graph created during execution, call <code>graph_fn.last_graph()</code> — it returns the captured <code>TaskGraph</code> for visualization or reuse.</p>
 <hr />
-<h2 id="async-functions-chaining-nesting-and-running">Async functions: chaining, nesting, and running<a class="headerlink" href="#async-functions-chaining-nesting-and-running" title="Permanent link">&para;</a></h2>
-<p>AetherGraph is <strong>async-first</strong> because agents often:</p>
+<h2 id="3-async-first-chaining-nesting-and-concurrency">3. Async-first: chaining, nesting, and concurrency<a class="headerlink" href="#3-async-first-chaining-nesting-and-concurrency" title="Permanent link">&para;</a></h2>
+<p>AetherGraph adopts <strong>async-first design</strong> because agents often:</p>
 <ul>
-<li>Wait for <strong>user input</strong> (<code>ask_text</code>, <code>ask_approval</code>),</li>
-<li>Perform <strong>I/O</strong> (HTTP, file ops),</li>
-<li>Launch <strong>parallel</strong> sub-steps.</li>
+<li>Wait for <strong>user input</strong> (<code>ask_text</code>, <code>ask_approval</code>)</li>
+<li>Perform <strong>I/O</strong> (HTTP, file writes, DB queries)</li>
+<li>Launch <strong>parallel sub-tasks</strong></li>
 </ul>
 <h3 id="chaining-and-nesting-graph_fns">Chaining and nesting <code>graph_fn</code>s<a class="headerlink" href="#chaining-and-nesting-graph_fns" title="Permanent link">&para;</a></h3>
-<p>You can call one <code>graph_fn</code> from another; each call becomes a child subgraph node.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;step1&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<p>You can call one <code>graph_fn</code> from another. Each call creates a <strong>child subgraph node</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;step1&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">step1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span>
 
@@ -1577,45 +1250,51 @@
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">step2</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span> 
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">pipeline</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="k">await</span> <span class="n">step1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c1"># child graph node</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="k">await</span> <span class="n">step2</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>        <span class="c1"># child graph node</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]}</span>          <span class="c1"># =&gt; (x + 1) * 2</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="k">await</span> <span class="n">step1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>       <span class="c1"># → child node</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="k">await</span> <span class="n">step2</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span> <span class="c1"># → child node</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]}</span>
 </code></pre></div>
-<h3 id="fan-out-concurrency">Fan-out / concurrency<a class="headerlink" href="#fan-out-concurrency" title="Permanent link">&para;</a></h3>
-<p>Launch independent awaits concurrently with <code>asyncio.gather</code>:</p>
+<h3 id="fan-out-concurrency">Fan-out concurrency<a class="headerlink" href="#fan-out-concurrency" title="Permanent link">&para;</a></h3>
+<p>Launch multiple subgraphs concurrently with <code>asyncio.gather</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;concurrent_steps&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span><span class="s2">&quot;r2&quot;</span><span class="p">])</span> 
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;concurrent_steps&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r1&quot;</span><span class="p">,</span> <span class="s2">&quot;r2&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">concurrent_steps</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">step1</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">step2</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;r1&quot;</span><span class="p">:</span> <span class="n">r1</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="s2">&quot;r2&quot;</span><span class="p">:</span> <span class="n">r2</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]}</span>
 </code></pre></div>
-<h3 id="running-a-graph_fn-like-any-async-function">Running a <code>graph_fn</code> like any async function<a class="headerlink" href="#running-a-graph_fn-like-any-async-function" title="Permanent link">&para;</a></h3>
-<p>In scripts/tests you can <code>await</code> a <code>graph_fn</code> directly from an async context, or use the helper runner:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Option A: inside another graph_fn or an async test</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">pipeline</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># Option B: top-level runner (e.g., in __main__)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">final</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">pipeline</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>        <span class="c1"># drives the event loop</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>                    <span class="c1"># {&quot;z&quot;: 8}</span>
-</code></pre></div>
-<blockquote>
-<p>The <code>run(...)</code> helper drives the event loop and returns the final result, while the runtime records the graph only around <code>@tool</code>/child graph calls.</p>
-</blockquote>
+<p>This pattern enables natural fan-out/fan-in parallelism within a single reactive agent.</p>
 <hr />
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h2 id="4-running-a-graph_fn">4. Running a <code>graph_fn</code><a class="headerlink" href="#4-running-a-graph_fn" title="Permanent link">&para;</a></h2>
+<p>You can execute a <code>graph_fn</code> directly from async code or through the provided runners.</p>
+<h3 id="option-a-direct-await">Option A – Direct await<a class="headerlink" href="#option-a-direct-await" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In an async function</span>
+<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">pipeline</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="option-b-synchronous-helper">Option B – Synchronous helper<a class="headerlink" href="#option-b-synchronous-helper" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">pipeline</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="option-c-explicit-async-runner">Option C – Explicit async runner<a class="headerlink" href="#option-c-explicit-async-runner" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_async</span>
+<span class="c1"># In an async function</span>
+<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_async</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>run_*</code> helpers drive the event loop and normalize execution for both reactive and static graphs.</p>
+<hr />
+<h2 id="5-summary">5. Summary<a class="headerlink" href="#5-summary" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>graph_fn</code> wraps a Python function into an async "agent" with an injected <code>NodeContext</code> (channel, memory, artifacts, logger, etc.) while executing in normal Python runtime—no graph nodes are created unless you opt in.</li>
-<li>Use <code>@tool</code> to mark functions as tool nodes; calling a tool inside a <code>graph_fn</code> creates a node on the fly and can capture inputs/outputs for provenance or persistence.</li>
-<li>You can call one <code>graph_fn</code> from another—each call becomes a child subgraph node—so compose agents naturally.</li>
-<li>The system is async-first for waiting on user input, performing I/O, and running concurrent work (use asyncio.gather for fan-out).</li>
-<li>For scripts/tests you can await <code>graph_fn</code>s directly or use <code>run(...)</code> to drive the event loop; prefer plain calls + context for lightweight, reactive workflows and use tools when you need traceability/durability.</li>
+<li><code>@graph_fn</code> wraps a Python function into an <strong>async agent</strong> with an injected <code>NodeContext</code> exposing rich runtime services.</li>
+<li>Execution stays in normal Python until you invoke <code>@tool</code> or another <code>graph_fn</code>—only those create nodes.</li>
+<li><code>@tool</code> functions let you capture intermediate steps for provenance and durability.</li>
+<li>Agents are composable: call one <code>graph_fn</code> from another or fan out with <code>asyncio.gather</code>.</li>
+<li>Use <code>run()</code> or <code>run_async()</code> for simple orchestration; prefer plain calls + context for lightweight workflows.</li>
 </ul>
+<blockquote>
+<p>AetherGraph’s agent model combines Pythonic simplicity with event-driven introspection—reactive first, deterministic when needed.</p>
+</blockquote>
 
 
 
@@ -1645,7 +1324,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart">
+          <a href="../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1655,7 +1334,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Quickstart
+                Introduction
               </div>
             </div>
           </a>

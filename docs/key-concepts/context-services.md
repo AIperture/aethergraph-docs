@@ -1,25 +1,27 @@
-# Context Overview
+# Context Services Overview
 
-**Context** is the lightweight runtime handle that your **agents** and **tools** receive at execution time. It represents the current **run**, **graph**, and **node** scope, and provides access to the runtime’s built‑in **services** (like channels, memory, artifacts, etc.) through a clean, composable Python interface.
+**Context** is the lightweight runtime handle that every **agent** and **tool** receives during execution. It represents the active **run**, **graph**, and **node** scope and exposes AetherGraph’s built-in **runtime services**—channels, memory, artifacts, logs, and more—through a clean, Pythonic interface.
 
-> **In essence:** Context is what lets AetherGraph “come alive.” It connects your pure Python logic to external I/O, state, orchestration, and AI‑augmented services — without introducing a new DSL.
-
----
-
-## Why Context Matters
-
-AetherGraph’s design principle is *Python‑first orchestration*. The context system enables this by:
-
-* **Decoupling logic from infrastructure** – you can build tools and agents that call `context.<service>()` without caring about the backend implementation.
-* **Maintaining provenance and state** – each call is aware of its `run_id`, `graph_id`, and `node_id`, so results and events are recorded with full traceability.
-* **Enabling orchestration without overhead** – context manages message passing, persistence, and coordination automatically.
-* **Integrating optional intelligence** – attach LLMs, RAG corpora, or external MCP tool servers only when needed.
-
-Ultimately, `NodeContext` is what transforms plain async functions into **interactive, stateful agents** — giving you the ability to talk, remember, reason, and orchestrate in one consistent runtime.
+> **In short:** Context is what makes an AetherGraph program “alive.” It bridges your pure Python logic with interactive I/O, persistence, orchestration, and AI-powered capabilities—without introducing a new DSL or framework-specific syntax.
 
 ---
 
-## Quick Start
+## 1. Why Context Matters
+
+AetherGraph’s guiding principle is **Python-first orchestration**. The context system makes that possible by providing a unified way to connect logic and infrastructure.
+
+**Core benefits:**
+
+* **Decoupled logic:** Agents and tools can call `context.<service>()` without worrying about back-end details or deployment environment.
+* **Automatic provenance:** Each call carries its `run_id`, `graph_id`, and `node_id`, ensuring full traceability.
+* **Zero-friction orchestration:** Handles message passing, persistence, and coordination transparently.
+* **Optional intelligence:** Attach LLMs, RAG corpora, or MCP servers only when needed—no dependencies until configured.
+
+In practice, `NodeContext` turns plain async functions into **interactive, stateful agents** that can communicate, remember, reason, and orchestrate—all from Python.
+
+---
+
+## 2. Quick Start
 
 ```python
 from aethergraph import graph_fn
@@ -32,14 +34,17 @@ async def hello_context(*, context):
         outputs=[{"name": "msg", "kind": "text", "value": "hello"}],
         tags=["demo"],
     )
-    context.logger().info("done", extra={"stage": "finish"})
+    context.logger().info("finished", extra={"stage": "done"})
+    return {"ok": True}
 ```
+
+> Each call operates within a specific node scope. The runtime automatically provides `run_id`, `graph_id`, and `node_id` to maintain context and provenance.
 
 ---
 
-## What the Context Contains
+## 3. Context Structure
 
-Each `NodeContext` carries stable identifiers and bound services for the current execution scope.
+Each `NodeContext` carries stable identifiers and bound service references.
 
 ```python
 @dataclass
@@ -47,84 +52,84 @@ class NodeContext:
     run_id: str
     graph_id: str
     node_id: str
-    services: NodeServices  # wiring for all built‑ins
+    services: NodeServices  # all bound runtime services
 ```
 
 **Identifiers**
 
-* **run_id** — unique per execution run
-* **graph_id** — which graph this node belongs to
-* **node_id** — unique node invocation id
+* **run_id** — unique per execution run.
+* **graph_id** — identifies which graph the node belongs to.
+* **node_id** — unique ID for the node invocation.
 
 ---
 
-## Context Methods
+## 4. Context Services
 
-AetherGraph divides context services into **core**, **optional**, and **utility** groups.
+AetherGraph organizes its context services into **core**, **optional**, and **utility** layers.
 
 ### Core Services
 
-| Method                    | Purpose                                                                                     |                                                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `context.channel(key: str | None = None)`                                                                               | Message & interaction bus (text, buttons, files, streaming, progress). Defaults to configured channel. |
-| `context.memory()`        | Session/run memory façade — record events, write results, query history, build RAG indices. |                                                                                                        |
-| `context.artifacts()`     | Artifact store/index façade — save or retrieve files, manage experiment outputs.            |                                                                                                        |
-| `context.kv()`            | Transient key–value store for coordination, small caches, and ephemeral synchronization.    |                                                                                                        |
-| `context.logger()`        | Structured Python logger with `{run_id, graph_id, node_id}` automatically injected.         |                                                                                                        |
+| Method                    | Purpose                                                                                     |                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `context.channel(key: str | None = None)`                                                                               | Message and interaction bus — send text, files, progress, or streaming events. Defaults to the configured session channel. |
+| `context.memory()`        | Memory façade — record events, write results, query history, or manage RAG-ready logs.      |                                                                                                                            |
+| `context.artifacts()`     | Artifact store façade — save/retrieve files, track outputs, and query experiment artifacts. |                                                                                                                            |
+| `context.kv()`            | Lightweight key–value store for ephemeral coordination and small caches.                    |                                                                                                                            |
+| `context.logger()`        | Structured logger with `{run_id, graph_id, node_id}` metadata automatically included.       |                                                                                                                            |
 
-### Optional Services (require extra configuration)
+### Optional Services (config-dependent)
 
-These depend on environment/API keys and are only available if configured at runtime.
+Optional services require API keys or runtime configuration. They are injected dynamically when available.
 
-| Method                           | Purpose                                                                                                |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `context.llm(profile="default")` | LLM client for `chat()` or `embed()` operations; plug in OpenAI, Anthropic, or local models.           |
-| `context.rag()`                  | Retrieval‑augmented generation façade; create corpora, upsert docs, search, and answer with citations. |
-| `context.mcp(name)`              | MCP client to connect to external tool servers via stdio/websocket/HTTP.                               |
+| Method                           | Purpose                                                                                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `context.llm(profile="default")` | Access an LLM client for chat or embeddings (OpenAI, Anthropic, or local backends).                  |
+| `context.rag()`                  | Retrieval-augmented generation façade — build corpora, upsert documents, search, and answer queries. |
+| `context.mcp(name)`              | Connect to external MCP tool servers via stdio, WebSocket, or HTTP.                                  |
 
 ### Utility Helpers
 
-| Method                    | Purpose                                                                      |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| `context.clock()`         | Clock/time helpers for timestamps, scheduling, and delays.                   |
-| `context.continuations()` | Access to continuation store (usually used indirectly by `channel().ask_*`). |
+| Method                    | Purpose                                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| `context.clock()`         | Clock utilities for timestamps, delays, and scheduling.                                       |
+| `context.continuations()` | Access continuation store; used internally for dual-stage waits (`ask_text`, `ask_approval`). |
 
-> If a service is unavailable, its accessor raises a clear error (e.g., `LLMService not available`). Configure them at startup or through the environment.
+> If a service is unavailable, its accessor raises a clear runtime error (e.g., `LLMService not available`). Configure them globally or per-environment to enable.
 
 ---
 
-## Typical Patterns
+## 5. Typical Patterns
 
-### 1) Ask → Wait → Continue
+### 1 Ask → Wait → Resume
 
 ```python
 text = await context.channel().ask_text("Provide a dataset path")
-# runtime yields, persists a continuation, resumes with user input
+# Runtime yields, stores a continuation, and resumes when input arrives.
 ```
 
-### 2) Stream + Progress
+### 2 Streaming & Progress
 
 ```python
 async with context.channel().stream() as s:
     await s.delta("Parsing… ")
-    await s.delta("OK. ")
+    await s.delta("OK ✅")
 
 async with context.channel().progress(title="Training", total=100) as p:
     for i in range(0, 101, 5):
         await p.update(current=i)
 ```
 
-### 3) Artifacts + Memory
+### 3 Artifacts + Memory
 
 ```python
-art = await context.artifacts().save(path="/tmp/report.pdf", kind="report", labels={"exp":"A"})
+art = await context.artifacts().save(path="/tmp/report.pdf", kind="report", labels={"exp": "A"})
 await context.memory().write_result(
     topic="report",
     outputs=[{"name": "uri", "kind": "uri", "value": art.uri}],
 )
 ```
 
-### 4) RAG Answer using LLM
+### 4 RAG + LLM Answers
 
 ```python
 hits = await context.rag().search("notes", query="What is MTF?", k=5)
@@ -132,7 +137,7 @@ ans = await context.rag().answer("notes", question="What is MTF?", style="concis
 await context.channel().send_text(ans["answer"])
 ```
 
-### 5) External Tools via MCP
+### 5 External Tools via MCP
 
 ```python
 res = await context.mcp("ws").call("search", {"q": "tolerance analysis", "k": 5})
@@ -140,34 +145,36 @@ res = await context.mcp("ws").call("search", {"q": "tolerance analysis", "k": 5}
 
 ---
 
-## Custom Context Services
+## 6. Custom Context Services
 
-AetherGraph’s context system is **extensible**. You can register your own service and make it available as `context.<your_service>()`. This allows you to:
+The context system is **fully extensible**. You can define your own service and expose it via `context.<name>()` using `register_context_service()`.
 
-* Extend the runtime with **custom persistence layers**, schedulers, or storage models.
-* Encapsulate **domain‑specific APIs** (e.g., simulation, materials database, experiment tracker).
-* Implement **persistent stages** that survive restarts or act as bridges between distributed components.
+**Use cases:**
 
-Custom contexts are defined and registered via `register_context_service()` (see the *External Context* section for details and benefits).
+* Add domain-specific APIs (e.g., simulation, materials DB, experiment tracking).
+* Provide custom persistence or distributed coordination layers.
+* Implement bridges between external systems (e.g., job schedulers, cloud storage, or lab devices).
+
+See *External Context Services* for API details and examples.
 
 ---
 
-## Philosophy
+## 7. Design Philosophy
 
-* **Python‑first**: context calls are helpers, not a DSL. Keep logic in plain Python.
-* **Minimal surface**: each service has a small, composable API.
-* **Composable orchestration**: mix local and remote services freely.
-* **Swappable backends**: replace services (e.g., LLM provider, KV backend) without changing agent code.
+* **Python-first:** use direct calls, not DSL syntax.
+* **Minimal surface:** each service follows a small, composable API.
+* **Composable orchestration:** mix local and remote services freely.
+* **Swappable backends:** replace LLM, KV, or artifact backends without touching agent logic.
 
 ---
 
 ## See Also
 
-* `context.channel()` — cooperative waits, streaming, progress
-* `context.memory()` — event log, typed results, summaries, RAG helpers
-* `context.artifacts()` — CAS storage + search
-* `context.llm()` — chat & embeddings
-* `context.rag()` — corpora & QA
-* `context.mcp()` — external tool bridges
-* `context.kv()` — transient coordination
-* `context.logger()` — structured logs
+* [`context.channel()`] — cooperative waits, streaming, progress updates
+* [`context.memory()`] — event log, typed results, summaries, and RAG helpers
+* [`context.artifacts()`] — content-addressable storage and retrieval
+* [`context.llm()`] — chat, completion, and embeddings
+* [`context.rag()`] — corpus creation and QA retrieval
+* [`context.mcp()`] — bridges to external tool servers
+* [`context.kv()`] — transient coordination and state passing
+* [`context.logger()`] — structured

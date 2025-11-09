@@ -123,7 +123,7 @@ async def notify_and_tag(*, context):
 You can author custom dual‑stage nodes with **`DualStageTool`** to model your own A/B waits (e.g., submit job → wait → collect). Some examples of the usage include 
 
 - custom channel waits
-- submit/run long simualtion on the cloud
+- submit/run long simualtion on cloud
 - data/model training pipeline on external systems
 - external API Polling that reports a compleltion asynchronously
 
