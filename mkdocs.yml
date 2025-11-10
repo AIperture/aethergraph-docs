@@ -100,6 +100,13 @@ nav:
       - Tools Facade: reference/tools-facade.md
       - Config: reference/config.md
       - REST API: reference/rest-api.md
+  - Setup:
+      - Introduction: channel-setup/introduction.md
+      - Console Channel: channel-setup/console-setup.md
+      - Slack Setup: channel-setup/slack-setup.md
+      - Telegram Setup: channel-setup/telegram-setup.md
+      - Webhook Setup: channel-setup/webhook-setup.md
+      - File Channel: channel-setup/file-setup.md
 
 markdown_extensions:
   - admonition
