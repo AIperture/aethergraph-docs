@@ -46,14 +46,14 @@ For local usage with polling (no public URL, no webhook), add something like thi
 AETHERGRAPH_TELEGRAM__ENABLED=true
 
 # Bot token from BotFather
-AETHERGRAPH_TELEGRAM__BOT_TOKEN=8359235655:AAGu5bd_fnkAqX70SD1HPfJg0MY7aqLkze8
+AETHERGRAPH_TELEGRAM__BOT_TOKEN=...
 
 # Local/dev polling mode (recommended)
 AETHERGRAPH_TELEGRAM__POLLING_ENABLED=true
 AETHERGRAPH_TELEGRAM__WEBHOOK_ENABLED=false
 
 # Optional: default chat ID for context.channel()
-AETHERGRAPH_TELEGRAM__DEFAULT_CHAT_ID=7663982940
+AETHERGRAPH_TELEGRAM__DEFAULT_CHAT_ID=...
 ```
 
 Notes:

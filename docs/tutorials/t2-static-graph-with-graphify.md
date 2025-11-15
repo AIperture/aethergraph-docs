@@ -18,33 +18,33 @@
 
 ---
 
-## 1) Key Rules (short)
+## 1. Key Rules (short)
 
 * **Only `@tool` calls are allowed as steps** in a `@graphify` builder. Use plain Python **only to wire values or format the graph** (no side‑effects); such code will **not** appear as nodes.
 * **Build ≠ Run.** Calling a `@graphify` function **returns a TaskGraph**. Use a runner to execute it.
 * **Async supported.** Tools can be sync or async; the runner provides both sync and async entry points.
 * **Resumption requires stable IDs.** Give important nodes a fixed `*_id` and **reuse the same `run_id`** when resuming.
-* **Outputs:** Return a **dict of JSON‑serializable values**. Large/binary data → save via `artifacts()` and return a reference. (Full rules live in the API page.)
+* **Outputs:** Return a **dict of JSON‑serializable values** for resumption. Large/binary data → save via `artifacts()` and return a reference. (Full rules live in the API page.)
 
-> **Related:** `@graph_fn` can also emit an **implicit graph** when you call `@tool`s inside it. Use `_after` to enforce ordering there too, and inspect the last run’s captured graph with `graph_fn.last_graph()`.
+> **Related:** `@graph_fn` can also emit an **implicit graph** when you call `@tool`s inside it. Use `_after` to enforce ordering there too, and inspect the last run’s captured graph with `graph_fn.last_graph`.
 
 ---
 
-## 2) Shapes (tools & graphify)
+## 2. Shapes (tools & graphify)
 
 ### `@tool` shape (suggested)
 
 ```python
 from aethergraph import tool
 
-@tool(name="load_csv", outputs=["rows"])            # names become handle fields
-def load_csv(path: str) -> dict:                      # return dict matching outputs
+@tool(name="load_csv", outputs=["rows"])            # names become handle fields. Name is optional running locally
+def load_csv(path: str) -> dict:                    # return dict matching outputs
     # ... load and parse ...
     return {"rows": rows}
 ```
 
+* `@tool` can be sync or async, they all run as async internally. 
 * Declare `outputs=[...]`. Returned dict **must** contain those keys.
-* Use `_after=...` to force ordering when no data edge exists.
 
 ### `@graphify` shape (suggested)
 
@@ -58,16 +58,18 @@ def etl(csv_path: str):
     return {"nrows": len(raw.rows)}      # JSON-serializable outputs
 ```
 
+* `graphify` is always a sync function. No `await` allowed inside the builder.
+* Use `_after=...` to force ordering when no data edge exists.
 * Calling `etl()` **builds** a `TaskGraph`; it does not run.
 * Run using `run(...)` / `run_async(...)` with `inputs={...}`.
 
 ---
 
-## 3) Minimal Example — Build → Run
+## 3. Minimal Example — Build → Run
 
 ```python
 from aethergraph import graphify, tool
-from aethergraph.core.runtime.graph_runner import run  # sync helper
+from aethergraph.runner import run  
 
 @tool(outputs=["doubled"])  
 def double(x: int) -> dict:
@@ -86,7 +88,7 @@ def tiny_pipeline(x: int):
 # Build (no execution yet)
 G = tiny_pipeline()                   # → TaskGraph
 
-# Run (sync)
+# Run (sync helper, useful in Jupyter notebook)
 result = run(G, inputs={"x": 7})
 print(result)  # {'y': 24}
 ```
@@ -95,7 +97,7 @@ print(result)  # {'y': 24}
 
 ---
 
-## 4) Ordering Without Data Edges — `_after`
+## 4. Ordering Without Data Edges — `_after`
 
 ```python
 @tool(outputs=["ok"])  
@@ -115,7 +117,7 @@ def seq():
 
 ---
 
-## 5) Resume a Run — Stable `_id` + `run_id`
+## 5. Resume a Run — Stable `_id` + `run_id`
 
 Resumption lets you continue a partially-completed graph **without redoing finished nodes**. This is useful for flaky I/O or long pipelines.
 
@@ -165,7 +167,7 @@ def resumable_pipeline(x: int):
 
 ---
 
-## 6) Inspect Before/After Running
+## 6. Inspect Before/After Running
 
 Once you have a `TaskGraph` (e.g., `G = tiny_pipeline()`), you can:
 
@@ -185,7 +187,7 @@ dot = G.to_dot()            # Graphviz DOT text
 
 ---
 
-## 7) Practical Tips
+## 7. Practical Tips
 
 * **Keep nodes small and typed**: expose clear outputs (e.g., `outputs=["clean"]`).
 * **Use JSON‑serializable returns**; store big/binary as artifacts.
@@ -195,7 +197,7 @@ dot = G.to_dot()            # Graphviz DOT text
 
 ---
 
-## 8) Summary
+## 8. Summary
 
 * `@graphify` **materializes** a static DAG from `@tool` calls.
 * **Build** with the function call; **run** with the runner (sync or async).

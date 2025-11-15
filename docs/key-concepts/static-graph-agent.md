@@ -12,7 +12,7 @@
 
 A **static graph** is a declarative DAG of tool nodes and dependencies. Each node is a `@tool` call; edges represent data flow or forced ordering. You build it once, then you can inspect, persist, visualize, and run it repeatedly.
 
-**Why static?** Repeatability, inspectability, and clear fan‑in/fan‑out. Static graphs shine for pipelines and reproducible experiments where determinism and analysis matter.
+**Why static?** Repeatability, inspectability, resumability, and clear fan‑in/fan‑out. Static graphs shine for pipelines and reproducible experiments where determinism and analysis matter.
 
 ---
 
@@ -24,6 +24,7 @@ A **static graph** is a declarative DAG of tool nodes and dependencies. Each nod
 | Composition    | Mix plain Python + `@tool` (implicit nodes)        | Only `@tool` nodes are valid steps                                         |
 | Context usage  | Rich `context.*` available inline                  | Need to wrap `context.*` in a tool to access it |
 | Inspectability | Inspect implicit graph via `graph_fn.last_graph()` | Full spec via `.io()`, `.spec()`, `TaskGraph.pretty()`                     |
+| Resumability | Graph cannot be resumed (use memory to resume sementically) | Graph execution can resume to last node without running from the start 
 | Best for       | Interactive agents, quick iteration                | Pipelines, reproducible runs, analytics                                    |
 
 > **Note:** Nested static‑graph calls are **not supported** at the moment (no calling one `@graphify` from another as a node). Compose via tools or run graphs separately.
@@ -57,6 +58,8 @@ def etl_train_report(csv_path):
 
 G = etl_train_report.build()     # → TaskGraph
 ```
+
+> All the input and output in the definition of a graph builder are `graph_ref` and `NodeHandler`, respectively. Accessing them in the graph builder will not display the actual value (e.g. you cannot access `raw[0]` or `raw.rows[0]` and pass it to the next tool). **Always** use a `@tool` to pack/uppack variables or integrate multiple small steps in a `@tool`. 
 
 ### Control ordering without data edges
 
@@ -130,8 +133,8 @@ def join(a, b): ...
 
 @graphify(name="fan", inputs=["x1", "x2"], outputs=["z"]) 
 def fan(x1, x2):
-    a = step(x=arg("x1"))  # fan‑out 1
-    b = step(x=arg("x2"))  # fan‑out 2
+    a = step(x="x1")  # fan‑out 1
+    b = step(x="x2")  # fan‑out 2
     j = join(a=a.v, b=b.v)  # fan‑in
     return {"z": j.z}
 ```
@@ -192,39 +195,9 @@ dot = G.to_dot()                 # Graphviz DOT
 
 ---
 
-## 7. Recall: Use `@tool` inside `@graph_fn`
-
-While `@graph_fn` executes immediately, **you can embed `@tool` calls** to create explicit nodes for tracing or parallelism within a reactive agent:
-
-```python
-from aethergraph import graph_fn, tool
-
-@tool(outputs=["y"]) 
-def square(x: int):
-    return {"y": x*x}
-
-@graph_fn(name="mix") 
-async def mix(x: int, *, context):
-    h = square(x=x)                 # schedules a tool node in the implicit graph
-    await context.channel().send_text("running square…")
-    return {"y": h.y}
-```
-
-> Prefer `@graphify` for full, reproducible pipelines; prefer `@graph_fn` for interactive/reactive agents that lean on `context.*`.
-
-If you executed a `@graph_fn` and want to inspect the **implicit** graph of tool nodes it created:
-
-```python
-G_last = graph_fn.last_graph()    # TaskGraph of the most recent run (if available)
-print(G_last.pretty())
-```
-
----
-
-## 8. Key Points
+## Key Points
 
 * `@graphify` **builds** a DAG from `@tool` calls; you **run it later**.
-* Use `arg("name")` to reference declared inputs inside the builder.
 * Use `_after` to force ordering without data edges.
 * Fan‑out/fan‑in is natural with multiple `@tool` calls and a later join.
 * Inspect via `.io()`, `.spec()`, `TaskGraph.pretty()`, `ascii_overview()`, `to_dot()`.

@@ -50,7 +50,7 @@ The `@tool` decorator marks a Python function as a **tool node**. When called in
 from typing import List
 from aethergraph import tool
 
-@tool(name="sum_vec", outputs=["total"])
+@tool(outputs=["total"])
 def sum_vec(xs: List[float]) -> dict:
     return {"total": float(sum(xs))}
 ```
@@ -58,7 +58,7 @@ def sum_vec(xs: List[float]) -> dict:
 Use inside a `graph_fn`:
 
 ```python
-@graph_fn(name="tool_demo", outputs=["total"])
+@graph_fn(name="tool_demo")
 async def tool_demo(values: list[float], *, context: NodeContext):
     stats = {"n": len(values)}             # executed inline
     out = sum_vec(values)                  # ← captured as a node
@@ -68,29 +68,7 @@ async def tool_demo(values: list[float], *, context: NodeContext):
 
 You can mix normal Python code and `@tool` calls seamlessly. Only `@tool` calls create nodes.
 
-### Example: lightweight HTTP fetch tool
-
-```python
-from aethergraph import tool
-import json, urllib.request
-
-@tool(name="fetch_json", outputs=["data"])
-def fetch_json(url: str) -> dict:
-    with urllib.request.urlopen(url) as r:
-        return {"data": json.load(r)}
-```
-
-Then call it inside a `graph_fn`:
-
-```python
-@graph_fn(name="use_fetch", outputs=["data"])
-async def use_fetch(url: str, *, context: NodeContext):
-    res = fetch_json(url)                   # node created dynamically
-    context.logger().info("fetched", extra={"url": url})
-    return {"data": res["data"]}
-```
-
-To inspect the implicit graph created during execution, call `graph_fn.last_graph()` — it returns the captured `TaskGraph` for visualization or reuse.
+To inspect the implicit graph created during execution, call `graph_fn.last_graph` — it returns the captured `TaskGraph` for visualization or reuse.
 
 ---
 
@@ -107,15 +85,15 @@ AetherGraph adopts **async-first design** because agents often:
 You can call one `graph_fn` from another. Each call creates a **child subgraph node**:
 
 ```python
-@graph_fn(name="step1", outputs=["y"])
+@graph_fn(name="step1")
 async def step1(x: int, *, context: NodeContext) -> dict:
     return {"y": x + 1}
 
-@graph_fn(name="step2", outputs=["z"])
+@graph_fn(name="step2")
 async def step2(y: int, *, context: NodeContext) -> dict:
     return {"z": y * 2}
 
-@graph_fn(name="pipeline", outputs=["z"])
+@graph_fn(name="pipeline")
 async def pipeline(x: int, *, context: NodeContext) -> dict:
     a = await step1(x)       # → child node
     b = await step2(a["y"]) # → child node
@@ -129,7 +107,7 @@ Launch multiple subgraphs concurrently with `asyncio.gather`:
 ```python
 import asyncio
 
-@graph_fn(name="concurrent_steps", outputs=["r1", "r2"])
+@graph_fn(name="concurrent_steps")
 async def concurrent_steps(a: int, b: int, *, context: NodeContext) -> dict:
     r1, r2 = await asyncio.gather(step1(a), step2(b))
     return {"r1": r1["y"], "r2": r2["z"]}
@@ -154,15 +132,16 @@ result = await pipeline(3)
 
 ```python
 from aethergraph.runner import run
-final = run(pipeline(3))
+final = run(pipeline, inputs={"x": 3})
 ```
+This is preferred in Jupyter Notebook. 
 
 ### Option C – Explicit async runner
 
 ```python
 from aethergraph.runner import run_async
 # In an async function
-result = await run_async(pipeline)
+result = await run_async(pipeline, inputs={"x": 3})
 ```
 
 The `run_*` helpers drive the event loop and normalize execution for both reactive and static graphs.

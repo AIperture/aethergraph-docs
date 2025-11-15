@@ -24,13 +24,13 @@ Most Python workflows scatter outputs across temp folders and logs with no consi
 
 ## 2. Artifacts — Persistent Assets
 
-**Artifacts** are immutable, content‑addressed assets produced or consumed by agents/tools: files, directories, JSON payloads, or serialized objects.
+**Artifacts** are immutable, content‑addressed assets (CAS) produced or consumed by agents/tools: files, directories, JSON payloads, or serialized objects.
 
 ### Why Artifacts (vs. manual files)?
 
-* **Content‑addressed**: the URI reflects the content (CAS) — no silent overwrites.
+* **Content‑addressed**: the URI reflects the content (CAS) — no silent overwrites, no need for manual naming.
 * **Typed + labeled**: add `kind`, `labels`, and `metrics` to organize results.
-* **Indexed**: query by scope or rank by metric (e.g., best checkpoint by `val_acc`).
+* **Indexed**: query by scope/labels or rank by metric. 
 * **Provenance‑stamped**: `{run_id, graph_id, node_id, tool_name, tool_version}` baked in.
 * **Portable**: `to_local_path(uri)` resolves for local or remote stores.
 
@@ -57,13 +57,13 @@ Most Python workflows scatter outputs across temp folders and logs with no consi
 | Method                                                            | Purpose                                                                      |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `stage()` / `stage_dir()`                                         | Reserve a temp path for producing files/dirs safely.                         |
-| `save(path, kind, labels=None, metrics=None, pin=False)`          | Save an existing path and index it. Returns an artifact with `uri`.          |
-| `save_text(content, *, kind="text", labels=None)`                 | Store small text payloads.                                                   |
-| `save_json(obj, *, kind="json", labels=None)`                     | Store a JSON payload.                                                        |
-| `writer(kind, planned_ext)`                                       | Context manager to stream‑write binary content; atomically indexes on close. |
-| `list(scope)` / `search(...)` / `best(kind, metric, mode, scope)` | Query and rank artifacts by descriptors or metrics.                          |
-| `pin(artifact_id)`                                                | Mark as retained (skip cleanup policies).                                    |
-| `to_local_path(uri)`                                              | Resolve a CAS URI to a local filesystem path.                                |
+| `save()`          | Save an existing path and index it. Returns an artifact with `uri`.          |
+| `save_text()`                 | Store small text payloads.                                                   |
+| `save_json()`                     | Store a JSON payload.                                                        |
+| `writer()`                                       | Context manager to stream‑write binary content; atomically indexes on close. |
+| `list()` / `search()` / `best()` | Query and rank artifacts by descriptors or metrics.                          |
+| `pin()`                                                | Mark as retained (skip cleanup policies).                                    |
+| `to_local_path()`                                              | Resolve a CAS URI to a local filesystem path.                                |
 
 ### Examples
 
@@ -78,16 +78,11 @@ async def produce_artifact(*, context):
     return {"report_uri": art.uri}
 ```
 
-**Rank by metric or search**
+**Search a past artfiact**
 
 ```python
 @graph_fn(name="search_reports", outputs=["top_uri"])
 async def search_reports(*, context):
-    top = await context.artifacts().best(
-        kind="checkpoint", metric="val_acc", mode="max", scope="run"
-    )
-    if top:
-        return {"top_uri": top.uri}
     results = await context.artifacts().search(
         kind="report", labels={"exp": "A"}
     )
@@ -98,15 +93,14 @@ async def search_reports(*, context):
 
 ## 3. Memory — Structured Event & Result Log
 
-**Memory** is a unified façade for recording, persisting, and querying **events** during an agent’s lifetime: raw logs, typed results, metrics, and their relationships with artifacts.
+**Memory** is a unified façade for recording, persisting, and querying **events** during an agent’s lifetime: raw logs, typed results, metrics, and their relationships with artifacts. 
 
 ### Why Memory (design intent)
 
 * **Contextual recall**: agents can react based on recent or historical state.
 * **Typed outputs**: `write_result` records semantic outputs with names/kinds/values.
-* **Summarization**: distill long conversations or runs into compact context.
 * **RAG‑ready**: promote events to a vector index for retrieval‑augmented answers.
-* **Analytics**: compute “last by name,” track trends, or export for BI.
+* **Analytics**: retrieve last actions for logical connection, track trends, or export for traceability.
 
 ### Architecture
 
@@ -132,43 +126,35 @@ async def search_reports(*, context):
 
 | Method                                                            | Purpose                                             |
 | ----------------------------------------------------------------- | --------------------------------------------------- |
-| `record_raw(base, text=None, metrics=None)`                       | Append a low‑level event.                           |
-| `record(kind, data, tags=None, **extra)`                          | Convenience structured logging.                     |
-| `write_result(topic, inputs=None, outputs=None, tags=None)`       | Log a typed output; updates indices.                |
-| `recent(kinds=None, limit=50)`                                    | Fetch most recent events.                           |
-| `last_by_name(name)`                                              | Get the latest output value by name.                |
-| `latest_refs_by_kind(kind)`                                       | Retrieve latest artifact/message refs of a kind.    |
-| `distill_rolling_chat(max_turns=20)`                              | Generate a compact chat/run summary (LLM‑assisted). |
-| `rag_bind(scope)` / `rag_promote_events(...)` / `rag_answer(...)` | RAG lifecycle helpers (requires LLM).               |
+| `record_raw()`                       | Append a low‑level event.                           |
+| `record()`                          | Convenience structured logging.                     |
+| `write_result()`       | Log a typed output; updates indices.                |
+| `recent()` / `recent_data()`                                    | Fetch most recent events / event data                       |
+| `last_by_name()`                                              | Get the latest output value by name.                |
+| `rag_bind()` / `rag_promote_events()` / `rag_answer()` | RAG lifecycle helpers (requires LLM).               |
 
 ### Examples
 
-**Log a typed result**
+**Record an event**
 
 ```python
 @graph_fn(name="remember_output", outputs=["y"])
 async def remember_output(x: int, *, context):
     y = x + 1
-    await context.memory().write_result(
-        topic="calc",
-        outputs=[{"name": "y", "kind": "number", "value": y}],
-        tags=["demo"],
-    )
+    await context.memory().record(kind="cal.result", data={"y": y})
     return {"y": y}
 ```
 
 **Recall + summarization**
 
 ```python
-recent = await context.memory().recent(limit=10)
-last_y = await context.memory().last_by_name("y")
-summary = await context.memory().distill_rolling_chat(max_turns=20)
+recent = await context.memory().recent(limit=10) # return list of events
 ```
 
 **Promote to RAG**
 
 ```python
-corpus = await context.memory().rag_bind(scope="project")
+corpus = await context.memory().rag_bind()
 await context.memory().rag_promote_events(corpus_id=corpus)
 ans = await context.memory().rag_answer(corpus_id=corpus, question="What was the best run?")
 ```
@@ -187,37 +173,15 @@ Artifacts and Memory reference each other: results and metrics point to artifact
 
 ## 5. Extensibility & External Systems
 
-AetherGraph’s built‑ins for **Artifacts** and **Memory** are part of the OSS core runtime and are not swappable in place. That is intentional: we rely on their stable semantics for provenance, lineage, and tooling.
-
-> **Important:** You **cannot** replace `context.artifacts()` or `context.memory()` with custom implementations. Instead, add **new services with new names** and keep agent code explicit about which storage it is using.
-
-### Recommended Extension Pattern
-
-* **Register new services** under distinct names, e.g. `context.datasets()`, `context.vault()`, `context.lineage_store()`, `context.vector_db()` or `context.external_artifacts()`.
-* **Keep provenance links** by storing artifact URIs or memory event IDs alongside your external records when appropriate.
-* **Export/mirror** selectively: you can mirror core artifacts/memory events to external systems for BI/compliance without changing the core stores.
-
-See *Extending Context Services* for `Service` APIs.
-
-
+AetherGraph’s built‑ins for **Artifacts** and **Memory** are part of the OSS core runtime and are not swappable in place. That is intentional: we rely on their stable semantics for provenance, lineage, and tooling. If you need custom memory or storage systems (local or cloud), see *Extending Context Services* for `Service` APIs.
 
 ---
 
-## 6. Design Principles
-
-* **Python‑first**: simple, composable APIs; no DSL required.
-* **Immutable by default**: artifacts are write‑once; updates create new versions.
-* **Typed results**: names/kinds/values make analytics and recall precise.
-* **Provenance everywhere**: run/graph/node IDs are attached automatically.
-* **Separation of concerns**: artifacts hold assets; memory holds events/results; they reference each other for lineage.
-
----
 
 ## Summary
 
 * **Artifacts** make outputs durable, searchable, and reproducible with CAS URIs and rich indexing.
 * **Memory** records the event stream and typed results for contextual recall, analytics, and RAG.
 * Together they provide end‑to‑end provenance and effortless “time travel” across runs.
-* The façades are **extensible**: swap in enterprise stores/indices without changing agent code.
 
 **See also:** `context.artifacts()` · `context.memory()` · `context.rag()` · *External Context Services*

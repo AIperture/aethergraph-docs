@@ -1,26 +1,27 @@
 # Server (Sidecar) Overview
 
-The **AetherGraph sidecar** is a lightweight process that boots your runtime services and exposes a tiny HTTP/WebSocket surface for **adapters** (Slack, Web, Telegram, …) and **continuations** (event‑driven waits). You can run `@graph_fn` in pure Python without it (console only), but start the sidecar when you need:
+The **AetherGraph sidecar** is a lightweight process that boots your runtime services and exposes a tiny HTTP/WebSocket surface for **adapters** (Slack, Web, Telegram, …) and **continuations** (event‑driven waits). With the server, you can: 
 
 * **Real interactions**: `ask_text/approval/files` from Slack/Web/Telegram and resume the run
 * **Centralized service wiring**: artifacts, memory, kv, llm, rag, mcp, logger
 * **A shared control plane**: health, upload hooks, progress streams, basic inspect
 
 > **In short:** keep your agents plain Python; start the sidecar for **I/O, resumability, and shared services**.
+> Always start the server before registering services and running agents
 
 ---
 
 ## Quick Start
 
 ```python
-from aethergraph.server import start, stop
+from aethergraph import start_server, stop_server
 
-url = start(host="127.0.0.1", port=0)  # FastAPI + Uvicorn in a background thread
+url = start_server(host="127.0.0.1", port=0)  # FastAPI + Uvicorn in a background thread
 print("sidecar:", url)
 
 # ... run @graph_fn / @graphify normally ...
 
-stop()  # optional (handy in tests/CI)
+stop_server()  # optional (handy in tests/CI)
 ```
 
 **Tips**
@@ -30,7 +31,7 @@ stop()  # optional (handy in tests/CI)
 
 ---
 
-## What `start()` Does
+## What `start_server()` Does
 
 1. **Load config & workspace** — resolve paths, secrets, and profiles; make the workspace if needed.
 2. **Build & register services** — channels, artifacts (store/index), memory (hotlog/persistence/indices), kv, llm, rag, mcp, logger.
@@ -41,34 +42,26 @@ stop()  # optional (handy in tests/CI)
 
 4. **Launch Uvicorn** — run the app in a background thread and return the **base URL**.
 
+> It is safe to use `start_server()` in Jupyter notebook
+
 ---
 
 ## Minimal API
 
-`start(host="127.0.0.1", port=0, workspace=None, log_level="info") -> str`
+`start_server(host="127.0.0.1", port=8000, ...) -> str`
 
 Starts the sidecar **in‑process** and returns the base URL.
 
-`start_async(...) -> str`
+`start-server_async(...) -> str`
 
 Async‑friendly variant (still hosts the server in a thread), convenient inside async apps/tests.
 
-`stop() -> None`
+`stop_server() -> None`
 
 Stops the background server. Useful for teardown in tests/CI.
 
 ---
 
-## When to Use the Sidecar
-
-* **Event‑driven waits** from non‑console adapters (Slack/Web/Telegram)
-* **File uploads & artifact routing** from a browser/UI
-* **Progress/streaming** to external UIs
-* **Shared settings & service wiring** across multiple agents
-
-You **don’t** need it for: simple console demos, unit tests without external I/O, or pure compute.
-
----
 
 ## Common Issues & Fixes
 

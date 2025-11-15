@@ -1,6 +1,6 @@
 # Concurrency, Fan‑In/Fan‑Out & Graph‑Level Orchestration
 
-AetherGraph provides **Python‑first concurrency** that scales from small reactive agents to globally scheduled DAGs. You can orchestrate parallelism naturally in Python, while the runtime enforces safe scheduling and per‑run concurrency caps.
+AetherGraph provides **Python‑first concurrency** that works from reactive agents to scheduled DAGs. You can orchestrate parallelism naturally in Python, while the runtime enforces safe scheduling and per‑run concurrency caps.
 
 ---
 
@@ -53,8 +53,13 @@ In static DAGs built with `@graphify`, every `@tool` call becomes a node in a **
 ```python
 from aethergraph import graphify, tool
 
+@tool(outputs=["result"])
+async def pick(items: list[int], index: int):
+    return {"result": items[index]}
+
 @tool(outputs=["out"])
 async def work(x: int):
+    print(f"Working on {x}...")
     return {"out": x * 2}
 
 @tool(outputs=["sum"])
@@ -63,8 +68,9 @@ async def reduce_sum(xs: list[int]):
 
 @graphify(name="map_reduce", inputs=["vals"], outputs=["sum"])
 def map_reduce(vals):
-    outs = [work(x=v) for v in vals]       # fan‑out
-    total = reduce_sum(xs=[o.out for o in outs])  # fan‑in
+    results = [pick(items=vals, index=i) for i in range(len(vals))]  # We need use a tool to extract values as vals is a ref not a list 
+    outs = [work(x=v.result) for v in results]       # fan‑out
+    total = reduce_sum(xs=[o.out for o in outs])     # fan‑in
     return {"sum": total.sum}
 ```
 
@@ -84,16 +90,16 @@ All orchestration in AetherGraph is **just Python**. You can run sequentially or
 ### A) Sequential orchestration (plain Python)
 
 ```python
-res1 = await graph_fn1(a=1)
-res2 = await graph_fn2(b=2)
+res1 = await graph_fn1(a=1, max_concurrency=N) # graph-level concurrency
+res2 = await graph_fn2(b=2, max_concurrency=N)
 ```
 
 ### B) Concurrent `graph_fn` runs (async‑friendly)
 
 ```python
 res1, res2 = await asyncio.gather(
-    graph_fn1(a=1),
-    graph_fn2(b=2),
+    graph_fn1(a=1, max_concurrency=N),
+    graph_fn2(b=2, max_concurrency=N),
 )
 ```
 
@@ -110,18 +116,11 @@ res1, res2 = await asyncio.gather(
 
 > Default concurrency for **each** graph is **4**, but you can override it per call with `max_concurrency` in either `run()` or `run_async()`.
 > Becareful of global concurrency limit. Use semaphores or pools to control load. 
+> Do not use `runner.run()` for concurrent graph runs.
 
 ---
 
-## 4. Nested and Multi‑Graph Execution
-
-**Nested `@graph_fn`** — supported. Each agent has its own scheduler; nested agents may multiply total concurrency. Use global semaphores or resource pools to cap total parallelism.
-
-**Nested `@graphify`** — not supported yet. Static graphs cannot call other static graphs as nodes; compose them at the orchestration layer instead.
-
----
-
-## 5. Concurrency Comparison
+## 4. Concurrency Comparison
 
 | Aspect                  | `@graph_fn` (Reactive)                    | `@graphify` (Static)                          |
 | ----------------------- | ----------------------------------------- | --------------------------------------------- |

@@ -7,256 +7,270 @@ This tutorial adds language models and retrieval‑augmented generation (RAG) to
 3. build a searchable RAG corpus from your files/memory
 4. answer questions grounded by retrieved context (with optional citations)
 
-> Works with OpenAI, Azure OpenAI, Anthropic, Google (Gemini), OpenRouter, LM Studio, and Ollama via a unified `GenericLLMClient`.
+> Works with OpenAI, Anthropic, Google (Gemini), OpenRouter, LM Studio, and Ollama via a unified **GenericLLMClient**.
 
 ---
 
-## 1) Quick Setup: LLM Profiles
+## 0. Mental model
 
-LLMs are managed by `LLMService`. You can provide keys via **environment variables** (recommended) or set a key **at runtime** for demos.
-
-### A) Environment variables (recommended)
-
-```bash
-# Choose a provider and set its key
-export LLM_PROVIDER=openai
-export OPENAI_API_KEY=sk-...
-# Optionally select a default chat/embedding model
-export LLM_MODEL=gpt-4o-mini
-export EMBED_MODEL=text-embedding-3-small
-```
-
-### B) Runtime key injection (demo/notebook)
+* **LLM**: a provider‑agnostic client you access via `context.llm(...)` for chat and embeddings.
+* **RAG**: a corpus of documents (from files and/or Memory events) that are chunked, embedded, and retrieved to ground LLM answers.
 
 ```python
-@graph_fn(name="hello_llm")
-async def hello_llm(name: str, *, context):
-    # Set/override an API key for the active profile (in-memory only)
-    context.llm_set_key(provider="openai", api_key="sk-YOURKEY")
-
-    llm = context.llm()            # ← default profile
-    text, usage = await llm.chat([
-        {"role": "system", "content": "Be concise."},
-        {"role": "user",   "content": f"Greet {name} in one line."},
-    ])
-    await context.channel().send_text(text)
-    return {"reply": text}
+llm = context.llm(profile="default")   # chat & embed
+rag = context.rag()                     # corpora, upsert, search, answer
 ```
-
-> Tip: Use **profiles** if you need multiple providers/models. Call `context.llm("myprofile")` to get a named profile you configured in the container.
 
 ---
 
-## 2) Chatting in Agents (with Memory logging)
+## 1. Prerequisites
 
-Ask the user a question over your configured channel, call the LLM, and record the result to Memory for later analysis.
+* API keys for the providers you want (e.g., OpenAI, Anthropic, Gemini, OpenRouter).
+* If using local models: LM Studio or Ollama running locally and a base URL.
+
+---
+
+## 2. Configure LLMs (Profiles)
+
+You can configure profiles in **environment variables** (recommended) or **at runtime**.
+
+### A) `.env` profiles (recommended)
+
+Profiles are named by the section after `LLM__`. Example: a profile called **`MY_OPENAI`**:
+
+```dotenv
+AETHERGRAPH_LLM__MY_OPENAI__PROVIDER=openai
+AETHERGRAPH_LLM__MY_OPENAI__MODEL=gpt-4o-mini
+AETHERGRAPH_LLM__MY_OPENAI__TIMEOUT=60
+AETHERGRAPH_LLM__MY_OPENAI__API_KEY=sk-...
+AETHERGRAPH_LLM__MY_OPENAI__EMBED_MODEL=text-embedding-3-small  # needed for llm().embed() or RAG
+```
+
+Then in code:
 
 ```python
-@graph_fn(name="interactive_chat")
-async def interactive_chat(*, context):
-    ch = context.channel()
-    question = await ch.ask_text("What do you want to know?")
+llm = context.llm(profile="my_openai")
+text, usage = await llm.chat([...])
+```
 
-    answer, usage = await context.llm().chat([
-        {"role": "system", "content": "Answer briefly and clearly."},
+> The **default** profile comes from your container config. Use profiles when you want to switch providers/models per node or per run.
+
+### B) Register at runtime (programmatic)
+
+Useful for notebooks/demos or dynamically wiring services:
+
+```python
+from aethergraph.llm import register_llm_client, set_rag_llm_client
+
+client = register_llm_client(
+    profile="runtime_openai",
+    provider="openai",
+    model="gpt-4o-mini",
+    api_key="sk-...",
+)
+
+# RAG can use a dedicated LLM (for embedding + answering). If not set, it uses the default profile.
+set_rag_llm_client(client=client)
+```
+
+You can also pass parameters directly to `set_rag_llm_client(provider=..., model=..., embed_model=..., api_key=...)`.
+
+### C) One‑off key injection
+
+If you just need to override a key in memory for a demo:
+
+```python
+context.llm_set_key(provider="openai", api_key="sk-...")
+```
+
+> **Sidecar note:** If your run needs channels, resumable waits, or shared services, start the sidecar server before using runtime registration.
+
+---
+
+## 3. Chat & Embed from a Graph Function
+
+### Chat (provider‑agnostic)
+
+```python
+@graph_fn(name="ask_llm")
+async def ask_llm(question: str, *, context):
+    llm = context.llm(profile="my_openai")  # or omit profile for default
+    messages = [
+        {"role": "system", "content": "You are concise and helpful."},
         {"role": "user",   "content": question},
-    ])
-
-    await ch.send_text(f"🧠 {answer}")
-
-    # Log an inspectable event for later recall/distillation
-    await context.memory().record("llm.answer", {"q": question, "a": answer})
+    ]
+    reply, usage = await llm.chat(messages)
+    return {"answer": reply, "usage": usage}
 ```
 
-**Why log?** You can later `recent()`/`distill_*()` the conversation, bind it to RAG, or correlate LLM answers with artifacts produced in the same run.
-
----
-
-## 3 RAG in AetherGraph — How It Works
-
-> **Implementation note (OSS):** AetherGraph’s open‑source RAG uses a **local filesystem corpus** plus a **FAISS** vector index for embeddings/retrieval by default. If you prefer a hosted/vector DB (e.g., PgVector, Qdrant, Pinecone), plug it in via **Extend Services**.
-
-RAG turns your files and run history into a **searchable corpus**. At answer time, the LLM sees only the most relevant chunks.
-
-```
-Your files / logs ──► Chunk & Embed ──► Vector Index ──► Retrieve top‑k ──► LLM answers from context
-        ▲                     │                                 │
-        └──── stored as Artifacts & Memory ─────────────────────┘
-```
-
-* **Artifacts**: PDFs, markdown, JSON, text blobs (saved under `workspace/artifacts/`).
-* **RAGFacade**: handles corpora, ingestion, embeddings, search, and QA.
-* **LLM**: generates the final answer using retrieved chunks as context.
-
----
-
-## 4) Build a Corpus from Files (and Inline Text)
+### Embeddings
 
 ```python
-@graph_fn(name="make_corpus", outputs=["corpus_id"])
-async def make_corpus(*, context):
-    rag = context.rag()
-    corpus_id = "my_docs"  # any stable string you choose
+vectors = await context.llm(profile="my_openai").embed([
+    "First text chunk", "Second text chunk"
+])
+```
 
-    stats = await rag.upsert_docs(corpus_id, [
+> RAG needs an **embed model** configured on the chosen profile.
+
+### Optional reasoning knobs
+
+Some models (e.g., GPT‑5) accept reasoning parameters such as `reasoning_effort="low|medium|high"` via `llm.chat(..., reasoning_effort=...)`.
+
+---
+
+## 4. Raw API escape hatch
+
+For power users who need endpoints not yet covered by the high‑level client (such as low-level inputs, VLM models, custom models):
+
+```python
+openai = context.llm(profile="my_openai")
+payload = {
+    "model": "gpt-4o-mini",
+    "input": [
+        {"role": "system", "content": "You are concise."},
+        {"role": "user",   "content": "Explain attention in one sentence."}
+    ],
+    "max_output_tokens": 128,
+    "temperature": 0.3,
+}
+raw = await openai.raw(path="/responses", json=payload)
+```
+
+* `raw(path=..., json=...)` sends a verbatim request to the provider base URL.
+* You are responsible for parsing the returned JSON shape.
+
+> Use this when experimenting with new provider features before first‑class support lands in the client.
+
+---
+
+## 5. RAG: From Docs & Memory to Grounded Answers
+
+**Flow:** `Files/Events → chunk + embed → index → retrieve top‑k → LLM answers with context`.
+
+* **Corpora** live behind `context.rag()`.
+* Ingest **files** (by path) and **inline text**, and/or **promote Memory events** into a corpus.
+
+### A) Backend & storage
+
+**Default vector index:** **SQLite** (local, zero‑dep) — great for laptops and small corpora.
+
+**Switch to FAISS:** faster ANN search for larger corpora.
+
+Set up RAG backend: 
+
+* **Env:**
+
+```dotenv
+# RAG Settings
+AETHERGRAPH_RAG__BACKEND=faiss        # or sqlite
+AETHERGRAPH_RAG__DIM=1536             # embedding dimension (e.g., OpenAI text-embedding-3-small)
+```
+
+* **Runtime:**
+
+```python
+from aethergraph.services.rag import set_rag_index_backend
+
+set_rag_index_backend(backend="faiss", dim=1536)
+# If FAISS is not installed, it logs a warning and falls back to SQLite automatically.
+```
+
+* **On‑disk layout:** each corpus stores `corpus.json`, `docs.jsonl`, `chunks.jsonl`; source files are saved as **Artifacts** for provenance.
+
+### B) Build / update a corpus from files & text
+
+```python
+await context.rag().upsert_docs(
+    corpus_id="my_docs",
+    docs=[
         {"path": "data/report.pdf", "labels": {"type": "report"}},
-        {"text": "Experiment reached 91.2% accuracy on CIFAR-10.", "title": "exp-log"},
-    ])
-
-    await context.channel().send_text(f"Indexed {stats['chunks']} chunks in '{corpus_id}'.")
-    return {"corpus_id": corpus_id}
+        {"text": "Experiment hit 91.2% accuracy on CIFAR-10.", "title": "exp-log"},
+    ],
+)
 ```
 
-**What happens under the hood**
+* Use file docs when you already have a local file: `{"path": "/abs/or/relative.ext", "labels": {...}}`. Supported “smart-parsed” types are `.pdf`, `.md/markdown`, and `.txt` (others are treated as plain text). The original file is saved as an **Artifact** for provenance; if your PDF is a scan, run OCR first (we only extract selectable text). 
 
-* Each doc is **saved as an artifact** (CAS URI under `workspace/artifacts/`) and parsed to text.
-* Text is **chunked and embedded**, then added to a vector index.
+* Use inline docs when you have content in memory: `{"text": "...", "title": "nice-short-title", "labels": {...}}`. Keep titles short and meaningful; add 1–3 optional labels you’ll actually filter by (e.g., `{"source":"lab", "week":2}`).
 
----
+Behind the scenes: documents are stored as Artifacts, parsed, chunked, embedded, and added to the vector index.
 
-## 5) Use RAG with Memory
-
-
-> **About `kinds`:** `memory.record()` lets you set **any** event `kind` and those events are eligible for RAG promotion. `memory.write_result(...)` is just a convenience that emits events with kind **`tool_result`** and updates fast indices. In examples we filter `where={"kinds":["tool_result"]}`, but you can target your own kinds (e.g., `"eval"`, `"pipeline"`).
-
-You can also build a corpus directly from your **Memory events** (e.g., tool results recorded by `write_result`).
+### C) Promote Memory events into RAG
 
 ```python
-@graph_fn(name="promote_memory_to_rag")
-async def promote_memory_to_rag(*, context):
-    corpus = await context.memory().rag_bind(scope="project")  # creates/binds a stable project corpus
-
-    # Select informative events (e.g., most runs record outputs as kind="tool_result")
-    await context.memory().rag_promote_events(
-        corpus_id=corpus,
-        where={"kinds": ["tool_result"], "limit": 200}
-    )
-
-    await context.channel().send_text("Promoted recent tool results into RAG.")
+corpus = await context.memory().rag_bind()
+await context.memory().rag_promote_events(
+    corpus_id=corpus,
+    where={"kinds": ["tool_result"], "limit": 200},
+)
 ```
 
-**What does `kinds=["tool_result"]` mean?**
+You can promote any custom `kind` you recorded for later vector-based search and answer in a same `corpus_id`.
 
-* Every call to `memory.write_result(...)` becomes a structured **tool_result** event internally. Promoting these events turns your run outputs (numbers, URIs, short messages) into searchable docs.
-
----
-
-## 6) Ask Questions with Citations
+### D) Search, retrieve, answer (with citations)
 
 ```python
-@graph_fn(name="ask_rag")
-async def ask_rag(question: str, *, context):
-    rag = context.rag()
-    corpus_id = "my_docs"
-
-    ans = await rag.answer(corpus_id, question, style="concise", with_citations=True, k=6)
-    # ans = { "answer": ..., "citations": [...], "resolved_citations": [...], "usage": {...} }
-
-    await context.channel().send_text(ans.get("answer", "(no answer)"))
-    # Optionally log the answer to Memory for future recall/analytics
-    await context.memory().record("rag.answer", {"q": question, "a": ans.get("answer", "")})
-    return {"answer": ans}
+hits = await context.rag().search("my_docs", "key findings", k=8, mode="hybrid")
+ans  = await context.rag().answer(
+    corpus_id="my_docs",
+    question="Summarize the main findings and list key metrics.",
+    style="concise",
+    with_citations=True,
+    k=6,
+)
+# ans → { "answer": str, "citations": [...], "resolved_citations": [...], "usage": {...} }
 ```
 
-**Citations** include snippet + artifact URI for traceability. You can open those URIs locally via your Artifact facade when needed.
+Use `resolved_citations` to map snippets back to Artifact URIs for auditability.
+
+### E) Choosing the LLM for RAG
+
+RAG uses a dedicated **RAG LLM client** that must have **both** `model` **and** `embed_model` set.
+
+**Runtime:**
+
+  ```python
+  from aethergraph.llm import set_rag_llm_client
+  set_rag_llm_client(provider="openai", model="gpt-4o-mini", embed_model="text-embedding-3-small", api_key="sk-…")
+  ```
+
+If you don’t set one, it falls back to the default LLM profile (ensure that profile also has an `embed_model`).
+
+### F) Corpus management (ops)
+
+For maintenance and ops you can:
+
+* **List corpora / docs** to inspect what’s indexed.
+* **Delete docs** to remove vectors and records.
+* **Re‑embed** to refresh vectors after changing embed model or chunking.
+* **Stats** to view counts of docs/chunks and corpus metadata.
+
+These live on the same facade: `rag.list_corpora()`, `rag.list_docs(...)`, `rag.delete_docs(...)`, `rag.reembed(...)`, `rag.stats(...)`.
 
 ---
 
-## 7) End‑to‑End: Files → Corpus → QA (with Memory log)
+## 6. Practical recipes
 
-```python
-@graph_fn(name="doc_qa_pipeline")
-async def doc_qa_pipeline(question: str, *, context):
-    rag = context.rag()
-    corpus = "lab-notes"
-
-    # 1) Ingest docs (idempotent upserts)
-    await rag.upsert_docs(corpus, [
-        {"path": "notes/week1.md", "labels": {"week": 1}},
-        {"path": "notes/week2.md", "labels": {"week": 2}},
-    ])
-
-    # 2) Ask with context
-    ans = await rag.answer(corpus, question, style="concise", with_citations=True)
-
-    # 3) Record a typed result so you can recall latest answers fast
-    await context.memory().write_result(
-        topic="doc_qa",
-        outputs=[
-            {"name": "question", "kind": "text", "value": question},
-            {"name": "answer",   "kind": "text", "value": ans.get("answer", "")},
-        ],
-        tags=["qa", "rag"],
-    )
-
-    return {"answer": ans.get("answer", ""), "citations": ans.get("resolved_citations", [])}
-```
+* **Switch providers** by changing `profile=` in `context.llm(...)` without touching your code elsewhere.
+* **Save docs as Artifacts** (e.g., `save_text`, `save(path=...)`) and ingest by `{"path": local_path}` so RAG can cite their URIs.
+* **Log LLM outputs** with `context.memory().record(...)` or `write_result(...)` to enable recency views, distillation, and RAG promotion later.
 
 ---
 
-## 8) Troubleshooting & Tips
+## 7. Troubleshooting
 
-* **Keys and endpoints**: If you see auth errors, confirm the provider key and (for Azure) the deployment + endpoint vars.
-* **Local models (LM Studio / Ollama)**: set `LMSTUDIO_BASE_URL` / `OLLAMA_BASE_URL` then choose an installed model.
-* **Chunking too coarse/fine**: adjust chunk sizes in your `TextSplitter` if answers are missing context or too verbose.
-* **Citations look odd**: verify that documents were parsed properly (PDFs especially). Consider saving the original doc as an Artifact alongside parsed text for auditability.
-
----
-
-## 9) What to Use When
-
-| Task                                   | Use                                                   |
-| -------------------------------------- | ----------------------------------------------------- |
-| Quick one-off LLM reply                | `context.llm().chat(...)`                             |
-| Log a run’s LLM outputs                | `context.memory().record(...)` or `write_result(...)` |
-| Build a knowledge base from files      | `context.rag().upsert_docs(...)`                      |
-| Turn recent run history into knowledge | `context.memory().rag_promote_events(...)`            |
-| Answer with sources                    | `context.rag().answer(..., with_citations=True)`      |
+* **Auth/Endpoints**: Check keys; for Azure, confirm deployment + endpoint. For LM Studio, the base URL must include `/v1`.
+* **No citations or odd snippets**: Verify parsing (PDFs can be tricky). Consider storing originals as Artifacts alongside parsed text.
+* **Answers miss context**: Increase `k`, adjust chunk sizes, or broaden your `where` filter when promoting events.
+* **Latency/Cost**: Keep chunks compact, and filter ingestion to what you’ll actually ask about.
 
 ---
-
-## 10) Optional: Pair with Artifacts & Memory
-
-* Save source docs as **Artifacts** to ensure reproducibility and human‑readable URIs under `workspace/artifacts/`.
-* Record important answers via **Memory** so you can later `last_by_name(...)`, `recent(...)`, or `distill_rolling_chat(...)` for summaries.
-
-```python
-# Example: record a compact summary after a Q/A session
-summary = await context.memory().distill_rolling_chat(max_turns=20)
-# (optionally) snapshot a RAG corpus as an Artifact bundle
-snap = await context.memory().rag_snapshot(corpus_id="lab-notes", title="Weekly snapshot")
-```
-
----
-
-#
-
-### Example: Load an artifact by URI and query it
-
-Suppose you previously saved a report and only have its **URI**. Resolve it to a local path, parse the text, and upsert to a RAG corpus for querying:
-
-```python
-@graph_fn(name="artifact_to_rag_then_query", outputs=["answer"]) 
-async def artifact_to_rag_then_query(report_uri: str, question: str, *, context):
-    # 1) Resolve URI → local path (works for file:// and local CAS URIs)
-    path = context.artifacts().to_local_path(report_uri)
-
-    # 2) Make a project corpus (idempotent)
-    corpus = await context.memory().rag_bind(scope="project")
-
-    # 3) Ingest the artifact’s content into RAG
-    docs = [{"path": path, "labels": {"kind": "report"}}]
-    await context.memory().rag_upsert(corpus_id=corpus, docs=docs)
-
-    # 4) Ask a question against the corpus
-    ans = await context.memory().rag_answer(corpus_id=corpus, question=question)
-    return {"answer": ans.get("answer", "")}
-```
-
-> You can also ingest **inline** text that you’ve just generated by saving it as an artifact (e.g., `save_text`) and then upserting with `{"text": ..., "title": ...}`.
 
 ## Summary
 
-* Configure an LLM profile via env or runtime key, then call `llm.chat()`.
-* Build corpora from files and/or Memory events, then answer questions grounded by retrieval.
-* Use Memory + Artifacts to keep provenance: you can trace what the model answered and **why**.
+* Configure **LLM profiles** via `.env` or runtime registration, then use `llm.chat()` / `llm.embed()`.
+* Build RAG corpora from **files** and **Memory events**, then call `rag.answer(..., with_citations=True)` for grounded responses.
+* Use **Artifacts + Memory** for provenance so you can trace *what the model answered* and *why*.
+
+**See also:** `context.llm()` · `context.rag()` · `context.memory().rag_*` · `register_llm_client` · `set_rag_llm_client` · `llm.raw`

@@ -26,9 +26,9 @@ In this tutorial, you will:
 Before you run any agent, you must start the **sidecar server**, which wires up the runtime services such as channel communication, artifact storage, memory, and resumptions.
 
 ```python
-from aethergraph.server.start import start
+from aethergraph import start_server
 
-url = start()  # launches a lightweight FastAPI server in the background
+url = start_server()  # launches a lightweight FastAPI server in the background
 print("AetherGraph sidecar server started at:", url)
 ```
 
@@ -65,7 +65,7 @@ async def hello_world(input_text: str, *, context: NodeContext):
 ```
 
 > **Return value**:
-Always return a dictionary of **JSON-serializable results** (e.g. `{"result": value}`).
+Although you can return any data type in a dictionary, it is suggested to return a dictionary of **JSON-serializable results** (e.g. `{"result": value}`).
 For large data or binary files, save them via `context.artifacts().write(...)` and return the artifact path/uri instead for later reuse. 
 
 

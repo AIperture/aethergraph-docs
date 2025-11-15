@@ -22,8 +22,7 @@ async def demo(*, context):
 * **Reusable helpers** — share clients (e.g., HPC, S3, DB, solver), connection pools, or token buckets.
 * **Shared state** — memoize expensive lookups; coordinate across nodes within a run.
 * **Centralized config** — keep API keys, timeouts, routing, or policies in one place.
-* **Lifecycle control** — optional `start()/close()` hooks for setup/teardown.
-* **Per‑node awareness** — access `run_id/graph_id/node_id` for provenance or multi‑tenancy.
+* **Per‑node awareness** — access to built-in services through `self.ctx()` for provenance or multi‑tenancy.
 
 > Use a service for *long‑lived instances* or *cross‑node coordination*. For tiny stateless helpers, plain imports are fine.
 
@@ -45,22 +44,15 @@ Built‑ins (`context.artifacts()`, `context.memory()`, etc.) are **not swappabl
 ```python
 from aethergraph import Service
 
-class RunAware(Service):
-    async def tag_current(self) -> str:
-        # Access the *current* NodeContext lazily
-        ctx = self.ctx()
-        return f"run={ctx.run_id} node={ctx.node_id}"
-
 class Trainer(Service):
     async def submit(self, spec: dict) -> str:
         # Submit a training job to your HPC/cluster
-        job_id = await self._submit_to_cluster(spec)
-        # Log provenance to the *current* node
-        self.ctx().logger().info("trainer.submit", extra={"job_id": job_id})
+        ... 
         return job_id
 
     async def inspect_job(self, job_id: str) -> dict:
-        status = await self._query_cluster(job_id)
+        # Inspect the job status
+        ...
         return {"job_id": job_id, "status": status}
 ```
 
@@ -68,12 +60,14 @@ class Trainer(Service):
 
 ```python
 from aethergraph.runtime import register_context_service
+from aethergraph import start_server()
 
-register_context_service("runaware", RunAware())
+# register after server is started 
+start_server() 
 register_context_service("trainer",  Trainer())
 ```
 
-> After this, `context.runaware()` and `context.trainer()` are available everywhere in the runtime.
+> After this, `context.trainer()` is available everywhere in the runtime.
 
 ---
 
@@ -84,13 +78,8 @@ register_context_service("trainer",  Trainer())
 ```python
 @graph_fn(name="train_model", outputs=["job_id", "ckpt_uri"]) 
 async def train_model(spec: dict, *, context):
-    # 1) Submit to your cluster via the custom service
+    #  Submit to your cluster via the custom service
     job_id = await context.trainer().submit(spec)
-    # other waiting or inspection logic ...
-
-    # 2) Imagine your trainer writes a checkpoint to /tmp/ckpt.bin 
-    # (NOTE: you need to ensure the job finishes, this is a simplification)
-    ckpt = await context.artifacts().save("/tmp/ckpt.bin", kind="checkpoint", labels={"job": job_id})
     return {"job_id": job_id, "ckpt_uri": ckpt.uri}
 ```
 
@@ -99,47 +88,26 @@ async def train_model(spec: dict, *, context):
 ```python
 @tool(name="wait_for_training", outputs=["ready"]) 
 async def wait_for_training(job_id: str, *, context) -> dict:
+    # Inspect you job through your service
     info = await context.trainer().inspect_job(job_id)
     return {"ready": info["status"] == "COMPLETED"}
-```
-
-### C) Background/Blocking helpers
-
-```python
-class Heavy(Service):
-    async def compute(self, x: int) -> int:
-        # Offload CPU/binding operations without blocking the event loop
-        return await self.run_blocking(lambda: slow_cpu_fn(x))
 ```
 
 ---
 
 ## 5. Concurrency & Lifecycle
 
+If you expect your services are accessed by multiple agents concurrently, consider the designs: 
+
 * **Lifecycle hooks:** `start()` / `close()` are optional; call them from your app/server bootstrap.
-* **Shared access:** use `self.critical()` or an `AsyncRWLock` to protect mutable shared state.
+* **Shared access:** use `self.critical()` to protect mutable shared state. Design your own mutex when scaling up. 
 * **Per‑node context:** call `self.ctx()` whenever you need `{run_id, graph_id, node_id}`.
-* **Backpressure:** expose async APIs; if integrating queues, consider `asyncio.Queue` or your platform’s client backpressure.
+* **Async native:** expose async APIs; if integrating queues, consider `asyncio.Queue`.
+
 
 ---
 
-## 6. Testing & Mocking
-
-* Provide a **fake implementation** with the same interface for unit tests.
-* Register your fake with the same name (e.g., `"trainer"`) in the test harness.
-* Use in‑memory structures (dicts, temp dirs) for deterministic tests.
-
----
-
-## 7. Error Handling & Observability
-
-* Emit structured logs via `context.logger()` with operation names and durations.
-* Normalize exceptions from vendor SDKs into your own error types.
-* Consider retry/backoff wrappers in the service (centralized, consistent).
-
----
-
-## 8. Common Service Patterns (Examples)
+## 6. Common Service Patterns (Examples)
 
 | Scenario                           | Suggested accessor        | What it abstracts                      | Typical operations                                   |
 | ---------------------------------- | ------------------------- | -------------------------------------- | ---------------------------------------------------- |
@@ -154,29 +122,10 @@ class Heavy(Service):
 
 ---
 
-## 9. Optional callable services
 
-You may define `__call__` on a service to allow a compact form like `await context.trainer(spec)` in addition to `await context.trainer().submit(spec)`. This can be handy when switching model profiles or submitting a quick spec inline. It's supported, but for clarity we generally **recommend explicit method calls**.
-
-```python
-class Trainer(Service):
-    async def __call__(self, spec: dict) -> str:
-        return await self.submit(spec)
-
-    async def submit(self, spec: dict) -> str:
-        ...
-
-# Both are valid
-job_id = await context.trainer(spec)
-job_id = await context.trainer().submit(spec)
-```
-
-## 10. Recap
+## Summary
 
 * **External services** add named capabilities to `context` without changing agent code.
 * Built‑ins remain stable; extend via **new names** (no in‑place swaps).
 * Register **instances**, not factories; services run on the **main event loop**.
-* `ServiceHandle` supports both `context.svc()` (instance) and optional callable forwarding if your service implements `__call__`.
-* Use `self.ctx()` to fetch per‑node provenance on demand; protect shared state with `AsyncRWLock` or `critical()`.
-
-**See also:** External Context Deep Dive → · Channels & Interaction → · Artifacts & Memory →
+* Use `self.ctx()` to fetch per‑node provenance on demand; protect shared state with `critical()` or your own lock design.

@@ -6,7 +6,7 @@ This tutorial explains **how your graph talks back** — how agents communicate 
 
 ---
 
-## 1) What Is a Channel?
+## 1. What Is a Channel?
 
 A **channel** is your agent’s communication route — Slack, Telegram, Web UI, or Console. It lets your code send messages, request input, and stream updates through a consistent API.
 
@@ -25,11 +25,11 @@ async def greet(*, context):
 * The **`context.channel()`** method returns a `ChannelSession` helper with async methods like `send_text`, `ask_text`, `ask_approval`, `ask_files`, `stream`, and `progress`.
 * If no channel is configured, it falls back to the console (`console:stdin`).
 
-> 💡 Channel setup and adapter configuration (Slack, Telegram, Web) are covered in **Adapters & Setup**.
+> 💡 Channel setup and adapter configuration (Slack, Telegram, Web) are covered in **Channel Setup**.
 
 ---
 
-## 2) The Two Wait Models
+## 2. The Two Wait Models
 
 AetherGraph supports two wait mechanisms — **cooperative** and **dual-stage** — both built on the continuation system but with very different lifecycles.
 
@@ -37,39 +37,35 @@ AetherGraph supports two wait mechanisms — **cooperative** and **dual-stage** 
 
 * Implemented by `ChannelSession` (`ask_text`, `ask_approval`, `ask_files`, etc.).
 * Work *inside a running process* — the node suspends, then resumes when the reply arrives.
-* These waits are **stateless beyond memory**; if the process dies, the session is lost.
+* These waits are **stateful** for inspection, but not resumable; if the process dies, the session is lost.
 * Used mainly in **`@graph_fn`** agents, which execute immediately and stay alive.
 
 ### Dual-stage waits — via built-in channel tools
 
-* Implemented as **@tool nodes** in `aethergraph.builtins.toolset` (`ask_text`, `send_text`, etc.).
+* Implemented as **@tool nodes** in `aethergraph.tools` (`ask_text`, `send_text`, etc.).
 * Each wait becomes a **graph node** stored in the runtime snapshot.
-* Can **pause indefinitely** and **resume** after restarts using `run_id`.
+* Can **pause indefinitely** and **resume** after restarts using `run_id` in `@graphify`.
 * Used in **`@graphify`** graphs, which are strictly persisted and versioned.
 
 > ⚠️ All built-in dual-stage methods are `@tool`s — do **not** call them inside another tool. They are meant for use in graphify or top-level graph_fn logic, not nested nodes.
 
 ---
 
-## 3) Lifecycle and Persistence
+## 3. Lifecycle and Persistence
 
-| Concept            | `@graph_fn`                                    | `@graphify` + Dual-Stage Waits                       |
+| Concept            | `@graph_fn` + **Cooperative Waits**                                    | `@graphify` + Dual-Stage Waits                       |
 | ------------------ | ---------------------------------------------- | ---------------------------------------------------- |
 | Execution          | Runs immediately (reactive)                    | Builds DAG, runs with scheduler                      |
-| State              | Stateless during execution (in-memory only)    | Snapshot persisted to disk or DB                     |
-| Inspection         | Use `.last_graph()` to see implicit tool nodes | Graph spec is explicit and inspectable via `.spec()` |
+| State              | Stateful for in-process waits    | Snapshot persisted to disk or DB                     |
 | Wait behavior      | Cooperative (in-process)                       | Dual-stage (resumable)                               |
-| Resume after crash | ❌ Lost                                         | ✅ Recoverable with `run_id`                          |
+| Resume after crash | ❌ Lost, consider saving progress in memory and sementic recovery                                        | ✅ Recoverable with `run_id`  and stable `node_id`; set up `_id` when building the graph                   |
 
-**In short:**
-
-* `graph_fn` is *stateless* and great for live agents or notebooks.
-* `graphify` is *stateful*, recording every node and state transition.
-* Only **dual-stage waits** persist the wait state and allow resumption.
+> You can also use the `context.channel()` method in `@graphify` for convenience within a `@tool`, or use dual-stage wait tools in `graph_fn`. However, these approaches cannot guarantee resumption due to the stateful nature of the method or graph.
+> **Caveat for console dual-stage tools:** Console input is handled differently, and dual-stage waits do not support resumption for console channels. However, it is rare for a local process using the console to terminate unexpectedly.
 
 ---
 
-## 4) Cooperative Wait Example
+## 4. Cooperative Wait Example
 
 ```python
 from aethergraph import graph_fn
@@ -92,11 +88,11 @@ async def cooperative_wait(*, context):
 
 ---
 
-## 5) Dual-Stage Wait Example (Resumable)
+## 5. Dual-Stage Wait Example (Resumable)
 
 ```python
 from aethergraph import graphify
-from aethergraph.builtins.toolset import send_text, ask_text
+from aethergraph.tools import send_text, ask_text # built-in `@tool`. Do not use them in anohter `@tool`
 
 @graphify(name="dual_stage_greet", inputs=["channel"], outputs=["greeting"])
 def dual_stage_greet(channel: str):
@@ -110,42 +106,15 @@ def dual_stage_greet(channel: str):
 * If the process stops after `ask_text`, simply rerun with the same `run_id` to resume.
 * The system restores from the last persisted snapshot.
 
----
 
-## 6) Visual Comparison
-
-```
-COOPERATIVE (graph_fn + context.channel())
-┌─────────────┐  ┌──────────────┐  ┌──────────────┐
-│ send_text() │→│ ask_text()   │→│ continue...  │
-└─────────────┘  └──────────────┘  └──────────────┘
-(process alive, ephemeral)
-
-DUAL-STAGE (graphify + builtin tools)
-┌─────────────┐  ┌──────────────┐  ┌──────────────┐
-│ send_text@ │→│ ask_text@    │→│ resume later │
-└─────────────┘  └──────────────┘  └──────────────┘
-(persisted nodes, resumable)
-```
 
 ---
 
-## 7) When to Use Which
-
-| Scenario                      | Recommended Wait | Why                             |
-| ----------------------------- | ---------------- | ------------------------------- |
-| Quick console interaction     | Cooperative      | Simple, stateless, no setup     |
-| Slack/Web chat that may pause | Dual-stage       | Safe to resume after restart    |
-| Human approval pipeline       | Dual-stage       | Supports indefinite waiting     |
-| Notebook prototype            | Cooperative      | Lightweight, immediate feedback |
-
----
-
-## 8) Key Takeaways
+## Key Takeaways
 
 * `context.channel()` methods implement **cooperative waits** — great for live agents.
 * Built-in channel tools (`ask_text`, `send_text`, etc.) implement **dual-stage waits** — required for resumable graphs.
-* `graph_fn` is **stateless**, inspectable via `.last_graph()` but not recoverable.
+* `graph_fn` is **stateless**, inspectable via `.last_graph` but not recoverable.
 * `graphify` uses **snapshots** to persist progress and enable recovery with `run_id`.
 * Dual-stage tools are `@tool` nodes — never call them *inside* another tool.
 

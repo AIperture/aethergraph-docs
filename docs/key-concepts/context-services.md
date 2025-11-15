@@ -29,11 +29,10 @@ from aethergraph import graph_fn
 @graph_fn(name="hello_context")
 async def hello_context(*, context):
     await context.channel().send_text("Hello from AetherGraph!")
-    await context.memory().write_result(
-        topic="hello",
-        outputs=[{"name": "msg", "kind": "text", "value": "hello"}],
-        tags=["demo"],
-    )
+    await context.memory().record(
+        kind="chat_data",
+        data={"message": "Hello from AetherGraph!"},  
+    ) # remember key events
     context.logger().info("finished", extra={"stage": "done"})
     return {"ok": True}
 ```
@@ -71,9 +70,9 @@ AetherGraph organizes its context services into **core**, **optional**, and **ut
 
 | Method                    | Purpose                                                                                     |                                                                                                                            |
 | ------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `context.channel(key: str | None = None)`                                                                               | Message and interaction bus — send text, files, progress, or streaming events. Defaults to the configured session channel. |
-| `context.memory()`        | Memory façade — record events, write results, query history, or manage RAG-ready logs.      |                                                                                                                            |
-| `context.artifacts()`     | Artifact store façade — save/retrieve files, track outputs, and query experiment artifacts. |                                                                                                                            |
+| `context.channel()`       | Message and interaction bus — send/receive text/approval/files, show progress, or streaming events. |
+| `context.memory()`        | Memory façade — record events, write typed results, query history, or manage RAG-ready logs.      |                                                                                                                            |
+| `context.artifacts()`     | Artifact store façade — save/retrieve files, track outputs, and query files by labels/metrics artifacts. |                                                                                                                            |
 | `context.kv()`            | Lightweight key–value store for ephemeral coordination and small caches.                    |                                                                                                                            |
 | `context.logger()`        | Structured logger with `{run_id, graph_id, node_id}` metadata automatically included.       |                                                                                                                            |
 
@@ -83,9 +82,9 @@ Optional services require API keys or runtime configuration. They are injected d
 
 | Method                           | Purpose                                                                                              |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `context.llm(profile="default")` | Access an LLM client for chat or embeddings (OpenAI, Anthropic, or local backends).                  |
+| `context.llm()` | Access an LLM client for chat, embeddings, or raw apis access (OpenAI, Anthropic, Google, or local backends, etc.).                  |
 | `context.rag()`                  | Retrieval-augmented generation façade — build corpora, upsert documents, search, and answer queries. |
-| `context.mcp(name)`              | Connect to external MCP tool servers via stdio, WebSocket, or HTTP.                                  |
+| `context.mcp()`              | Connect to external MCP tool servers via stdio, WebSocket, or HTTP.                                  |
 
 ### Utility Helpers
 
@@ -103,37 +102,37 @@ Optional services require API keys or runtime configuration. They are injected d
 ### 1 Ask → Wait → Resume
 
 ```python
-text = await context.channel().ask_text("Provide a dataset path")
-# Runtime yields, stores a continuation, and resumes when input arrives.
+text = await context.channel().ask_text("Provide a dataset path") 
+# wait for external input and resume when done
+await context.channel().send(f"you provided the dataset path {text}")
 ```
 
-### 2 Streaming & Progress
+
+### 2 Artifacts + Memory
 
 ```python
-async with context.channel().stream() as s:
-    await s.delta("Parsing… ")
-    await s.delta("OK ✅")
+# save and return an artifact 
+art = await context.artifacts().save(path="/tmp/report.pdf", kind="report", labels={"exp": "A"}) 
+# save and return an event  
+evt = await context.memory().record(kind="checkpoint", data={"info": "experiment A saved"}) 
 
-async with context.channel().progress(title="Training", total=100) as p:
-    for i in range(0, 101, 5):
-        await p.update(current=i)
-```
-
-### 3 Artifacts + Memory
-
-```python
-art = await context.artifacts().save(path="/tmp/report.pdf", kind="report", labels={"exp": "A"})
-await context.memory().write_result(
-    topic="report",
-    outputs=[{"name": "uri", "kind": "uri", "value": art.uri}],
-)
+# In later stage or other agent:
+# list all previous saved art with kind == "report"
+arts = await context.artifacts().search(kind="report")      
+# list past 100 memory with kinds include "checkpoint" 
+evts = await context.memory().recent(kinds=["checkpoint"], limit=100)    
 ```
 
 ### 4 RAG + LLM Answers
 
 ```python
-hits = await context.rag().search("notes", query="What is MTF?", k=5)
-ans = await context.rag().answer("notes", question="What is MTF?", style="concise")
+# ingest data into vector DB
+corpus_id = "notes"
+_ = await context.rag().upsert_docs(corpus_id, docs)  # your documentations in a list 
+
+# later search/answer
+hits = await context.rag().search(corpus_id, query="Tool used in experiment #A2?", k=5)
+ans = await context.rag().answer(corpus_id, question="What is the best iteration and what is the loss?", style="concise")
 await context.channel().send_text(ans["answer"])
 ```
 

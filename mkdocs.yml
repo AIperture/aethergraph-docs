@@ -65,7 +65,7 @@ nav:
   - Key Concepts:
       - Introduction: key-concepts/introduction.md
       - Agent via Graph Function: key-concepts/agent-via-graph-fn.md
-      - Context Services: key-concepts/context-services.md
+      - Context Services Overview: key-concepts/context-services.md
       - Channels and Interaction: key-concepts/channels-interaction.md
       - Artifacts and Memory: key-concepts/artifacts-memory.md
       - Other Services Overview: key-concepts/other-services-overview.md
@@ -80,12 +80,18 @@ nav:
       - Store and Recall - Artifacts & Memory: tutorials/t4-store-recall-artifacts-memory.md
       - Add Intelligence - LLM & RAG: tutorials/t5-add-intelligence-llm-rag.md
       - Use External Tools - MCP Example: tutorials/t6-use-external-tools-mcp.md
-      - Extend Runtime - Custom Services: tutorials/t7-extend-runtime-custom-services.md
-      - Design Your Own Waits (Coming Soon): tutorials/t8-design-your-own-waits.md
+      - Plug In Your World - Custom Services: tutorials/t7-extend-runtime-custom-services.md
+      # - Design Your Own Waits (Coming Soon): tutorials/t8-design-your-own-waits.md
   # - Recipes:
   #     - Submit + Poll + Notify: recipes/job-submit-poll.md
   #     - Iterative Data Analysis: recipes/data-analysis-loop.md
   #     - Mini Memory-RAG: recipes/memory-rag-mini.md
+  - Examples: 
+      - Example List: examples/example-list.md
+      # - Common Patterns:
+      #     - Channel Cheat Sheet: examples/channel.md
+      #     - Memory and Artifacts: examples/memory-artifact.md
+      #     - LLM: examples/llm.md
   - Reference:
       - Decorators: reference/decorators.md
       - Context API:

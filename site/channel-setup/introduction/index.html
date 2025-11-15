@@ -1,0 +1,1959 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify.">
+      
+      
+        <meta name="author" content="AIperture">
+      
+      
+        <link rel="canonical" href="https://your-domain.com/channel-setup/introduction/">
+      
+      
+        <link rel="prev" href="../../reference/rest-api/">
+      
+      
+        <link rel="next" href="../console-setup/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Introduction - AetherGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#channels-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AetherGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-dark" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    AetherGraph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Key Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Key Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/agent-via-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent via Graph Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/context-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/channels-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channels and Interaction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts and Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/other-services-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Services Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/extending-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/static-graph-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Graph Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/server-start-sidecar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t1-build-your-first-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Your First Graph Function Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t2-static-graph-with-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Graph with Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t3-talk-to-your-graph-channels-waits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Talk to Your Graph - Channels & Wait Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t4-store-recall-artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Store and Recall - Artifacts & Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t5-add-intelligence-llm-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Intelligence - LLM & RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t6-use-external-tools-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use External Tools - MCP Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t7-extend-runtime-custom-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extend Runtime - Custom Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t8-design-your-own-waits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design Your Own Waits (Coming Soon)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/decorators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decorators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tools-facade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools Facade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-channels-and-when-to-use-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Channels and when to use them
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Channels and when to use them">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#console-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Console (console:)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-slack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slack (slack:)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telegram-tg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telegram (tg:)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      File (file:)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook-webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhook (webhook:)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-capability-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Capability comparison
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ask_-vs-inform-only-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. ask_* vs inform-only channels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. ask_* vs inform-only channels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ask_-interactive-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      ask_* (interactive channels)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inform-only-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inform-only channels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-console-and-resuming-waits" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Console and resuming waits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-concurrency-and-multiple-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Concurrency and multiple channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security-notes-for-webhook-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Security notes for webhook channels
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../console-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slack-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slack Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telegram-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telegram Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webhook-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webhook Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="channels-overview">Channels Overview<a class="headerlink" href="#channels-overview" title="Permanent link">&para;</a></h1>
+<p>AetherGraph supports multiple <strong>channels</strong> for delivering messages and interacting with users or tools. This page summarizes:</p>
+<ul>
+<li>What channels exist and what they’re good for.</li>
+<li>Which capabilities each channel supports.</li>
+<li>How <code>ask_*</code> works vs inform-only channels.</li>
+<li>Notes on persistence, concurrency, and security.</li>
+</ul>
+<blockquote>
+<p><strong>Note on OSS channels and scope</strong></p>
+<p>The channel system in the open-source AetherGraph is designed for <strong>personal, local, and small-team use</strong>, with a focus on convenience and easy integration into your own frontends. It is not intended as a high-scale, multi-tenant messaging infrastructure, and you should not try to “production-scale” the current adapters as-is. In particular, for safety concern, many integrations rely on local polling and simple wiring rather than hardened, multi-region webhook setups. For anything exposed publicly or handling sensitive data, you should treat these channels as experimental building blocks: keep them behind trusted networks, review security settings carefully, and expect that a future, more rigorous release will provide safer patterns for large-scale and public deployments.</p>
+</blockquote>
+<hr />
+<h2 id="1-channels-and-when-to-use-them">1. Channels and when to use them<a class="headerlink" href="#1-channels-and-when-to-use-them" title="Permanent link">&para;</a></h2>
+<h3 id="console-console">Console (<code>console:</code>)<a class="headerlink" href="#console-console" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Default channel</strong> when you don’t specify anything (key: <code>console:stdin</code>).</li>
+<li>
+<p>Best for:</p>
+</li>
+<li>
+<p>Local development and debugging.</p>
+</li>
+<li>Simple CLI-style interaction.</li>
+<li>Messages are printed to the terminal, and <code>ask_*</code> reads from standard input.</li>
+<li>No external setup required.</li>
+</ul>
+<h3 id="slack-slack">Slack (<code>slack:</code>)<a class="headerlink" href="#slack-slack" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Two-way, rich chat channel (bot-based).</li>
+<li>
+<p>Best for:</p>
+</li>
+<li>
+<p>Team workflows.</p>
+</li>
+<li>Rich notifications and approvals in Slack.</li>
+<li><code>ask_*</code> prompts that can resume even if the Python process restarts.</li>
+<li>Requires a Slack app + bot token.</li>
+</ul>
+<h3 id="telegram-tg">Telegram (<code>tg:</code>)<a class="headerlink" href="#telegram-tg" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Two-way, rich chat channel via the Telegram Bot API.</li>
+<li>
+<p>Best for:</p>
+</li>
+<li>
+<p>Individual researchers who prefer Telegram.</p>
+</li>
+<li>Mobile-friendly notifications and prompts.</li>
+<li>Uses polling (local/dev) or webhook (advanced) to receive messages.</li>
+<li>Support for <code>ask_*</code> with resumable waits, similar to Slack (experimental).</li>
+</ul>
+<h3 id="file-file">File (<code>file:</code>)<a class="headerlink" href="#file-file" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Inform-only channel that <strong>writes messages to disk</strong>.</li>
+<li>
+<p>Best for:</p>
+</li>
+<li>
+<p>Persistent logs and run transcripts.</p>
+</li>
+<li>Keeping a local record under <code>workspace/channel_files/...</code>.</li>
+<li>No user input; <code>ask_*</code> is not supported.</li>
+</ul>
+<h3 id="webhook-webhook">Webhook (<code>webhook:</code>)<a class="headerlink" href="#webhook-webhook" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Generic inform-only channel that <strong>POSTs JSON to a URL</strong>.</li>
+<li>
+<p>Best for:</p>
+</li>
+<li>
+<p>Sending notifications to services with incoming webhooks (Slack, Discord, etc.).</p>
+</li>
+<li>Triggering automation tools like Zapier/Make.</li>
+<li>Integrating with custom backends.</li>
+<li>Outbound only; no <code>ask_*</code>.</li>
+</ul>
+<hr />
+<h2 id="2-capability-comparison">2. Capability comparison<a class="headerlink" href="#2-capability-comparison" title="Permanent link">&para;</a></h2>
+<p>Legend:</p>
+<ul>
+<li>✅ Supported in a first-class way.</li>
+<li>📝 Logged/forwarded only (no interaction).</li>
+<li>✖️ Not supported.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Key prefix / example</th>
+<th>Default?</th>
+<th>Text</th>
+<th>Input / <code>ask_*</code></th>
+<th>Buttons / approval</th>
+<th>Image</th>
+<th>File</th>
+<th>Stream / edit</th>
+<th>Inbound resume?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Console</td>
+<td><code>console:stdin</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ (inline)</td>
+<td>✅ (numbered)</td>
+<td>✖️</td>
+<td>✖️</td>
+<td>✖️</td>
+<td>✖️ (no resume)</td>
+</tr>
+<tr>
+<td>Slack</td>
+<td><code>slack:team/T:chan/C[:thread/TS]</code></td>
+<td>✖️</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Telegram</td>
+<td><code>tg:chat/&lt;id&gt;[:topic/&lt;thread_id&gt;]</code></td>
+<td>✖️</td>
+<td>✅</td>
+<td>✅ (experimental)</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ (experimental)</td>
+</tr>
+<tr>
+<td>File</td>
+<td><code>file:logs/default.log</code></td>
+<td>✖️</td>
+<td>✅</td>
+<td>✖️</td>
+<td>📝 (logged only)</td>
+<td>📝</td>
+<td>📝</td>
+<td>📝</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Webhook</td>
+<td><code>webhook:https://...</code></td>
+<td>✖️</td>
+<td>✅</td>
+<td>✖️</td>
+<td>📝 (payload only)</td>
+<td>📝</td>
+<td>📝</td>
+<td>📝</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ul>
+<li><strong>Console</strong>: simple and local; great for debugging but not meant for long-term, resumable conversations.</li>
+<li><strong>Slack / Telegram</strong>: full chat channels; support richer content and resumable <code>ask_*</code> flows.</li>
+<li><strong>File / Webhook</strong>: inform-only; they record/deliver messages but cannot accept replies.</li>
+</ul>
+<hr />
+<h2 id="3-ask_-vs-inform-only-channels">3. <code>ask_*</code> vs inform-only channels<a class="headerlink" href="#3-ask_-vs-inform-only-channels" title="Permanent link">&para;</a></h2>
+<h3 id="ask_-interactive-channels"><code>ask_*</code> (interactive channels)<a class="headerlink" href="#ask_-interactive-channels" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>ask_text</code>, <code>ask_approval</code>, etc. are supported on:</p>
+</li>
+<li>
+<p><strong>console</strong> (inline input via stdin),</p>
+</li>
+<li><strong>Slack</strong>,</li>
+<li>
+<p><strong>Telegram</strong> (experimental).</p>
+</li>
+<li>
+<p>For <strong>Slack/Telegram</strong>:</p>
+<ul>
+<li>When you call <code>await context.channel().ask_text(...)</code>, AetherGraph creates a <strong>Continuation</strong> and stores it.</li>
+<li>The Python process can safely <strong>wait, sleep, or even be restarted</strong>.</li>
+<li>When a user replies in Slack/Telegram, the inbound adapter maps that message to the stored Continuation and calls <code>resume_router.resume(...)</code>.</li>
+<li>The graph then continues from where it left off.</li>
+</ul>
+</li>
+</ul>
+<h3 id="inform-only-channels">Inform-only channels<a class="headerlink" href="#inform-only-channels" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>File</strong> and <strong>Webhook</strong> are strictly <strong>push-only</strong>:</p>
+<ul>
+<li><code>send_text</code> works (log/write/POST),</li>
+<li><code>ask_*</code> is not supported and should not be used with these channels.</li>
+</ul>
+</li>
+</ul>
+<p>They’re ideal for notifications, logs, and integrations where you don’t need a conversational back-and-forth.</p>
+<hr />
+<h2 id="4-console-and-resuming-waits">4. Console and resuming waits<a class="headerlink" href="#4-console-and-resuming-waits" title="Permanent link">&para;</a></h2>
+<p>The <strong>console channel</strong> is designed for simple, inline interaction:</p>
+<ul>
+<li><code>send_text</code> prints directly to the terminal.</li>
+<li><code>ask_*</code> methods read from <code>stdin</code> synchronously (via a background executor) and then immediately resume the graph.</li>
+</ul>
+<p>Because of this design:</p>
+<ul>
+<li>There is <strong>no durable, cross-process resume</strong> for console-based <code>ask_*</code>.</li>
+<li>If the Python process dies while waiting for console input, that wait is not meant to be resumed later.</li>
+</ul>
+<p>This is a conscious tradeoff:</p>
+<ul>
+<li>The console channel stays extremely simple and reliable for local interactive runs.</li>
+<li>For resumable, long-lived conversations, prefer Slack or Telegram.</li>
+</ul>
+<hr />
+<h2 id="5-concurrency-and-multiple-channels">5. Concurrency and multiple channels<a class="headerlink" href="#5-concurrency-and-multiple-channels" title="Permanent link">&para;</a></h2>
+<p>AetherGraph’s channel layer is designed so you can:</p>
+<ul>
+<li>
+<p>Send <strong>multiple messages concurrently</strong> on the <strong>same channel</strong>:</p>
+<ul>
+<li>e.g., several <code>send_text</code> calls to Slack or file within the same graph.</li>
+</ul>
+</li>
+<li>
+<p>Use <strong>multiple channels in one graph</strong>:</p>
+<ul>
+<li>e.g., log to file, notify via webhook, and talk to Slack in the same run.</li>
+</ul>
+</li>
+</ul>
+<p>Each <code>ChannelSession</code> and <code>OutEvent</code> is independent; the underlying adapters handle ordering and delivery.</p>
+<p>Example pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_with_notifications</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
+    <span class="c1"># Console debug</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;console:stdin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Run started&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Log to file</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;file:runs/exp_01.log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Run started&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Notify Slack</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:team/T:chan/C&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Run started in Slack&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Notify external system via webhook</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;webhook:https://hooks.zapier.com/hooks/catch/.../&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span>
+        <span class="s2">&quot;Run started in AetherGraph&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="6-security-notes-for-webhook-channels">6. Security notes for webhook channels<a class="headerlink" href="#6-security-notes-for-webhook-channels" title="Permanent link">&para;</a></h2>
+<p>Webhook channels POST data to arbitrary URLs. Keep these points in mind:</p>
+<ul>
+<li>
+<p><strong>Treat webhook URLs as secrets:</strong></p>
+<ul>
+<li>Many platforms use long, random webhook URLs as the only authentication.</li>
+<li>Do not commit them to public repos or print them in logs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use HTTPS whenever possible:</strong></p>
+<ul>
+<li>Always prefer <code>https://</code> URLs so notifications are encrypted in transit.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optional shared secrets:</strong></p>
+<ul>
+<li>If you control the receiving endpoint, you can configure the webhook adapter to send an extra header (e.g., <code>X-AetherGraph-Secret</code>) and verify it server-side.</li>
+</ul>
+</li>
+<li>
+<p><strong>Least privilege:</strong></p>
+<ul>
+<li>Only enable webhook targets that you actually need.</li>
+</ul>
+</li>
+</ul>
+<p>For sensitive or production workflows, consider routing webhook events through a trusted intermediary (e.g., Zapier/Make or your own backend) rather than posting directly to critical systems.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../reference/rest-api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: REST API">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                REST API
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../console-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Console Channel">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Console Channel
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
+      
+    
+  </body>
+</html>
