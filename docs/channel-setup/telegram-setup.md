@@ -1,137 +1,126 @@
 # Telegram Integration Setup (Local, Experimental)
 
-This guide shows how to connect a **Telegram bot** to AetherGraph for local / personal use.
+Connect a **Telegram bot** to **AetherGraph** for local / personal use via polling.
 
-> ⚠️ **Status:** Telegram support is currently **experimental**. In practice it often works very well, but sometimes:
->
-> * the polling loop can take a while to pick up the first message, or
-> * you may need to restart the sidecar if the connection gets stuck.
->
-> It’s great for demos and local exploration, but **not recommended yet for production-critical usage.**
+✅ **No public URL or webhook required** (polling).
 
-We’ll keep it simple and mirror the Slack setup:
+✅ **Great for demos and quick experiments.**
 
-1. Create a Telegram bot with **BotFather**.
-2. Paste your bot token into the AetherGraph `.env`.
-3. (Optional) Choose a default Telegram chat / `channel_key`.
-4. Run a quick test.
+⚠️ **Status:** Experimental — if the first message is slow to appear or polling stalls, wait a few more seconds before sending or restart the sidecar and send a fresh message.
 
 ---
 
-## 1. Create a Telegram bot (BotFather)
+## Before You Start
 
-1. Open Telegram and start a chat with **@BotFather**.
+1. You don't need to install additional dependencies for local Telegram setup
 
-2. Send the command `/newbot` and follow the prompts:
-
-   * Choose a **name** (e.g. `AetherGraph Telegram Bot`).
-   * Choose a **username** (must end with `bot`, e.g. `aethergraph_dev_bot`).
-
-3. BotFather will reply with a message that includes your bot’s **token**, e.g.: `8....:hweCnwe...`
-
-4. Copy that token — you’ll paste it into your AetherGraph `.env` file.
-
-That’s all you need on the Telegram side for local polling.
+2. Ensure you have a `.env` file in your project root. AetherGraph reads Telegram settings from it.
 
 ---
 
-## 2. Add Telegram settings to `.env`
+## 1. Create a Telegram Bot (BotFather)
 
-AetherGraph reads Telegram configuration from `AETHERGRAPH_TELEGRAM__*` variables.
+1. In Telegram, start a chat with **@BotFather**.
+2. Send `/newbot` and follow prompts:
 
-For local usage with polling (no public URL, no webhook), add something like this to your `.env`:
+   * Pick a **name** (e.g., `AetherGraph Telegram Bot`).
+   * Pick a **username** ending in `bot` (e.g., `aethergraph_dev_bot`).
+3. Copy the **bot token** BotFather returns (looks like `123456789:ABC...`).
+
+> That’s all you need for local polling mode.
+
+---
+
+## 2. Configure `.env` for AetherGraph
+
+Add the following variables (update the values you received):
 
 ```env
-# Turn Telegram integration on
-AETHERGRAPH_TELEGRAM__ENABLED=true
+# Telegram (optional)
+AETHERGRAPH_TELEGRAM__ENABLED=true               # must be true to enable
+AETHERGRAPH_TELEGRAM__BOT_TOKEN=123456789:ABC... # from BotFather
 
-# Bot token from BotFather
-AETHERGRAPH_TELEGRAM__BOT_TOKEN=...
-
-# Local/dev polling mode (recommended)
+# Local/dev polling mode (keep this for local usage)
 AETHERGRAPH_TELEGRAM__POLLING_ENABLED=true
 AETHERGRAPH_TELEGRAM__WEBHOOK_ENABLED=false
-
-# Optional: default chat ID for context.channel()
-AETHERGRAPH_TELEGRAM__DEFAULT_CHAT_ID=...
 ```
 
-Notes:
+After saving, **restart** your AetherGraph sidecar so the new settings take effect.
 
-* `BOT_TOKEN` is the token from BotFather.
-* `POLLING_ENABLED=true` tells AetherGraph to use Telegram’s `getUpdates` API (no public IP required).
-* `WEBHOOK_ENABLED=false` keeps webhook mode off for now.
-* `DEFAULT_CHAT_ID` is optional but convenient — AetherGraph will use it as the default Telegram chat when you call `context.channel()` with no arguments.
-
-After editing `.env`, restart the AetherGraph sidecar so it picks up the new settings.
-
-> 🔎 **If you previously used webhooks with this bot**: run `deleteWebhook` once so polling can receive updates:
->
+> If you previously used webhooks with this bot, disable them once so polling receives updates:
 > ```bash
 > curl "https://api.telegram.org/bot<YOUR_BOT_TOKEN>/deleteWebhook"
 > ```
->
-> You only need to do this once per bot.
 
 ---
 
-## 3. Default chat and `channel_key`
+## 3. Channel Keys, Defaults, and Aliases
 
-Internally, AetherGraph uses a **channel key** for each target. For Telegram, the canonical form is:
+AetherGraph uses a **channel key** to address targets. For Telegram, the canonical format is:
 
 ```text
 tg:chat/<CHAT_ID>
 ```
 
-For basic 1:1 chats or simple groups, that’s all you need.
-
-### 3.1. Using `DEFAULT_CHAT_ID` (recommended)
-
-If you set:
-
-```env
-AETHERGRAPH_TELEGRAM__DEFAULT_CHAT_ID=7663982940
-```
-
-then AetherGraph will treat:
-
-```text
-tg:chat/7663982940
-```
-
-as the default Telegram `channel_key`.
-
-In your graph code, you can simply do:
+You can wire this up in startup code just like Slack:
 
 ```python
-from aethergraph import graph_fn, NodeContext
+import os
+from aethergraph.channels import set_default_channel, set_channel_alias
 
-@graph_fn(name="hello_telegram")
-async def hello_telegram(*, context: NodeContext):
-    chan = context.channel()  # uses default Telegram chat
-    await chan.send_text("Hello from AetherGraph via Telegram 👋")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "your-telegram-chat-id")
+telegram_channel_key = f"tg:chat/{TELEGRAM_CHAT_ID}"  # Telegram channel key format
+
+# Set as the default channel for context.channel()
+set_default_channel(telegram_channel_key)
+
+# Optional: create a friendly alias
+set_channel_alias("my_tg", telegram_channel_key)
 ```
 
-### 3.2. Selecting a chat explicitly
-
-If you want to target a specific chat (for example, while experimenting with multiple chat IDs), you can pass the `channel_key` directly:
+Usage patterns:
 
 ```python
-chan = context.channel("tg:chat/7663982940")
-await chan.send_text("Sending to this specific Telegram chat")
+chan = context.channel()              # uses default Telegram chat (if set)
+await chan.send_text("Hello from AetherGraph via Telegram 👋")
+
+chan2 = context.channel("my_tg")     # use alias explicitly
+await chan2.send_text("Message via alias")
+
+# Or target explicitly at call time
+await context.channel().send_text("Custom target", channel=telegram_channel_key)
 ```
 
-This works the same way in both polling and webhook modes (even though webhook is not recommended for local use right now).
+**Fallback:** If Telegram isn’t configured, `context.channel()` falls back to `console:stdin`.
 
 ---
 
-## 4. Quick test
+## 4. Finding Your Telegram Chat ID
 
-Once your `.env` is set and the sidecar is running:
+* **1:1 chats:** Start a conversation with your bot (send `/start`). Then either:
 
-1. Make sure `AETHERGRAPH_TELEGRAM__ENABLED=true` and `POLLING_ENABLED=true`.
-2. Send a message to your bot in Telegram (e.g. `/start`).
-3. Run a small test graph:
+    * Check recent updates using the Bot API `getUpdates` (your chat ID appears in the payload), or
+    * Forward any message to a utility bot like `@userinfobot` to read the numeric ID it reports. (Recommended)
+
+* **Groups / supergroups:** Add your bot to the group and send a message in the group. The chat ID is usually a negative number (often begins with `-100...`). Retrieve it via `getUpdates`.
+
+> See Appendix to learn how to use `@userinfobot` and `getUpdates`
+
+---
+
+## 5. Add the Bot to a Group (Optional)
+
+If you want the bot to post in a group:
+
+1. Add the bot to the group (use the group’s add dialog or mention the bot and choose **Add to Group**).
+2. If your flow requires reading history or reacting to commands, ensure the bot has the needed group permissions.
+3. Use the group’s chat ID (negative number) as your target.
+
+---
+
+## 6. Quick Test
+
+Create a tiny graph and send a message:
 
 ```python
 from aethergraph import graph_fn, NodeContext
@@ -140,14 +129,41 @@ from aethergraph import graph_fn, NodeContext
 async def ping_telegram(*, context: NodeContext):
     chan = context.channel()  # uses default Telegram chat if configured
     await chan.send_text("Ping from AetherGraph 🛰️")
+    return {"ok": True}
 ```
 
-4. Execute this graph and check that the message appears in your Telegram chat.
+Run the graph and confirm the message appears in your Telegram chat.
 
-If the message arrives, the basic Telegram polling integration is working.
+---
 
-> 🧪 **Experimental note:**
->
-> * On some networks, the first polling call may take a while to pick up messages.
-> * If it seems stuck, try restarting the sidecar and sending a fresh message.
-> * For now, treat Telegram as a **best-effort local channel**; for more robust integrations, prefer Slack or your internal web UI until Telegram support stabilizes.
+### Notes & Troubleshooting
+
+* First message pickup can be slow on some networks. Send a new message to the bot (e.g., `/start`) and re-run the test.
+* If polling appears stuck, restart the sidecar.
+* Treat Telegram as **best-effort** for now; for robust production flows, prefer Slack or your internal web UI until Telegram stabilizes.
+
+
+## Appendix: Get Your Telegram Chat ID (easiest: @userinfobot) 
+
+
+* **Private 1:1 (DM):**
+
+    - Open @userinfobot and tap Start.
+    - It replies with Your ID: <number> — this is your chat ID.
+    - Use it as: tg:chat/<number>.
+
+* **Group / Supergroup:**
+
+    - Add @userinfobot to the group.
+    - Send any message (e.g., /start or any text).
+    - The bot posts the Group ID (a negative number, often -100…).
+    - Use it as: tg:chat/<negative_number>.
+
+* **Channel:**
+
+    - Option A (forward): Post in the channel, then forward that post to @userinfobot — it replies with the Channel ID (negative number).
+    - Option B (temporary add): Add @userinfobot to the channel (temporarily, usually as admin), post once, and the bot will report the Channel ID.
+
+You can remove @userinfobot after you’ve captured the ID.
+
+> Optional alternative: You can also retrieve the ID using Telegram’s Bot API getUpdates and reading chat.id from the JSON. See Telegram official documents on how to use it.

@@ -1,0 +1,1893 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify.">
+      
+      
+        <meta name="author" content="AIperture">
+      
+      
+        <link rel="canonical" href="https://your-domain.com/examples/example-list/">
+      
+      
+        <link rel="prev" href="../../tutorials/t7-extend-runtime-custom-services/">
+      
+      
+        <link rel="next" href="../../reference/decorators/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Example List - AetherGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples-of-aethergraph-usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AetherGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Example List
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-dark" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    AetherGraph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Key Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Key Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/agent-via-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent via Graph Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/context-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Services Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/channels-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channels and Interaction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts and Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/other-services-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Services Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/extending-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/static-graph-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Graph Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/server-start-sidecar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t1-build-your-first-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Your First Graph Function Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t2-static-graph-with-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Graph with Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t3-talk-to-your-graph-channels-waits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Talk to Your Graph - Channels & Wait Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t4-store-recall-artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Store and Recall - Artifacts & Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t5-add-intelligence-llm-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Intelligence - LLM & RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t6-use-external-tools-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use External Tools - MCP Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t7-extend-runtime-custom-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Plug In Your World - Custom Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Example List
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example List
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hero-demos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hero Demos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-showcase-patterns-by-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Showcase — Patterns by Feature
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Showcase — Patterns by Feature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-interaction-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      A) Interaction (Channel)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-memory-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      B) Memory &amp; Artifacts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-logger-kv" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Logger &amp; KV
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      D) LLM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      E) RAG
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-extending-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      F) Extending Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      G) Concurrency
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concrete-example-patterns-advanced-recipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concrete Example Patterns — Advanced Recipes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concrete Example Patterns — Advanced Recipes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-state-resumption" class="md-nav__link">
+    <span class="md-ellipsis">
+      A) State &amp; Resumption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-agent-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      B) Agent Patterns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-applied-endtoend" class="md-nav__link">
+    <span class="md-ellipsis">
+      C) Applied End‑to‑End
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/decorators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decorators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/tools-facade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tools Facade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/rest-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/console-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/slack-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slack Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/telegram-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telegram Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/webhook-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webhook Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/file-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Channel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="examples-of-aethergraph-usage">Examples of Aethergraph Usage<a class="headerlink" href="#examples-of-aethergraph-usage" title="Permanent link">&para;</a></h1>
+<p>This page is your guided tour to <strong>AetherGraph (AG)</strong> through runnable, copy‑pasteable examples. Start with the <strong>Hero Demos</strong> to experience a complete flow in minutes (console + LLM only). Then explore two complementary pattern pools:</p>
+<ul>
+<li><strong>Method Showcase</strong> — small, focused snippets for individual <code>context.*</code> capabilities and services.</li>
+<li><strong>Concrete Example Patterns</strong> — larger recipes that combine multiple features for real‑world tasks.</li>
+</ul>
+<blockquote>
+<p>This catalog <strong>evolves over time</strong>. We periodically add new demos, refine existing ones, and may adjust paths as the repo grows. The tables below always reflect the current recommended entry points.</p>
+</blockquote>
+<p>All the examples are in a separate <strong>example <a href="https://github.com/AIperture/aethergraph-examples">repo</a></strong>. Please clone the repo and set up <code>.env</code> to run the examples.</p>
+<hr />
+<h2 id="hero-demos">Hero Demos<a class="headerlink" href="#hero-demos" title="Permanent link">&para;</a></h2>
+<p>Short, polished demos that tell a clear story. Each fits in a single file and returns observable outputs (messages, artifacts, or both).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Demo</th>
+<th>What you’ll see (story)</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Chat Agent with Memory</strong></td>
+<td>Seeds or loads chat memory → you chat → it summarizes the whole session and saves transcript + summary as artifacts.</td>
+<td><code>demo_examples/1_chat_with_memory.py</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Channel Wizard</strong></td>
+<td>A one‑function wizard that collects config using <code>ask_*</code>, shows a recap, lets you Confirm/Restart/Cancel, then saves <code>run_config.json</code>.</td>
+<td><code>demo_examples/2_channel_wizard_interactive_workflow.py</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Optimization Loop</strong></td>
+<td>A tiny gradient‑descent run that logs step metrics to Memory, writes periodic checkpoints as artifacts, and returns final params.</td>
+<td><code>demo_examples/3_optimization_loop_with_artifacts.py</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Extend Prompt Services</strong></td>
+<td>Agents use <code>context.prompt_store()</code> to fetch prompts and <code>context.llm_observer()</code> to log calls—clean agent code, centralized control.</td>
+<td><code>servdemo_examplesices/4_external_service_prompt_store.py</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Simple Copilot (Tool Router)</strong></td>
+<td>A console copilot routes each query to a calculator, a summarizer, or a direct answer using a tiny LLM classifier; replies inline.</td>
+<td><code>demo_examples/5_simple_copilot_tool_using_router.py</code></td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Resume a Static Graph (graphify)</strong></td>
+<td>A static graph with a slow, checkpointed node crashes mid‑run; re‑running with the same <code>run_id</code> resumes from the checkpoint and completes.</td>
+<td><code>demo_examples/6_crash_resume_static_graph.py</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="method-showcase-patterns-by-feature">Method Showcase — Patterns by Feature<a class="headerlink" href="#method-showcase-patterns-by-feature" title="Permanent link">&para;</a></h2>
+<p>Concise examples organized by capability. Use these as copy‑paste starting points.</p>
+<h3 id="a-interaction-channel">A) Interaction (Channel)<a class="headerlink" href="#a-interaction-channel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>A.1 <code>send_text</code></strong> — Minimal "hello" send.
+  <em>Path:</em> <code>method_showcase/1_channels/1_channel_send_text.py</code></li>
+<li><strong>A.2 <code>ask_text</code></strong> — Prompt → await user reply → echo.
+  <em>Path:</em> <code>method_showcase/1_channels/2_channel_ask_text.py</code></li>
+<li><strong>A.3 <code>ask_approval</code></strong> — Present options, branch on choice.
+  <em>Path:</em> <code>method_showcase/1_channels/3_channel_ask_approval.py</code></li>
+<li><strong>A.4 Channel setup</strong> — Configure Slack / Telegram / Webhook adapters and key conventions.
+  <em>Path:</em> <code>method_showcase/1_channels/4_channel_setup.py</code></li>
+<li><strong>A.5 Method walk‑through</strong> — Linear tour of all channel methods using a small “portfolio” demo.
+  <em>Path:</em> <code>method_showcase/1_channels/5_channel_method_walkthrough.py</code></li>
+<li><strong>A.6 File channel</strong> — Ask for files, read them, return attachments/links.
+  <em>Path:</em> <code>method_showcase/1_channels/6_file_channel_example.py</code></li>
+</ul>
+<h3 id="b-memory-artifacts">B) Memory &amp; Artifacts<a class="headerlink" href="#b-memory-artifacts" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>B.1 Memory — record &amp; query</strong> — Append events and fetch recent history.
+  <em>Path:</em> <code>method_showcase/2_artifacts_memory/1_memory_record.py</code></li>
+<li><strong>B.2 Memory — typed results</strong> — Store structured tool results for fast retrieval.
+  <em>Path:</em> <code>method_showcase/2_artifacts_memory/2_memory_write_result.py</code></li>
+<li><strong>B.3 Artifacts — save text/JSON</strong> — Persist text/JSON and auto‑index.
+  <em>Path:</em> <code>method_showcase/2_artifacts_memory/3_artifacts_save_txt_json.py</code></li>
+<li><strong>B.4 Artifacts — save &amp; search files</strong> — Save arbitrary files and rank/search across agents.
+  <em>Path:</em> <code>method_showcase/2_artifacts_memory/4_artifacts_save_search_files.py</code></li>
+<li><strong>B.5 Memory → RAG</strong> — Promote memory events into a vector index and answer with citations.
+  <em>Path:</em> <code>method_showcase/2_artifacts_memory/5_memory_rag.py</code></li>
+</ul>
+<h3 id="c-logger-kv">C) Logger &amp; KV<a class="headerlink" href="#c-logger-kv" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>C.1 Logger</strong> — Structured logs, levels, and tracing.
+  <em>Path:</em> <code>method_showcase/3_logger_kv/1_logger_usage.py</code></li>
+<li><strong>C.2 KV</strong> — Store and fetch run‑level globals.
+  <em>Path:</em> <code>method_showcase/3_logger_kv/2_kv_usage.py</code></li>
+</ul>
+<h3 id="d-llm">D) LLM<a class="headerlink" href="#d-llm" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>D.1 Chat</strong> — One‑shot and multi‑turn <code>context.llm().chat(...)</code>.
+  <em>Path:</em> <code>method_showcase/4_llm/1_llm_chat.py</code></li>
+<li><strong>D.2 Multiple profiles</strong> — Configure and use multiple LLM clients.
+  <em>Path:</em> <code>method_showcase/4_llm/2_setup_multiple_llm_profiles.py</code></li>
+<li><strong>D.3 Inline profile</strong> — Set keys/models at runtime (no preregistration).
+  <em>Path:</em> <code>method_showcase/4_llm/3_inline_llm_setup.py</code></li>
+<li><strong>D.4 Raw API</strong> — Use <code>.raw()</code> to pass advanced payloads directly.
+  <em>Path:</em> <code>method_showcase/4_llm/4_passing_raw_api.py</code></li>
+</ul>
+<h3 id="e-rag">E) RAG<a class="headerlink" href="#e-rag" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>E.1 Ingest files</strong> — Upsert docs into a vector index.
+  <em>Path:</em> <code>method_showcase/5_rag/ingest_files.py</code></li>
+<li><strong>E.2 Inspect corpora</strong> — List/inspect existing corpora.
+  <em>Path:</em> <code>method_showcase/5_rag/list_inspect_corpora.py</code></li>
+<li><strong>E.3 Search &amp; answer</strong> — Retrieve → synthesize with citations.
+  <em>Path:</em> <code>method_showcase/5_rag/search_retrieve_answer.py</code></li>
+</ul>
+<h3 id="f-extending-services">F) Extending Services<a class="headerlink" href="#f-extending-services" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>F.1 Materials DB</strong> — Register a materials property service for quick lookups.
+  <em>Path:</em> <code>method_showcase/6_extending_services/1_material_db.py</code></li>
+<li><strong>F.2 HuggingFace model</strong> — Expose an external model as a service.
+  <em>Path:</em> <code>method_showcase/6_extending_services/2_huggingface_model.py</code></li>
+<li><strong>F.3 Rate limiting</strong> — Token‑bucket wrapper with retries/backoff.
+  <em>Path:</em> <code>method_showcase/6_extending_services/3_rate_limit.py</code></li>
+<li><strong>F.4 Access NodeContext in a service</strong> — Patterns for using <code>context</code> safely inside services.
+  <em>Path:</em> <code>method_showcase/6_extending_services/4_access_ctx_in_service.py</code></li>
+<li><strong>F.5 Critical sections / mutex</strong> — Design a thread‑safe service API.
+  <em>Path:</em> <code>method_showcase/6_extending_services/5_critical_mutex_usage.py</code></li>
+</ul>
+<h3 id="g-concurrency">G) Concurrency<a class="headerlink" href="#g-concurrency" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>G.1 <code>graphify</code> map‑reduce</strong> — Fan‑out + fan‑in with static graphs.
+  <em>Path:</em> <code>method_showcase/7_concurrency/graphify_map_reduce.py</code></li>
+<li><strong>G.2 <code>graph_fn</code> concurrency</strong> — Launch concurrent tasks with a concurrency cap.
+  <em>Path:</em> <code>method_showcase/7_concurrency/graph_fn_concurrency.py</code></li>
+</ul>
+<hr />
+<h2 id="concrete-example-patterns-advanced-recipes">Concrete Example Patterns — Advanced Recipes<a class="headerlink" href="#concrete-example-patterns-advanced-recipes" title="Permanent link">&para;</a></h2>
+<p>Bigger compositions that mirror real‑world tasks.</p>
+<h3 id="a-state-resumption">A) State &amp; Resumption<a class="headerlink" href="#a-state-resumption" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>A.1 Crash &amp; Resume (static graph)</strong> — Design a static graph so a long node can checkpoint and resume indefinitely using the same <code>run_id</code>.
+  <em>Path:</em> <code>pattern_examples/1_state_resumption/1_resume_external_waits.py</code>
+  <em>Run:</em> <code>python -m examples.resumption.crash_and_resume</code></li>
+<li><strong>A.2 Long Job Monitor</strong> — Submit to <code>job_manager</code>, poll with backoff, surface failures via channel, let the user Retry/Abort.
+  <em>Path:</em> <code>pattern_examples/1_state_resumption/2_long_job_monitor.py</code></li>
+</ul>
+<h3 id="b-agent-patterns">B) Agent Patterns<a class="headerlink" href="#b-agent-patterns" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>B.1 Chain‑of‑Thought Agent</strong> — Two‑stage flow: CoT reasoning trace → final concise answer (optionally store traces).
+  <em>Path:</em> <code>pattern_examples/2_agent_patterns/1_chain_of_thought.py</code></li>
+<li><strong>B.2 ReAct Agent</strong> — Thought → Action (tool) → Observation loop until “Finish”, with a compact history state.
+  <em>Path:</em> <code>pattern_examples/agents/2_simple_react.py</code></li>
+<li><strong>B.3 RL Policy as <code>graph_fn</code></strong> — Treat a graph as a policy: observation in, action out; log trajectories via Memory/Artifacts.
+  <em>Path:</em> <code>pattern_examples/agents/3_reinforcement_learnining_policy.py</code></li>
+</ul>
+<h3 id="c-applied-endtoend">C) Applied End‑to‑End<a class="headerlink" href="#c-applied-endtoend" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>C.1 CSV Analyzer</strong> <em>(interactive)</em> — Ask for a CSV, summarize shape (rows/cols), headers, and simple stats; return findings and artifacts.
+  <em>Path:</em> <code>pattern_examples/3_e2e_patterns/1_csv_analyzer.py</code></li>
+<li><strong>C.2 Paper → Implementation Sketch</strong> <em>(interactive)</em> — Ask for a text/PDF, sketch a Python implementation, run sandboxed, return logs/files as artifacts.
+  <em>Path:</em> <code>pattern_examples/3_e2e_patterns/2_paper_implementation_sketch.py</code></li>
+<li><strong>C.3 Deep Research Agent</strong> — Use <code>graphify</code> concurrency to parallelize retrieval/summarization and synthesize findings.
+  <em>Path:</em> <code>pattern_examples/3_e2e_patterns/3_deep_research_agent.py</code></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../tutorials/t7-extend-runtime-custom-services/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plug In Your World - Custom Services">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Plug In Your World - Custom Services
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../reference/decorators/" class="md-footer__link md-footer__link--next" aria-label="Next: Decorators">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Decorators
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
+      
+    
+  </body>
+</html>

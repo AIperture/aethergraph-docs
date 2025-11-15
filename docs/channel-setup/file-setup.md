@@ -1,41 +1,66 @@
-# File Channel Overview
+# File Channel Setup
 
-The **file channel** is a simple, one-way output channel that writes messages from AetherGraph directly to files on disk.
+The **file channel** is a simple, one‑way output channel that appends messages from AetherGraph to **files on disk**.
 
-## When to use the file channel
+✅ **No setup required** — writes under your workspace `workspace/channel_files`.
 
-Use the file channel when you want to:
+🗂️ **Key format:** `file:<relative/path/to/file>`
 
-* Keep a **persistent log** of what a graph did (steps, status, results).
-* Save **run transcripts** for later inspection, papers, or debugging.
-* Capture output in a way that can be easily opened with any text editor.
+---
 
-It’s ideal for individual researchers who want lightweight, local logging without setting up external services.
+## When to Use
 
-## Where files are written
+* Persistent, local **run logs** (steps, status, results) with custom format
+* **Transcripts** for papers/debugging
+* Plain‑text output you can open with any editor
 
-In this setup, the file channel writes under:
+---
 
-```text
+## Where Files Are Written
+
+Files are created under:
+
+```
 <workspace>/channel_files
 ```
 
-* `<workspace>` is the root directory you configured for AetherGraph.
-* Inside `channel_files`, the rest of the path is taken from your channel key.
+* `<workspace>` is your AetherGraph data root.
+* The portion **after** `file:` becomes a **relative path** under `channel_files`.
 
-For example, if your workspace is `./aethergraph_data` and you use:
+**Example**
 
 ```python
 chan = context.channel("file:runs/demo_run.log")
 await chan.send_text("Demo run started")
 ```
 
-The message will be appended to:
+Writes (appends) to:
 
-```text
-./aethergraph_data/channel_files/runs/demo_run.log
+```
+<workspace>/channel_files/runs/demo_run.log
 ```
 
-You can define any relative path after `file:` (e.g., `file:logs/experiment_01.txt`), and AetherGraph will create the parent directories if needed.
+Parent directories are created automatically.
 
-This makes it easy to organize logs by project, experiment, or date while keeping everything local to your workspace.
+---
+
+## Usage
+
+```python
+from aethergraph import graph_fn, NodeContext
+
+@graph_fn(name="file_channel_demo")
+async def file_channel_demo(*, context: NodeContext):
+    chan = context.channel("file:logs/experiment_01.txt")
+    await chan.send_text("Run began")
+    await chan.send_text("Metric: acc=0.93, loss=0.12")
+    return {"logged": True}
+```
+
+---
+
+## Notes
+
+* **One‑way**: no `ask_*` prompts (write‑only).
+* **Append behavior**: messages are appended; rotate/cleanup as needed.
+* **Organization tip**: include date/run IDs in paths (e.g., `file:runs/2025-11-15/expA.txt`).

@@ -92,27 +92,38 @@ nav:
       #     - Channel Cheat Sheet: examples/channel.md
       #     - Memory and Artifacts: examples/memory-artifact.md
       #     - LLM: examples/llm.md
-  - Reference:
-      - Decorators: reference/decorators.md
-      - Context API:
-          - Channel: reference/context-channel.md
-          - Artifacts: reference/context-artifacts.md
-          - Memory: reference/context-memory.md
-          - Logger: reference/context-logger.md
-          - KV: reference/context-kv.md
-          - LLM: reference/context-llm.md
-          - RAG: reference/context-rag.md
-          - MCP: reference/context-mcp.md
-      - Tools Facade: reference/tools-facade.md
-      - Config: reference/config.md
-      - REST API: reference/rest-api.md
+  # - Reference:
+  #     - Decorators: reference/decorators.md
+  #     - Context API:
+  #         - Channel: reference/context-channel.md
+  #         - Artifacts: reference/context-artifacts.md
+  #         - Memory: reference/context-memory.md
+  #         - Logger: reference/context-logger.md
+  #         - KV: reference/context-kv.md
+  #         - LLM: reference/context-llm.md
+  #         - RAG: reference/context-rag.md
+  #         - MCP: reference/context-mcp.md
+  #     - Tools Facade: reference/tools-facade.md
+  #     - Config: reference/config.md
+  #     - REST API: reference/rest-api.md
   - Setup:
-      - Introduction: channel-setup/introduction.md
-      - Console Channel: channel-setup/console-setup.md
-      - Slack Setup: channel-setup/slack-setup.md
-      - Telegram Setup: channel-setup/telegram-setup.md
-      - Webhook Setup: channel-setup/webhook-setup.md
-      - File Channel: channel-setup/file-setup.md
+      # - General Guides:
+      #   - Installation: setup/installation.md
+      #   - Configuration: setup/configuration.md
+      #   - Sidecar Server Setup: setup/sidecar-server-setup.md
+      - LLM Setup: llm-setup/llm-setup.md
+      - Channel Setup:
+        - Channels Overview: channel-setup/introduction.md
+        - Console Setup: channel-setup/console-setup.md
+        - Slack Setup: channel-setup/slack-setup.md
+        - Telegram Setup: channel-setup/telegram-setup.md
+        - Webhook Setup: channel-setup/webhook-setup.md
+        - File Setup: channel-setup/file-setup.md
+      # - LLM Setup:
+      #   - Introduction: llm-setup/introduction.md
+      #   - Installation: llm-setup/installation.md
+      #   - Configuration: llm-setup/configuration.md
+      #   - Usage: llm-setup/usage.md
 
 markdown_extensions:
   - admonition

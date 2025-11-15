@@ -1,207 +1,196 @@
 # Slack Integration Setup (Socket Mode)
 
-This guide walks you through connecting Slack to AetherGraph using **Socket Mode**. This works great for local / individual use — no public URL or ngrok required.
+This guide shows you how to connect **Slack** to **AetherGraph** using **Socket Mode** — ideal for local or individual use.
 
-We’ll do it in three steps:
-
-1. Create and configure a Slack app using a manifest.
-2. Configure AetherGraph via `.env`.
-3. Choose a default Slack channel and `channel_key` (with optional aliases).
+✅ **No public URL or ngrok required**.
+✅ **Runs securely via WebSocket**.
 
 ---
 
-## 1. Create a Slack App (with manifest)
+## Before You Start
 
-1. Go to **[https://api.slack.com/apps](https://api.slack.com/apps)** and click **“Create New App” → “From an app manifest”**.
-2. Choose the workspace where you want to use AetherGraph.
-3. Paste the following manifest (adjust the `display_information.name` if you like):
+1. Install AetherGraph with Slack extras:
 
-```yaml
-_display_information:
-  name: AetherGraph
-features:
-  bot_user:
-    display_name: AetherGraph
-    always_online: true
-oauth_config:
-  scopes:
-    bot:
-      - chat:write
-      - chat:write.public
-      - channels:history
-      - groups:history
-      - im:history
-      - mpim:history
-settings:
-  interactivity:
-    is_enabled: true
-  event_subscriptions:
-    bot_events:
-      - message.channels
-      - message.im
-      - app_mention
-```
+   ```bash
+   pip install "aethergraph[slack]"
+   ```
 
-> **Note:** When using Socket Mode, you **do not** need to configure an HTTP Request URL for Events or Interactivity.
+2. Make sure you have a `.env` file in your project root. AetherGraph will read Slack configuration from it.
 
-4. Click **Create**.
-5. Go to **OAuth & Permissions → Install App to Workspace** and complete the install.
+---
 
-### Enable Socket Mode and get tokens
+## 1. Create a Slack App (with Manifest JSON)
 
-1. In your Slack app, go to **Socket Mode** in the left sidebar.
-2. Toggle **Enable Socket Mode** → **ON**.
+1. Go to **[https://api.slack.com/apps](https://api.slack.com/apps)** → click **“Create New App” → “From an app manifest.”**
+2. Choose your workspace.
+3. Paste the following JSON manifest (you can rename the app if you wish):
+
+   ```json
+    {
+        "display_information": {
+            "name": "AetherGraph"
+        },
+        "features": {
+            "bot_user": {
+                "display_name": "AetherGraph",
+                "always_online": true
+            }
+        },
+        "oauth_config": {
+            "scopes": {
+                "bot": [
+                    "app_mentions:read",
+                    "channels:history",
+                    "chat:write",
+                    "channels:manage",
+                    "channels:read",
+                    "files:read",
+                    "files:write",
+                    "groups:read",
+                    "groups:history"
+                ]
+            }
+        },
+        "settings": {
+            "event_subscriptions": {
+                "bot_events": [
+                    "app_mention",
+                    "message.channels",
+                    "message.groups"
+                ]
+            },
+            "interactivity": {
+                "is_enabled": true
+            },
+            "org_deploy_enabled": false,
+            "socket_mode_enabled": true,
+            "token_rotation_enabled": false
+        }
+    }
+   ```
+
+> **Note:** For Socket Mode, you do **not** need to configure an HTTP Request URL for events or interactivity.
+
+4. Click **Create App**.
+5. Go to **OAuth & Permissions → Install App to Workspace** and complete installation.
+
+---
+
+## 2. Enable Socket Mode and Get Tokens
+
+1. In your app’s left sidebar, go to **Socket Mode**.
+2. Toggle **Enable Socket Mode → ON.**
 3. Click **“Generate App-Level Token”**:
 
    * Name it something like `aethergraph-app-token`.
    * Grant it the **`connections:write`** scope.
-   * Copy the resulting token (it starts with `xapp-…`).
-4. Go to **OAuth & Permissions** and copy the **Bot User OAuth Token** (starts with `xoxb-…`).
+   * Copy the token (starts with `xapp-...`).
+4. Go to **OAuth & Permissions**, install the app to Slack, and copy the **Bot User OAuth Token** (starts with `xoxb-...`).
 
 You now have:
 
-* **Bot token** (e.g. `xoxb-...`)
-* **App token** (e.g. `xapp-...`)
-* Optional: **Signing secret** (used later for webhook mode)
-
-You can find the signing secret under **Basic Information → App Credentials → Signing Secret**.
+* **Bot token** (`xoxb-…`)
+* **App token** (`xapp-…`)
+* *(Optional)* **Signing secret** — found under *Basic Information → App Credentials → Signing Secret*
 
 ---
 
-## 2. Configure `.env` for AetherGraph
+## 3. Configure `.env` for AetherGraph
 
-AetherGraph reads Slack settings from `AETHERGRAPH_SLACK__*` entries in your `.env`.
+AetherGraph reads Slack settings from your environment variables.
 
-Add the following variables:
+Add the following lines to your `.env`:
 
 ```env
-# Turn Slack on
-AETHERGRAPH_SLACK__ENABLED=true
-
-# Tokens from Slack
+# Slack (optional)
+AETHERGRAPH_SLACK__ENABLED=true             # must be true to enable
 AETHERGRAPH_SLACK__BOT_TOKEN=xoxb-your-bot-token-here
 AETHERGRAPH_SLACK__APP_TOKEN=xapp-your-app-token-here
-
-# Optional but recommended to set now (used for future webhook mode)
 AETHERGRAPH_SLACK__SIGNING_SECRET=your-signing-secret-here
-
-# Transport mode (recommended defaults for local / individual use)
-AETHERGRAPH_SLACK__SOCKET_MODE_ENABLED=true
-AETHERGRAPH_SLACK__WEBHOOK_ENABLED=false
+AETHERGRAPH_SLACK__SOCKET_MODE_ENABLED=true  # usually true for local testing
+AETHERGRAPH_SLACK__WEBHOOK_ENABLED=false     # usually false for local testing
 ```
 
-With this configuration:
+After saving `.env`, restart your AetherGraph sidecar so the new settings take effect.
 
-* The AetherGraph sidecar opens a **WebSocket connection to Slack** (Socket Mode).
-* You **do not** need a public URL, ngrok, or any `/slack/events` endpoint.
+With this setup:
 
-Restart your AetherGraph sidecar after editing `.env` so the new settings take effect.
+* AetherGraph connects to Slack via WebSocket (Socket Mode).
+* You **don’t** need ngrok or a public URL.
 
 ---
 
-## 3. Choosing a default Slack channel and `channel_key`
+## 4. Setting Up Slack Channels and Aliases
 
-AetherGraph uses a **channel key** to know where to send messages. For Slack, the canonical format is:
+Once Slack is enabled, you can define which channel AetherGraph should talk to.
 
-```text
-slack:team/<TEAM_ID>:chan/<CHANNEL_ID>
-```
-
-You can set a default channel in two ways:
-
-### 3.1. Using `DEFAULT_TEAM_ID` / `DEFAULT_CHANNEL_ID`
-
-1. In Slack, find your **team (workspace) ID** and **channel ID**:
-
-   * Team ID: often visible in the URL or via a quick Slack API call.
-   * Channel ID: right-click a channel → *Copy link* and grab the `C...` part.
-2. Add these to your `.env`:
-
-```env
-AETHERGRAPH_SLACK__DEFAULT_TEAM_ID=T0123456789
-AETHERGRAPH_SLACK__DEFAULT_CHANNEL_ID=C0123456789
-```
-
-AetherGraph will then derive the canonical channel key:
-
-```text
-slack:team/T0123456789:chan/C0123456789
-```
-
-When you call:
+Here’s a typical setup pattern:
 
 ```python
-chan = context.channel()
+import os
+from aethergraph.channels import set_default_channel, set_channel_alias
+
+SLACK_TEAM_ID = os.getenv("SLACK_TEAM_ID", "your-slack-team-id")
+SLACK_CHANNEL_ID = os.getenv("SLACK_CHANNEL_ID", "your-slack-channel-id")
+slack_channel_key = f"slack:team/{SLACK_TEAM_ID}:chan/{SLACK_CHANNEL_ID}"  # Slack channel key format
+
+# Set as the default channel
+set_default_channel(slack_channel_key)
+
+# Optional: define an alias
+set_channel_alias("my_slack", slack_channel_key)
+```
+
+Usage examples:
+
+```python
+chan = context.channel()  # uses the default Slack channel
 await chan.send_text("Hello from AetherGraph 👋")
+
+chan2 = context.channel("my_slack")  # use a named alias
+await chan2.send_text("Message to my_slack alias")
+
+# or directly specify the channel
+await context.channel().send_text("Custom target", channel=slack_channel_key)
 ```
 
-it will use this default Slack channel.
+If nothing is set up, AetherGraph automatically falls back to `console:stdin`.
 
-### 3.2. Using `DEFAULT_CHANNEL_KEY` directly
 
-If you prefer, you can set the full key yourself:
+**Finding your Team & Channel IDs**
 
-```env
-AETHERGRAPH_SLACK__DEFAULT_CHANNEL_KEY=slack:team/T0123456789:chan/C0123456789
-```
-
-This is the most explicit and is what AetherGraph uses internally.
+* **Channel ID**: Open Slack in a browser → navigate to the channel → copy the `C…` (public) or `G…` (private) part from the URL.
+* **Team ID**: In the same URL, copy the `T…` segment (your workspace ID).
 
 ---
 
-## 4. Using channel keys for multiple Slack channels
+## 5. Quick Test
 
-The canonical Slack `channel_key` used by AetherGraph has the form:
+Once everything is configured, test your integration:
 
-```text
-slack:team/<TEAM_ID>:chan/<CHANNEL_ID>
+**Invite the bot to your channel**
+
+* Private channels require the bot to be a member before it can post. Invite it via Add people or mention `@YourBot` and select Invite to channel.
+
+* For DMs, post to the DM channel ID (`D…`), not a user ID.
+
+Run the graph — if your message appears in Slack, you’re all set!
+
+```python
+from aethergraph import graph_fn, NodeContext
+
+@graph_fn(name="hello_slack")
+async def hello_slack(*, context: NodeContext):
+    chan = context.channel()
+    await chan.send_text("Hello from AetherGraph 👋")
+    return {"ok": True}
 ```
 
-You can use this in two main ways:
-
-1. **Set a default channel for most runs** (recommended)
-
-   * Use `AETHERGRAPH_SLACK__DEFAULT_TEAM_ID` and `AETHERGRAPH_SLACK__DEFAULT_CHANNEL_ID` in your `.env`.
-   * AetherGraph will derive the canonical key internally.
-   * When you call `context.channel()` without arguments, it will use that default Slack channel.
-
-2. **Select a channel explicitly in code**
-
-   * If you have multiple Slack channels you want to talk to, you can always pass a `channel_key` directly:
-
-   ```python
-   chan = context.channel("slack:team/T0123456789:chan/C0123456789")
-   await chan.send_text("Sending to this specific channel")
-   ```
-
-   This bypasses any default and sends to the channel you specify.
-
-> **Note:** you don’t have to set a default Slack channel. If no default is configured, AetherGraph falls back to `console:stdin` for `context.channel()`; you can still target Slack explicitly by passing a full `channel_key` when you need it.
 
 ---
 
-## 5. Quick test
+### Notes
 
-Once everything is configured:
-
-1. Ensure your `.env` has the Slack values and the sidecar is running.
-2. Run a small test graph:
-
-    ```python
-    from aethergraph import graph_fn, NodeContext
-
-    @graph_fn(name="hello_slack")
-    async def hello_slack(*, context: NodeContext):
-        chan = context.channel()  # uses default Slack channel
-        await chan.send_text("Hello from AetherGraph 👋")
-    ```
-
-3. Execute this graph and confirm that the message appears in your chosen Slack channel.
-
-If the message arrives, your Slack Socket Mode integration is working.
-
-### Note: local-only pattern
-
-This Socket Mode setup is intended for **local / personal use**: AetherGraph runs on your machine or a dev box, and connects out to Slack over a secure WebSocket. We do not support production webhook with the initial release.
-
-Do **not** expose your local sidecar directly to the public internet!
+* This Socket Mode setup is **for local / individual use only**.
+* Do **not** expose your sidecar server directly to the internet.
+* Future versions will include webhook-based production integrations.
