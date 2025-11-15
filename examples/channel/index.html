@@ -12,13 +12,9 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/tutorials/t1-build-your-first-graph-fn/">
+        <link rel="canonical" href="https://your-domain.com/examples/channel/">
       
       
-        <link rel="prev" href="../../key-concepts/concurrency-orchestration/">
-      
-      
-        <link rel="next" href="../t2-static-graph-with-graphify/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -26,7 +22,7 @@
     
     
       
-        <title>Building Your First Graph Function Agent - AetherGraph</title>
+        <title>Channels – Practical Usage Cheatsheet - AetherGraph</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorial-1-build-your-first-graph_fn" class="md-skip">
+        <a href="#channels-practical-usage-cheatsheet" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Building Your First Graph Function Agent
+              Channels – Practical Usage Cheatsheet
             
           </span>
         </div>
@@ -587,8 +583,6 @@
       
   
   
-    
-  
   
   
     
@@ -601,11 +595,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -621,7 +617,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -632,32 +628,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Building Your First Graph Function Agent
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/t1-build-your-first-graph-fn/" class="md-nav__link">
         
   
   
@@ -668,95 +642,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-boot-the-sidecar" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Boot the Sidecar
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-define-a-minimal-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Define a Minimal Agent
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Define a Minimal Agent">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-run-the-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Run the Agent
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-why-this-is-different" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Why This is Different
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Next Steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -769,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t2-static-graph-with-graphify/" class="md-nav__link">
+      <a href="../../tutorials/t2-static-graph-with-graphify/" class="md-nav__link">
         
   
   
@@ -792,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t3-talk-to-your-graph-channels-waits/" class="md-nav__link">
+      <a href="../../tutorials/t3-talk-to-your-graph-channels-waits/" class="md-nav__link">
         
   
   
@@ -815,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t4-store-recall-artifacts-memory/" class="md-nav__link">
+      <a href="../../tutorials/t4-store-recall-artifacts-memory/" class="md-nav__link">
         
   
   
@@ -838,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t5-add-intelligence-llm-rag/" class="md-nav__link">
+      <a href="../../tutorials/t5-add-intelligence-llm-rag/" class="md-nav__link">
         
   
   
@@ -861,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t6-use-external-tools-mcp/" class="md-nav__link">
+      <a href="../../tutorials/t6-use-external-tools-mcp/" class="md-nav__link">
         
   
   
@@ -884,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../t7-extend-runtime-custom-services/" class="md-nav__link">
+      <a href="../../tutorials/t7-extend-runtime-custom-services/" class="md-nav__link">
         
   
   
@@ -959,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/example-list/" class="md-nav__link">
+      <a href="../example-list/" class="md-nav__link">
         
   
   
@@ -1569,126 +1454,188 @@
   
 
 
-<h1 id="tutorial-1-build-your-first-graph_fn">Tutorial 1: Build Your First <code>graph_fn</code><a class="headerlink" href="#tutorial-1-build-your-first-graph_fn" title="Permanent link">&para;</a></h1>
-<p>This tutorial walks you through the <strong>core API</strong> of AetherGraph and helps you build your first reactive agent using the <code>@graph_fn</code> decorator.</p>
+<h1 id="channels-practical-usage-cheatsheet">Channels – Practical Usage Cheatsheet<a class="headerlink" href="#channels-practical-usage-cheatsheet" title="Permanent link">&para;</a></h1>
+<p>This page is a <strong>lightweight guide</strong>, not a full API reference. It shows how to use channels in everyday graphs and what the most common operations look like.</p>
 <hr />
-<h2 id="overview">🚀 Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>AetherGraph introduces a <strong>Python‑native way</strong> to create agents that can think, wait, and talk — all inside a normal Python function. With the <code>@graph_fn</code> decorator, you can:</p>
-<ul>
-<li>Add <strong>context‑aware I/O</strong> (<code>context.channel()</code>, <code>context.llm()</code>, <code>context.memory()</code>)</li>
-<li>Run interactively or headlessly</li>
-<li>Chain, nest, and resume computations without defining a custom graph DSL</li>
-</ul>
-<p>In this tutorial, you will:</p>
-<ol>
-<li>Start the AetherGraph server (the <strong>sidecar</strong>)</li>
-<li>Define your first <code>graph_fn</code></li>
-<li>Call an LLM and send messages through the channel</li>
-<li>Run it synchronously and see the result</li>
-</ol>
-<hr />
-<h2 id="1-boot-the-sidecar">1. Boot the Sidecar<a class="headerlink" href="#1-boot-the-sidecar" title="Permanent link">&para;</a></h2>
-<p>Before you run any agent, you must start the <strong>sidecar server</strong>, which wires up the runtime services such as channel communication, artifact storage, memory, and resumptions.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">start_server</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="n">start_server</span><span class="p">()</span>  <span class="c1"># launches a lightweight FastAPI server in the background</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AetherGraph sidecar server started at:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<h2 id="1-getting-a-channel">1. Getting a channel<a class="headerlink" href="#1-getting-a-channel" title="Permanent link">&para;</a></h2>
+<p>In any graph, you start from the <code>NodeContext</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">chan</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>                <span class="c1"># default channel (often console or a default chat)</span>
+<span class="n">chan_slack</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:team/T:chan/C&quot;</span><span class="p">)</span>
+<span class="n">chan_file</span>  <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;file:runs/demo.log&quot;</span><span class="p">)</span>
 </code></pre></div>
-<blockquote>
-<p>The sidecar is safe to start anywhere — even in Jupyter or interactive shells. It sets up a workspace under <code>./aethergraph_data</code> by default. Your data, including artifacts, memory, resumption files, will all be exported to workspace for persist access.</p>
-</blockquote>
+<p>Use cases:</p>
+<ul>
+<li><strong>No argument</strong> → send to whatever default channel you configured.</li>
+<li><strong>Explicit key</strong> → target a specific channel (Slack, Telegram, file, webhook, etc.).</li>
+</ul>
+<p>You then call convenient methods on <code>chan</code>.</p>
 <hr />
-<h2 id="2-define-a-minimal-agent">2. Define a Minimal Agent<a class="headerlink" href="#2-define-a-minimal-agent" title="Permanent link">&para;</a></h2>
-<p>A <code>graph_fn</code> is a <strong>context‑injected async function</strong> that represents a reactive node or agent.</p>
+<h2 id="2-sending-messages-send_text">2. Sending messages (<code>send_text</code>)<a class="headerlink" href="#2-sending-messages-send_text" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">chan</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Run started 🚀&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When to use:</p>
+<ul>
+<li>
+<p>Any time you want to <strong>tell the user something</strong>:</p>
+</li>
+<li>
+<p>status updates ("loading data…"),</p>
+</li>
+<li>final results ("accuracy = 0.93"),</li>
+<li>errors, tips, or links.</li>
+</ul>
+<p>Where it goes depends on the channel:</p>
+<ul>
+<li><strong>console</strong> → prints to the terminal.</li>
+<li><strong>Slack / Telegram</strong> → sends a chat message.</li>
+<li><strong>file</strong> → appends a line to a log file.</li>
+<li><strong>webhook</strong> → POSTs JSON to the external URL.</li>
+</ul>
+<p>You usually don’t need to worry about the return value; it’s handled internally.</p>
+<hr />
+<h2 id="3-asking-for-input-ask_text">3. Asking for input (<code>ask_text</code>)<a class="headerlink" href="#3-asking-for-input-ask_text" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nice to meet you, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When to use:</p>
+<ul>
+<li>
+<p>You need <strong>free-form input</strong> from a human:</p>
+</li>
+<li>
+<p>names, descriptions, small pieces of text,</p>
+</li>
+<li>short commands ("yes/no", "option A", etc.).</li>
+</ul>
+<p>Supported channels:</p>
+<ul>
+<li><strong>console</strong> → reads from stdin inline.</li>
+<li><strong>Slack / Telegram</strong> → sends a prompt and waits for a reply.</li>
+</ul>
+<p>Not supported / not meaningful on:</p>
+<ul>
+<li><strong>file</strong> and <strong>webhook</strong> (those are inform-only channels).</li>
+</ul>
+<p>Behind the scenes, Slack/Telegram use <strong>continuations</strong>, so the run can be resumed when a reply arrives.</p>
+<hr />
+<h2 id="4-approvals-choices-ask_approval">4. Approvals &amp; choices (<code>ask_approval</code>)<a class="headerlink" href="#4-approvals-choices-ask_approval" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span>
+    <span class="s2">&quot;Deploy the model to production?&quot;</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Approve&quot;</span><span class="p">,</span> <span class="s2">&quot;Reject&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;approved&quot;</span><span class="p">]:</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Deployment approved ✅&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Deployment cancelled ❌&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When to use:</p>
+<ul>
+<li>
+<p>You want a <strong>simple decision</strong> from the user:</p>
+</li>
+<li>
+<p>approve/reject,</p>
+</li>
+<li>pick from a short list of options.</li>
+</ul>
+<p>Channel behavior:</p>
+<ul>
+<li><strong>console</strong> → shows numbered options and waits for a number/label.</li>
+<li><strong>Slack / Telegram</strong> → renders real buttons; user clicks, continuation resumes.</li>
+</ul>
+<p>Again, this is not meant for file/webhook channels.</p>
+<hr />
+<h2 id="5-files-uploads-high-level">5. Files &amp; uploads (high level)<a class="headerlink" href="#5-files-uploads-high-level" title="Permanent link">&para;</a></h2>
+<p>For interactive channels (Slack, Telegram, console) and some tools, you’ll often work with <strong>files</strong> directly, not just links.</p>
+<p>Typical high-level patterns:</p>
+<h3 id="51-sending-a-file-send_file">5.1. Sending a file (<code>send_file</code>)<a class="headerlink" href="#51-sending-a-file-send_file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># e.g. you just generated a local report</span>
+<span class="n">report_path</span> <span class="o">=</span> <span class="s2">&quot;./outputs/report.pdf&quot;</span>
+
+<span class="n">chan</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>  <span class="c1"># default chat (Slack/Telegram/console)</span>
+<span class="k">await</span> <span class="n">chan</span><span class="o">.</span><span class="n">send_file</span><span class="p">(</span><span class="n">report_path</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Here is your report 📎&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When to use:</p>
+<ul>
+<li>You want the user to <strong>receive the actual file</strong> in their chat or UI.</li>
+<li>Slack/Telegram will show the file as an attachment; console/file/webhook channels may log or reference it instead, depending on implementation.</li>
+</ul>
+<h3 id="52-asking-the-user-to-upload-a-file-ask_file">5.2. Asking the user to upload a file (<code>ask_file</code>)<a class="headerlink" href="#52-asking-the-user-to-upload-a-file-ask_file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_file</span><span class="p">(</span><span class="s2">&quot;Please upload a CSV file with your data.&quot;</span><span class="p">)</span>
+
+<span class="c1"># `files` is typically a list of file references with</span>
+<span class="c1"># fields like name, uri, mimetype, etc.</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got file: </span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>When to use:</p>
+<ul>
+<li>You need the user to <strong>provide input as a file</strong> (datasets, configs, documents).</li>
+<li>Works best on Slack/Telegram or a web UI that supports uploads.</li>
+</ul>
+<h3 id="53-sending-buttons-for-links">5.3. Sending buttons for links<a class="headerlink" href="#53-sending-buttons-for-links" title="Permanent link">&para;</a></h3>
+<p>Buttons are a convenient way to surface links (e.g. to artifacts, dashboards) instead of pasting raw URLs.</p>
+<p>Conceptually, you can build a message with one or more buttons that open URLs:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.contracts.services.channel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span>
+
+<span class="n">report_url</span> <span class="o">=</span> <span class="s2">&quot;https://example.com/artifacts/runs/123/report.pdf&quot;</span>
+
+<span class="n">buttons</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;open_report&quot;</span><span class="p">:</span> <span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Open report&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">report_url</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">chan</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">chan</span><span class="o">.</span><span class="n">send_buttons</span><span class="p">(</span><span class="s2">&quot;Your report is ready:&quot;</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="n">buttons</span><span class="p">)</span>
+</code></pre></div>
+<p>On rich channels (Slack/Telegram/web UI) this can render as clickable buttons; on simpler channels, it may fall back to plain text.</p>
+<p>Use file and button helpers when you want the user to <strong>act on artifacts directly</strong> (download, open, inspect) rather than just reading text.</p>
+<hr />
+<h2 id="6-streaming-progress-high-level">6. Streaming &amp; progress (high level)<a class="headerlink" href="#6-streaming-progress-high-level" title="Permanent link">&para;</a></h2>
+<p>Some adapters (Slack, Telegram, web UI) support <strong>streaming</strong> and <strong>progress</strong> updates, so the user sees things evolve in place instead of a single final message.</p>
+<p>A common pattern is to use a progress helper that periodically updates a status message while your work runs:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;train_with_progress&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">train_with_progress</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Training started ⏳&quot;</span><span class="p">)</span>
+
+    <span class="n">total_steps</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_steps</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># Do some work here...</span>
+        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Progress: </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total_steps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Training finished ✅&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>On rich channels (Slack/Telegram/web UI), the framework can render more advanced streaming or progress UIs using specialized helpers; the core idea is the same: <strong>send updates frequently</strong> so the user sees the task moving forward.</p>
+<hr />
+<h2 id="7-putting-it-together-a-small-example">7. Putting it together – a small example<a class="headerlink" href="#7-putting-it-together-a-small-example" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello_world&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">(</span><span class="n">input_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;hello_world started&quot;</span><span class="p">)</span>
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;simple_run&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">simple_run</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
+    <span class="c1"># 1) Notify in the default channel</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Run started 🚀&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Send a message via the default channel (console)</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;👋 Hello! You sent: </span><span class="si">{</span><span class="n">input_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># 2) Ask the user a question (console/Slack/Telegram)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="s2">&quot;What should we name this experiment?&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Optional: Call an LLM directly from the context</span>
-    <span class="n">llm_text</span><span class="p">,</span> <span class="n">_usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span>
-        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Be brief.&quot;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Say hi back to: </span><span class="si">{</span><span class="n">input_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LLM replied: </span><span class="si">{</span><span class="n">llm_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># 3) Log the name to a file channel</span>
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;file:runs/experiment_names.log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
-    <span class="n">output</span> <span class="o">=</span> <span class="n">input_text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;hello_world finished&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;final_output&quot;</span><span class="p">:</span> <span class="n">output</span><span class="p">}</span>
+    <span class="c1"># 4) Optionally notify an external system via webhook</span>
+    <span class="c1"># await context.channel(&quot;webhook:https://hooks.zapier.com/hooks/catch/.../&quot;).send_text(</span>
+    <span class="c1">#     f&quot;New experiment: {name}&quot;</span>
+    <span class="c1"># )</span>
+
+    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All set, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ✅&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p><strong>Return value</strong>:
-Although you can return any data type in a dictionary, it is suggested to return a dictionary of <strong>JSON-serializable results</strong> (e.g. <code>{"result": value}</code>).
-For large data or binary files, save them via <code>context.artifacts().write(...)</code> and return the artifact path/uri instead for later reuse. </p>
-</blockquote>
-<h3 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Concept</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>@graph_fn</code></strong></td>
-<td>Turns a plain async Python function into a context‑aware agent.</td>
-</tr>
-<tr>
-<td><strong><code>NodeContext</code></strong></td>
-<td>Injected automatically. Gives access to channels, memory, LLMs, and logging.</td>
-</tr>
-<tr>
-<td><strong><code>context.channel()</code></strong></td>
-<td>Sends and receives messages (console, Slack, web UI, etc.).</td>
-</tr>
-<tr>
-<td><strong><code>context.llm()</code></strong></td>
-<td>Unified interface to language models via environment configuration.</td>
-</tr>
-<tr>
-<td><strong><code>context.logger()</code></strong></td>
-<td>Node‑aware structured logging.</td>
-</tr>
-</tbody>
-</table>
-<p>See the full API of <code>graph_fn</code> at <em>Graph Function API</em></p>
-<hr />
-<h2 id="3-run-the-agent">3. Run the Agent<a class="headerlink" href="#3-run-the-agent" title="Permanent link">&para;</a></h2>
-<p>You can run your <code>graph_fn</code> directly or use helper runners.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">hello_world</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;input_text&quot;</span><span class="p">:</span> <span class="s2">&quot;hello world&quot;</span><span class="p">})</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-<p>Output example:</p>
-<div class="highlight"><pre><span></span><code>[AetherGraph] 👋 Hello! You sent: hello world
-[AetherGraph] LLM replied: Hi there!
-Result: {&#39;final_output&#39;: &#39;HELLO WORLD&#39;}
-</code></pre></div>
-<blockquote>
-<p>You can also <code>await hello_world(...)</code> in any async context — all <code>graph_fn</code>s are awaitable by design.</p>
-</blockquote>
-<hr />
-<h2 id="4-why-this-is-different">4. Why This is Different<a class="headerlink" href="#4-why-this-is-different" title="Permanent link">&para;</a></h2>
-<p>AetherGraph’s <code>@graph_fn</code> model is <strong>Pythonic yet agentic</strong>. Unlike traditional workflow frameworks that require static DAG definitions, AetherGraph lets you:</p>
+<p>Use this cheatsheet as a <strong>mental model</strong> for channels:</p>
 <ul>
-<li><strong>Run without pre‑declaring a graph</strong> – it dynamically builds one as you go.</li>
-<li><strong>Access unified runtime services</strong> – channels, memory, artifacts, LLMs, and schedulers are all injected via context.</li>
-<li><strong>Compose natively</strong> – you can <code>await</code> another <code>graph_fn</code>, mix <code>@tool</code>s, or parallelize with <code>asyncio.gather</code>.</li>
-<li><strong>Stay resumable</strong> – everything you run is automatically backed by a persistent runtime; you can resume mid‑flow later.</li>
+<li><code>channel()</code> → pick where messages go.</li>
+<li><code>send_text</code> → tell the user or an external system something.</li>
+<li><code>ask_*</code> → only on interactive channels (console/Slack/Telegram), when you need input.</li>
+<li>Let higher-level tooling take care of files and streaming; the channel adapters handle the transport details.</li>
 </ul>
-<p>These traits make AetherGraph unique among Python agent frameworks — designed not only for chatbots, but also for <strong>scientific, engineering, and simulation workflows</strong>.</p>
-<hr />
-<h2 id="5-next-steps">5. Next Steps<a class="headerlink" href="#5-next-steps" title="Permanent link">&para;</a></h2>
-<p>In the next tutorial, you’ll learn how to turn these reactive functions into <strong>static DAGs</strong> using <code>graphify()</code>, enabling resumable and inspectable computation graphs.</p>
 
 
 
@@ -1713,44 +1660,6 @@ Result: {&#39;final_output&#39;: &#39;HELLO WORLD&#39;}
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../../key-concepts/concurrency-orchestration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concurrency and Orchestration">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Concurrency and Orchestration
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../t2-static-graph-with-graphify/" class="md-footer__link md-footer__link--next" aria-label="Next: Static Graph with Graphify">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Static Graph with Graphify
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
