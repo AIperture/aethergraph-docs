@@ -74,13 +74,13 @@ nav:
       - Sidecar Server: key-concepts/server-start-sidecar.md
       - Concurrency and Orchestration: key-concepts/concurrency-orchestration.md
   - Tutorials:
-      - Building Your First Graph Function Agent: tutorials/t1-build-your-first-graph-fn.md
-      - Static Graph with Graphify: tutorials/t2-static-graph-with-graphify.md
-      - Talk to Your Graph - Channels & Wait Models: tutorials/t3-talk-to-your-graph-channels-waits.md
-      - Store and Recall - Artifacts & Memory: tutorials/t4-store-recall-artifacts-memory.md
-      - Add Intelligence - LLM & RAG: tutorials/t5-add-intelligence-llm-rag.md
-      - Use External Tools - MCP Example: tutorials/t6-use-external-tools-mcp.md
-      - Plug In Your World - Custom Services: tutorials/t7-extend-runtime-custom-services.md
+      - 1. Building Your First Graph Function Agent: tutorials/t1-build-your-first-graph-fn.md
+      - 2. Static Graph with Graphify: tutorials/t2-static-graph-with-graphify.md
+      - 3. Talk to Your Graph - Channels & Wait Models: tutorials/t3-talk-to-your-graph-channels-waits.md
+      - 4. Store and Recall - Artifacts & Memory: tutorials/t4-store-recall-artifacts-memory.md
+      - 5. Add Intelligence - LLM & RAG: tutorials/t5-add-intelligence-llm-rag.md
+      - 6. Use External Tools - MCP Example: tutorials/t6-use-external-tools-mcp.md
+      - 7. Plug In Your World - Custom Services: tutorials/t7-extend-runtime-custom-services.md
       # - Design Your Own Waits (Coming Soon): tutorials/t8-design-your-own-waits.md
   # - Recipes:
   #     - Submit + Poll + Notify: recipes/job-submit-poll.md
@@ -92,17 +92,33 @@ nav:
       #     - Channel Cheat Sheet: examples/channel.md
       #     - Memory and Artifacts: examples/memory-artifact.md
       #     - LLM: examples/llm.md
-  # - Reference:
+  - Reference:
   #     - Decorators: reference/decorators.md
-  #     - Context API:
-  #         - Channel: reference/context-channel.md
-  #         - Artifacts: reference/context-artifacts.md
-  #         - Memory: reference/context-memory.md
-  #         - Logger: reference/context-logger.md
-  #         - KV: reference/context-kv.md
-  #         - LLM: reference/context-llm.md
-  #         - RAG: reference/context-rag.md
-  #         - MCP: reference/context-mcp.md
+      - Graph API:
+          - decorator @tool: reference/graph-tool.md
+          - decorator @graph_fn: reference/graph-graph-fn.md
+          - decorator @graphify: reference/graph-graphify.md
+          - TaskGraph: reference/graph-task-graph.md
+      - Runner API:
+          - run & run_async: reference/runner-api.md
+      - Context API:
+          - context.channel(): reference/context-channel.md
+          - context.artifacts(): reference/context-artifacts.md
+          - context.memory(): reference/context-memory.md
+          - context.logger(): reference/context-logger.md
+          - context.kv(): reference/context-kv.md
+          - context.llm(): reference/context-llm.md
+          - context.rag(): reference/context-rag.md
+          - context.mcp(): reference/context-mcp.md
+          - context extension: reference/context-extension.md
+          - context outside graph: reference/context-adhoc.md
+
+      - Runtime API:
+          - runtime server: reference/runtime-server.md
+          - runtime services: reference/runtime-api.md
+
+      - Built-in @tools:
+          - channel tools: reference/tool-channel.md
   #     - Tools Facade: reference/tools-facade.md
   #     - Config: reference/config.md
   #     - REST API: reference/rest-api.md
@@ -134,6 +150,8 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - md_in_html          # parse Markdown inside raw HTML blocks
+
 
 plugins:
   - search

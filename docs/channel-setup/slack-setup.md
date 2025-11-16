@@ -3,6 +3,7 @@
 This guide shows you how to connect **Slack** to **AetherGraph** using **Socket Mode** — ideal for local or individual use.
 
 ✅ **No public URL or ngrok required**.
+
 ✅ **Runs securely via WebSocket**.
 
 ---

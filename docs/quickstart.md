@@ -4,7 +4,7 @@ A 5‑minute on‑ramp to AetherGraph: install, start the sidecar server, and ru
 
 ---
 
-## 1) Install
+## 1. Install
 
 ```bash
 pip install aethergraph
@@ -16,15 +16,15 @@ pip install aethergraph
 
 ---
 
-## 2) Start the sidecar server (one‑liner)
+## 2. Start the sidecar server (one‑liner)
 
 AetherGraph ships a lightweight sidecar that wires up core services (logger, artifacts, memory, KV, channels, etc.)
 
 ```python
 # quickstart_server.py
-from aethergraph import start
+from aethergraph import start_server
 
-url = start(host="127.0.0.1", port=0, log_level="warning")
+url = start_server(port=0)
 print("AetherGraph server:", url)
 ```
 
@@ -38,17 +38,17 @@ You should see an HTTP URL like `http://127.0.0.1:54321` printed. (Random free p
 
 ---
 
-## 3) Your first graph function
+## 3. Your first graph function
 
 `@graph_fn` turns an ordinary async Python function into a runnable graph entrypoint. If you include a `context` parameter, you get access to built‑in services like `context.channel()` and `context.memory()`.
 
 ```python
 # quickstart_graph_fn.py
 from aethergraph import graph_fn, NodeContext
-from aethergraph import start
+from aethergraph import start_server
 
 # 1) Start the sidecar so services are available
-start()
+start_server()
 
 # 2) Define a small graph function
 @graph_fn(name="hello.world", inputs=["name"], outputs=["greeting"], version="0.1.0")
@@ -85,7 +85,7 @@ Result: {"greeting": "Hello, Researcher. Nice to meet you from AetherGraph."}
 
 ---
 
-## 4) What just happened?
+## 4. What just happened?
 
 * **Sidecar server** booted in the background and installed default services (channels, artifacts, memory, KV, logger).
 * **`@graph_fn`** built a tiny task graph from your function and executed it.
@@ -95,8 +95,9 @@ Result: {"greeting": "Hello, Researcher. Nice to meet you from AetherGraph."}
 
 ---
 
-## 5) Next steps
+## 5. Next steps
 
 * Add **tools** with `@tool` to wrap reusable steps and surface inputs/outputs.
 * Use **`@graphify`** for fan‑in / fan‑out graph construction when the body is mostly tool calls.
-* Explore **artifacts** (`context.artifacts()`), **memory** (`context.memory()`), and **RAG** (
+* Explore **artifacts** (`context.artifacts()`), **memory** (`context.memory()`), and **RAG** (`context.rag()`)
+* Config `.env` file to integrate external channel and llm features

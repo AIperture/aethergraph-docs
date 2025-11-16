@@ -1,373 +1,334 @@
-# AetherGraph — `context.memory()` Reference
+# `context.memory()` – MemoryFacade API Reference
 
-This page documents the **MemoryFacade** returned by `context.memory()` in a concise format: signature, brief description, parameters, returns, and practical examples. The facade coordinates three core components — **HotLog** (recent, transient), **Persistence** (durable JSONL/appends), and **Indices** (fast derived views) — with optional **ArtifactStore**, **RAG**, and **LLM** services.
-
----
-
-## Overview
-`context.memory()` is bound to your current runtime scope (`session_id`, `run_id`, `graph_id`, `node_id`, `agent_id`). Typical operations:
-
-1. **Record** events (raw or typed results)
-
-2. **Query** recent/last/by‑kind outputs via indices/hotlog
-
-3. **Distill** (rolling summaries, episode summaries)
-
-4. **RAG** (optional): upsert, search, answer using a configured RAG + LLM
+`MemoryFacade` coordinates **HotLog** (fast recent events), **Persistence** (durable JSONL event log + JSON blobs), and **Indices** (derived KV views), with optional **Artifacts** and **RAG** helpers. All public methods are async.
 
 ---
 
-## memory.record_raw
+## Concepts & Defaults
+
+* **Three core services**
+
+  * **HotLog**: append/recent for fast, transient access (TTL, ring buffer).
+  * **Persistence**: durable append/replay (e.g., FS JSONL, S3, DB).
+  * **Indices**: fast lookups (e.g., last by name/topic, latest refs by kind), updated by `write_result()`.
+* **Scope binding**: Instance carries `{run_id, graph_id, node_id, agent_id}` and stamps them on events.
+* **Signal heuristic**: If not provided, `record_raw()` estimates a `signal` (0.0–1.0) from text length, metrics, and severity.
+* **RAG integration**: Optional `RAGFacade` for corpora, upserts, search, and QA; gated by configuration.
+
+### Event Schema (contract excerpt)
+
+Essential `Event` fields used by this facade (not exhaustive):
+
 ```
-record_raw(*, base: dict, text: str | None = None, metrics: dict | None = None, sources: list[str] | None = None) -> Event
-```
-Append a **normalized** event to HotLog (fast) and Persistence (durable). Computes a stable `event_id` and a lightweight `signal` if absent.
-
-**Parameters**
-
-- **base** (*dict*) – Canonical fields describing the event (e.g., `kind`, `stage`, `severity`, `tool`, `tags`, `entities`, `inputs`, `outputs`, …). Missing scope keys are filled from the bound context.
-
-- **text** (*str, optional*) – Human‑readable message/body.
-
-- **metrics** (*dict, optional*) – Numeric metrics (latency, token counts, costs, etc.).
-
-- **sources** (*list[str], optional*) – Event IDs this event summarizes/derives from.
-
-**Returns**  
-*Event* – The appended event.
-
-**Notes**  
-Does **not** update `indices` automatically. Use `write_result()` when you want indices updated for typed outputs.
-
----
-
-## memory.record
-```
-record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None) -> Event
-```
-Convenience wrapper around `record_raw()` for common fields; stringifies `data` if needed.
-
-**Parameters**
-
-- **kind** (*str*) – Event kind (e.g., `"user_msg"`, `"tool_call"`).
-
-- **data** (*Any*) – JSON‑serializable payload; will be stringified for `text`.
-
-- **tags** (*list[str], optional*) – Tag list.
-
-- **entities** (*list[str], optional*) – Entity IDs.
-
-- **severity** (*int*) – 1–5 scale (default 2).
-
-- **stage** (*str, optional*) – Phase label (e.g., `"observe"`, `"act"`).
-
-- **inputs_ref** (*list[dict], optional*) – Typed input references (Value[]).
-
-- **outputs_ref** (*list[dict], optional*) – Typed output references (Value[]).
-
-- **metrics** (*dict, optional*) – Numeric metrics.
-
-- **sources** (*list[str], optional*) – Upstream event IDs.
-
-- **signal** (*float, optional*) – 0.0–1.0; if omitted, computed heuristically.
-
-**Returns**  
-*Event* – The appended event.
-
----
-
-## memory.write_result
-```
-write_result(*, topic: str, inputs: list[dict] | None = None, outputs: list[dict] | None = None, tags: list[str] | None = None, metrics: dict | None = None, message: str | None = None, severity: int = 3) -> Event
-```
-Record a **typed result** (tool/agent/flow) and update indices for quick retrieval.
-
-**Parameters**
-
-- **topic** (*str*) – Tool/agent/flow identifier (used by `indices.last_outputs_by_topic`).
-
-- **inputs** (*list[dict], optional*) – Typed inputs (Value[]).
-
-- **outputs** (*list[dict], optional*) – Typed outputs (Value[]). **Indices derive from these.**
-
-- **tags** (*list[str], optional*) – Tag list.
-
-- **metrics** (*dict, optional*) – Numeric metrics.
-
-- **message** (*str, optional*) – Human‑readable summary.
-
-- **severity** (*int*) – Default 3.
-
-**Returns**  
-*Event* – The normalized `tool_result` event.
-
-**Effect**  
-Auto‑appends to HotLog & Persistence **and** calls `indices.update(session_id, evt)`.
-
----
-
-## memory.recent
-```
-recent(*, kinds: list[str] | None = None, limit: int = 50) -> list[Event]
-```
-Return recent events from HotLog (most recent last), optionally filtering by `kinds`.
-
-**Parameters**
-
-- **kinds** (*list[str], optional*) – Filter kinds.
-
-- **limit** (*int*) – Max events (default 50).
-
-**Returns**  
-*list[Event]* – Recent events.
-
----
-
-## memory.last_by_name
-```
-last_by_name(name: str)
-```
-Return the last **output value** by `name` from Indices (fast path).
-
-**Parameters**
-
-- **name** (*str*) – Output name.
-
-**Returns**  
-*Any* – The stored value for that name (adapter‑dependent) or `None`.
-
----
-
-## memory.latest_refs_by_kind
-```
-latest_refs_by_kind(kind: str, *, limit: int = 50)
-```
-Return latest **ref outputs** by `ref.kind` (fast path, KV‑backed) from Indices.
-
-**Parameters**
-
-- **kind** (*str*) – Reference kind.
-
-- **limit** (*int*) – Max items (default 50).
-
-**Returns**  
-*list[Any]* – Recent references.
-
----
-
-## memory.last_outputs_by_topic
-```
-last_outputs_by_topic(topic: str)
-```
-Return the last **output map** for a given topic (tool/flow/agent) from Indices.
-
-**Parameters**
-
-- **topic** (*str*) – Topic identifier.
-
-**Returns**  
-*dict | None* – Latest outputs or `None` if absent.
-
----
-
-## memory.distill_rolling_chat
-```
-distill_rolling_chat(*, max_turns: int = 20, min_signal: float | None = None) -> dict
-```
-Build a **rolling chat summary** from recent user/assistant turns (reads HotLog; typically writes a JSON summary via Persistence).
-
-**Parameters**
-
-- **max_turns** (*int*) – Window of turns to include (default 20).
-
-- **min_signal** (*float, optional*) – Signal threshold; uses facade default if omitted.
-
-**Returns**  
-*dict* – Descriptor (e.g., `{ "uri": ..., "sources": [...] }`).
-
----
-
-## memory.distill_episode
-```
-distill_episode(*, tool: str, run_id: str, include_metrics: bool = True) -> dict
-```
-Summarize a **tool/agent episode** (all events for a given `run_id` + `tool`). Reads HotLog/Persistence; writes back a summary JSON (and optionally CAS bundle).
-
-**Parameters**
-
-- **tool** (*str*) – Tool/agent identifier.
-
-- **run_id** (*str*) – Run to summarize.
-
-- **include_metrics** (*bool*) – Include metrics in the summary (default True).
-
-**Returns**  
-*dict* – Descriptor (e.g., `{ "uri": ..., "sources": [...], "metrics": {...} }`).
-
----
-
-## RAG helpers (optional)
-
-### memory.rag_upsert
-```
-rag_upsert(*, corpus_id: str, docs: Sequence[dict], topic: str | None = None) -> dict
-```
-Upsert documents into a RAG corpus via the configured RAG facade.
-
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus identifier.
-
-- **docs** (*Sequence[dict]*) – Documents/chunks with text and metadata.
-
-- **topic** (*str, optional*) – Optional topic name to attribute the upsert.
-
-**Returns**  
-*dict* – Upsert stats (shape adapter‑specific).
-
-**Raises**  
-`RuntimeError` – if RAG facade is not configured.
-
----
-
-### memory.rag_search
-```
-rag_search(*, corpus_id: str, query: str, k: int = 8) -> list[dict]
-```
-Retrieve best‑matching chunks for a query.
-
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus identifier.
-
-- **query** (*str*) – Natural language query.
-
-- **k** (*int*) – Max results (default 8), reranked.
-
-**Returns**  
-*list[dict]* – Ranked hits.
-
-**Raises**  
-`RuntimeError` – if RAG facade is not configured.
-
----
-
-### memory.rag_answer
-```
-rag_answer(*, corpus_id: str, question: str, style: str = "concise", k: int = 6, llm_profile: str = "default") -> dict
-```
-Answer a question using RAG + LLM (both must be configured).
-
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus identifier.
-
-- **question** (*str*) – User question.
-
-- **style** (*str*) – Answering style (e.g., `"concise"`).
-
-- **k** (*int*) – Max retrieved chunks (default 6).
-
-- **llm_profile** (*str*) – Profile name to select an LLM client.
-
-**Returns**  
-*dict* – Answer payload (adapter‑specific).
-
-**Raises**  
-`RuntimeError` – if RAG or LLM is not configured.
-
----
-
-<!-- ## memory.resolve
-```
-resolve(params: dict) -> dict
-```
-Synchronous helper to resolve parameter templates against memory context (uses the resolver service under the hood).
-
-**Parameters**
-
-- **params** (*dict*) – Parameters with placeholders.
-
-**Returns**  
-*dict* – Resolved parameters.
-
---- -->
-
-## Practical examples
-
-**1) Record + recent**
-```python
-from aethergraph import graph_fn
-
-@graph_fn(name="mem_record_recent")
-async def mem_record_recent(*, context):
-    evt = await context.memory().record(
-        kind="user_msg",
-        data={"text":"hello world","lang":"en"},
-        tags=["demo","quickstart"],
-        severity=2,
-    )
-    recent = await context.memory().recent(kinds=["user_msg"], limit=5)
-    await context.channel().send_text(f"recent user_msg count={len(recent)}")
-    return {"event_id": evt.event_id, "recent_count": len(recent)}
-```
-
-**2) Write a typed result and fetch last outputs**
-```python
-@graph_fn(name="mem_write_result")
-async def mem_write_result(*, context):
-    await context.memory().write_result(
-        topic="eval.step",
-        outputs=[{"name":"acc","kind":"number","value":0.912}],
-        metrics={"latency_ms": 120},
-        message="evaluation complete",
-    )
-    last = await context.memory().last_outputs_by_topic("eval.step")
-    await context.channel().send_text(f"last acc={last['acc']:.3f}")
-```
-
-**3) Rolling chat summary**
-```python
-@graph_fn(name="mem_rolling")
-async def mem_rolling(*, context):
-    summary = await context.memory().distill_rolling_chat(max_turns=16)
-    await context.channel().send_text(f"rolling summary uri: {summary.get('uri','<none>')}")
-```
-
-**4) Episode summary**
-```python
-@graph_fn(name="mem_episode")
-async def mem_episode(*, context, run_id: str, tool: str):
-    desc = await context.memory().distill_episode(tool=tool, run_id=run_id)
-    await context.channel().send_text(f"episode summary: {desc.get('uri','<none>')}")
-```
-
-**5) RAG (if configured)**
-```python
-@graph_fn(name="mem_rag")
-async def mem_rag(*, context):
-    # Upsert a few docs
-    await context.memory().rag_upsert(
-        corpus_id="notes",
-        docs=[{"id":"1","text":"Optics basics: Snell's law"}],
-    )
-    # Search
-    hits = await context.memory().rag_search(corpus_id="notes", query="Snell")
-    # Answer
-    ans = await context.memory().rag_answer(corpus_id="notes", question="What is Snell's law?", style="concise")
-    await context.channel().send_text(ans.get("answer","<no answer>"))
+Event(
+  event_id: str, ts: str, kind: str, stage: str | None, severity: int,
+  text: str | None, metrics: dict[str, Any] | None, signal: float | None,
+  tool: str | None, tags: list[str], entities: list[str],
+  inputs: list[dict] | None, outputs: list[dict] | None,
+  run_id: str, graph_id: str | None, node_id: str | None, agent_id: str | None,
+)
 ```
 
 ---
 
-## Notes & behaviors
-- **Signal heuristic**: if not provided, `record(_raw)` computes a 0.0–1.0 `signal` from severity + presence/length of text + metrics.
+## Quick Reference
 
-- **Durability**: every `record_raw` & `write_result` appends to **Persistence**; `recent()` reads from **HotLog**.
+| Method                                                                                                                                             | Purpose                                             | Returns           |       |       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ----------------- | ----- | ----- |
+| `record_raw(*, base, text=None, metrics=None, sources=None)`                                                                                       | Append normalized event to HotLog + Persistence     | `Event`           |       |       |
+| `record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None)` | Convenience wrapper that stringifies `data`         | `Event`           |       |       |
+| `write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3)`                                             | Record a typed tool/agent result and update indices | `Event`           |       |       |
+| `recent(*, kinds=None, limit=50)`                                                                                                                  | Recent events from HotLog                           | `list[Event]`     |       |       |
+| `recent_data(*, kinds, limit=50)`                                                                                                                  | Recent events → decoded JSON/text list              | `list[Any]`       |       |       |
+| `rag_upsert(*, corpus_id, docs, topic=None)`                                                                                                       | Upsert docs into RAG                                | `dict` stats      |       |       |
+| `rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None)`                                                                       | Get/create corpus id                                | `str` corpus_id   |       |       |
+| `rag_status(*, corpus_id)`                                                                                                                         | Corpus stats                                        | `dict`            |       |       |
+| `rag_snapshot(*, corpus_id, title, labels=None)`                                                                                                   | Export corpus as artifact bundle and log result     | `dict` bundle     |       |       |
+| `rag_promote_events(*, corpus_id, events=None, where=None, policy=None)`                                                                           | Convert events → docs → upsert                      | `dict` stats      |       |       |
+| `rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid")`                                                                                | Hybrid/dense search                                 | `list[dict]` hits |       |       |
+| `rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6)`                                                                    | Answer with citations + log                         | `dict` answer     |       |       |
+| `last_by_name(name)`                                                                                                                               | Latest output value by name (fast)                  | `dict             | Any   | None` |
+| `last_outputs_by_topic(topic)`                                                                                                                     | Latest outputs map for a topic                      | `dict[str, Any]   | None` |       |
 
-- **Indices**: `write_result()` updates fast views used by `last_by_name`, `latest_refs_by_kind`, `last_outputs_by_topic`.
 
-- **Artifacts**: distillers may produce CAS artifacts when an `ArtifactStore` is provided.
+---
 
-- **Performance**: methods are async; backends should avoid blocking the event loop (use `asyncio.to_thread` for heavy IO).
+## Methods
 
+<details markdown="1">
+<summary>record_raw(*, base, text=None, metrics=None, sources=None) -> Event</summary>
+
+**Description:** Append a normalized `Event` to **HotLog** (fast) and **Persistence** (durable). Stamps missing scope fields and computes a lightweight `signal` if absent.
+
+**Inputs:**
+
+* `base: dict[str, Any]` – Must include classification fields like `kind`, `stage`, `severity`, `tool` (optional), `tags`, `entities`, `inputs`, `outputs`. Missing scope fields are added.
+* `text: str | None` – Optional human-readable message.
+* `metrics: dict[str, Any] | None` – Numeric map (latency, token counts, costs, etc.).
+* `sources: list[str] | None` – Upstream event_ids this event derives from.
+
+**Returns:**
+
+* `Event`
+
+**Notes:**
+
+* Does **not** update `indices` automatically. Use `write_result()` for index updates.
+
+</details>
+
+<details markdown="1">
+<summary>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None) -> Event</summary>
+
+**Description:** Convenience wrapper around `record_raw()`; stringifies `data` to `text` (JSON if possible).
+
+**Inputs:**
+
+* `kind: str`
+* `data: Any` – Will be stringified; if non-serializable, a warning is logged (when logger is set).
+* `tags: list[str] | None`
+* `entities: list[str] | None`
+* `severity: int`
+* `stage: str | None`
+* `inputs_ref: list[dict] | None`
+* `outputs_ref: list[dict] | None`
+* `metrics: dict[str, Any] | None`
+* `sources: list[str] | None`
+* `signal: float | None`
+
+**Returns:**
+
+* `Event`
+
+</details>
+
+<details markdown="1">
+<summary>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3) -> Event</summary>
+
+**Description:** Record a typed **tool/agent result** (`kind="tool_result"`) and update **Indices** (latest-by-name, latest refs by kind, last outputs-by-topic).
+
+**Inputs:**
+
+* `topic: str` – Tool/agent/flow identifier (used in indices).
+* `inputs: list[dict] | None` – List of typed values (`Value`-like dicts).
+* `outputs: list[dict] | None` – **Primary source** for index updates.
+* `tags: list[str] | None`
+* `metrics: dict[str, float] | None`
+* `message: str | None`
+* `severity: int`
+
+**Returns:**
+
+* `Event`
+
+</details>
+
+<details markdown="1">
+<summary>recent(*, kinds=None, limit=50) -> list[Event]</summary>
+
+**Description:** Get recent events from **HotLog** (most recent last).
+
+**Inputs:**
+
+* `kinds: list[str] | None`
+* `limit: int`
+
+**Returns:**
+
+* `list[Event]`
+
+</details>
+
+<details markdown="1">
+<summary>recent_data(*, kinds, limit=50) -> list[Any]</summary>
+
+**Description:** Convenience wrapper returning decoded `data` payloads (prefers JSON decode; falls back to raw text).
+
+**Inputs:**
+
+* `kinds: list[str]`
+* `limit: int`
+
+**Returns:**
+
+* `list[Any]`
+
+</details>
+
+--- 
+
+<details markdown="1">
+<summary>rag_upsert(*, corpus_id, docs, topic=None) -> dict</summary>
+
+**Description:** Upsert documents into a **RAG** corpus via `RAGFacade`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `docs: Sequence[dict[str, Any]]` – Each doc should include `text` and optional `title`, `labels`.
+* `topic: str | None` – Reserved for future logging (not used in current function body).
+
+**Returns:**
+
+* `dict` – Stats from index (e.g., `added`, `chunks`).
+
+**Notes:** Requires `self.rag` configured; otherwise raises `RuntimeError`.
+
+</details>
+
+<details markdown="1">
+<summary>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None) -> str</summary>
+
+**Description:** Return a corpus id, optionally creating it. If `corpus_id` is omitted, a stable id is derived from `key` (or `run_id`).
+
+**Inputs:**
+
+* `corpus_id: str | None`
+* `key: str | None` – If not provided, `run_id` is used.
+* `create_if_missing: bool`
+* `labels: dict | None`
+
+**Returns:**
+
+* `str` – Corpus id.
+
+**Notes:** Requires `self.rag` configured.
+
+</details>
+
+<details markdown="1">
+<summary>rag_status(*, corpus_id) -> dict</summary>
+
+**Description:** Lightweight corpus stats.
+
+**Inputs:**
+
+* `corpus_id: str`
+
+**Returns:**
+
+* `dict`
+
+**Notes:** Requires `self.rag`.
+
+</details>
+
+<details markdown="1">
+<summary>rag_snapshot(*, corpus_id, title, labels=None) -> dict</summary>
+
+**Description:** Export corpus to an **artifact bundle** and log a `tool_result`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `title: str`
+* `labels: dict | None`
+
+**Returns:**
+
+* `dict` – Bundle descriptor `{ uri, ... }`.
+
+**Notes:** Requires `self.rag`. Uses `write_result()` to record bundle URI.
+
+</details>
+
+<details markdown="1">
+<summary>rag_promote_events(*, corpus_id, events=None, where=None, policy=None) -> dict</summary>
+
+**Description:** Select events (by `where` or `recent`) → convert to docs → upsert into RAG.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `events: list[Event] | None`
+* `where: dict | None` – e.g., `{ "kinds": ["tool_result"], "min_signal": 0.25, "limit": 200 }`.
+* `policy: dict | None` – e.g., `{ "min_signal": float }`.
+
+**Returns:**
+
+* `dict` – Upsert stats (e.g., `added`, `chunks`).
+
+**Notes:** Requires `self.rag`. Also logs a `tool_result` with counts.
+
+</details>
+
+<details markdown="1">
+<summary>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid") -> list[dict]</summary>
+
+**Description:** Search a RAG corpus and return serializable hits.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `query: str`
+* `k: int`
+* `filters: dict | None`
+* `mode: Literal["hybrid", "dense"]`
+
+**Returns:**
+
+* `list[dict]` – Each hit includes `chunk_id`, `doc_id`, `corpus_id`, `score`, `text`, `meta`.
+
+**Notes:** Requires `self.rag`.
+
+</details>
+
+<details markdown="1">
+<summary>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6) -> dict</summary>
+
+**Description:** Answer with citations using RAG + optional LLM; logs the answer as a `tool_result` (with usage metrics when available).
+
+**Inputs:**
+
+* `corpus_id: str`
+* `question: str`
+* `style: Literal["concise", "detailed"]`
+* `with_citations: bool`
+* `k: int`
+
+**Returns:**
+
+* `dict` – Includes `answer`, `citations`/`resolved_citations`, and `usage` (if provided by LLM).
+
+**Notes:** Requires `self.rag`. Outputs are flattened into `write_result()` for indexing.
+
+</details>
+
+---
+
+<details markdown="1">
+<summary>last_by_name(name) -> dict | Any | None</summary>
+
+**Description:** Return the **latest output value** by `name` from **Indices** (fast path). Useful for grabbing a single named value most recently produced by any tool that wrote it via `write_result()`.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `dict | Any | None` – Store-dependent value or `None` if not found.
+
+</details>
+
+<details markdown="1">
+<summary>last_outputs_by_topic(topic) -> dict[str, Any] | None</summary>
+
+**Description:** Return the **latest outputs map** for a given `topic` (tool/flow/agent) from **Indices**.
+
+**Inputs:**
+
+* `topic: str` – The identifier you passed as `topic` to `write_result()`.
+
+**Returns:**
+
+* `dict[str, Any] | None` – Name→value map of last outputs, or `None` if not found.
+
+</details>
+
+## Behavioral Notes
+
+* **Indices updates:** Only `write_result()` updates indices by default; this keeps ad-hoc `record_*` logs cheap.
+* **Event ordering:** HotLog returns most recent last; consumers may reverse if needed.
+* **RAG gating:** All `rag_*` methods raise `RuntimeError` if `self.rag` is not configured.
+* **Unused parameters:** Current `record()` will log a warning on unserializable `data` if a logger is provided; otherwise it silently stringifies.

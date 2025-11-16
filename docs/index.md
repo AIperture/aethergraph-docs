@@ -1,10 +1,19 @@
-# AetherGraph
+# Welcome to AetherGraph
 
-A Python‑first agentic framework for R&D workflows. The core surface is `@graph_fn` plus **Context Services** (LLM, memory, channel, artifacts, KV) and **Tools** for safe capability calls.
+AetherGraph is a Python‑first agentic framework designed to supercharge your R&D workflows. Effortlessly build, orchestrate, and trace research pipelines with a powerful combination of graph-based function composition, context-aware services, and safe tool integrations.
 
-👉 Get hands-on in 5 minutes: [Quickstart](quickstart.md)
+## Key Features
 
-**Why AetherGraph?**
-- Python functions as first-class graph nodes (`@graph_fn`).
-- Built-in services: no bolt‑ons required, but easy to swap.
-- Artifacts + memory for traceable, reproducible research.
+- **Graph Functions:** Use Python functions as first-class graph nodes with the intuitive `@graph_fn` decorator.
+- **Integrated Context Services:** Out-of-the-box support for LLMs, memory, channels, artifacts, and key-value stores—no bolt‑ons required, but fully extensible.
+- **Traceable Artifacts & Memory:** Capture every step and result for reproducible, auditable research.
+- **Safe Tooling:** Invoke external capabilities securely and reliably.
+
+## Get Started
+
+Ready to dive in? Follow our [Quickstart guide](quickstart.md) and build your first agentic workflow in minutes.
+
+---
+
+AetherGraph empowers researchers, engineers, and teams to create robust, transparent, and scalable R&D solutions—all in pure Python.
+

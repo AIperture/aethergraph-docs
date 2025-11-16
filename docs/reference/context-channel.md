@@ -1,377 +1,348 @@
-# AetherGraph — `context.channel()` Reference
+# `context.channel()` – ChannelSession API Reference
 
-This page documents the **ChannelSession** methods returned by `context.channel()`
-in a concise, PyTorch‑style format: signature, brief description, parameters, and returns.
+A `ChannelSession` provides message I/O, user prompts, streaming text, and progress updates through the configured channel (console/Slack/…). It also manages continuation tokens to avoid race conditions.
 
-## Overview — Choosing a channel
+---
 
-Use `context.channel(<key>)` to bind a **ChannelSession** to a specific destination for all subsequent calls from that session. You can also override per call with the `channel=` keyword.
+## Channel Resolution & Defaults
 
-**Common forms**
-- `slack:#research` — a Slack channel by name
+* **Channel selection priority:** explicit `channel` arg → session override (from `context.channel(channel_key)`) → bus default → `console:stdin`.
+* Events are published after **alias → canonical** key resolution.
 
-- `slack:@alice` — a Slack DM
+---
 
-- `telegram:@mychannel` — a Telegram channel
+## Quick Reference
 
-- `console:stdin` — console fallback (default if nothing is configured)
+| Method                                                                                   | Purpose                                 | Returns              |
+| ---------------------------------------------------------------------------------------- | --------------------------------------- | -------------------- |
+| `send(event, *, channel=None)`                                                           | Publish a pre-built `OutEvent`          | `None`               |
+| `send_text(text, *, meta=None, channel=None)`                                            | Send a plain text message               | `None`               |
+| `send_rich(text=None, *, rich=None, meta=None, channel=None)`                            | Send structured content + optional text | `None`               |
+| `send_image(url=None, *, alt="image", title=None, channel=None)`                         | Send an image                           | `None`               |
+| `send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)` | Upload/send a file                      | `None`               |
+| `send_buttons(text, buttons, *, meta=None, channel=None)`                                | Send message with buttons               | `None`               |
+| `ask_text(prompt, *, timeout_s=3600, silent=False, channel=None)`                        | Prompt for free‑form text               | `str`                |
+| `wait_text(*, timeout_s=3600, channel=None)`                                             | Alias of `ask_text(None, silent=True)`  | `str`                |
+| `ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None)`    | Choice/confirmation                     | `{approved, choice}` |
+| `ask_files(*, prompt, accept=None, multiple=True, timeout_s=3600, channel=None)`         | Prompt for uploads                      | `{text, files}`      |
+| `ask_text_or_files(*, prompt, timeout_s=3600, channel=None)`                             | Text **or** files                       | `{text, files}`      |
+| `get_latest_uploads(*, clear=True)`                                                      | Read inbox uploads (Ephemeral KV)       | `list[FileRef]`      |
+| `stream(channel=None)`                                                                   | Streaming text (ctx manager)            | `StreamSender`       |
+| `progress(*, title="Working...", total=None, key_suffix="progress", channel=None)`       | Progress UI (ctx manager)               | `ProgressSender`     |
 
-**Resolution order** (what channel is used?)
-1. **Per‑call override**: `await context.channel().send_text("hi", channel="slack:#alerts")`
+---
 
-2. **Bound session key**: `ch = context.channel("slack:#research"); await ch.send_text("hi")`
+## Methods
 
-3. **Bus default**: whatever `services.channels.get_default_channel_key()` returns
+<details markdown="1">
+<summary>send(event, *, channel=None)</summary>
 
-4. **Fallback**: `console:stdin`
+**Description:** Publish a pre‑built `OutEvent` to the channel.
 
-**Examples**
+**Inputs:**
+
+* `event: OutEvent` – If missing `channel`, resolver fills it.
+* `channel: str | None` – Optional override.
+
+**Returns:**
+
+* `None` (async)
+
+**Notes:** Use when you need full control of the event payload/type.
+
+</details>
+
+<details markdown="1">
+<summary>send_text(text, *, meta=None, channel=None)</summary>
+
+**Description:** Send a plain text message.
+
+**Inputs:**
+
+* `text: str`
+* `meta: dict[str, Any] | None`
+* `channel: str | None`
+
+**Returns:**
+
+* `None` (async)
+
+**Emits:**
+
+* `agent.message` with `text`, optional `meta`.
+
+</details>
+
+<details markdown="1">
+<summary>send_rich(text=None, *, rich=None, meta=None, channel=None)</summary>
+
+**Description:** Send a message with a rich structured payload (cards/blocks), plus optional text.
+
+**Inputs:**
+
+* `text: str | None`
+* `rich: dict[str, Any] | None`
+* `meta: dict[str, Any] | None`
+* `channel: str | None`
+
+**Returns:**
+
+* `None` (async)
+
+**Emits:**
+
+* `agent.message` with `text`, `rich`, `meta`.
+
+</details>
+
+<details markdown="1">
+<summary>send_image(url=None, *, alt="image", title=None, channel=None)</summary>
+
+**Description:** Send an image by URL.
+
+**Inputs:**
+
+* `url: str | None`
+* `alt: str`
+* `title: str | None`
+* `channel: str | None`
+
+**Returns:**
+
+* `None` (async)
+
+**Emits:**
+
+* `agent.message` with `image={url, alt, title}`.
+
+</details>
+
+<details markdown="1">
+<summary>send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)</summary>
+
+**Description:** Upload/send a file.
+
+**Inputs:**
+
+* `url: str | None`
+* `file_bytes: bytes | None`
+* `filename: str`
+* `title: str | None`
+* `channel: str | None`
+
+**Returns:**
+
+* `None` (async)
+
+**Emits:**
+
+* `file.upload` with `file={filename, url?, bytes?}`.
+
+**Notes:** Adapters decide whether to fetch `url` or accept `bytes`.
+
+</details>
+
+<details markdown="1">
+<summary>send_buttons(text, buttons, *, meta=None, channel=None)</summary>
+
+**Description:** Send a message with inline buttons/links.
+
+**Inputs:**
+
+* `text: str`
+* `buttons: list[Button]`
+* `meta: dict[str, Any] | None`
+* `channel: str | None`
+
+**Returns:**
+
+* `None` (async)
+
+**Emits:**
+
+* `link.buttons` with `text`, `buttons`, `meta`.
+
+</details>
+
+<details markdown="1">
+<summary>ask_text(prompt, *, timeout_s=3600, silent=False, channel=None) -> str</summary>
+
+**Description:** Ask the user for a free‑form text reply. Race‑free via continuations.
+
+**Inputs:**
+
+* `prompt: str | None`
+* `timeout_s: int`
+* `silent: bool`
+* `channel: str | None`
+
+**Returns:**
+
+* `str` – User’s response text (empty string if none)
+
+**Notes:** Creates continuation `kind="user_input"` and awaits resolution; adapters may inline‑resolve.
+
+</details>
+
+<details markdown="1">
+<summary>wait_text(*, timeout_s=3600, channel=None) -> str</summary>
+
+**Description:** Alias for `ask_text(prompt=None, silent=True)`.
+
+**Inputs:**
+
+* `timeout_s: int`
+* `channel: str | None`
+
+**Returns:**
+
+* `str`
+
+</details>
+
+<details markdown="1">
+<summary>ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None) -> dict</summary>
+
+**Description:** Ask the user to choose from options (approval/confirmation). Normalizes to `{approved, choice}`.
+
+**Inputs:**
+
+* `prompt: str`
+* `options: Iterable[str]`
+* `timeout_s: int`
+* `channel: str | None`
+
+**Returns:**
+
+* `{ "approved": bool, "choice": Any }`
+
+**Notes:** Continuation `kind="approval"` with payload `{prompt:{title, buttons}}`. If adapter doesn’t set explicit approval, first option means approved (case‑insensitive comparison).
+
+</details>
+
+<details markdown="1">
+<summary>ask_files(*, prompt, accept=None, multiple=True, timeout_s=3600, channel=None) -> dict</summary>
+
+**Description:** Ask for file upload(s), optionally with text.
+
+**Inputs:**
+
+* `prompt: str`
+* `accept: list[str] | None` (MIME or extensions, client hints)
+* `multiple: bool`
+* `timeout_s: int`
+* `channel: str | None`
+
+**Returns:**
+
+* `{ "text": str, "files": list[FileRef] }` (empty `files` on console‑only flows)
+
+**Notes:** Continuation `kind="user_files"`.
+
+</details>
+
+<details markdown="1">
+<summary>ask_text_or_files(*, prompt, timeout_s=3600, channel=None) -> dict</summary>
+
+**Description:** Ask for either a text reply or file upload(s).
+
+**Inputs:**
+
+* `prompt: str`
+* `timeout_s: int`
+* `channel: str | None`
+
+**Returns:**
+
+* `{ "text": str, "files": list[FileRef] }`
+
+**Notes:** Continuation `kind="user_input_or_files"`.
+
+</details>
+
+<details markdown="1">
+<summary>get_latest_uploads(*, clear=True) -> list[FileRef]</summary>
+
+**Description:** Retrieve recent uploads captured in the channel inbox (Ephemeral KV), optionally clearing them.
+
+**Inputs:**
+
+* `clear: bool` – If `True`, pops and clears; otherwise returns without clearing.
+
+**Returns:**
+
+* `list[FileRef]`
+
+**Notes:** Requires `services.kv`. Raises `RuntimeError` if unavailable. Inbox key: `inbox://<resolved-channel-key>`.
+
+</details>
+
+<details markdown="1">
+<summary>stream(channel=None) -> Async CM yielding StreamSender</summary>
+
+**Description:** Incrementally stream text to a single upserted message; adapters rewrite one message.
+
+**Usage:**
+
 ```python
-# Bind a session to #research for many messages
-ch = context.channel("slack:#research")
-await ch.send_text("Starting the run…")
-await ch.send_text("Progress will be posted here.")
-
-# One‑off override to a different channel
-await context.channel().send_text("Heads‑up in #alerts", channel="slack:#alerts")
-
-# Stream to #research explicitly
-async with context.channel().stream(channel="slack:#research") as s:
-    await s.delta("Parsing… ")
-    await s.delta("OK")
-    await s.end("Done")
-
-# Progress bar to the default (no key passed)
-async with context.channel().progress(title="Crunching", total=100) as bar:
-    await bar.update(current=30, eta_seconds=90)
-    await bar.end(subtitle="All set!")
+async with context.channel().stream() as s:
+    await s.delta("Hello ")
+    await s.delta("world")
+    await s.end()  # optional
 ```
 
+**StreamSender Methods:**
 
+* `start()` → emit `agent.stream.start` (auto‑called by first `delta`).
+* `delta(text_piece: str)` → append chunk; emits `agent.message.update` with full concatenated text (buffered) using upsert key `<run_id>:<node_id>:stream`.
+* `end(full_text: str | None = None)` → optional final text, then `agent.stream.end`.
 
----
+**Notes:** Pass `channel=...` to target a specific channel.
 
-## channel.send_text
-```
-send_text(text, *, meta: dict | None = None, channel: str | None = None)
-```
-Send a plain text message to a channel.
+</details>
 
-**Parameters**
+<details markdown="1">
+<summary>progress(*, title="Working...", total=None, key_suffix="progress", channel=None) -> Async CM yielding ProgressSender</summary>
 
-- **text** (*str*) – Message body to send.
+**Description:** Report task progress with start/update/end events.
 
-- **meta** (*dict, optional*) – Arbitrary metadata for adapters/analytics.
+**Usage:**
 
-- **channel** (*str, optional*) – Per‑call channel override (e.g., `"slack:#research"`).
-
-**Returns**  
-
-`None`
-
----
-
-<!-- ## channel.send_rich
-```
-send_rich(text: str | None = None, *, rich: dict | None = None, meta: dict | None = None, channel: str | None = None)
-```
-Send a message with optional **rich** structured payload (cards/blocks).
-
-**Parameters**
-
-- **text** (*str, optional*) – Optional caption.
-
-- **rich** (*dict, optional*) – Structured payload; adapter‑defined shape.
-
-- **meta** (*dict, optional*) – Arbitrary metadata.
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-`None`
-
---- -->
-
-## channel.send_image
-```
-send_image(url: str | None = None, *, alt: str = "image", title: str | None = None, channel: str | None = None)
-```
-Post an image by URL with `alt`/`title` text.
-
-**Parameters**
-
-- **url** (*str, optional*) – Image URL. Use `send_file` for file bytes.
-
-- **alt** (*str*) – Alt text (default: `"image"`).
-
-- **title** (*str, optional*) – Optional title/caption.
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-`None`
-
----
-
-## channel.send_file
-```
-send_file(url: str | None = None, *, file_bytes: bytes | None = None, filename: str = "file.bin", title: str | None = None, channel: str | None = None)
-```
-Upload or link a file to the channel. Provide **either** `url` or `file_bytes`.
-
-**Parameters**
-
-- **url** (*str, optional*) – Remote file URL to attach.
-
-- **file_bytes** (*bytes, optional*) – Raw bytes to upload.
-
-- **filename** (*str*) – Display filename (default: `"file.bin"`).
-
-- **title** (*str, optional*) – Optional caption/label.
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-`None`
-
----
-
-## channel.send_buttons
-```
-send_buttons(text: str, buttons: list[Button], *, meta: dict | None = None, channel: str | None = None)
-```
-Send a short message with interactive buttons (links or postbacks depending on adapter).
-
-**Parameters**
-
-- **text** (*str*) – Leading text.
-
-- **buttons** (*list[Button]*) – Button list; at minimum a `label` per button.
-
-- **meta** (*dict, optional*) – Arbitrary metadata.
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-
-**Returns**  
-`None`
-
----
-
-## channel.ask_text
-```
-ask_text(prompt: str, *, timeout_s: int = 3600, silent: bool = False, channel: str | None = None)
-```
-Ask the user for free‑text using cooperative wait/continuations.
-
-**Parameters**
-
-- **prompt** (*str*) – Prompt text shown to the user. (Ignored if `silent=True`.)
-
-- **timeout_s** (*int*) – Deadline in seconds (default: `3600`). 
-
-- **silent** (*bool*) – If `True`, binds to current thread/channel without posting a prompt.
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-*str* – The user’s text (empty string if none).
-
----
-
-## channel.wait_text
-```
-wait_text(*, timeout_s: int = 3600, channel: str | None = None)
-```
-Wait for the next text reply in the current thread/channel without sending a prompt.
-
-**Parameters**
-
-- **timeout_s** (*int*) – Deadline in seconds (default: `3600`). 
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-*str* – The user’s text.
-
----
-
-## channel.ask_approval
-```
-ask_approval(prompt: str, options: Iterable[str] = ("Approve", "Reject"), *, timeout_s: int = 3600, channel: str | None = None)
-```
-Ask the user to approve or pick an option.
-
-**Parameters**
-
-- **prompt** (*str*) – Title or question.
-
-- **options** (*Iterable[str]*) – Button labels (default: `("Approve","Reject")`).
-
-- **timeout_s** (*int*) – Deadline in seconds (default: `3600`). 
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-*dict* – `{ "approved": bool, "choice": str }`.
-
----
-
-## channel.get_latest_uploads
-```
-get_latest_uploads(*, clear: bool = True)
-```
-Fetch latest uploaded files for this channel (Ephemeral KV required).
-
-**Parameters**
-
-- **clear** (*bool*) – If `True`, consume and clear the inbox (default: `True`).
-
-**Returns**  
-
-*list[FileRef]* – Recent file references.
-
-**Raises**  
-
-`RuntimeError` – if KV is not available.
-
----
-
-## channel.ask_files
-```
-ask_files(*, prompt: str, accept: list[str] | None = None, multiple: bool = True, timeout_s: int = 3600, channel: str | None = None)
-```
-Ask the user to upload file(s) with optional text input.
-
-**Parameters**
-
-- **prompt** (*str*) – Prompt text.
-
-- **accept** (*list[str], optional*) – MIME types or extensions (adapter‑hint only).
-
-- **multiple** (*bool*) – Allow selecting multiple files (default: `True`). 
-
-- **timeout_s** (*int*) – Deadline in seconds (default: `3600`). 
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-*dict* – `{ "text": str, "files": list[FileRef] }`.
-
----
-
-## channel.ask_text_or_files
-```
-ask_text_or_files(*, prompt: str, timeout_s: int = 3600, channel: str | None = None)
-```
-Let the user respond with either text or file(s).
-
-**Parameters**
-
-- **prompt** (*str*) – Prompt text.
-
-- **timeout_s** (*int*) – Deadline in seconds (default: `3600`). 
-
-- **channel** (*str, optional*) – Per‑call channel override.
-
-**Returns**  
-
-*dict* – `{ "text": str, "files": list[FileRef] }`.
-
----
-
-## channel.stream
-```
-stream(channel: str | None = None)  # async context manager
-```
-Create a **stream** for incremental message updates (token/delta style).  
-Within the context, use `s.delta()` to append text and `s.end()` to finalize.
-
-**Parameters**
-
-- **channel** (*str, optional*) – Per‑stream channel override.
-
-**Yields**  
-*StreamSender* – with methods:
-
-- `start()` – explicitly start the stream (optional; auto on first delta).
-
-- `delta(text_piece: str)` – append a delta (adapter receives upsert with full text).
-
-- `end(full_text: str | None = None)` – finalize; optionally set final text.
-
-**Example**
 ```python
-from aethergraph import graph_fn
-
-@graph_fn(name="stream_demo")
-async def stream_demo(*, context):
-    async with context.channel().stream() as s:
-        for chunk in ["Hello", " ", "world", "…"]:
-            await s.delta(chunk)
-        await s.end("Hello world!")
+async with context.channel().progress(title="Downloading", total=100) as p:
+    await p.update(current=10)
+    await p.update(inc=15, subtitle="phase 1")
+    await p.end(subtitle="Done.")
 ```
+
+**ProgressSender Methods:**
+
+* `start(subtitle: str | None = None)` → `agent.progress.start`.
+* `update(*, current=None, inc=None, subtitle=None, percent=None, eta_seconds=None)` → `agent.progress.update`.
+
+  * `percent` sets `current` when `total` known; `inc` increments; `current` overrides.
+* `end(*, subtitle: str | None = "Done.", success: bool = True)` → `agent.progress.end`.
+
+**Notes:** Upserts use key `<run_id>:<node_id>:<key_suffix>`. Use different `key_suffix` for multiple bars.
+
+</details>
 
 ---
 
-## channel.progress
-```
-progress(*, title: str = "Working...", total: int | None = None, key_suffix: str = "progress", channel: str | None = None)  # async context manager
-```
-Create a **progress** reporter (start/update/end) bound to the current run/node.
+## Continuations & Race‑Free Waiting (behavioral notes)
 
-**Parameters**
-
-- **title** (*str*) – Progress title (default: `"Working..."`).
-
-- **total** (*int, optional*) – If set, progress is shown as `current/total`; allows `percent` updates.
-
-- **key_suffix** (*str*) – Included in the internal upsert key (default: `"progress"`). 
-
-- **channel** (*str, optional*) – Per‑progress channel override.
-
-**Yields**  
-*ProgressSender* – with methods:
-
-- `start(subtitle: str | None = None)` – start (auto on first update).
-
-- `update(current: int | None = None, inc: int | None = None, subtitle: str | None = None, percent: float | None = None, eta_seconds: float | None = None)`
-
-- `end(subtitle: str | None = "Done.", success: bool = True)`
-
-**Example**
-```python
-from aethergraph import graph_fn
-
-@graph_fn(name="progress_demo")
-async def progress_demo(*, context):
-    async with context.channel().progress(title="Crunching", total=5) as bar:
-        for i in range(5):
-            await bar.update(current=i+1, eta_seconds=(4-i)*0.5, subtitle=f"step {i+1}/5")
-        await bar.end(subtitle="All set!")
-```
+1. Create continuation with `kind`, `payload`, `deadline`.
+2. **Prepare wait future before notify** (prevents wait‑before‑resume race).
+3. `ChannelBus.notify()` may inline‑resolve; if so, future is resolved and continuation cleaned up.
+4. Bind correlators so webhooks can locate the continuation.
+5. Await the prepared future until the router resolves it.
 
 ---
 
-### Channel resolution notes
+## Event Types (emitted)
 
-- Per‑call `channel=` overrides everything.
-
-- Otherwise, the session’s bound key (from `context.channel(bound_key)`) is used.
-
-- Else, the bus default via `services.channels.get_default_channel_key()`.
-
-- Else, fallback `"console:stdin"`.
-
-### Guarantees
-
-- Streams/progress use idempotent **upsert keys** derived from `(run_id, node_id, suffix)`.
-
-- Ask methods **bind correlators** at both message and thread level to capture replies.
+* `agent.message`, `agent.message.update`
+* `file.upload`
+* `link.buttons`
+* `agent.stream.start`, `agent.stream.end`
+* `agent.progress.start`, `agent.progress.update`, `agent.progress.end`

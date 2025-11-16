@@ -1,206 +1,318 @@
-# AetherGraph — `context.rag()` Reference
+# `RAGFacade` – Retrieval‑Augmented Generation API
 
-This page documents the **RAGFacade** returned by `context.rag()` in a concise format: signature, brief description, parameters, returns, and practical examples.
+> Manages corpora, document ingestion (text/files), chunking + embeddings, vector indexing, retrieval, and QA.
+>
+> **Backends:** defaults to a lightweight SQLite vector index. FAISS is supported locally if installed via pip. See **[LLM & Index Setup](../llm-setup/llm-setup.md)** for provider/model/index configuration.
 
-The facade covers: **corpus management**, **document ingestion (upsert)**, **retrieval (search/retrieve)**, and **question answering** with optional citation resolution.
+## Quick Reference
 
----
-
-## Overview
-`context.rag()` provides high‑level helpers backed by:
-
-- an **Artifact Store** (for persisted doc assets),
-- an **Embedding client** (e.g., `context.llm().embed()`),
-- a **Vector index backend** (add/search),
-- a **TextSplitter** (chunking before embedding), and
-- an optional **LLM client** for QA.
-
----
-
-## rag.add_corpus
-```
-add_corpus(corpus_id: str, meta: dict | None = None) -> None
-```
-Create a new corpus directory with metadata if it does not exist.
-
-**Parameters**
-
-- **corpus_id** (*str*) – Unique identifier for the corpus.
-
-- **meta** (*dict, optional*) – Arbitrary metadata stored alongside the corpus.
-
-**Returns**  
-`None`
+| Method                                                                             | Purpose                                        | Returns                                             |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| `set_llm_client(client)`                                                           | Swap the LLM used for QA                       | `None`                                              |
+| `set_index_backend(index_backend)`                                                 | Swap the vector index backend                  | `None`                                              |
+| `add_corpus(corpus_id, meta=None)`                                                 | Create/ensure a corpus                         | `None`                                              |
+| `upsert_docs(corpus_id, docs)`                                                     | Ingest docs → chunk, embed, index              | `dict` {added,chunks,index}                         |
+| `search(corpus_id, query, k=8, filters=None, mode="hybrid")`                       | Retrieve top chunks                            | `list[SearchHit]`                                   |
+| `retrieve(corpus_id, query, k=6, rerank=True)`                                     | Alias to `search(..., mode="hybrid")`          | `list[SearchHit]`                                   |
+| `answer(corpus_id, question, llm=None, style="concise", with_citations=True, k=6)` | QA over retrieved context                      | `dict` {answer,citations,usage,resolved_citations?} |
+| `resolve_citations(corpus_id, citations)`                                          | Enrich citation refs with titles/URIs/snippets | `list[dict]`                                        |
+| `list_corpora()`                                                                   | Enumerate corpora in `corpus_root`             | `list[dict]`                                        |
+| `list_docs(corpus_id, limit=200, after=None)`                                      | Page through docs                              | `list[dict]`                                        |
+| `delete_docs(corpus_id, doc_ids)`                                                  | Remove docs + chunks (+drop from index)        | `dict`                                              |
+| `reembed(corpus_id, doc_ids=None, batch=64)`                                       | Recompute embeddings & re‑add to index         | `dict`                                              |
+| `stats(corpus_id)`                                                                 | Simple counts + metadata                       | `dict`                                              |
 
 ---
 
-## rag.upsert_docs
-```
-upsert_docs(corpus_id: str, docs: list[dict]) -> dict
-```
-Ingest and index a list of documents (file‑based or inline text). Handles artifact persistence, chunking, embedding, and index add.
+## Data Types
 
-**Parameters**
+**`SearchHit`**
 
-- **corpus_id** (*str*) – Target corpus identifier.
-
-- **docs** (*list[dict]*) – Each doc is either:
-
-  - **File doc**: `{ "path": "/path/to/file.pdf", "labels": {...}, "title": "Optional" }`
-
-  - **Inline text doc**: `{ "text": "...", "title": "Optional", "labels": {...} }`
-
-**Returns**  
-*dict* – Summary like `{ "added": int, "chunks": int, "index": "BackendName" }`.
-
-**Notes**
-- PDFs and Markdown are parsed with built‑in extractors; other files default to text.
-
-- Each doc and chunk is assigned a stable SHA‑derived ID and recorded in `docs.jsonl` / `chunks.jsonl` under the corpus folder.
+* `chunk_id: str`
+* `doc_id: str`
+* `corpus_id: str`
+* `score: float`
+* `text: str`
+* `meta: dict[str, Any]`
 
 ---
 
-## rag.search
-```
-search(corpus_id: str, query: str, k: int = 8, filters: dict | None = None, mode: str = "hybrid") -> list[SearchHit]
-```
-Hybrid retrieval: dense vector search with optional lexical fusion, returning the top‑k chunks.
+## Methods
 
-**Parameters**
+<details markdown="1">
+<summary>set_llm_client(client) -> None</summary>
 
-- **corpus_id** (*str*) – Target corpus.
+**Description:** Set/replace the LLM client for QA.
 
-- **query** (*str*) – Natural language query.
+**Inputs:**
 
-- **k** (*int*) – Number of results (default 8).
+* `client: LLMClientProtocol`
 
-- **filters** (*dict, optional*) – Reserved for metadata filtering (adapter‑specific).
+**Returns:**
 
-- **mode** (*{"dense","hybrid"}*) – Retrieval mode (default `"hybrid"`).
+* `None`
 
-**Returns**  
-*list[SearchHit]* – Ranked hits with `chunk_id`, `doc_id`, `corpus_id`, `score`, `text`, `meta`.
+**Notes:**
+
+* Requires `client.model` and `client.embed_model` to be set; asserts on missing values.
+
+</details>
+
+<details markdown="1">
+<summary>set_index_backend(index_backend) -> None</summary>
+
+**Description:** Swap the underlying vector index backend.
+
+**Inputs:**
+
+* `index_backend: Any` – Must implement `add(corpus_id, ids, vectors, metas)` and `search(corpus_id, qvec, k)`; optionally `remove`/`delete`.
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>add_corpus(corpus_id, meta=None) -> None</summary>
+
+**Description:** Create/ensure a corpus directory with `corpus.json`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `meta: dict[str, Any] | None`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>upsert_docs(corpus_id, docs) -> dict</summary>
+
+**Description:** Ingest documents, chunk, embed, and add vectors to the index.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `docs: list[dict]` – Each doc is one of:
+
+  * File doc: `{ "path": "/path/to/file.ext", "labels": {...} }`
+  * Inline text: `{ "text": "...", "title": "Doc Title", "labels": {...} }`
+
+**Returns:**
+
+* `dict` – `{ "added": int, "chunks": int, "index": str }`
+
+**Notes:**
+
+* Files are persisted via the artifact store; PDFs/Markdown/Plain‑text are parsed to text.
+* Requires an embedding client; raises if not configured.
+
+</details>
+
+<details markdown="1">
+<summary>search(corpus_id, query, k=8, filters=None, mode="hybrid") -> list[SearchHit]</summary>
+
+**Description:** Dense retrieval (embeds query, searches index) with optional hybrid lexical fusion.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `query: str`
+* `k: int`
+* `filters: dict | None` – Reserved; not applied in current implementation.
+* `mode: str` – `"dense"` or `"hybrid"`.
+
+**Returns:**
+
+* `list[SearchHit]`
+
+**Notes:**
+
+* When `mode="dense"`, returns top‑`k` dense hits.
+* When `mode="hybrid"`, fuses dense hits with lexical scoring for re‑ranking.
+
+</details>
+
+<details markdown="1">
+<summary>retrieve(corpus_id, query, k=6, rerank=True) -> list[SearchHit]</summary>
+
+**Description:** Convenience alias to `search(..., mode="hybrid")`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `query: str`
+* `k: int`
+* `rerank: bool` – Currently ignored (hybrid fusion already sorts).
+
+**Returns:**
+
+* `list[SearchHit]`
+
+</details>
+
+<details markdown="1">
+<summary>answer(corpus_id, question, llm=None, style="concise", with_citations=True, k=6) -> dict</summary>
+
+**Description:** Compose a system+user prompt from retrieved chunks and answer with the LLM.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `question: str`
+* `llm: LLMClientProtocol | None` – If `None`, uses the facade’s LLM.
+* `style: str` – `"concise"` or `"detailed"`.
+* `with_citations: bool`
+* `k: int`
+
+**Returns:**
+
+* `dict` with keys:
+
+  * `answer: str`
+  * `citations: list[dict]` – `{chunk_id, doc_id, rank}`
+  * `usage: dict` – model usage as provided by the LLM
+  * `resolved_citations (optional): list[dict]` – enriched refs (see below)
+
+**Notes:**
+
+* See **LLM & Index Setup** for configuring provider/model.
+
+</details>
+
+<details markdown="1">
+<summary>resolve_citations(corpus_id, citations) -> list[dict]</summary>
+
+**Description:** Map `{chunk_id, doc_id, rank}` to `{rank, doc_id, title, uri, chunk_id, snippet}`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `citations: list[dict]`
+
+**Returns:**
+
+* `list[dict]` sorted by `rank`.
+
+</details>
+
+<details markdown="1">
+<summary>list_corpora() -> list[dict]</summary>
+
+**Description:** Enumerate all corpora under `corpus_root`.
+
+**Inputs:**
+
+* —
+
+**Returns:**
+
+* `list[dict]` – `[{corpus_id, meta}, ...]`
+
+</details>
+
+<details markdown="1">
+<summary>list_docs(corpus_id, limit=200, after=None) -> list[dict]</summary>
+
+**Description:** Stream-like pagination over `docs.jsonl`.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `limit: int`
+* `after: str | None` – Resume from a specific `doc_id`.
+
+**Returns:**
+
+* `list[dict]`
+
+</details>
+
+<details markdown="1">
+<summary>delete_docs(corpus_id, doc_ids) -> dict</summary>
+
+**Description:** Remove docs + their chunks; drop vectors from index if supported.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `doc_ids: list[str]`
+
+**Returns:**
+
+* `dict` – `{removed_docs: int, removed_chunks: int}`
+
+</details>
+
+<details markdown="1">
+<summary>reembed(corpus_id, doc_ids=None, batch=64) -> dict</summary>
+
+**Description:** Re‑embed selected (or all) chunks and re‑add them to the index.
+
+**Inputs:**
+
+* `corpus_id: str`
+* `doc_ids: list[str] | None`
+* `batch: int`
+
+**Returns:**
+
+* `dict` – `{reembedded: int, model: str | None}`
+
+</details>
+
+<details markdown="1">
+<summary>stats(corpus_id) -> dict</summary>
+
+**Description:** Return corpus stats and stored metadata.
+
+**Inputs:**
+
+* `corpus_id: str`
+
+**Returns:**
+
+* `dict` – `{corpus_id, docs, chunks, meta}`
+
+</details>
 
 ---
 
-## rag.retrieve
-```
-retrieve(corpus_id: str, query: str, k: int = 6, rerank: bool = True) -> list[SearchHit]
-```
-Convenience wrapper over `search(..., mode="hybrid")` for top‑k retrieval.
+## Examples
 
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus.
-
-- **query** (*str*) – Natural language query.
-
-- **k** (*int*) – Number of results (default 6).
-
-- **rerank** (*bool*) – Currently ignored (hybrid already fuses scores).
-
-**Returns**  
-*list[SearchHit]* – Ranked hits.
-
----
-
-## rag.answer
-```
-answer(corpus_id: str, question: str, *, llm: GenericLLMClient | None = None, style: str = "concise", with_citations: bool = True, k: int = 6) -> dict
-```
-Answer a question using retrieved context and an LLM.
-
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus.
-
-- **question** (*str*) – End‑user question.
-
-- **llm** (*GenericLLMClient, optional*) – LLM to use; defaults to the facade’s configured client.
-
-- **style** (*{"concise","detailed"}*) – Answer verbosity/style.
-
-- **with_citations** (*bool*) – Whether to include resolved citations.
-
-- **k** (*int*) – Retrieval depth (default 6).
-
-**Returns**  
-*dict* – `{ "answer": str, "citations": [...], "usage": {...}, "resolved_citations": [...]? }`.
-
-**Behavior**
-- Builds a context block from top‑k chunks (numbered `[1]`, `[2]`, ...).
-
-- Prompts the LLM to answer **only** from the provided context and cite chunk numbers.
-
----
-
-## rag.resolve_citations
-```
-resolve_citations(corpus_id: str, citations: list[dict]) -> list[dict]
-```
-Resolve citation metadata for display/download.
-
-**Parameters**
-
-- **corpus_id** (*str*) – Target corpus.
-
-- **citations** (*list[dict]*) – Items like `{ "chunk_id", "doc_id", "rank" }`.
-
-**Returns**  
-*list[dict]* – Sorted by `rank`, each `{ rank, doc_id, title, uri, chunk_id, snippet }`.
-
----
-
-## Practical examples
-
-**1) Create a corpus and ingest docs**
 ```python
-from aethergraph import graph_fn
+# 1) Create/ensure a corpus
+cid = "research-papers"
+await rag.add_corpus(cid, meta={"owner": "team-ml"})
 
-@graph_fn(name="rag_ingest")
-async def rag_ingest(*, context):
-    await context.rag().add_corpus("notes")
-    stats = await context.rag().upsert_docs(
-        corpus_id="notes",
-        docs=[
-            {"text": "Optics basics: Snell's law relates angles of incidence and refraction." , "title": "optics"},
-            {"path": "/data/papers/holography.md", "labels": {"topic": "holography"}},
-        ],
-    )
-    await context.channel().send_text(f"RAG upsert: {stats}")
+# 2) Ingest two docs (one file, one inline)
+stats = await rag.upsert_docs(
+    cid,
+    docs=[
+        {"path": "./notes/attention_is_all_you_need.pdf", "labels": {"kind": "paper"}},
+        {"text": open("README.md", encoding="utf-8").read(), "title": "repo-readme"},
+    ],
+)
+
+# 3) Search and answer
+hits = await rag.search(cid, query="self-attention complexity", k=5)
+ans = await rag.answer(cid, question="What is the time complexity of self-attention?", k=6)
+
+# 4) Inspect/enrich citations
+resolved = rag.resolve_citations(cid, ans["citations"])  # already included if with_citations=True
+
+# 5) Maintenance
+await rag.reembed(cid, doc_ids=[h.doc_id for h in hits])
+await rag.delete_docs(cid, doc_ids=[hits[0].doc_id])
+info = await rag.stats(cid)
 ```
 
-**2) Search and preview hits**
-```python
-@graph_fn(name="rag_search_preview")
-async def rag_search_preview(*, context, q: str):
-    hits = await context.rag().search(corpus_id="notes", query=q, k=5)
-    for i, h in enumerate(hits, 1):
-        await context.channel().send_text(f"[{i}] score={h.score:.3f}  doc={h.doc_id}\n{h.text[:200]}")
-```
+**Notes & Setup:**
 
-**3) Answer with citations**
-```python
-@graph_fn(name="rag_answer_with_citations")
-async def rag_answer_with_citations(*, context, q: str):
-    out = await context.rag().answer(corpus_id="notes", question=q, style="concise", k=6)
-    ans = out.get("answer", "")
-    cites = out.get("resolved_citations", [])
-    await context.channel().send_text(ans)
-    for c in cites[:3]:
-        await context.channel().send_text(f"[#{c['rank']}] {c['title']} — {c['snippet']}")
-```
-
----
-
-## Notes & behaviors
-- **Chunking & Embedding**: Documents are split via `TextSplitter` then embedded in batch; the index stores `(chunk_id, vector, meta)`.
-
-- **Artifacts**: File docs and inline text are persisted to the Artifact Store; returned URIs appear in doc metadata and resolved citations.
-
-- **IDs**: `doc_id` and `chunk_id` are stable SHA‑derived IDs; re‑ingesting the same content usually yields the same IDs (subject to meta changes).
-
-- **Filters**: `filters` is reserved for future adapter support (label‑based narrowing).
-
-- **LLM & Usage**: `answer()` returns provider usage where available; some providers may omit it.
-
+* **Embeddings/LLM:** configure providers/models via your LLM service. See **[LLM & Index Setup](../llm-setup/llm-setup.md)**.
+* **Index:** defaults to SQLite‑based vectors; FAISS is supported if installed.
+* **Artifacts:** binary sources are stored via the artifact store (CAS) before parsing.

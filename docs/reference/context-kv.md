@@ -1,219 +1,193 @@
-# AetherGraph — `context.kv()` Reference
+# `context.kv()` – EphemeralKV API Reference
 
-This page documents the **Key–Value API** available via `context.kv()` in a concise format. The KV store is **process‑local and transient** — ideal for coordination, small caches, inboxes, and short‑lived lists. Not intended for large blobs or durability.
+`EphemeralKV` is a **process‑local, transient key–value store** for small JSON‑serializable values and short‑lived coordination. It is thread‑safe (RLock), supports TTLs, and provides a few list helpers. **Do not use for large blobs** or durable state.
 
----
-
-## Overview
-- Keys are simple strings; values can be any JSON‑serializable Python object (adapters may allow arbitrary picklables, but keep it small).
-- Most methods support **TTL** (time‑to‑live in seconds). Expired entries are pruned lazily or via `purge_expired()`.
-- For namespacing, prefer prefixes like `"run:<id>:..."`, `"inbox:<channel>"`, etc.
+> The API below is consistent across KV backends. In `context`, this KV is ephemeral; other implementations may be pluggable later.
 
 ---
 
-## kv.get
-```
-get(key: str, default: Any = None) -> Any
-```
-Fetch a value by key; returns `default` if missing or expired.
+## Concepts & Defaults
 
-**Parameters**
-
-- **key** (*str*) – Lookup key.
-
-- **default** (*Any, optional*) – Value to return when absent/expired (default `None`).
-
-**Returns**  
-*Any* – Stored value or `default`.
+* **Scope:** In‑process only; cleared on restart. Not replicated.
+* **Thread‑safety:** Internal reads/writes guarded by `RLock`.
+* **TTL:** Expiry is checked lazily on access and via `purge_expired()`.
+* **Prefixing:** Instances may prepend a `prefix` to all keys for namespacing.
 
 ---
 
-## kv.set
-```
-set(key: str, value: Any, *, ttl_s: int | None = None) -> None
-```
-Set a key to a value with optional TTL.
+## Quick Reference
 
-**Parameters**
-
-- **key** (*str*) – Key to write.
-
-- **value** (*Any*) – Value to store.
-
-- **ttl_s** (*int, optional*) – Expiration in seconds.
-
-**Returns**  
-`None`
+| Method                                                       | Purpose                              | Returns            |
+| ------------------------------------------------------------ | ------------------------------------ | ------------------ |
+| `get(key, default=None)`                                     | Get value if present and not expired | `Any`              |
+| `set(key, value, *, ttl_s=None)`                             | Set value with optional TTL          | `None`             |
+| `delete(key)`                                                | Remove key if present                | `None`             |
+| `list_append_unique(key, items, *, id_key="id", ttl_s=None)` | Append unique dict items to a list   | `list[dict]`       |
+| `list_pop_all(key)`                                          | Pop and return entire list           | `list`             |
+| `mget(keys)`                                                 | Batch get                            | `list[Any]`        |
+| `mset(kv, *, ttl_s=None)`                                    | Batch set with optional TTL          | `None`             |
+| `expire(key, ttl_s)`                                         | Set/refresh expiry for a key         | `None`             |
+| `purge_expired(limit=1000)`                                  | GC expired entries (best‑effort)     | `int` count purged |
 
 ---
 
-## kv.delete
-```
-delete(key: str) -> None
-```
-Remove a key if present.
+## Methods
 
-**Parameters**
+<details markdown="1">
+<summary>get(key, default=None) -> Any</summary>
 
-- **key** (*str*) – Key to delete.
+**Description:** Return the current value for `key` unless missing or expired; otherwise return `default`.
 
-**Returns**  
-`None`
+**Inputs:**
 
----
+* `key: str`
+* `default: Any`
 
-## kv.list_append_unique
-```
-list_append_unique(key: str, items: list[dict], *, id_key: str = "id", ttl_s: int | None = None) -> list[dict]
-```
-Append unique dict items to a **list** value under `key`. Uniqueness is determined by `item[id_key]`.
+**Returns:**
 
-**Parameters**
+* `Any`
 
-- **key** (*str*) – List container key.
+**Notes:** Expired entries are deleted on read.
 
-- **items** (*list[dict]*) – Items to append.
+</details>
 
-- **id_key** (*str*) – Field name used for uniqueness (default: `"id"`).
+<details markdown="1">
+<summary>set(key, value, *, ttl_s=None) -> None</summary>
 
-- **ttl_s** (*int, optional*) – Reset TTL for the list.
+**Description:** Set `key` to `value` with optional TTL in seconds.
 
-**Returns**  
-*list[dict]* – Updated list.
+**Inputs:**
 
----
+* `key: str`
+* `value: Any` – Prefer small JSON‑serializable payloads.
+* `ttl_s: int | None` – Time‑to‑live (seconds).
 
-## kv.list_pop_all
-```
-list_pop_all(key: str) -> list
-```
-Pop and return the entire **list** stored at `key`. Empties the container.
+**Returns:**
 
-**Parameters**
+* `None`
 
-- **key** (*str*) – List container key.
+</details>
 
-**Returns**  
-*list* – Previous list content (empty list if none or not a list).
+<details markdown="1">
+<summary>delete(key) -> None</summary>
 
----
+**Description:** Delete `key` if present.
 
-## kv.mget
-```
-mget(keys: list[str]) -> list[Any]
-```
-Batch get multiple keys.
+**Inputs:**
 
-**Parameters**
+* `key: str`
 
-- **keys** (*list[str]*) – Keys to read.
+**Returns:**
 
-**Returns**  
-*list[Any]* – Values in the same order as `keys`.
+* `None`
 
----
+</details>
 
-## kv.mset
-```
-mset(kv: dict[str, Any], *, ttl_s: int | None = None) -> None
-```
-Batch set multiple keys with an optional shared TTL.
+<details markdown="1">
+<summary>list_append_unique(key, items, *, id_key="id", ttl_s=None) -> list[dict]</summary>
 
-**Parameters**
+**Description:** Append dict `items` to the list at `key`, skipping any whose `id_key` duplicates an existing item.
 
-- **kv** (*dict[str, Any]*) – Key–value pairs.
+**Inputs:**
 
-- **ttl_s** (*int, optional*) – TTL to apply to all entries.
+* `key: str`
+* `items: list[dict]`
+* `id_key: str` – Field used to determine uniqueness (default `"id"`).
+* `ttl_s: int | None`
 
-**Returns**  
-`None`
+**Returns:**
 
----
+* `list[dict]` – The updated list.
 
-## kv.expire
-```
-expire(key: str, ttl_s: int) -> None
-```
-Update/assign a TTL for an existing key.
+**Notes:** Non‑dict items are ignored.
 
-**Parameters**
+</details>
 
-- **key** (*str*) – Key to expire.
+<details markdown="1">
+<summary>list_pop_all(key) -> list</summary>
 
-- **ttl_s** (*int*) – Time‑to‑live in seconds from now.
+**Description:** Atomically pop and return the entire list at `key`. If missing or non‑list, return an empty list.
 
-**Returns**  
-`None`
+**Inputs:**
 
----
+* `key: str`
 
-## kv.purge_expired
-```
-purge_expired(limit: int = 1000) -> int
-```
-Remove up to `limit` expired keys.
+**Returns:**
 
-**Parameters**
+* `list`
 
-- **limit** (*int*) – Maximum removals per call (default: 1000).
+</details>
 
-**Returns**  
-*int* – Number of keys purged.
+<details markdown="1">
+<summary>mget(keys) -> list[Any]</summary>
 
----
+**Description:** Batch get for multiple keys.
 
-## Practical examples
+**Inputs:**
 
-**1) Channel inbox (files/messages)**
-```python
-# Adapter pushes uploads into an inbox list
-await context.kv().list_append_unique(
-    key=f"inbox:{channel_key}",
-    items=[{"id": file_id, "filename": name, "url": url}],
-    ttl_s=3600,
-)
+* `keys: list[str]`
 
-# Agent consumes the inbox later
-files = await context.kv().list_pop_all(f"inbox:{channel_key}")
-if files:
-    await context.channel().send_text(f"Received {len(files)} file(s)")
-```
+**Returns:**
 
-**2) Short‑lived cache with TTL**
-```python
-k = f"run:{context.run_id}:spec"
-spec = await context.kv().get(k)
-if spec is None:
-    spec = await expensive_fetch()
-    await context.kv().set(k, spec, ttl_s=300)  # cache for 5 minutes
-```
+* `list[Any]` – Values in the same order as `keys` (expired/missing → `None` or default semantics of `get`).
 
-**3) Batch write/read**
-```python
-await context.kv().mset({
-    f"run:{context.run_id}:step": 42,
-    f"run:{context.run_id}:eta": 120,
-}, ttl_s=600)
+</details>
 
-vals = await context.kv().mget([
-    f"run:{context.run_id}:step",
-    f"run:{context.run_id}:eta",
-])
-step, eta = vals
-```
+<details markdown="1">
+<summary>mset(kv, *, ttl_s=None) -> None</summary>
 
-**4) Update TTL**
-```python
-await context.kv().expire(f"run:{context.run_id}:spec", ttl_s=900)
-```
+**Description:** Batch set multiple entries with an optional TTL applied to each.
+
+**Inputs:**
+
+* `kv: dict[str, Any]`
+* `ttl_s: int | None`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>expire(key, ttl_s) -> None</summary>
+
+**Description:** Set or refresh the expiry for `key`.
+
+**Inputs:**
+
+* `key: str`
+* `ttl_s: int`
+
+**Returns:**
+
+* `None`
+
+**Notes:** No‑op if `key` is missing.
+
+</details>
+
+<details markdown="1">
+<summary>purge_expired(limit=1000) -> int</summary>
+
+**Description:** Remove up to `limit` expired entries.
+
+**Inputs:**
+
+* `limit: int`
+
+**Returns:**
+
+* `int` – Number of entries purged.
+
+**Notes:** Expiry is also enforced lazily on `get()`; this provides proactive cleanup.
+
+</details>
 
 ---
 
-## Notes & behaviors
-- **Transient**: data is in‑process only; it disappears on restart.
+## Usage Notes
 
-- **Small values**: do not store large binaries; use `context.artifacts()` for blobs.
-
-- **Concurrency**: the implementation uses an internal lock; operations are atomic per call.
-
-- **TTL semantics**: reads lazily drop expired entries; use `purge_expired()` to actively clean.
+* **Not durable:** For persistent state, use artifacts, memory persistence, or a durable KV backend when available.
+* **Small values only:** Store references/IDs, not large byte blobs.
+* **Namespacing:** Prefer scoping keys (e.g., `f"run:{run_id}:…"`) to avoid collisions across flows.

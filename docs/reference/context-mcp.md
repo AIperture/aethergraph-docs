@@ -1,222 +1,342 @@
-# AetherGraph — `context.mcp()` Reference
+# `context.mcp()` – Model Context Protocol (MCP) API Reference
 
-This page documents the **Model Context Protocol (MCP)** client you obtain with `context.mcp(name)`. Use it to call tools, list resources, or read resources exposed by a remote/local MCP server over **stdio**, **WebSocket**, or **HTTP**.
+`context.mcp()` gives you access to the MCP service, which manages **named MCP clients** (stdio / WebSocket / HTTP), handles lifecycle (open/close), and offers thin call helpers.
 
-> Import surface (for examples below):
-> ```python
-> from aethergraph.services.mcp import (
->     MCPService,
->     StdioMCPClient,
->     WsMCPClient,
->     HttpMCPClient,
-> )
-> ```
+> Register clients after the sidecar starts. Example below uses the helper `register_mcp_client()`.
 
 ---
 
-## Concepts
-- **MCPService**: registry of named MCP clients (e.g., `"local"`, `"ws"`, `"http"`), handles lazy open/close and convenience calls.
-- **MCPClientProtocol**: transport‑specific client implementing `open()`, `close()`, `call(tool, params)`, `list_tools()`, `list_resources()`, `read_resource(uri)`.
-- **Tools**: remote RPCs exposed by the MCP server (e.g., `readFile`, `search`, `stat`).
-- **Resources**: server‑advertised URIs you can `read_resource()` (e.g., `file://…`, `repo://…`).
+## Quick Reference
 
-`context.mcp(name)` returns the client registered under `name` via your process‑global `MCPService`.
-
----
-
-## MCPService (registry)
-
-### register
-```
-register(name: str, client: MCPClientProtocol) -> None
-```
-Register a client under a name.
-
-### remove
-```
-remove(name: str) -> None
-```
-Unregister a client.
-
-### has / names / get
-```
-has(name: str) -> bool
-names() -> list[str]
-get(name: str = "default") -> MCPClientProtocol
-```
-Query and retrieve clients by name.
-
-### open / close
-```
-open(name: str) -> None
-close(name: str) -> None
-open_all() -> None
-close_all() -> None
-```
-Manage client lifecycles. `call()/list_*()` implicitly `open()` on first use.
-
-### call helpers
-```
-call(name: str, tool: str, params: dict | None = None) -> dict
-list_tools(name: str) -> list[MCPTool]
-list_resources(name: str) -> list[MCPResource]
-read_resource(name: str, uri: str) -> dict
-```
-Thin wrappers to keep call sites small; auto‑open if needed.
-
-### optional secrets/runtime headers
-```
-set_header(name: str, key: str, value: str) -> None
-persist_secret(secret_name: str, value: str) -> None
-```
-`set_header()` is handy for WS/HTTP auth tokens at runtime. `persist_secret()` stores a credential via your Secrets provider (if writable).
+| Method                               | Purpose                               | Returns              |
+| ------------------------------------ | ------------------------------------- | -------------------- |
+| `register(name, client)`             | Add/replace an MCP client             | `None`               |
+| `remove(name)`                       | Unregister a client                   | `None`               |
+| `has(name)`                          | Check if a client exists              | `bool`               |
+| `names()` / `list_clients()`         | List registered client names          | `list[str]`          |
+| `get(name="default")`                | Get a client by name (or error)       | `MCPClient`          |
+| `open(name)` / `close(name)`         | Open/close a single client            | `None`               |
+| `open_all()` / `close_all()`         | Open/close all clients                | `None`               |
+| `call(name, tool, params=None)`      | Invoke a tool on a client             | `dict` (tool result) |
+| `list_tools(name)`                   | Enumerate tools on a client           | `list[MCPTool]`      |
+| `list_resources(name)`               | Enumerate resources                   | `list[MCPResource]`  |
+| `read_resource(name, uri)`           | Fetch a resource by URI               | `dict`               |
+| `set_header(name, key, value)`       | (WS) Set/override a header at runtime | `None`               |
+| `persist_secret(secret_name, value)` | Persist a secret via secrets provider | `None`               |
 
 ---
 
-## Transport clients
+## Methods
 
-### StdioMCPClient
-```
-StdioMCPClient(cmd: list[str], env: dict[str,str] | None = None, timeout: float = 60.0)
-```
-Spawn a subprocess and speak JSON‑RPC over stdio.
+<details markdown="1">
+<summary>register(name, client) -> None</summary>
 
-### WsMCPClient
-```
-WsMCPClient(url: str, *, headers: dict[str,str] | None = None, timeout: float = 60.0, ping_interval: float = 20.0, ping_timeout: float = 10.0)
-```
-Connect to an MCP server over WebSocket.
+**Description:** Register or replace an MCP client under `name`.
 
-### HttpMCPClient
-```
-HttpMCPClient(base_url: str, *, headers: dict[str,str] | None = None, timeout: float = 60.0)
-```
-Call an MCP server over HTTP (JSON).
+**Inputs:**
+
+* `name: str`
+* `client: MCPClientProtocol`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>remove(name) -> None</summary>
+
+**Description:** Unregister a client if present.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>has(name) -> bool</summary>
+
+**Description:** Check whether a client is registered.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `bool`
+
+</details>
+
+<details markdown="1">
+<summary>names() / list_clients() -> list[str]</summary>
+
+**Description:** Return all registered client names.
+
+**Inputs:**
+
+* —
+
+**Returns:**
+
+* `list[str]`
+
+</details>
+
+<details markdown="1">
+<summary>get(name="default") -> MCPClientProtocol</summary>
+
+**Description:** Return a client by name or raise `KeyError` if missing.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `MCPClientProtocol`
+
+</details>
+
+<details markdown="1">
+<summary>open(name) -> None</summary>
+
+**Description:** Ensure the client connection is open.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>close(name) -> None</summary>
+
+**Description:** Close the client connection; logs a warning on failure.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>open_all() -> None</summary>
+
+**Description:** Open all registered clients.
+
+**Inputs:**
+
+* —
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>close_all() -> None</summary>
+
+**Description:** Close all registered clients (best‑effort).
+
+**Inputs:**
+
+* —
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>call(name, tool, params=None) -> dict</summary>
+
+**Description:** Lazy‑open the client and invoke an MCP tool.
+
+**Inputs:**
+
+* `name: str`
+* `tool: str` – Tool identifier on the target MCP server.
+* `params: dict[str, Any] | None`
+
+**Returns:**
+
+* `dict` – Tool response.
+
+**Notes:** Clients also self‑reconnect on demand.
+
+</details>
+
+<details markdown="1">
+<summary>list_tools(name) -> list[MCPTool]</summary>
+
+**Description:** List available tools exposed by the MCP server.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `list[MCPTool]`
+
+</details>
+
+<details markdown="1">
+<summary>list_resources(name) -> list[MCPResource]</summary>
+
+**Description:** List available resources exposed by the MCP server.
+
+**Inputs:**
+
+* `name: str`
+
+**Returns:**
+
+* `list[MCPResource]`
+
+</details>
+
+<details markdown="1">
+<summary>read_resource(name, uri) -> dict</summary>
+
+**Description:** Read a resource by URI from the MCP server.
+
+**Inputs:**
+
+* `name: str`
+* `uri: str`
+
+**Returns:**
+
+* `dict`
+
+</details>
+
+<details markdown="1">
+<summary>set_header(name, key, value) -> None</summary>
+
+**Description:** For **WebSocket** clients, set/override a header at runtime (useful in notebooks/demos).
+
+**Inputs:**
+
+* `name: str`
+* `key: str`
+* `value: str`
+
+**Returns:**
+
+* `None`
+
+**Notes:** Raises `RuntimeError` if the client does not support headers.
+
+</details>
+
+<details markdown="1">
+<summary>persist_secret(secret_name, value) -> None</summary>
+
+**Description:** Persist a secret via the bound secrets provider (if writable).
+
+**Inputs:**
+
+* `secret_name: str`
+* `value: str`
+
+**Returns:**
+
+* `None`
+
+**Notes:** Raises `RuntimeError` when no writable secrets provider is configured.
+
+</details>
 
 ---
 
-## context.mcp(name)
-```
-context.mcp(name: str) -> MCPClientProtocol
-```
-Return the named client. Typically you register names like `"local"`, `"ws"`, `"http"` during app startup, then retrieve them inside tools/agents.
+## Registering Clients (after sidecar starts)
 
-**Example**
+Start the sidecar, then register one or more MCP clients:
+
 ```python
-client = context.mcp("ws")
-out = await client.call("search", {"q": "holography", "k": 5})
+from aethergraph import start_server
+from aethergraph.runtime import register_mcp_client
+from aethergraph.plugins.mcp import StdioMCPClient, WsMCPClient, HttpMCPClient
+import sys
+
+# 1) Start sidecar (choose your port/logging as you prefer)
+start_server(port=0)
+
+# 2) Register a local stdio MCP (no auth/network)
+register_mcp_client(
+    "local",
+    client=StdioMCPClient(cmd=[sys.executable, "-m", "aethergraph.plugins.mcp.fs_server"]),
+)
+
+# 3) (Optional) Register a WebSocket MCP
+register_mcp_client(
+    "ws",
+    client=WsMCPClient(
+        url="wss://mcp.example.com/ws",
+        headers={"Authorization": "Bearer <token>"},
+        timeout=60.0,
+    ),
+)
+
+# 4) (Optional) Register an HTTP MCP
+register_mcp_client(
+    "http",
+    client=HttpMCPClient(
+        base_url="https://mcp.example.com/api",
+        headers={"Authorization": "Bearer <token>"},
+        timeout=60.0,
+    ),
+)
 ```
+
+**Client types:**
+
+* **`StdioMCPClient(cmd, env=None, timeout=60.0)`** – JSON‑RPC over stdio to a subprocess.
+* **`WsMCPClient(url, headers=None, timeout=60.0, ping_interval=20.0, ping_timeout=10.0)`** – JSON‑RPC over WebSocket.
+* **`HttpMCPClient(base_url, headers=None, timeout=60.0)`** – JSON‑RPC over HTTP.
 
 ---
 
-## Calling tools
-```
-client.call(tool: str, params: dict | None = None) -> dict
-```
-Invoke a remote tool by name with JSON‑serializable params.
+## Examples
 
-**Parameters**
-- **tool** (*str*) – Tool name (server‑defined).
-- **params** (*dict, optional*) – Arguments for the tool.
-
-**Returns**  
-*dict* – Tool result payload (shape defined by the server).
-
-**Example**
 ```python
-# Filesystem‑like server
-res = await context.mcp("local").call("readFile", {"path": "/data/notes.txt"})
-text = res.get("text") or res.get("content") or ""
-await context.channel().send_text(f"len={len(text)}")
+# Get tool list and call a tool
+mcp = context.mcp()
+
+tools = await mcp.list_tools("local")
+res = await mcp.call("local", tool="fs.read_text", params={"path": "/etc/hosts"})
+
+# Read a resource listing from WS backend
+await mcp.open("ws")
+resources = await mcp.list_resources("ws")
+
+# Set a header on the WS client (e.g., late‑bound token)
+mcp.set_header("ws", "Authorization", "Bearer NEW_TOKEN")
+
+# Clean up
+await mcp.close_all()
 ```
 
----
+**Notes:**
 
-## Listing tools & resources
-```
-client.list_tools() -> list[MCPTool]
-client.list_resources() -> list[MCPResource]
-client.read_resource(uri: str) -> dict
-```
-Enumerate server capabilities and read advertised resources.
-
-**Example**
-```python
-# Tool discovery
-for t in await context.mcp("http").list_tools():
-    await context.channel().send_text(f"tool: {t.name} — {t.description}")
-
-# Resource fetch
-for r in await context.mcp("ws").list_resources():
-    if r.uri.startswith("file://"):
-        blob = await context.mcp("ws").read_resource(r.uri)
-        await context.channel().send_text(f"read {r.uri} → {len(blob.get('text',''))} chars")
-```
-
----
-
-## End‑to‑end setup (startup)
-```python
-from aethergraph.services.mcp import MCPService, StdioMCPClient, WsMCPClient, HttpMCPClient
-from aethergraph.v3.core.runtime.runtime_services import set_mcp_service
-import os, sys
-
-DEMO_HTTP_TOKEN = os.environ.setdefault("DEMO_HTTP_TOKEN", "demo_token_123")
-
-mcp = MCPService()
-mcp.register("local", StdioMCPClient(cmd=[sys.executable, "-m", "aethergraph.plugins.mcp.fs_server"]))
-mcp.register("ws", WsMCPClient(url="ws://localhost:8765", headers={"Authorization": "Bearer demo_token_123"}))
-mcp.register("http", HttpMCPClient("http://127.0.0.1:8769", headers={"Authorization": f"Bearer {DEMO_HTTP_TOKEN}"}))
-
-set_mcp_service(mcp)  # make available to NodeContext
-```
-
----
-
-## Using inside a graph function
-```python
-from aethergraph import graph_fn
-
-@graph_fn(name="mcp_search_demo", inputs=["q"], outputs=["text"], version="0.1.0")
-async def mcp_search_demo(q: str, *, context):
-    out = await context.mcp("ws").call("search", {"q": q, "k": 5})
-    text = out.get("text") or out.get("content") or ""
-    await context.channel().send_text(text[:200] + ("…" if len(text) > 200 else ""))
-    return {"text": text}
-```
-
----
-
-## Choosing a transport
-- **stdio**: best when you ship or control the server process (local tools, file system, Git, CLI wrappers). Minimal latency, simple auth via env.
-- **WebSocket**: interactive servers that push events, need long‑lived sessions, or custom headers/tokens.
-- **HTTP**: stateless request/response, easy to deploy behind gateways; good fit for cloud MCP services.
-
-**Tip**: You can register multiple transports to the **same** logical backend under different names (`"fs-local"`, `"fs-ws"`) and switch per call.
-
----
-
-## Auth & headers
-- Pass headers at client construction (`headers={"Authorization": "Bearer …"}`).
-- Update at runtime via `MCPService.set_header(name, key, value)` for WS/HTTP clients.
-- Persist tokens via `MCPService.persist_secret(...)` when your Secrets provider supports writes.
-
----
-
-## Error handling
-Wrap calls to surface clear messages back to the user.
-```python
-try:
-    res = await context.mcp("http").call("search", {"q": "mtf"})
-except KeyError:
-    await context.channel().send_text("Unknown MCP profile. Did you register it?")
-except Exception as e:
-    await context.channel().send_text(f"MCP error: {e}")
-```
-
----
-
-## Summary
-- Register your clients at startup with `MCPService.register()` and wire the service into runtime so `context.mcp(name)` can retrieve them.
-- Use `.call()` for tools, `.list_tools()/.list_resources()` for discovery, and `.read_resource()` to fetch URIs.
-- Choose stdio/WS/HTTP based on deployment and interaction needs; manage auth via headers/
+* Clients lazy‑open for operations; you may still call `open()` explicitly.
+* Errors from the server propagate; inspect tool/resource contracts on the MCP server side for required params and shapes.

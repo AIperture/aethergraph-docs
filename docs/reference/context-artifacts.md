@@ -1,341 +1,457 @@
-# AetherGraph — `context.artifacts()` Reference
+# `context.artifacts()` – ArtifactFacade API Reference
 
-This page documents the **ArtifactFacade** methods returned by `context.artifacts()` in a concise format: signature, brief description, parameters, and returns — plus examples for `writer()` and scoped search.
-
----
-
-## Overview
-`context.artifacts()` returns an **ArtifactFacade** bound to the current `run_id`, `graph_id`, and `node_id`. It wraps an `AsyncArtifactStore` for persistence and an `AsyncArtifactIndex` for search/pinning/metrics. Most mutating ops auto‑index and record an occurrence.
-
-**Typical flow**
-
-1. Stage (optional) → write → ingest
-
-2. Or directly save an existing file path
-
-3. Or use the built‑in `writer()` context manager to stream bytes and auto‑index
+The `ArtifactFacade` wraps an `AsyncArtifactStore` (persistence) and an `AsyncArtifactIndex` (search/metadata) and automatically indexes artifacts you create within a node/run.
 
 ---
 
-## artifacts.stage
+## Concepts & Defaults
+
+* **Store vs Index:** `store` persists bytes/objects; `index` stores searchable metadata and supports ranking, pinning, and scoping.
+* **Automatic indexing:** `ingest`, `save*`, `writer`, and `ingest_dir` all **upsert** into the index and **record an occurrence**.
+* **Scoping:** Many queries default to the **current run**; you can widen to `"graph"`, `"node"`, or `"all"`.
+* **`last_artifact`:** Updated to the most recently created/ingested artifact when applicable; `None` otherwise (e.g., no write in `writer`).
+* **`suggested_uri`:** A hint for stores that support friendly paths; stores may ignore or normalize it.
+* **`pin`:** Marks an artifact as pinned in the index to prevent GC or to highlight in UIs (store behavior may vary).
+
+### Artifact Schema (contract)
+
+A minimal summary of `Artifact` fields for reference:
+
 ```
-stage(ext: str = "") -> str
+Artifact(
+  artifact_id: str,
+  uri: str,
+  kind: str,
+  bytes: int,
+  sha256: str,
+  mime: str | None,
+  run_id: str, graph_id: str, node_id: str,
+  tool_name: str, tool_version: str,
+  created_at: str,
+  labels: dict[str, Any],
+  metrics: dict[str, Any],
+  preview_uri: str | None = None,
+  pinned: bool = False,
+)
 ```
-Plan a staging file path (temporary path) with an optional extension.
-
-**Parameters**
-
-- **ext** (*str, optional*) – Suggested extension (e.g., ".png", ".csv").
-
-**Returns**  
-*str* – Staging file path.
 
 ---
 
-## artifacts.ingest
-```
-ingest(staged_path: str, *, kind: str, labels=None, metrics=None, suggested_uri: str | None = None, pin: bool = False) -> Artifact
-```
-Ingest a previously staged file into the store, attach metadata, and auto‑index.
+## Quick Reference
 
-**Parameters**
-
-- **staged_path** (*str*) – Path returned by `stage()` or `stage_dir()`.
-
-- **kind** (*str*) – Logical artifact kind (e.g., "image", "table", "model").
-
-- **labels** (*dict, optional*) – Arbitrary labels; merged into index filters.
-
-- **metrics** (*dict, optional*) – Numeric metrics used for `best()` queries.
-
-- **suggested_uri** (*str, optional*) – Hint for final URI; store may ignore.
-
-- **pin** (*bool*) – Mark artifact as pinned in the index.
-
-**Returns**  
-*Artifact* – Indexed artifact record.
-
----
-
-## artifacts.save
-```
-save(path: str, *, kind: str, labels=None, metrics=None, suggested_uri: str | None = None, pin: bool = False) -> Artifact
-```
-Save an existing on‑disk file to the store with metadata; auto‑index and record occurrence. Sets `last_artifact`.
-
-**Parameters**
-
-- **path** (*str*) – Existing file path to persist.
-
-- **kind** (*str*) – Logical artifact kind.
-
-- **labels** (*dict, optional*) – Arbitrary labels.
-
-- **metrics** (*dict, optional*) – Numeric metrics.
-
-- **suggested_uri** (*str, optional*) – Hint for final URI; store may ignore.
-
-- **pin** (*bool*) – Mark artifact as pinned.
-
-**Returns**  
-*Artifact* – Indexed artifact record.
+| Method                                                                                            | Purpose                              | Returns             |       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------------- | ----- |
+| `stage(ext="")`                                                                                   | Plan a staging file path             | `str` path          |       |
+| `ingest(staged_path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False)`          | Ingest a staged file and index it    | `Artifact`          |       |
+| `save(path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False)`                   | Save an existing file and index it   | `Artifact`          |       |
+| `save_text(payload, *, suggested_uri=None)`                                                       | Save small text as an artifact       | `Artifact`          |       |
+| `save_json(payload, *, suggested_uri=None)`                                                       | Save JSON-serializable object        | `Artifact`          |       |
+| `writer(*, kind, planned_ext=None, pin=False)`                                                    | Open a write context (yields writer) | *(context manager)* |       |
+| `stage_dir(suffix="")`                                                                            | Plan a staging directory             | `str` path          |       |
+| `ingest_dir(staged_dir, **kw)`                                                                    | Ingest a whole directory             | `Artifact`          |       |
+| `tmp_path(suffix="")`                                                                             | Alias to plan a staging file path    | `str` path          |       |
+| `load_bytes(uri)`                                                                                 | Read raw bytes                       | `bytes`             |       |
+| `load_text(uri, *, encoding="utf-8", errors="strict")`                                            | Read text                            | `str`               |       |
+| `load_json(uri, *, encoding="utf-8", errors="strict")`                                            | Read JSON                            | `Any`               |       |
+| `load_artifact(uri)`                                                                              | Load Artifact metadata/object        | `Artifact           | Any`  |
+| `load_artifact_bytes(uri)`                                                                        | Read bytes from artifact URI         | `bytes`             |       |
+| `list(*, scope="run")`                                                                            | List artifacts by scope              | `list[Artifact]`    |       |
+| `search(*, kind=None, labels=None, metric=None, mode=None, scope="run", extra_scope_labels=None)` | Search with filters/metrics          | `list[Artifact]`    |       |
+| `best(*, kind, metric, mode, scope="run", filters=None)`                                          | Best-scoring artifact                | `Artifact           | None` |
+| `pin(artifact_id, pinned=True)`                                                                   | Pin/unpin in the index               | `None`              |       |
+| `to_local_path(uri_or_path, *, must_exist=True)`                                                  | Resolve to local path (file:// only) | `str`               |       |
+| `to_local_file(uri_or_path, *, must_exist=True)`                                                  | Resolve & assert file                | `str`               |       |
+| `to_local_dir(uri_or_path, *, must_exist=True)`                                                   | Resolve & assert dir                 | `str`               |       |
 
 ---
 
-## artifacts.writer
-```
-writer(*, kind: str, planned_ext: str | None = None, pin: bool = False) -> AsyncContextManager[Writer]
-```
-Open a binary writer context that persists bytes as an artifact; auto‑indexes on exit. Sets `last_artifact`.
+## Methods
 
-**Parameters**
+<details markdown="1">
+<summary>stage(ext="") -> str</summary>
 
-- **kind** (*str*) – Logical artifact kind.
+**Description:** Plan a **staging file** location for temporary writes outside the index. Use with external writers, then call `ingest()`.
 
-- **planned_ext** (*str, optional*) – Extension hint for underlying temp file.
+**Inputs:**
 
-- **pin** (*bool*) – Mark resulting artifact as pinned.
+* `ext: str` – Optional extension (e.g., `.png`, `.txt`).
 
-**Yields**  
-*Writer* – File‑like object; write bytes and close by exiting the context.
+**Returns:**
 
-**Example**
+* `str` – Path to a writable staging file.
+
+**Notes:** Staging does not create or index the artifact; call `ingest()` afterward.
+
+</details>
+
+<details markdown="1">
+<summary>ingest(staged_path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False) -> Artifact</summary>
+
+**Description:** Ingest a previously **staged file** into the store, then **upsert** & **record occurrence** in the index.
+
+**Inputs:**
+
+* `staged_path: str`
+* `kind: str` – Domain tag (e.g., `"image"`, `"report"`).
+* `labels: dict | None`
+* `metrics: dict | None`
+* `suggested_uri: str | None`
+* `pin: bool` – Mark as pinned in the index.
+
+**Returns:**
+
+* `Artifact`
+
+**Notes:** Sets `last_artifact` to the newly ingested item.
+
+</details>
+
+<details markdown="1">
+<summary>save(path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False) -> Artifact</summary>
+
+**Description:** Save an **existing file** to the store and index it.
+
+**Inputs:**
+
+* `path: str`
+* `kind: str`
+* `labels: dict | None`
+* `metrics: dict | None`
+* `suggested_uri: str | None`
+* `pin: bool`
+
+**Returns:**
+
+* `Artifact`
+
+**Notes:** Updates `last_artifact`.
+
+</details>
+
+<details markdown="1">
+<summary>save_text(payload, *, suggested_uri=None) -> Artifact</summary>
+
+**Description:** Save a **small text blob**; store chooses encoding/URI. Indexed automatically.
+
+**Inputs:**
+
+* `payload: str`
+* `suggested_uri: str | None`
+
+**Returns:**
+
+* `Artifact`
+
+**Notes:** Prefer `save()` for large files; stores may have size limits for text.
+
+</details>
+
+<details markdown="1">
+<summary>save_json(payload, *, suggested_uri=None) -> Artifact</summary>
+
+**Description:** Save a **JSON-serializable object**.
+
+**Inputs:**
+
+* `payload: dict`
+* `suggested_uri: str | None`
+
+**Returns:**
+
+* `Artifact`
+
+**Notes:** Useful for configs, specs, and structured reports.
+
+</details>
+
+<details markdown="1">
+<summary>writer(*, kind, planned_ext=None, pin=False) -> Async CM (yields writer)</summary>
+
+**Description:** Open a **writer context** provided by the store; write bytes within the block. On exit, the created artifact (if any) is indexed.
+
+**Inputs:**
+
+* `kind: str`
+* `planned_ext: str | None` – Hint for file extension.
+* `pin: bool`
+
+**Returns:**
+
+* *(Context Manager)* – Yields a `writer` implementing `write(...)` (store-specific).
+
+**Notes:**
+
+* If the writer actually creates an artifact, it will be available as `writer._artifact` on exit and set as `last_artifact`.
+* Use this when you don’t have the data on disk yet and want the store to manage file lifecycle.
+
+**Example:**
+
 ```python
-from aethergraph import graph_fn
-
-@graph_fn(name="make_png")
-async def make_png(*, context):
-    import PIL.Image as Image
-    img = Image.new("RGB", (128, 128), (255, 122, 26))
-    async with context.artifacts().writer(kind="image", planned_ext=".png") as w:
-        # writer exposes a real file handle underneath
-        img.save(w, format="PNG")
-    art = context.artifacts().last_artifact
-    await context.channel().send_image(url=art.uri, title="Generated PNG")
-    return {"uri": art.uri}
+async with context.artifacts().writer(kind="report", planned_ext=".txt") as w:
+    w.write(b"hello world")
+# last_artifact now refers to the saved report
 ```
 
----
+</details>
 
-## artifacts.stage_dir
-```
-stage_dir(suffix: str = "") -> str
-```
-Plan a staging **directory** for multi‑file artifacts.
+<details markdown="1">
+<summary>stage_dir(suffix="") -> str</summary>
 
-**Parameters**
+**Description:** Plan a **staging directory** path. Use with tools that emit multiple files before ingestion.
 
-- **suffix** (*str, optional*) – Optional directory suffix.
+**Inputs:**
 
-**Returns**  
-*str* – Staging directory path.
+* `suffix: str` – Optional suffix/name.
 
----
+**Returns:**
 
-## artifacts.ingest_dir
-```
-ingest_dir(staged_dir: str, **kw) -> Artifact
-```
-Ingest a directory of files as a single logical artifact; forwards extra keyword args to the store.
+* `str` – Path to a staging directory.
 
-**Parameters**
+</details>
 
-- **staged_dir** (*str*) – Directory created by `stage_dir()`.
+<details markdown="1">
+<summary>ingest_dir(staged_dir, **kw) -> Artifact</summary>
 
-- **kw** – Store‑specific options (e.g., kind/labels/metrics/pin).
+**Description:** Ingest a **directory** (e.g., a report folder) into the store and index it.
 
-**Returns**  
-*Artifact* – Indexed artifact record.
+**Inputs:**
 
----
+* `staged_dir: str`
+* `**kw` – Store/index-specific options (e.g., `kind`, `labels`, `metrics`, `pin`).
 
-## artifacts.tmp_path
-```
-tmp_path(suffix: str = "") -> str
-```
-Alias of `stage()` for convenience.
+**Returns:**
 
-**Parameters**
+* `Artifact`
 
-- **suffix** (*str, optional*) – Extension or suffix.
+**Notes:** Updates `last_artifact`.
 
-**Returns**  
-*str* – Staging file path.
+</details>
 
----
+<details markdown="1">
+<summary>tmp_path(suffix="") -> str</summary>
 
-## artifacts.load_artifact
-```
-load_artifact(uri: str) -> Any
-```
-Load a previously saved artifact by URI, using the store’s type‑specific loader.
+**Description:** Convenience alias to plan a **staging file** path.
 
-**Parameters**
+**Inputs:**
 
-- **uri** (*str*) – Artifact URI.
+* `suffix: str`
 
-**Returns**  
-*Any* – Decoded object (depends on store & artifact type).
+**Returns:**
 
----
+* `str`
 
-## artifacts.load_artifact_bytes
-```
-load_artifact_bytes(uri: str) -> bytes
-```
-Load raw bytes for a previously saved artifact by URI.
+</details>
 
-**Parameters**
+<details markdown="1">
+<summary>load_bytes(uri) -> bytes</summary>
 
-- **uri** (*str*) – Artifact URI.
+**Description:** Load **raw bytes** from an artifact URI.
 
-**Returns**  
-*bytes* – Artifact content.
+**Inputs:**
 
----
+* `uri: str`
 
-## artifacts.list
-```
-list(*, scope: Literal["node","run","graph","project","all"] = "run") -> list[Artifact]
-```
-Quick listing with **implicit scoping** (defaults to the current run). Under the hood, this uses the index with reasonable filters for the given scope.
+**Returns:**
 
-**Parameters**
+* `bytes`
 
-- **scope** (*str*) – One of:
+</details>
 
-  - **"node"** – filter by *(run_id, graph_id, node_id)*  
+<details markdown="1">
+<summary>load_text(uri, *, encoding="utf-8", errors="strict") -> str</summary>
 
-  - **"graph"** – filter by *(run_id, graph_id)*  
+**Description:** Load **text** from an artifact URI.
 
-  - **"run"** – filter by *(run_id)* **(default)**  
+**Inputs:**
 
-  - **"project"** – filter by project/org if tracked in labels  
+* `uri: str`
+* `encoding: str`
+* `errors: str`
 
-  - **"all"** – no implicit filters (use sparingly)
+**Returns:**
 
-**Returns**  
-*list[Artifact]* – Matching artifacts.
+* `str`
 
----
+</details>
 
-## artifacts.search
-```
-search(*, kind: str | None = None, labels: dict | None = None, metric: str | None = None, mode: Literal["max","min"] | None = None, scope: Scope = "run", extra_scope_labels: dict | None = None) -> list[Artifact]
-```
-Index search with **automatic scoping**. Merges your `labels` with scope‑derived labels.
+<details markdown="1">
+<summary>load_json(uri, *, encoding="utf-8", errors="strict") -> Any</summary>
 
-**Parameters**
+**Description:** Load **JSON** from an artifact URI.
 
-- **kind** (*str, optional*) – Filter by artifact kind.
+**Inputs:**
 
-- **labels** (*dict, optional*) – Arbitrary label filters.
+* `uri: str`
+* `encoding: str`
+* `errors: str`
 
-- **metric** (*str, optional*) – Metric name for ranking.
+**Returns:**
 
-- **mode** (*{"max","min"}, optional*) – Ranking direction.
+* `Any`
 
-- **scope** (*Scope*) – Implicit scope (default: "run").
+</details>
 
-- **extra_scope_labels** (*dict, optional*) – Additional scope labels to merge.
+<details markdown="1">
+<summary>load_artifact(uri) -> Artifact | Any</summary>
 
-**Returns**  
-*list[Artifact]* – Search results.
+**Description:** Load an **Artifact** or store-specific artifact object from URI.
 
-**Example (scoped search)**
-```python
-best_imgs = await context.artifacts().search(kind="image", scope="graph")
-```
+**Inputs:**
 
----
+* `uri: str`
 
-## artifacts.best
-```
-best(*, kind: str, metric: str, mode: Literal["max","min"], scope: Scope = "run", filters: dict | None = None) -> Artifact | None
-```
-Return the **best** artifact by a metric, with optional filters and implicit scope.
+**Returns:**
 
-**Parameters**
+* `Artifact | Any`
 
-- **kind** (*str*) – Artifact kind.
+</details>
 
-- **metric** (*str*) – Metric key.
+<details markdown="1">
+<summary>load_artifact_bytes(uri) -> bytes</summary>
 
-- **mode** (*{"max","min"}*) – Ranking direction.
+**Description:** Load **bytes** from an artifact URI (explicit artifact pathway).
 
-- **scope** (*Scope*) – Implicit scope (default: "run").
+**Inputs:**
 
-- **filters** (*dict, optional*) – Additional label filters.
+* `uri: str`
 
-**Returns**  
-*Artifact | None* – Best match or `None` if not found.
+**Returns:**
 
----
+* `bytes`
 
-## artifacts.pin
-```
-pin(artifact_id: str, pinned: bool = True) -> None
-```
-Pin or unpin an artifact in the index.
+</details>
 
-**Parameters**
+<details markdown="1">
+<summary>list(*, scope="run") -> list[Artifact]</summary>
 
-- **artifact_id** (*str*) – ID of the artifact to (un)pin.
+**Description:** Quick listing of artifacts **scoped** to `"run"` by default.
 
-- **pinned** (*bool*) – `True` to pin; `False` to unpin.
+**Inputs:**
 
-**Returns**  
-`None`
+* `scope: Literal["node", "run", "graph", "all"]`
 
----
+**Returns:**
 
-## Scoping details
-The facade enriches queries with labels depending on the `scope` argument:
+* `list[Artifact]`
 
-- **node** → `{ graph_id, node_id }`  
+**Notes:**
 
-- **graph** → `{ graph_id }`  
+* `node` → labels `(run_id, graph_id, node_id)`; `graph` → `(run_id, graph_id)`; `run` → by `run_id`; `all` → no implicit filters.
 
-- **project** → `{ project_id }` (if tracked)  
+</details>
 
-- **run** → uses `list_for_run(run_id)`  
+<details markdown="1">
+<summary>search(*, kind=None, labels=None, metric=None, mode=None, scope="run", extra_scope_labels=None) -> list[Artifact]</summary>
 
-- **all** → passes through to index with no implicit labels
+**Description:** Search the index with optional **kind**, **labels**, and **metric ranking**.
 
----
+**Inputs:**
 
-## Practical examples
+* `kind: str | None`
+* `labels: dict[str, Any] | None`
+* `metric: str | None`
+* `mode: Literal["max", "min"] | None`
+* `scope: Literal["node", "run", "graph", "all"]`
+* `extra_scope_labels: dict[str, Any] | None`
 
-**1) Direct save**
-```python
-uri = "/tmp/plot.png"
-# ... generate image to uri ...
-art = await context.artifacts().save(uri, kind="image", labels={"task":"eval"}, metrics={"psnr": 31.2})
-```
+**Returns:**
 
-**2) Stage → write → ingest**
-```python
-staged = await context.artifacts().stage(".csv")
-with open(staged, "w", encoding="utf-8") as f:
-    f.write("x,y\n1,2\n3,4\n")
-art = await context.artifacts().ingest(staged_path=staged, kind="table", labels={"split":"val"})
-```
+* `list[Artifact]`
 
-**3) Search best**
-```python
-winner = await context.artifacts().best(kind="model", metric="val_acc", mode="max", scope="run")
-if winner:
-    await context.channel().send_text(f"Best model: {winner.uri} acc={winner.metrics['val_acc']:.3f}")
-```
+**Notes:** Applies scope labels automatically when scope is `node` or `graph`. `extra_scope_labels` lets you add more filters.
 
-**4) Multi‑file directory**
-```python
-dir_path = await context.artifacts().stage_dir("_report")
-# ... write several files to dir_path ...
-art = await context.artifacts().ingest_dir(dir_path, kind="report", labels={"format":"html"})
-```
+</details>
 
-**5) Pin**
-```python
-await context.artifacts().pin(artifact_id=art.id, pinned=True)
-```
+<details markdown="1">
+<summary>best(*, kind, metric, mode, scope="run", filters=None) -> Artifact | None</summary>
+
+**Description:** Return the **best-scoring** artifact for a metric (e.g., highest accuracy).
+
+**Inputs:**
+
+* `kind: str`
+* `metric: str`
+* `mode: Literal["max", "min"]`
+* `scope: Literal["node", "run", "graph", "all"]`
+* `filters: dict[str, Any] | None`
+
+**Returns:**
+
+* `Artifact | None`
+
+**Notes:** Applies scope filters automatically for `node` or `graph`.
+
+</details>
+
+<details markdown="1">
+<summary>pin(artifact_id, pinned=True) -> None</summary>
+
+**Description:** Pin or unpin an artifact in the index.
+
+**Inputs:**
+
+* `artifact_id: str`
+* `pinned: bool`
+
+**Returns:**
+
+* `None`
+
+</details>
+
+<details markdown="1">
+<summary>to_local_path(uri_or_path, *, must_exist=True) -> str</summary>
+
+**Description:** Resolve a **file://** URI or local path to an absolute native path.
+
+**Inputs:**
+
+* `uri_or_path: str | Path | Artifact`
+* `must_exist: bool`
+
+**Returns:**
+
+* `str` – Absolute path or input string for non-file schemes.
+
+**Notes:**
+
+* If the input uses a non-file scheme (e.g., `s3://`, `http://`), the string is returned unchanged.
+* Raises `FileNotFoundError` if `must_exist=True` and path missing.
+
+</details>
+
+<details markdown="1">
+<summary>to_local_file(uri_or_path, *, must_exist=True) -> str</summary>
+
+**Description:** Resolve to a **file path** and assert it is a file.
+
+**Inputs:**
+
+* `uri_or_path: str | Path | Artifact`
+* `must_exist: bool`
+
+**Returns:**
+
+* `str`
+
+**Notes:** Raises `IsADirectoryError` if path is a directory when `must_exist=True`.
+
+</details>
+
+<details markdown="1">
+<summary>to_local_dir(uri_or_path, *, must_exist=True) -> str</summary>
+
+**Description:** Resolve to a **directory path** and assert it is a directory.
+
+**Inputs:**
+
+* `uri_or_path: str | Path | Artifact`
+* `must_exist: bool`
+
+**Returns:**
+
+* `str`
+
+**Notes:** Raises `NotADirectoryError` if path is a file when `must_exist=True`.
+
+</details>
