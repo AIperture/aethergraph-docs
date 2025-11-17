@@ -2106,20 +2106,11 @@
 <li><strong>Portable</strong>: <code>to_local_path(uri)</code> resolves for local or remote stores.</li>
 </ul>
 <h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.artifacts() — Artifact Facade ]
-     ├───────────────┬────────────────┬─────────────────┐
-     │               │                │                 │
-     │ save / writer │ stage / ingest │ list / search   │ best / pin
-     ▼               ▼                ▼                 ▼
-[ Artifact Store ]  [ Staging Area ]  [ Artifact Index ]  [ Retention ]
-     (CAS/FS)          (tmp)             (SQLite/KV)        (pins)
-</code></pre></div>
+<!-- ![artifact_architecture](../assets/images/artifact_arch.png) -->
+
+<!-- <img src="../assets/images/artifact_arch.png" alt="memory_architecture" width="500"> -->
+
+<p><img src="/assets/images/artifact_arch.png" alt="memory_architecture" width="500"></p>
 <h3 id="core-api">Core API<a class="headerlink" href="#core-api" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2191,22 +2182,11 @@
 <li><strong>Analytics</strong>: retrieve last actions for logical connection, track trends, or export for traceability.</li>
 </ul>
 <h3 id="architecture_1">Architecture<a class="headerlink" href="#architecture_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.memory() — Memory Facade ]
-        ├───────────────┬──────────────────┬───────────────┬──────────────┐
-        │               │                  │               │              │
-        ▼               ▼                  ▼               ▼              ▼
-   [ HotLog ]      [ Persistence ]     [ Indices ]     [ Summaries ]  [ RAG ]
- (ephemeral KV)   (JSONL append-only)   (SQLite/KV)     (LLM-based)   (FAISS)
-        │               │                  │               │              │
-   recent()/tail   replay/export      last_by_name     distill_*      search/answer
-                                      last_outputs                     promote_events
-</code></pre></div>
+<!-- <img src="../assets/images/memory_arch.png" alt="memory_architecture" width="500"> -->
+
+<p><img src="/assets/images/memory_arch.png" alt="memory_architecture" width="500"> </p>
+<!-- html should use abs path w.r.t docs. This makes local view wrong but it is fine -->
+
 <h3 id="core-api_1">Core API<a class="headerlink" href="#core-api_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
