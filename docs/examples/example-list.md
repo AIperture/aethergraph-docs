@@ -115,7 +115,7 @@ Bigger compositions that mirror real‑world tasks.
 
 * **A.1 Crash & Resume (static graph)** — Design a static graph so a long node can checkpoint and resume indefinitely using the same `run_id`.
   *Path:* `pattern_examples/1_state_resumption/1_resume_external_waits.py`
-  *Run:* `python -m examples.resumption.crash_and_resume`
+  *Run:* `python 1_resume_external_waits.py run_id` 
 * **A.2 Long Job Monitor** — Submit to `job_manager`, poll with backoff, surface failures via channel, let the user Retry/Abort.
   *Path:* `pattern_examples/1_state_resumption/2_long_job_monitor.py`
 

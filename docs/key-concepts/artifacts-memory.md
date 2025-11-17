@@ -36,21 +36,12 @@ Most Python workflows scatter outputs across temp folders and logs with no consi
 
 ### Architecture
 
-```
-[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.artifacts() — Artifact Facade ]
-     ├───────────────┬────────────────┬─────────────────┐
-     │               │                │                 │
-     │ save / writer │ stage / ingest │ list / search   │ best / pin
-     ▼               ▼                ▼                 ▼
-[ Artifact Store ]  [ Staging Area ]  [ Artifact Index ]  [ Retention ]
-     (CAS/FS)          (tmp)             (SQLite/KV)        (pins)
-```
+<!-- ![artifact_architecture](../assets/images/artifact_arch.png) -->
+
+
+<!-- <img src="../assets/images/artifact_arch.png" alt="memory_architecture" width="500"> -->
+
+<img src="/assets/images/artifact_arch.png" alt="memory_architecture" width="500">
 
 ### Core API
 
@@ -104,23 +95,12 @@ async def search_reports(*, context):
 
 ### Architecture
 
-```
-[ Your Agent / Tool ]
-          │   (context)
-          ▼
-[ NodeContext ]
-          │
-          ▼
-[ context.memory() — Memory Facade ]
-        ├───────────────┬──────────────────┬───────────────┬──────────────┐
-        │               │                  │               │              │
-        ▼               ▼                  ▼               ▼              ▼
-   [ HotLog ]      [ Persistence ]     [ Indices ]     [ Summaries ]  [ RAG ]
- (ephemeral KV)   (JSONL append-only)   (SQLite/KV)     (LLM-based)   (FAISS)
-        │               │                  │               │              │
-   recent()/tail   replay/export      last_by_name     distill_*      search/answer
-                                      last_outputs                     promote_events
-```
+<!-- <img src="../assets/images/memory_arch.png" alt="memory_architecture" width="500"> -->
+
+<img src="/assets/images/memory_arch.png" alt="memory_architecture" width="500"> 
+
+<!-- html should use abs path w.r.t docs. This makes local view wrong but it is fine -->
+
 
 ### Core API
 

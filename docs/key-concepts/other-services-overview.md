@@ -69,7 +69,7 @@ async def llm_demo(prompt: str, *, context):
 
 ## 4. RAG — Long‑Term Semantic Recall *(optional)*
 
-Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.
+Aethergraph provides basic RAG for fast prototype. Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.
 
 ```python
 @graph_fn(name="rag_demo", outputs=["answer"])

@@ -32,7 +32,7 @@ rag = context.rag()                     # corpora, upsert, search, answer
 
 ## 2. Configure LLMs (Profiles)
 
-You can configure profiles in **environment variables** (recommended) or **at runtime**.
+You can configure profiles in **environment variables** (recommended) or **at runtime**. See [docs](../llm-setup/llm-setup.md) for complete setup method.
 
 ### A) `.env` profiles (recommended)
 

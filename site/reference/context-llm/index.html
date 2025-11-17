@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://your-domain.com/reference/context-llm/">
       
       
+        <link rel="prev" href="../context-kv/">
+      
+      
+        <link rel="next" href="../context-rag/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>AetherGraph — context.llm() Reference - AetherGraph</title>
+        <title>context.llm() - AetherGraph</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aethergraph-contextllm-reference" class="md-skip">
+        <a href="#contextllm-llm-client-profiles-api-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AetherGraph — context.llm() Reference
+              context.llm()
             
           </span>
         </div>
@@ -636,7 +640,7 @@
   
   
   <span class="md-ellipsis">
-    Building Your First Graph Function Agent
+    1. Building Your First Graph Function Agent
     
   </span>
   
@@ -659,7 +663,7 @@
   
   
   <span class="md-ellipsis">
-    Static Graph with Graphify
+    2. Static Graph with Graphify
     
   </span>
   
@@ -682,7 +686,7 @@
   
   
   <span class="md-ellipsis">
-    Talk to Your Graph - Channels & Wait Models
+    3. Talk to Your Graph - Channels & Wait Models
     
   </span>
   
@@ -705,7 +709,7 @@
   
   
   <span class="md-ellipsis">
-    Store and Recall - Artifacts & Memory
+    4. Store and Recall - Artifacts & Memory
     
   </span>
   
@@ -728,7 +732,7 @@
   
   
   <span class="md-ellipsis">
-    Add Intelligence - LLM & RAG
+    5. Add Intelligence - LLM & RAG
     
   </span>
   
@@ -751,7 +755,7 @@
   
   
   <span class="md-ellipsis">
-    Use External Tools - MCP Example
+    6. Use External Tools - MCP Example
     
   </span>
   
@@ -774,7 +778,7 @@
   
   
   <span class="md-ellipsis">
-    Plug In Your World - Custom Services
+    7. Plug In Your World - Custom Services
     
   </span>
   
@@ -871,6 +875,827 @@
       
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Graph API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Graph API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graph_fn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-task-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TaskGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runner API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Runner API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runner-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    run & run_async
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.channel()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.artifacts()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.memory()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.logger()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.kv()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    context.llm()
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.llm()
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#profiles-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiles &amp; Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messages-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Messages Format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiles-via-contextllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiles via context.llm()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-behaviors-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider Behaviors (Summary)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.rag()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context extension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-adhoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context outside graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runtime API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Built-in @tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Built-in @tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    channel tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
@@ -889,10 +1714,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
@@ -905,8 +1730,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Setup
           </label>
@@ -954,10 +1779,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
             
   
   
@@ -970,8 +1795,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1149,185 +1974,235 @@
   
 
 
-<h1 id="aethergraph-contextllm-reference">AetherGraph — <code>context.llm()</code> Reference<a class="headerlink" href="#aethergraph-contextllm-reference" title="Permanent link">&para;</a></h1>
-<p>This page documents the <strong>LLM client</strong> retrieved via <code>context.llm(profile="default")</code>, in a concise format. The client implements two core calls:</p>
-<ul>
-<li><code>chat(messages, **kwargs) -&gt; (text: str, usage: dict)</code></li>
-<li><code>embed(texts, **kwargs) -&gt; list[list[float]]</code></li>
-</ul>
-<p>Profiles are managed by an <code>LLMService</code> that holds one or more configured clients ("default", "azure", "local", etc.).</p>
+<h1 id="contextllm-llm-client-profiles-api-reference"><code>context.llm()</code> – LLM Client &amp; Profiles API Reference<a class="headerlink" href="#contextllm-llm-client-profiles-api-reference" title="Permanent link">&para;</a></h1>
+<p><code>context.llm()</code> returns an LLM client (<strong>profile‑aware</strong>) with a consistent API across providers (OpenAI, Azure OpenAI, Anthropic, Google, OpenRouter, LM Studio, Ollama). Use it for <strong>chat</strong>, <strong>embeddings</strong>, and <strong>raw</strong> HTTP calls with built‑in retries and sane defaults.</p>
+<blockquote>
+<p>See <strong><a href="../../llm-setup/llm-setup/">LLM Setup &amp; Providers</a></strong> for configuring providers, base URLs, and API keys.</p>
+</blockquote>
 <hr />
-<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1) Use the default LLM profile</span>
-<span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span>                <span class="c1"># == context.llm(&quot;default&quot;)</span>
+<h2 id="profiles-configuration">Profiles &amp; Configuration<a class="headerlink" href="#profiles-configuration" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Profiles:</strong> Named client configs (default: <code>"default"</code>).</li>
+<li><strong>Get existing:</strong> <code>client = context.llm()</code> or <code>context.llm(profile="myprofile")</code>.</li>
+<li><strong>Override/update:</strong> Pass any of <code>provider/model/base_url/api_key/azure_deployment/timeout</code> to <strong>create or update</strong> a profile at runtime.</li>
+<li><strong>Quick set key:</strong> <code>context.llm_set_key(provider, model, api_key, profile="default")</code>.</li>
+</ul>
+<p>Supported providers: <code>openai</code>, <code>azure</code>, <code>anthropic</code>, <code>google</code>, <code>openrouter</code>, <code>lmstudio</code>, <code>ollama</code>.</p>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Inputs</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chat(messages, *, reasoning_effort=None, max_output_tokens=None, **kw)</code></td>
+<td>Multi‑turn chat completion</td>
+<td><code>messages: list[dict]</code> • optional <code>temperature</code>, <code>top_p</code>, <code>model</code> override</td>
+<td><code>(text: str, usage: dict)</code></td>
+</tr>
+<tr>
+<td><code>embed(texts, **kw)</code></td>
+<td>Compute embeddings</td>
+<td><code>texts: list[str]</code> • optional <code>model</code> override</td>
+<td><code>list[list[float]]</code></td>
+</tr>
+<tr>
+<td><code>raw(*, method="POST", path=None, url=None, json=None, params=None, headers=None, return_response=False)</code></td>
+<td>Low‑level HTTP with provider auth/headers</td>
+<td>See details</td>
+<td><code>Any</code> (JSON or <code>httpx.Response</code>)</td>
+</tr>
+<tr>
+<td><code>aclose()</code></td>
+<td>Close the underlying HTTP client</td>
+<td>—</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Context helpers</strong></p>
+<ul>
+<li><code>context.llm(profile="default", provider=None, model=None, base_url=None, api_key=None, azure_deployment=None, timeout=None)</code> → <code>LLMClient</code></li>
+<li><code>context.llm_set_key(provider, model, api_key, profile="default")</code> → <code>None</code></li>
+</ul>
+<hr />
+<h2 id="messages-format">Messages Format<a class="headerlink" href="#messages-format" title="Permanent link">&para;</a></h2>
+<p>Use OpenAI‑style messages:</p>
+<div class="highlight"><pre><span></span><code><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are concise.&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Summarize this:&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Provider adapters translate to vendor formats as needed (e.g., Anthropic messages blocks, Google content parts).</p>
+<hr />
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<details>
+<summary>chat(messages, *, reasoning_effort=None, max_output_tokens=None, **kw) -&gt; (str, dict)</summary>
+<p><strong>Description:</strong> Send a chat request to the active provider/model and return <code>(text, usage)</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>messages: list[dict]</code></li>
+<li><code>reasoning_effort: str | None</code> – Provider‑specific hint (e.g., OpenAI Responses).</li>
+<li><code>max_output_tokens: int | None</code></li>
+<li>
+<p><code>**kw</code> (optional runtime overrides):</p>
+</li>
+<li>
+<p><code>model: str | None</code></p>
+</li>
+<li><code>temperature: float | None</code></li>
+<li><code>top_p: float | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>(text: str, usage: dict)</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Implements exponential backoff for transient HTTP errors.</li>
+<li>Normalizes different provider response shapes to a first <code>text</code> string.</li>
+</ul>
+</details>
+<details>
+<summary>embed(texts, **kw) -&gt; list[list[float]]</summary>
+<p><strong>Description:</strong> Return embeddings for input strings via the provider‑specific embeddings endpoint.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>texts: list[str]</code></li>
+<li>
+<p><code>**kw</code> (optional):</p>
+</li>
+<li>
+<p><code>model: str | None</code></p>
+</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[list[float]]</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><strong>Anthropic</strong> does not provide embeddings → not implemented.</li>
+<li><strong>Google</strong> returns a single vector for the concatenated text; client normalizes to a <code>list[list[float]]</code>.</li>
+</ul>
+</details>
+<details>
+<summary>raw(*, method="POST", path=None, url=None, json=None, params=None, headers=None, return_response=False) -&gt; Any</summary>
+<p><strong>Description:</strong> Escape hatch for provider APIs. Uses the client’s base URL, authentication, and retry logic.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>method: str</code> – HTTP method (default <code>"POST"</code>).</li>
+<li><code>path: str | None</code> – Joined to the client’s <code>base_url</code> when <code>url</code> is not provided.</li>
+<li><code>url: str | None</code> – Full URL (overrides <code>path</code>).</li>
+<li><code>json: Any | None</code> – JSON body.</li>
+<li><code>params: dict[str, Any] | None</code> – Query params.</li>
+<li><code>headers: dict[str, str] | None</code> – Extra headers (merged over defaults).</li>
+<li><code>return_response: bool</code> – If <code>True</code>, returns raw <code>httpx.Response</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>Any</code> – Parsed JSON by default, or <code>httpx.Response</code> when <code>return_response=True</code>.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Applies provider‑specific auth headers (e.g., <code>Authorization: Bearer ...</code>, <code>x-api-key</code>, <code>api-key</code>).</li>
+<li>Ensures the underlying HTTP client is bound to the current event loop.</li>
+</ul>
+</details>
+<details>
+<summary>aclose() -&gt; None</summary>
+<p><strong>Description:</strong> Close the internal <code>httpx.AsyncClient</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>—</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>None</code></li>
+</ul>
+</details>
+<hr />
+<h2 id="profiles-via-contextllm">Profiles via <code>context.llm()</code><a class="headerlink" href="#profiles-via-contextllm" title="Permanent link">&para;</a></h2>
+<details>
+<summary>context.llm(profile="default", *, provider=None, model=None, base_url=None, api_key=None, azure_deployment=None, timeout=None) -&gt; LLMClient</summary>
+<p><strong>Description:</strong> Get an LLM client for <code>profile</code>. If any overrides are provided, <strong>configure or update</strong> that profile on the fly and return the new client.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>profile: str</code></li>
+<li><code>provider: str | None</code></li>
+<li><code>model: str | None</code></li>
+<li><code>base_url: str | None</code></li>
+<li><code>api_key: str | None</code></li>
+<li><code>azure_deployment: str | None</code></li>
+<li><code>timeout: float | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>LLMClient</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>If no overrides are provided, this is a pure getter.</li>
+<li>Profiles are maintained by the runtime LLM service and are reusable across nodes.</li>
+</ul>
+</details>
+<details>
+<summary>context.llm_set_key(provider, model, api_key, profile="default") -&gt; None</summary>
+<p><strong>Description:</strong> Quickly set/override provider credentials for a profile.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>provider: str</code> – One of the supported providers.</li>
+<li><code>model: str</code></li>
+<li><code>api_key: str</code></li>
+<li><code>profile: str</code> – Defaults to <code>"default"</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>None</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>See <strong><a href="./llm-setup.md">LLM Setup &amp; Providers</a></strong> for guidance on keys, endpoints, and environment variables. (placeholder link)</li>
+</ul>
+</details>
+<hr />
+<h2 id="provider-behaviors-summary">Provider Behaviors (Summary)<a class="headerlink" href="#provider-behaviors-summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>OpenAI</strong>: Uses <code>/v1/responses</code> for chat (supports <code>reasoning_effort</code>). Embeddings via <code>/v1/embeddings</code>.</li>
+<li><strong>Anthropic</strong>: Converts messages to <code>v1/messages</code> format. <strong>No embeddings</strong>.</li>
+<li><strong>Google (Gemini)</strong>: Converts to <code>generateContent</code>/<code>embedContent</code> requests with API key in URL.</li>
+<li><strong>OpenRouter/LM Studio/Ollama</strong>: OpenAI‑compatible <code>/chat/completions</code> and <code>/embeddings</code> endpoints.</li>
+</ul>
+<hr />
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1) Use default profile</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span>
 <span class="n">text</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span>   <span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Summarize AetherGraph in one sentence.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Be terse.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;One sentence on FFT.&quot;</span><span class="p">},</span>
 <span class="p">])</span>
 
-<span class="c1"># 2) Switch/set a key at runtime (in‑memory only)</span>
-<span class="n">context</span><span class="o">.</span><span class="n">llm_set_key</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<span class="c1"># 2) Create/update a named profile at runtime</span>
+<span class="n">llm_fast</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;fast&quot;</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="c1"># 3) Use a named profile (must exist in LLMService)</span>
-<span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="s2">&quot;azure&quot;</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h2 id="supported-providers-via-genericllmclient">Supported providers (via GenericLLMClient)<a class="headerlink" href="#supported-providers-via-genericllmclient" title="Permanent link">&para;</a></h2>
-<p><code>{"openai","azure","anthropic","google","openrouter","lmstudio","ollama"}</code></p>
-<blockquote>
-<p>Credentials and endpoints are read from environment by default, but can be provided at construction time. Runtime key overrides are allowed via <code>context.llm_set_key(...)</code>.</p>
-</blockquote>
-<p>Common env vars:</p>
-<ul>
-<li><code>OPENAI_API_KEY</code>, <code>OPENAI_BASE_URL</code></li>
-<li><code>AZURE_OPENAI_KEY</code>, <code>AZURE_OPENAI_ENDPOINT</code>, <code>AZURE_OPENAI_DEPLOYMENT</code></li>
-<li><code>ANTHROPIC_API_KEY</code></li>
-<li><code>GOOGLE_API_KEY</code></li>
-<li><code>OPENROUTER_API_KEY</code></li>
-<li><code>LMSTUDIO_BASE_URL</code> (default <code>http://localhost:1234/v1</code>)</li>
-<li><code>OLLAMA_BASE_URL</code>   (default <code>http://localhost:11434/v1</code>)</li>
-</ul>
-<hr />
-<h2 id="llmchat">llm.chat<a class="headerlink" href="#llmchat" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>chat(messages: list[dict], **kw) -&gt; tuple[str, dict]
-</code></pre></div>
-Send a chat completion request and return <code>(text, usage)</code>.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>messages</strong> (<em>list[dict]</em>) – OpenAI‑style conversation turns, e.g. <code>{"role":"system"|"user"|"assistant", "content": str}</code>.</p>
-</li>
-<li>
-<p><strong>kw</strong> – Common knobs (provider‑dependent):  </p>
-</li>
-<li>
-<p><strong>model</strong> (<em>str, optional</em>) – Model name (defaults to client’s configured model).  </p>
-</li>
-<li>
-<p><strong>temperature</strong> (<em>float, optional</em>) – Sampling temperature (default <code>0.5</code>).  </p>
-</li>
-<li>
-<p><strong>top_p</strong> (<em>float, optional</em>) – Nucleus sampling (default <code>1.0</code>).  </p>
-</li>
-<li>
-<p><strong>max_tokens</strong> (<em>int, optional</em>) – Max tokens (Anthropic/Azure/Google paths).  </p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>tuple[str, dict]</em> – Generated <code>text</code> and a <code>usage</code> dict (token counts where supported).</p>
-<p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code><span class="n">sys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Be concise.&quot;</span><span class="p">}</span>
-<span class="n">usr</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;What is AetherGraph?&quot;</span><span class="p">}</span>
-<span class="n">text</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">([</span><span class="n">sys</span><span class="p">,</span> <span class="n">usr</span><span class="p">],</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div></p>
-<hr />
-<h2 id="llmembed">llm.embed<a class="headerlink" href="#llmembed" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>embed(texts: list[str], **kw) -&gt; list[list[float]]
-</code></pre></div>
-Return embeddings for a list of strings.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>texts</strong> (<em>list[str]</em>) – Text strings to embed.</p>
-</li>
-<li>
-<p><strong>kw</strong> – Common knobs (provider‑dependent):  </p>
-</li>
-<li>
-<p><strong>model</strong> (<em>str, optional</em>) – Embedding model name (default <code>text-embedding-3-small</code> for OpenAI‑like providers).</p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>list[list[float]]</em> – Embedding vectors.</p>
-<p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code><span class="n">vecs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">embed</span><span class="p">([</span><span class="s2">&quot;lens design&quot;</span><span class="p">,</span> <span class="s2">&quot;holography basics&quot;</span><span class="p">])</span>  <span class="c1"># [[...], [...]]</span>
-</code></pre></div></p>
-<hr />
-<h2 id="profiles-and-keys">Profiles and keys<a class="headerlink" href="#profiles-and-keys" title="Permanent link">&para;</a></h2>
-<h3 id="contextllmprofile-str-default-llmclient"><code>context.llm(profile: str = "default") -&gt; LLMClient</code><a class="headerlink" href="#contextllmprofile-str-default-llmclient" title="Permanent link">&para;</a></h3>
-<p>Retrieve the configured LLM client for a named profile. Raises if <code>LLMService</code> is not bound or profile missing.</p>
-<h3 id="contextllm_set_keyprovider-str-api_key-str-profile-str-default-none"><code>context.llm_set_key(provider: str, api_key: str, profile: str = "default") -&gt; None</code><a class="headerlink" href="#contextllm_set_keyprovider-str-api_key-str-profile-str-default-none" title="Permanent link">&para;</a></h3>
-<p>Override an API key <strong>in memory</strong> for the given profile (good for demos/notebooks). Does not persist.</p>
-<p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># Switch the default profile to use a local LM Studio server at runtime</span>
-<span class="n">context</span><span class="o">.</span><span class="n">llm_set_key</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;lmstudio&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-ignore&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
-<span class="n">text</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Say hi from LM Studio&quot;</span><span class="p">}</span>
-<span class="p">])</span>
-</code></pre></div></p>
-<blockquote>
-<p>For long‑lived storage, use your project’s Secrets provider and <code>LLMService.persist_key(secret_name, api_key)</code> if available.</p>
-</blockquote>
-<hr />
-<h2 id="providerspecific-notes">Provider‑specific notes<a class="headerlink" href="#providerspecific-notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><strong>OpenAI / OpenRouter / LM Studio / Ollama</strong> – uses OpenAI‑style <code>/chat/completions</code> and <code>/embeddings</code> routes. <code>usage</code> is included where supported.</p>
-</li>
-<li>
-<p><strong>Azure OpenAI</strong> – requires <code>AZURE_OPENAI_ENDPOINT</code> and <code>AZURE_OPENAI_DEPLOYMENT</code>; uses Azure routes.</p>
-</li>
-<li>
-<p><strong>Anthropic (Claude)</strong> – converts OpenAI‑style messages to Anthropic’s message format; returns concatenated text blocks.</p>
-</li>
-<li>
-<p><strong>Google (Gemini)</strong> – uses <code>:generateContent</code> and <code>:embedContent</code>; <code>usage</code> shape differs and may be empty.</p>
-</li>
-<li>
-<p><strong>Embeddings</strong> – not supported for Anthropic in this client.</p>
-</li>
-</ul>
-<hr />
-<h2 id="error-handling-retries">Error handling &amp; retries<a class="headerlink" href="#error-handling-retries" title="Permanent link">&para;</a></h2>
-<p>The client wraps calls with exponential backoff (<code>_Retry</code>) for transient HTTP errors (<code>ReadTimeout</code>, <code>ConnectError</code>, <code>HTTPStatusError</code>). You may still want to catch and surface provider‑specific errors around quota/keys.</p>
-<p><strong>Example</strong>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="n">text</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">([{</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;ping&quot;</span> <span class="p">}])</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LLM error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<hr />
-<h2 id="patterns-with-context">Patterns with Context<a class="headerlink" href="#patterns-with-context" title="Permanent link">&para;</a></h2>
-<p><strong>Router‑then‑Act</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
+<span class="c1"># 3) Quick key configure</span>
+<span class="n">context</span><span class="o">.</span><span class="n">llm_set_key</span><span class="p">(</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="s2">&quot;sk-...&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;prod&quot;</span><span class="p">)</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;router_then_act&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">router_then_act</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">sys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Route to &#39;summarize&#39; or &#39;plot&#39;&quot;</span><span class="p">}</span>
-    <span class="n">usr</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Summarize this research log.&quot;</span><span class="p">}</span>
-    <span class="n">decision</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">([</span><span class="n">sys</span><span class="p">,</span> <span class="n">usr</span><span class="p">],</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s2">&quot;summarize&quot;</span> <span class="ow">in</span> <span class="n">decision</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="c1"># Call downstream tool and write a result</span>
-        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
-            <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;router&quot;</span><span class="p">,</span>
-            <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;route&quot;</span><span class="p">,</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;summarize&quot;</span><span class="p">}],</span>
-        <span class="p">)</span>
-        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Routing → summarize&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>RAG: retrieve → answer</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_answer&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_answer</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_search</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-    <span class="n">prompt</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;Answer using the provided notes.&quot;</span><span class="p">},</span>
-              <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="s2">&quot;content&quot;</span><span class="p">:</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Q: &quot;</span> <span class="o">+</span> <span class="n">q</span><span class="p">}]</span>
-    <span class="n">text</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span> <span class="s2">&quot;tokens&quot;</span><span class="p">:</span> <span class="n">usage</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;total_tokens&quot;</span><span class="p">)}</span>
-</code></pre></div></p>
-<hr />
-<!-- ## Lifecycle
-If you manage clients directly, close them on shutdown:
-```python
-await context.runtime().llm.aclose()
-``` -->
+<span class="c1"># 4) Embeddings</span>
+<span class="n">vecs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">embed</span><span class="p">([</span><span class="s2">&quot;optical flow&quot;</span><span class="p">,</span> <span class="s2">&quot;phase mask&quot;</span><span class="p">])</span>
 
-<hr />
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Use <code>context.llm()</code> to get a ready‑to‑use client for the current profile.</li>
-<li><code>chat()</code> returns <code>(text, usage)</code>; <code>embed()</code> returns vectors.</li>
-<li>Switch keys ad‑hoc with <code>context.llm_set_key(...)</code>; persist via your Secrets provider when available.</li>
-</ul>
+<span class="c1"># 5) Raw call (escape hatch)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/models&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Tip:</strong> Prefer <code>context.llm()</code> profiles for reuse across nodes and flows; use per‑call overrides for experiments or one‑offs.</p>
 
 
 
@@ -1352,6 +2227,44 @@ await context.runtime().llm.aclose()
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../context-kv/" class="md-footer__link md-footer__link--prev" aria-label="Previous: context.kv()">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                context.kv()
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../context-rag/" class="md-footer__link md-footer__link--next" aria-label="Next: context.rag()">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                context.rag()
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

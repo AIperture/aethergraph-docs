@@ -80,13 +80,15 @@ await mem.record(
     data={"epoch": 1, "loss": 0.25, "acc": 0.91},
 )
 
-recent = await mem.recent(kinds=["train_log"], limit=3)
+recent = await mem.recent(kinds=["train_log"], limit=3) # recent is an Event
 ```
+
+You will need to load the data from seriazalized `recent.text` (`channel.memory()` [docs](../reference/context-memory.md))
 
 Need only the decoded payloads?
 
 ```python
-logs = await mem.recent_data(kinds=["train_log"], limit=3)
+logs = await mem.recent_data(kinds=["train_log"], limit=3) # this returns the `data` saved in memory, not Event
 ```
 
 > Use `record` for progress/trace breadcrumbs. Use `write_result` for small named values you’ll query later.
@@ -249,7 +251,7 @@ Memory ships with a **RAG facade** so you can promote events/results into a sear
 async def make_rag_corpus(question: str, *, context):
     mem = context.memory()
 
-    corpus = await mem.rag_bind(scope="project")
+    corpus = await mem.rag_bind()
     await mem.rag_promote_events(
         corpus_id=corpus,
         where={"kinds": ["tool_result"], "limit": 200},

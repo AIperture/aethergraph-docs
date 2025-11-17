@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://your-domain.com/reference/context-rag/">
       
       
+        <link rel="prev" href="../context-llm/">
+      
+      
+        <link rel="next" href="../context-mcp/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>AetherGraph — context.rag() Reference - AetherGraph</title>
+        <title>context.rag() - AetherGraph</title>
       
     
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aethergraph-contextrag-reference" class="md-skip">
+        <a href="#ragfacade-retrievalaugmented-generation-api" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AetherGraph — context.rag() Reference
+              context.rag()
             
           </span>
         </div>
@@ -636,7 +640,7 @@
   
   
   <span class="md-ellipsis">
-    Building Your First Graph Function Agent
+    1. Building Your First Graph Function Agent
     
   </span>
   
@@ -659,7 +663,7 @@
   
   
   <span class="md-ellipsis">
-    Static Graph with Graphify
+    2. Static Graph with Graphify
     
   </span>
   
@@ -682,7 +686,7 @@
   
   
   <span class="md-ellipsis">
-    Talk to Your Graph - Channels & Wait Models
+    3. Talk to Your Graph - Channels & Wait Models
     
   </span>
   
@@ -705,7 +709,7 @@
   
   
   <span class="md-ellipsis">
-    Store and Recall - Artifacts & Memory
+    4. Store and Recall - Artifacts & Memory
     
   </span>
   
@@ -728,7 +732,7 @@
   
   
   <span class="md-ellipsis">
-    Add Intelligence - LLM & RAG
+    5. Add Intelligence - LLM & RAG
     
   </span>
   
@@ -751,7 +755,7 @@
   
   
   <span class="md-ellipsis">
-    Use External Tools - MCP Example
+    6. Use External Tools - MCP Example
     
   </span>
   
@@ -774,7 +778,7 @@
   
   
   <span class="md-ellipsis">
-    Plug In Your World - Custom Services
+    7. Plug In Your World - Custom Services
     
   </span>
   
@@ -871,6 +875,800 @@
       
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Graph API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Graph API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graph_fn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-task-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TaskGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runner API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Runner API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runner-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    run & run_async
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.channel()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.artifacts()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.memory()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.logger()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.kv()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.llm()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    context.rag()
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.rag()
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context extension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-adhoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context outside graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runtime API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Built-in @tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Built-in @tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    channel tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
@@ -889,10 +1687,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
@@ -905,8 +1703,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Setup
           </label>
@@ -954,10 +1752,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
             
   
   
@@ -970,8 +1768,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1149,210 +1947,341 @@
   
 
 
-<h1 id="aethergraph-contextrag-reference">AetherGraph — <code>context.rag()</code> Reference<a class="headerlink" href="#aethergraph-contextrag-reference" title="Permanent link">&para;</a></h1>
-<p>This page documents the <strong>RAGFacade</strong> returned by <code>context.rag()</code> in a concise format: signature, brief description, parameters, returns, and practical examples.</p>
-<p>The facade covers: <strong>corpus management</strong>, <strong>document ingestion (upsert)</strong>, <strong>retrieval (search/retrieve)</strong>, and <strong>question answering</strong> with optional citation resolution.</p>
+<h1 id="ragfacade-retrievalaugmented-generation-api"><code>RAGFacade</code> – Retrieval‑Augmented Generation API<a class="headerlink" href="#ragfacade-retrievalaugmented-generation-api" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Manages corpora, document ingestion (text/files), chunking + embeddings, vector indexing, retrieval, and QA.</p>
+<p><strong>Backends:</strong> defaults to a lightweight SQLite vector index. FAISS is supported locally if installed via pip. See <strong><a href="../../llm-setup/llm-setup/">LLM &amp; Index Setup</a></strong> for provider/model/index configuration.</p>
+</blockquote>
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>set_llm_client(client)</code></td>
+<td>Swap the LLM used for QA</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>set_index_backend(index_backend)</code></td>
+<td>Swap the vector index backend</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>add_corpus(corpus_id, meta=None)</code></td>
+<td>Create/ensure a corpus</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>upsert_docs(corpus_id, docs)</code></td>
+<td>Ingest docs → chunk, embed, index</td>
+<td><code>dict</code> {added,chunks,index}</td>
+</tr>
+<tr>
+<td><code>search(corpus_id, query, k=8, filters=None, mode="hybrid")</code></td>
+<td>Retrieve top chunks</td>
+<td><code>list[SearchHit]</code></td>
+</tr>
+<tr>
+<td><code>retrieve(corpus_id, query, k=6, rerank=True)</code></td>
+<td>Alias to <code>search(..., mode="hybrid")</code></td>
+<td><code>list[SearchHit]</code></td>
+</tr>
+<tr>
+<td><code>answer(corpus_id, question, llm=None, style="concise", with_citations=True, k=6)</code></td>
+<td>QA over retrieved context</td>
+<td><code>dict</code> {answer,citations,usage,resolved_citations?}</td>
+</tr>
+<tr>
+<td><code>resolve_citations(corpus_id, citations)</code></td>
+<td>Enrich citation refs with titles/URIs/snippets</td>
+<td><code>list[dict]</code></td>
+</tr>
+<tr>
+<td><code>list_corpora()</code></td>
+<td>Enumerate corpora in <code>corpus_root</code></td>
+<td><code>list[dict]</code></td>
+</tr>
+<tr>
+<td><code>list_docs(corpus_id, limit=200, after=None)</code></td>
+<td>Page through docs</td>
+<td><code>list[dict]</code></td>
+</tr>
+<tr>
+<td><code>delete_docs(corpus_id, doc_ids)</code></td>
+<td>Remove docs + chunks (+drop from index)</td>
+<td><code>dict</code></td>
+</tr>
+<tr>
+<td><code>reembed(corpus_id, doc_ids=None, batch=64)</code></td>
+<td>Recompute embeddings &amp; re‑add to index</td>
+<td><code>dict</code></td>
+</tr>
+<tr>
+<td><code>stats(corpus_id)</code></td>
+<td>Simple counts + metadata</td>
+<td><code>dict</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><code>context.rag()</code> provides high‑level helpers backed by:</p>
+<h2 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">&para;</a></h2>
+<p><strong><code>SearchHit</code></strong></p>
 <ul>
-<li>an <strong>Artifact Store</strong> (for persisted doc assets),</li>
-<li>an <strong>Embedding client</strong> (e.g., <code>context.llm().embed()</code>),</li>
-<li>a <strong>Vector index backend</strong> (add/search),</li>
-<li>a <strong>TextSplitter</strong> (chunking before embedding), and</li>
-<li>an optional <strong>LLM client</strong> for QA.</li>
-</ul>
-<hr />
-<h2 id="ragadd_corpus">rag.add_corpus<a class="headerlink" href="#ragadd_corpus" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>add_corpus(corpus_id: str, meta: dict | None = None) -&gt; None
-</code></pre></div>
-Create a new corpus directory with metadata if it does not exist.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Unique identifier for the corpus.</p>
-</li>
-<li>
-<p><strong>meta</strong> (<em>dict, optional</em>) – Arbitrary metadata stored alongside the corpus.</p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<code>None</code></p>
-<hr />
-<h2 id="ragupsert_docs">rag.upsert_docs<a class="headerlink" href="#ragupsert_docs" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>upsert_docs(corpus_id: str, docs: list[dict]) -&gt; dict
-</code></pre></div>
-Ingest and index a list of documents (file‑based or inline text). Handles artifact persistence, chunking, embedding, and index add.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus identifier.</p>
-</li>
-<li>
-<p><strong>docs</strong> (<em>list[dict]</em>) – Each doc is either:</p>
-</li>
-<li>
-<p><strong>File doc</strong>: <code>{ "path": "/path/to/file.pdf", "labels": {...}, "title": "Optional" }</code></p>
-</li>
-<li>
-<p><strong>Inline text doc</strong>: <code>{ "text": "...", "title": "Optional", "labels": {...} }</code></p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>dict</em> – Summary like <code>{ "added": int, "chunks": int, "index": "BackendName" }</code>.</p>
-<p><strong>Notes</strong>
-- PDFs and Markdown are parsed with built‑in extractors; other files default to text.</p>
-<ul>
-<li>Each doc and chunk is assigned a stable SHA‑derived ID and recorded in <code>docs.jsonl</code> / <code>chunks.jsonl</code> under the corpus folder.</li>
-</ul>
-<hr />
-<h2 id="ragsearch">rag.search<a class="headerlink" href="#ragsearch" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>search(corpus_id: str, query: str, k: int = 8, filters: dict | None = None, mode: str = &quot;hybrid&quot;) -&gt; list[SearchHit]
-</code></pre></div>
-Hybrid retrieval: dense vector search with optional lexical fusion, returning the top‑k chunks.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
-</li>
-<li>
-<p><strong>query</strong> (<em>str</em>) – Natural language query.</p>
-</li>
-<li>
-<p><strong>k</strong> (<em>int</em>) – Number of results (default 8).</p>
-</li>
-<li>
-<p><strong>filters</strong> (<em>dict, optional</em>) – Reserved for metadata filtering (adapter‑specific).</p>
-</li>
-<li>
-<p><strong>mode</strong> (<em>{"dense","hybrid"}</em>) – Retrieval mode (default <code>"hybrid"</code>).</p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>list[SearchHit]</em> – Ranked hits with <code>chunk_id</code>, <code>doc_id</code>, <code>corpus_id</code>, <code>score</code>, <code>text</code>, <code>meta</code>.</p>
-<hr />
-<h2 id="ragretrieve">rag.retrieve<a class="headerlink" href="#ragretrieve" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>retrieve(corpus_id: str, query: str, k: int = 6, rerank: bool = True) -&gt; list[SearchHit]
-</code></pre></div>
-Convenience wrapper over <code>search(..., mode="hybrid")</code> for top‑k retrieval.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
-</li>
-<li>
-<p><strong>query</strong> (<em>str</em>) – Natural language query.</p>
-</li>
-<li>
-<p><strong>k</strong> (<em>int</em>) – Number of results (default 6).</p>
-</li>
-<li>
-<p><strong>rerank</strong> (<em>bool</em>) – Currently ignored (hybrid already fuses scores).</p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>list[SearchHit]</em> – Ranked hits.</p>
-<hr />
-<h2 id="raganswer">rag.answer<a class="headerlink" href="#raganswer" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>answer(corpus_id: str, question: str, *, llm: GenericLLMClient | None = None, style: str = &quot;concise&quot;, with_citations: bool = True, k: int = 6) -&gt; dict
-</code></pre></div>
-Answer a question using retrieved context and an LLM.</p>
-<p><strong>Parameters</strong></p>
-<ul>
-<li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
-</li>
-<li>
-<p><strong>question</strong> (<em>str</em>) – End‑user question.</p>
-</li>
-<li>
-<p><strong>llm</strong> (<em>GenericLLMClient, optional</em>) – LLM to use; defaults to the facade’s configured client.</p>
-</li>
-<li>
-<p><strong>style</strong> (<em>{"concise","detailed"}</em>) – Answer verbosity/style.</p>
-</li>
-<li>
-<p><strong>with_citations</strong> (<em>bool</em>) – Whether to include resolved citations.</p>
-</li>
-<li>
-<p><strong>k</strong> (<em>int</em>) – Retrieval depth (default 6).</p>
-</li>
-</ul>
-<p><strong>Returns</strong><br />
-<em>dict</em> – <code>{ "answer": str, "citations": [...], "usage": {...}, "resolved_citations": [...]? }</code>.</p>
-<p><strong>Behavior</strong>
-- Builds a context block from top‑k chunks (numbered <code>[1]</code>, <code>[2]</code>, ...).</p>
-<ul>
-<li>Prompts the LLM to answer <strong>only</strong> from the provided context and cite chunk numbers.</li>
+<li><code>chunk_id: str</code></li>
+<li><code>doc_id: str</code></li>
+<li><code>corpus_id: str</code></li>
+<li><code>score: float</code></li>
+<li><code>text: str</code></li>
+<li><code>meta: dict[str, Any]</code></li>
 </ul>
 <hr />
-<h2 id="ragresolve_citations">rag.resolve_citations<a class="headerlink" href="#ragresolve_citations" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>resolve_citations(corpus_id: str, citations: list[dict]) -&gt; list[dict]
-</code></pre></div>
-Resolve citation metadata for display/download.</p>
-<p><strong>Parameters</strong></p>
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<details>
+<summary>set_llm_client(client) -&gt; None</summary>
+<p><strong>Description:</strong> Set/replace the LLM client for QA.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>client: LLMClientProtocol</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>None</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Requires <code>client.model</code> and <code>client.embed_model</code> to be set; asserts on missing values.</li>
+</ul>
+</details>
+<details>
+<summary>set_index_backend(index_backend) -&gt; None</summary>
+<p><strong>Description:</strong> Swap the underlying vector index backend.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>index_backend: Any</code> – Must implement <code>add(corpus_id, ids, vectors, metas)</code> and <code>search(corpus_id, qvec, k)</code>; optionally <code>remove</code>/<code>delete</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>None</code></li>
+</ul>
+</details>
+<details>
+<summary>add_corpus(corpus_id, meta=None) -&gt; None</summary>
+<p><strong>Description:</strong> Create/ensure a corpus directory with <code>corpus.json</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>meta: dict[str, Any] | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>None</code></li>
+</ul>
+</details>
+<details>
+<summary>upsert_docs(corpus_id, docs) -&gt; dict</summary>
+<p><strong>Description:</strong> Ingest documents, chunk, embed, and add vectors to the index.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li>
+<p><code>docs: list[dict]</code> – Each doc is one of:</p>
+</li>
+<li>
+<p>File doc: <code>{ "path": "/path/to/file.ext", "labels": {...} }</code></p>
+</li>
+<li>Inline text: <code>{ "text": "...", "title": "Doc Title", "labels": {...} }</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – <code>{ "added": int, "chunks": int, "index": str }</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Files are persisted via the artifact store; PDFs/Markdown/Plain‑text are parsed to text.</li>
+<li>Requires an embedding client; raises if not configured.</li>
+</ul>
+</details>
+<details>
+<summary>search(corpus_id, query, k=8, filters=None, mode="hybrid") -&gt; list[SearchHit]</summary>
+<p><strong>Description:</strong> Dense retrieval (embeds query, searches index) with optional hybrid lexical fusion.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>query: str</code></li>
+<li><code>k: int</code></li>
+<li><code>filters: dict | None</code> – Reserved; not applied in current implementation.</li>
+<li><code>mode: str</code> – <code>"dense"</code> or <code>"hybrid"</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[SearchHit]</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>When <code>mode="dense"</code>, returns top‑<code>k</code> dense hits.</li>
+<li>When <code>mode="hybrid"</code>, fuses dense hits with lexical scoring for re‑ranking.</li>
+</ul>
+</details>
+<details>
+<summary>retrieve(corpus_id, query, k=6, rerank=True) -&gt; list[SearchHit]</summary>
+<p><strong>Description:</strong> Convenience alias to <code>search(..., mode="hybrid")</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>query: str</code></li>
+<li><code>k: int</code></li>
+<li><code>rerank: bool</code> – Currently ignored (hybrid fusion already sorts).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[SearchHit]</code></li>
+</ul>
+</details>
+<details>
+<summary>answer(corpus_id, question, llm=None, style="concise", with_citations=True, k=6) -&gt; dict</summary>
+<p><strong>Description:</strong> Compose a system+user prompt from retrieved chunks and answer with the LLM.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>question: str</code></li>
+<li><code>llm: LLMClientProtocol | None</code> – If <code>None</code>, uses the facade’s LLM.</li>
+<li><code>style: str</code> – <code>"concise"</code> or <code>"detailed"</code>.</li>
+<li><code>with_citations: bool</code></li>
+<li><code>k: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
 <ul>
 <li>
-<p><strong>corpus_id</strong> (<em>str</em>) – Target corpus.</p>
+<p><code>dict</code> with keys:</p>
 </li>
 <li>
-<p><strong>citations</strong> (<em>list[dict]</em>) – Items like <code>{ "chunk_id", "doc_id", "rank" }</code>.</p>
+<p><code>answer: str</code></p>
 </li>
+<li><code>citations: list[dict]</code> – <code>{chunk_id, doc_id, rank}</code></li>
+<li><code>usage: dict</code> – model usage as provided by the LLM</li>
+<li><code>resolved_citations (optional): list[dict]</code> – enriched refs (see below)</li>
 </ul>
-<p><strong>Returns</strong><br />
-<em>list[dict]</em> – Sorted by <code>rank</code>, each <code>{ rank, doc_id, title, uri, chunk_id, snippet }</code>.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>See <strong>LLM &amp; Index Setup</strong> for configuring provider/model.</li>
+</ul>
+</details>
+<details>
+<summary>resolve_citations(corpus_id, citations) -&gt; list[dict]</summary>
+<p><strong>Description:</strong> Map <code>{chunk_id, doc_id, rank}</code> to <code>{rank, doc_id, title, uri, chunk_id, snippet}</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>citations: list[dict]</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[dict]</code> sorted by <code>rank</code>.</li>
+</ul>
+</details>
+<details>
+<summary>list_corpora() -&gt; list[dict]</summary>
+<p><strong>Description:</strong> Enumerate all corpora under <code>corpus_root</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>—</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[dict]</code> – <code>[{corpus_id, meta}, ...]</code></li>
+</ul>
+</details>
+<details>
+<summary>list_docs(corpus_id, limit=200, after=None) -&gt; list[dict]</summary>
+<p><strong>Description:</strong> Stream-like pagination over <code>docs.jsonl</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>limit: int</code></li>
+<li><code>after: str | None</code> – Resume from a specific <code>doc_id</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[dict]</code></li>
+</ul>
+</details>
+<details>
+<summary>delete_docs(corpus_id, doc_ids) -&gt; dict</summary>
+<p><strong>Description:</strong> Remove docs + their chunks; drop vectors from index if supported.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>doc_ids: list[str]</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – <code>{removed_docs: int, removed_chunks: int}</code></li>
+</ul>
+</details>
+<details>
+<summary>reembed(corpus_id, doc_ids=None, batch=64) -&gt; dict</summary>
+<p><strong>Description:</strong> Re‑embed selected (or all) chunks and re‑add them to the index.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>doc_ids: list[str] | None</code></li>
+<li><code>batch: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – <code>{reembedded: int, model: str | None}</code></li>
+</ul>
+</details>
+<details>
+<summary>stats(corpus_id) -&gt; dict</summary>
+<p><strong>Description:</strong> Return corpus stats and stored metadata.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – <code>{corpus_id, docs, chunks, meta}</code></li>
+</ul>
+</details>
 <hr />
-<h2 id="practical-examples">Practical examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2>
-<p><strong>1) Create a corpus and ingest docs</strong>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1) Create/ensure a corpus</span>
+<span class="n">cid</span> <span class="o">=</span> <span class="s2">&quot;research-papers&quot;</span>
+<span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">add_corpus</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;team-ml&quot;</span><span class="p">})</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_ingest&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_ingest</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">add_corpus</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
-    <span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">upsert_docs</span><span class="p">(</span>
-        <span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span>
-        <span class="n">docs</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Optics basics: Snell&#39;s law relates angles of incidence and refraction.&quot;</span> <span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;optics&quot;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/papers/holography.md&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;holography&quot;</span><span class="p">}},</span>
-        <span class="p">],</span>
-    <span class="p">)</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RAG upsert: </span><span class="si">{</span><span class="n">stats</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>2) Search and preview hits</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_search_preview&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_search_preview</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hits</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">] score=</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">score</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  doc=</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">doc_id</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">h</span><span class="o">.</span><span class="n">text</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>3) Answer with citations</strong>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_answer_with_citations&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_answer_with_citations</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;notes&quot;</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;concise&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-    <span class="n">ans</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;answer&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="n">cites</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;resolved_citations&quot;</span><span class="p">,</span> <span class="p">[])</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cites</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
-        <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[#</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-<hr />
-<h2 id="notes-behaviors">Notes &amp; behaviors<a class="headerlink" href="#notes-behaviors" title="Permanent link">&para;</a></h2>
+<span class="c1"># 2) Ingest two docs (one file, one inline)</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">upsert_docs</span><span class="p">(</span>
+    <span class="n">cid</span><span class="p">,</span>
+    <span class="n">docs</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./notes/attention_is_all_you_need.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;paper&quot;</span><span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;README.md&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;repo-readme&quot;</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># 3) Search and answer</span>
+<span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="s2">&quot;self-attention complexity&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What is the time complexity of self-attention?&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># 4) Inspect/enrich citations</span>
+<span class="n">resolved</span> <span class="o">=</span> <span class="n">rag</span><span class="o">.</span><span class="n">resolve_citations</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">ans</span><span class="p">[</span><span class="s2">&quot;citations&quot;</span><span class="p">])</span>  <span class="c1"># already included if with_citations=True</span>
+
+<span class="c1"># 5) Maintenance</span>
+<span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">reembed</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">doc_ids</span><span class="o">=</span><span class="p">[</span><span class="n">h</span><span class="o">.</span><span class="n">doc_id</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">])</span>
+<span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">delete_docs</span><span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">doc_ids</span><span class="o">=</span><span class="p">[</span><span class="n">hits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">doc_id</span><span class="p">])</span>
+<span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">rag</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">cid</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Notes &amp; Setup:</strong></p>
 <ul>
-<li>
-<p><strong>Chunking &amp; Embedding</strong>: Documents are split via <code>TextSplitter</code> then embedded in batch; the index stores <code>(chunk_id, vector, meta)</code>.</p>
-</li>
-<li>
-<p><strong>Artifacts</strong>: File docs and inline text are persisted to the Artifact Store; returned URIs appear in doc metadata and resolved citations.</p>
-</li>
-<li>
-<p><strong>IDs</strong>: <code>doc_id</code> and <code>chunk_id</code> are stable SHA‑derived IDs; re‑ingesting the same content usually yields the same IDs (subject to meta changes).</p>
-</li>
-<li>
-<p><strong>Filters</strong>: <code>filters</code> is reserved for future adapter support (label‑based narrowing).</p>
-</li>
-<li>
-<p><strong>LLM &amp; Usage</strong>: <code>answer()</code> returns provider usage where available; some providers may omit it.</p>
-</li>
+<li><strong>Embeddings/LLM:</strong> configure providers/models via your LLM service. See <strong><a href="../../llm-setup/llm-setup/">LLM &amp; Index Setup</a></strong>.</li>
+<li><strong>Index:</strong> defaults to SQLite‑based vectors; FAISS is supported if installed.</li>
+<li><strong>Artifacts:</strong> binary sources are stored via the artifact store (CAS) before parsing.</li>
 </ul>
 
 
@@ -1378,6 +2307,44 @@ Resolve citation metadata for display/download.</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../context-llm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: context.llm()">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                context.llm()
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../context-mcp/" class="md-footer__link md-footer__link--next" aria-label="Next: context.mcp()">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                context.mcp()
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

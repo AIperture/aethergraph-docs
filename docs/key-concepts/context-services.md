@@ -172,8 +172,3 @@ See *External Context Services* for API details and examples.
 * [`context.channel()`] — cooperative waits, streaming, progress updates
 * [`context.memory()`] — event log, typed results, summaries, and RAG helpers
 * [`context.artifacts()`] — content-addressable storage and retrieval
-* [`context.llm()`] — chat, completion, and embeddings
-* [`context.rag()`] — corpus creation and QA retrieval
-* [`context.mcp()`] — bridges to external tool servers
-* [`context.kv()`] — transient coordination and state passing
-* [`context.logger()`] — structured

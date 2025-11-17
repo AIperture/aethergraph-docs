@@ -2,7 +2,7 @@
 
 A **channel** is how an agent *communicates* with the outside world — Slack, Telegram, Console, Web, or any other adapter. The `context.channel()` method returns a **ChannelSession**, a lightweight helper that provides a consistent Python API for sending and receiving messages, buttons, files, streams, and progress updates — regardless of which adapter you use.
 
-> **Default behavior:** If no adapters are configured, AetherGraph automatically uses the console (`"console:stdin"`) as the default channel for input/output. To target Slack, Telegram, or Web, see *Channel Setup* section; your agent code remains unchanged in all channels.
+> **Default behavior:** If no adapters are configured, AetherGraph automatically uses the console (`"console:stdin"`) as the default channel for input/output. To target Slack, Telegram, or Web, see [*Channel Setup*](../channel-setup/introduction.md) section; your agent code remains unchanged in all channels.
 
 > **In short:** Switch communication targets freely. The agent logic stays identical.
 
@@ -12,7 +12,7 @@ A **channel** is how an agent *communicates* with the outside world — Slack, T
 
 A **channel** is a routing target for interaction. It allows you to interact with an Agent inside a Python function. 
 
-You can specify a channel key or alias (e.g., `"slack:#research"`) or rely on the system default. See *Channel Setup* for non-console key setup. 
+You can specify a channel key or alias (e.g., `"slack:#research"`) or rely on the system default. See [*Channel Setup*](../channel-setup/introduction.md) for non-console key setup. 
 
 ### Resolution Order
 

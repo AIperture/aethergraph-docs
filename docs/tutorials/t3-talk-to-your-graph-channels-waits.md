@@ -33,6 +33,8 @@ async def greet(*, context):
 
 AetherGraph supports two wait mechanisms — **cooperative** and **dual-stage** — both built on the continuation system but with very different lifecycles.
 
+<img src="/assets/images/waits.png" alt="waits" width="600">
+
 ### Cooperative waits — via `context.channel()` methods
 
 * Implemented by `ChannelSession` (`ask_text`, `ask_approval`, `ask_files`, etc.).
