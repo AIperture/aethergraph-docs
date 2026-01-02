@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -2184,10 +2186,11 @@
     <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">&quot;acc&quot;</span><span class="p">:</span> <span class="mf">0.91</span><span class="p">},</span>
 <span class="p">)</span>
 
-<span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent</span><span class="p">(</span><span class="n">kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train_log&quot;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent</span><span class="p">(</span><span class="n">kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train_log&quot;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># recent is an Event</span>
 </code></pre></div>
+<p>You will need to load the data from seriazalized <code>recent.text</code> (<code>channel.memory()</code> <a href="../../reference/context-memory/">docs</a>)</p>
 <p>Need only the decoded payloads?</p>
-<div class="highlight"><pre><span></span><code><span class="n">logs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent_data</span><span class="p">(</span><span class="n">kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train_log&quot;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">logs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent_data</span><span class="p">(</span><span class="n">kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train_log&quot;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># this returns the `data` saved in memory, not Event</span>
 </code></pre></div>
 <blockquote>
 <p>Use <code>record</code> for progress/trace breadcrumbs. Use <code>write_result</code> for small named values you’ll query later.</p>
@@ -2341,7 +2344,7 @@
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">make_rag_corpus</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">mem</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
 
-    <span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+    <span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">()</span>
     <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span>
         <span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
         <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tool_result&quot;</span><span class="p">],</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>

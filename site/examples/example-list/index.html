@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -2186,7 +2188,7 @@
 <ul>
 <li><strong>A.1 Crash &amp; Resume (static graph)</strong> — Design a static graph so a long node can checkpoint and resume indefinitely using the same <code>run_id</code>.
   <em>Path:</em> <code>pattern_examples/1_state_resumption/1_resume_external_waits.py</code>
-  <em>Run:</em> <code>python -m examples.resumption.crash_and_resume</code></li>
+  <em>Run:</em> <code>python 1_resume_external_waits.py run_id</code> </li>
 <li><strong>A.2 Long Job Monitor</strong> — Submit to <code>job_manager</code>, poll with backoff, surface failures via channel, let the user Retry/Abort.
   <em>Path:</em> <code>pattern_examples/1_state_resumption/2_long_job_monitor.py</code></li>
 </ul>

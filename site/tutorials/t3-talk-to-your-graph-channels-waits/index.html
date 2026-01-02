@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -2017,6 +2019,7 @@
 <hr />
 <h2 id="2-the-two-wait-models">2. The Two Wait Models<a class="headerlink" href="#2-the-two-wait-models" title="Permanent link">&para;</a></h2>
 <p>AetherGraph supports two wait mechanisms — <strong>cooperative</strong> and <strong>dual-stage</strong> — both built on the continuation system but with very different lifecycles.</p>
+<p><img src="/assets/images/waits.png" alt="waits" width="600"></p>
 <h3 id="cooperative-waits-via-contextchannel-methods">Cooperative waits — via <code>context.channel()</code> methods<a class="headerlink" href="#cooperative-waits-via-contextchannel-methods" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Implemented by <code>ChannelSession</code> (<code>ask_text</code>, <code>ask_approval</code>, <code>ask_files</code>, etc.).</li>

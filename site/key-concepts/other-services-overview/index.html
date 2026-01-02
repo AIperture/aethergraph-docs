@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -2012,7 +2014,7 @@
 <p><strong>Backends:</strong> OpenAI, Anthropic, local, etc.</p>
 <hr />
 <h2 id="4-rag-longterm-semantic-recall-optional">4. RAG — Long‑Term Semantic Recall <em>(optional)</em><a class="headerlink" href="#4-rag-longterm-semantic-recall-optional" title="Permanent link">&para;</a></h2>
-<p>Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.</p>
+<p>Aethergraph provides basic RAG for fast prototype. Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;rag_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">rag_demo</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">corpus_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;demo-corpus-inline&quot;</span><span class="p">,</span>

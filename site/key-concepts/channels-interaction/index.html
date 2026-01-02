@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -1983,13 +1985,13 @@
 <h1 id="channels-and-interaction">Channels and Interaction<a class="headerlink" href="#channels-and-interaction" title="Permanent link">&para;</a></h1>
 <p>A <strong>channel</strong> is how an agent <em>communicates</em> with the outside world — Slack, Telegram, Console, Web, or any other adapter. The <code>context.channel()</code> method returns a <strong>ChannelSession</strong>, a lightweight helper that provides a consistent Python API for sending and receiving messages, buttons, files, streams, and progress updates — regardless of which adapter you use.</p>
 <blockquote>
-<p><strong>Default behavior:</strong> If no adapters are configured, AetherGraph automatically uses the console (<code>"console:stdin"</code>) as the default channel for input/output. To target Slack, Telegram, or Web, see <em>Channel Setup</em> section; your agent code remains unchanged in all channels.</p>
+<p><strong>Default behavior:</strong> If no adapters are configured, AetherGraph automatically uses the console (<code>"console:stdin"</code>) as the default channel for input/output. To target Slack, Telegram, or Web, see <a href="../../channel-setup/introduction/"><em>Channel Setup</em></a> section; your agent code remains unchanged in all channels.</p>
 <p><strong>In short:</strong> Switch communication targets freely. The agent logic stays identical.</p>
 </blockquote>
 <hr />
 <h2 id="1-what-is-a-channel">1. What Is a Channel?<a class="headerlink" href="#1-what-is-a-channel" title="Permanent link">&para;</a></h2>
 <p>A <strong>channel</strong> is a routing target for interaction. It allows you to interact with an Agent inside a Python function. </p>
-<p>You can specify a channel key or alias (e.g., <code>"slack:#research"</code>) or rely on the system default. See <em>Channel Setup</em> for non-console key setup. </p>
+<p>You can specify a channel key or alias (e.g., <code>"slack:#research"</code>) or rely on the system default. See <a href="../../channel-setup/introduction/"><em>Channel Setup</em></a> for non-console key setup. </p>
 <h3 id="resolution-order">Resolution Order<a class="headerlink" href="#resolution-order" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Per-call override:</strong> <code>await context.channel().send_text("hi", channel="slack:#alerts")</code></li>

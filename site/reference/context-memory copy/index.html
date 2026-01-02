@@ -1,0 +1,2293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Python-first agentic framework for R&D workflows — graph_fn, Context services, Tools, Graphify.">
+      
+      
+        <meta name="author" content="AIperture">
+      
+      
+        <link rel="canonical" href="https://your-domain.com/reference/context-memory%20copy/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>context.memory() – MemoryFacade API Reference - AetherGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contextmemory-memoryfacade-api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AetherGraph" class="md-header__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AetherGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              context.memory() – MemoryFacade API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-light" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="aether-dark" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AetherGraph" class="md-nav__button md-logo" aria-label="AetherGraph" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    AetherGraph
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIperture/aethergraph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIperture/aethergraph
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Key Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Key Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/agent-via-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent via Graph Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/context-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Context Services Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/channels-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channels and Interaction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artifacts and Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/other-services-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Other Services Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/extending-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extending Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/static-graph-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Graph Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/server-start-sidecar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sidecar Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../key-concepts/concurrency-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Concurrency and Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t1-build-your-first-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Building Your First Graph Function Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t2-static-graph-with-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Static Graph with Graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t3-talk-to-your-graph-channels-waits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Talk to Your Graph - Channels & Wait Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t4-store-recall-artifacts-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Store and Recall - Artifacts & Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t5-add-intelligence-llm-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Add Intelligence - LLM & RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t6-use-external-tools-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Use External Tools - MCP Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/t7-extend-runtime-custom-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Plug In Your World - Custom Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Graph API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Graph API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graph-fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graph_fn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-graphify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    decorator @graphify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-task-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TaskGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runner API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Runner API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runner-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    run & run_async
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Context API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Context API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.channel()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-artifacts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.artifacts()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.memory()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.logger()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-kv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.kv()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.llm()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.rag()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context extension
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-adhoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context outside graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runtime API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    runtime services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Built-in @tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Built-in @tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool-channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    channel tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm-setup/llm-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Channel Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Channel Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Channels Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/console-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Console Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/slack-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slack Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/telegram-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telegram Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/webhook-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webhook Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../channel-setup/file-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="contextmemory-memoryfacade-api-reference"><code>context.memory()</code> – MemoryFacade API Reference<a class="headerlink" href="#contextmemory-memoryfacade-api-reference" title="Permanent link">&para;</a></h1>
+<p><code>MemoryFacade</code> coordinates <strong>HotLog</strong> (fast recent events), <strong>Persistence</strong> (durable JSONL event log + JSON blobs), and <strong>Indices</strong> (derived KV views), with optional <strong>Artifacts</strong> and <strong>RAG</strong> helpers. All public methods are async.</p>
+<hr />
+<h2 id="concepts-defaults">Concepts &amp; Defaults<a class="headerlink" href="#concepts-defaults" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Three core services</strong></p>
+</li>
+<li>
+<p><strong>HotLog</strong>: append/recent for fast, transient access (TTL, ring buffer).</p>
+</li>
+<li><strong>Persistence</strong>: durable append/replay (e.g., FS JSONL, S3, DB).</li>
+<li><strong>Indices</strong>: fast lookups (e.g., last by name/topic, latest refs by kind), updated by <code>write_result()</code>.</li>
+<li><strong>Scope binding</strong>: Instance carries <code>{run_id, graph_id, node_id, agent_id}</code> and stamps them on events.</li>
+<li><strong>Signal heuristic</strong>: If not provided, <code>record_raw()</code> estimates a <code>signal</code> (0.0–1.0) from text length, metrics, and severity.</li>
+<li><strong>RAG integration</strong>: Optional <code>RAGFacade</code> for corpora, upserts, search, and QA; gated by configuration.</li>
+</ul>
+<h3 id="event-schema-contract-excerpt">Event Schema (contract excerpt)<a class="headerlink" href="#event-schema-contract-excerpt" title="Permanent link">&para;</a></h3>
+<p>Essential <code>Event</code> fields used by this facade (not exhaustive):</p>
+<div class="highlight"><pre><span></span><code>Event(
+  event_id: str, ts: str, kind: str, stage: str | None, severity: int,
+  text: str | None, metrics: dict[str, Any] | None, signal: float | None,
+  tool: str | None, tags: list[str], entities: list[str],
+  inputs: list[dict] | None, outputs: list[dict] | None,
+  run_id: str, graph_id: str | None, node_id: str | None, agent_id: str | None,
+)
+</code></pre></div>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Returns</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>record_raw(*, base, text=None, metrics=None, sources=None)</code></td>
+<td>Append normalized event to HotLog + Persistence</td>
+<td><code>Event</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None)</code></td>
+<td>Convenience wrapper that stringifies <code>data</code></td>
+<td><code>Event</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3)</code></td>
+<td>Record a typed tool/agent result and update indices</td>
+<td><code>Event</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>recent(*, kinds=None, limit=50)</code></td>
+<td>Recent events from HotLog</td>
+<td><code>list[Event]</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>recent_data(*, kinds, limit=50)</code></td>
+<td>Recent events → decoded JSON/text list</td>
+<td><code>list[Any]</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_upsert(*, corpus_id, docs, topic=None)</code></td>
+<td>Upsert docs into RAG</td>
+<td><code>dict</code> stats</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None)</code></td>
+<td>Get/create corpus id</td>
+<td><code>str</code> corpus_id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_status(*, corpus_id)</code></td>
+<td>Corpus stats</td>
+<td><code>dict</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_snapshot(*, corpus_id, title, labels=None)</code></td>
+<td>Export corpus as artifact bundle and log result</td>
+<td><code>dict</code> bundle</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_promote_events(*, corpus_id, events=None, where=None, policy=None)</code></td>
+<td>Convert events → docs → upsert</td>
+<td><code>dict</code> stats</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid")</code></td>
+<td>Hybrid/dense search</td>
+<td><code>list[dict]</code> hits</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6)</code></td>
+<td>Answer with citations + log</td>
+<td><code>dict</code> answer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_by_name(name)</code></td>
+<td>Latest output value by name (fast)</td>
+<td><code>dict             | Any   | None</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_outputs_by_topic(topic)</code></td>
+<td>Latest outputs map for a topic</td>
+<td><code>dict[str, Any]   | None</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
+<details>
+<summary>record_raw(*, base, text=None, metrics=None, sources=None) -&gt; Event</summary>
+<p><strong>Description:</strong> Append a normalized <code>Event</code> to <strong>HotLog</strong> (fast) and <strong>Persistence</strong> (durable). Stamps missing scope fields and computes a lightweight <code>signal</code> if absent.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>base: dict[str, Any]</code> – Must include classification fields like <code>kind</code>, <code>stage</code>, <code>severity</code>, <code>tool</code> (optional), <code>tags</code>, <code>entities</code>, <code>inputs</code>, <code>outputs</code>. Missing scope fields are added.</li>
+<li><code>text: str | None</code> – Optional human-readable message.</li>
+<li><code>metrics: dict[str, Any] | None</code> – Numeric map (latency, token counts, costs, etc.).</li>
+<li><code>sources: list[str] | None</code> – Upstream event_ids this event derives from.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>Event</code></li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Does <strong>not</strong> update <code>indices</code> automatically. Use <code>write_result()</code> for index updates.</li>
+</ul>
+</details>
+<details>
+<summary>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None) -&gt; Event</summary>
+<p><strong>Description:</strong> Convenience wrapper around <code>record_raw()</code>; stringifies <code>data</code> to <code>text</code> (JSON if possible).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>kind: str</code></li>
+<li><code>data: Any</code> – Will be stringified; if non-serializable, a warning is logged (when logger is set).</li>
+<li><code>tags: list[str] | None</code></li>
+<li><code>entities: list[str] | None</code></li>
+<li><code>severity: int</code></li>
+<li><code>stage: str | None</code></li>
+<li><code>inputs_ref: list[dict] | None</code></li>
+<li><code>outputs_ref: list[dict] | None</code></li>
+<li><code>metrics: dict[str, Any] | None</code></li>
+<li><code>sources: list[str] | None</code></li>
+<li><code>signal: float | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>Event</code></li>
+</ul>
+</details>
+<details>
+<summary>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3) -&gt; Event</summary>
+<p><strong>Description:</strong> Record a typed <strong>tool/agent result</strong> (<code>kind="tool_result"</code>) and update <strong>Indices</strong> (latest-by-name, latest refs by kind, last outputs-by-topic).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>topic: str</code> – Tool/agent/flow identifier (used in indices).</li>
+<li><code>inputs: list[dict] | None</code> – List of typed values (<code>Value</code>-like dicts).</li>
+<li><code>outputs: list[dict] | None</code> – <strong>Primary source</strong> for index updates.</li>
+<li><code>tags: list[str] | None</code></li>
+<li><code>metrics: dict[str, float] | None</code></li>
+<li><code>message: str | None</code></li>
+<li><code>severity: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>Event</code></li>
+</ul>
+</details>
+<details>
+<summary>recent(*, kinds=None, limit=50) -&gt; list[Event]</summary>
+<p><strong>Description:</strong> Get recent events from <strong>HotLog</strong> (most recent last).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>kinds: list[str] | None</code></li>
+<li><code>limit: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[Event]</code></li>
+</ul>
+</details>
+<details>
+<summary>recent_data(*, kinds, limit=50) -&gt; list[Any]</summary>
+<p><strong>Description:</strong> Convenience wrapper returning decoded <code>data</code> payloads (prefers JSON decode; falls back to raw text).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>kinds: list[str]</code></li>
+<li><code>limit: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[Any]</code></li>
+</ul>
+</details>
+<hr />
+<details>
+<summary>rag_upsert(*, corpus_id, docs, topic=None) -&gt; dict</summary>
+<p><strong>Description:</strong> Upsert documents into a <strong>RAG</strong> corpus via <code>RAGFacade</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>docs: Sequence[dict[str, Any]]</code> – Each doc should include <code>text</code> and optional <code>title</code>, <code>labels</code>.</li>
+<li><code>topic: str | None</code> – Reserved for future logging (not used in current function body).</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – Stats from index (e.g., <code>added</code>, <code>chunks</code>).</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code> configured; otherwise raises <code>RuntimeError</code>.</p>
+</details>
+<details>
+<summary>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None) -&gt; str</summary>
+<p><strong>Description:</strong> Return a corpus id, optionally creating it. If <code>corpus_id</code> is omitted, a stable id is derived from <code>key</code> (or <code>run_id</code>).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str | None</code></li>
+<li><code>key: str | None</code> – If not provided, <code>run_id</code> is used.</li>
+<li><code>create_if_missing: bool</code></li>
+<li><code>labels: dict | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>str</code> – Corpus id.</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code> configured.</p>
+</details>
+<details>
+<summary>rag_status(*, corpus_id) -&gt; dict</summary>
+<p><strong>Description:</strong> Lightweight corpus stats.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code></li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
+</details>
+<details>
+<summary>rag_snapshot(*, corpus_id, title, labels=None) -&gt; dict</summary>
+<p><strong>Description:</strong> Export corpus to an <strong>artifact bundle</strong> and log a <code>tool_result</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>title: str</code></li>
+<li><code>labels: dict | None</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – Bundle descriptor <code>{ uri, ... }</code>.</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code>. Uses <code>write_result()</code> to record bundle URI.</p>
+</details>
+<details>
+<summary>rag_promote_events(*, corpus_id, events=None, where=None, policy=None) -&gt; dict</summary>
+<p><strong>Description:</strong> Select events (by <code>where</code> or <code>recent</code>) → convert to docs → upsert into RAG.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>events: list[Event] | None</code></li>
+<li><code>where: dict | None</code> – e.g., <code>{ "kinds": ["tool_result"], "min_signal": 0.25, "limit": 200 }</code>.</li>
+<li><code>policy: dict | None</code> – e.g., <code>{ "min_signal": float }</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – Upsert stats (e.g., <code>added</code>, <code>chunks</code>).</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code>. Also logs a <code>tool_result</code> with counts.</p>
+</details>
+<details>
+<summary>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid") -&gt; list[dict]</summary>
+<p><strong>Description:</strong> Search a RAG corpus and return serializable hits.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>query: str</code></li>
+<li><code>k: int</code></li>
+<li><code>filters: dict | None</code></li>
+<li><code>mode: Literal["hybrid", "dense"]</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>list[dict]</code> – Each hit includes <code>chunk_id</code>, <code>doc_id</code>, <code>corpus_id</code>, <code>score</code>, <code>text</code>, <code>meta</code>.</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
+</details>
+<details>
+<summary>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6) -&gt; dict</summary>
+<p><strong>Description:</strong> Answer with citations using RAG + optional LLM; logs the answer as a <code>tool_result</code> (with usage metrics when available).</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>corpus_id: str</code></li>
+<li><code>question: str</code></li>
+<li><code>style: Literal["concise", "detailed"]</code></li>
+<li><code>with_citations: bool</code></li>
+<li><code>k: int</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict</code> – Includes <code>answer</code>, <code>citations</code>/<code>resolved_citations</code>, and <code>usage</code> (if provided by LLM).</li>
+</ul>
+<p><strong>Notes:</strong> Requires <code>self.rag</code>. Outputs are flattened into <code>write_result()</code> for indexing.</p>
+</details>
+<hr />
+<details>
+<summary>last_by_name(name) -&gt; dict | Any | None</summary>
+<p><strong>Description:</strong> Return the <strong>latest output value</strong> by <code>name</code> from <strong>Indices</strong> (fast path). Useful for grabbing a single named value most recently produced by any tool that wrote it via <code>write_result()</code>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>name: str</code></li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict | Any | None</code> – Store-dependent value or <code>None</code> if not found.</li>
+</ul>
+</details>
+<details>
+<summary>last_outputs_by_topic(topic) -&gt; dict[str, Any] | None</summary>
+<p><strong>Description:</strong> Return the <strong>latest outputs map</strong> for a given <code>topic</code> (tool/flow/agent) from <strong>Indices</strong>.</p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>topic: str</code> – The identifier you passed as <code>topic</code> to <code>write_result()</code>.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><code>dict[str, Any] | None</code> – Name→value map of last outputs, or <code>None</code> if not found.</li>
+</ul>
+</details>
+<h2 id="behavioral-notes">Behavioral Notes<a class="headerlink" href="#behavioral-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Indices updates:</strong> Only <code>write_result()</code> updates indices by default; this keeps ad-hoc <code>record_*</code> logs cheap.</li>
+<li><strong>Event ordering:</strong> HotLog returns most recent last; consumers may reverse if needed.</li>
+<li><strong>RAG gating:</strong> All <code>rag_*</code> methods raise <code>RuntimeError</code> if <code>self.rag</code> is not configured.</li>
+<li><strong>Unused parameters:</strong> Current <code>record()</code> will log a warning on unserializable <code>data</code> if a logger is provided; otherwise it silently stringifies.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.instant", "toc.integrate", "search.suggest", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></script>
+      
+    
+  </body>
+</html>

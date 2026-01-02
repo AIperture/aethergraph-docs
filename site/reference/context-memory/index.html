@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -1276,19 +1278,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concepts-defaults" class="md-nav__link">
+  <a href="#1-core-recording" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts &amp; Defaults
+      1. Core Recording
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Concepts &amp; Defaults">
+    <nav class="md-nav" aria-label="1. Core Recording">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#event-schema-contract-excerpt" class="md-nav__link">
+  <a href="#aethergraph.services.memory.facade.core.MemoryFacade" class="md-nav__link">
     <span class="md-ellipsis">
-      Event Schema (contract excerpt)
+      MemoryFacade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.core.MemoryFacade-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.core.MemoryFacade.record" class="md-nav__link">
+    <span class="md-ellipsis">
+      record
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.core.MemoryFacade.record_raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_raw
     </span>
   </a>
   
@@ -1298,31 +1328,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
-    <span class="md-ellipsis">
-      Methods
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#behavioral-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Behavioral Notes
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1963,374 +1971,133 @@
 
 
 <h1 id="contextmemory-memoryfacade-api-reference"><code>context.memory()</code> – MemoryFacade API Reference<a class="headerlink" href="#contextmemory-memoryfacade-api-reference" title="Permanent link">&para;</a></h1>
-<p><code>MemoryFacade</code> coordinates <strong>HotLog</strong> (fast recent events), <strong>Persistence</strong> (durable JSONL event log + JSON blobs), and <strong>Indices</strong> (derived KV views), with optional <strong>Artifacts</strong> and <strong>RAG</strong> helpers. All public methods are async.</p>
+<p><code>MemoryFacade</code> coordinates <strong>HotLog</strong> (fast recent events), <strong>Persistence</strong> (durable JSONL), and <strong>Indices</strong> (derived KV views).</p>
+<p>It is accessed via <code>node_context.memory</code> but aggregates functionality from several internal mixins.</p>
 <hr />
-<h2 id="concepts-defaults">Concepts &amp; Defaults<a class="headerlink" href="#concepts-defaults" title="Permanent link">&para;</a></h2>
+<h2 id="1-core-recording">1. Core Recording<a class="headerlink" href="#1-core-recording" title="Permanent link">&para;</a></h2>
+<p>Basic event logging and raw data access.</p>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="aethergraph.services.memory.facade.core.MemoryFacade"></a>
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="aethergraph.services.memory.facade.chat.ChatMixin">ChatMixin</span></code>, <code><span title="aethergraph.services.memory.facade.results.ResultMixin">ResultMixin</span></code>, <code><span title="aethergraph.services.memory.facade.retrieval.RetrievalMixin">RetrievalMixin</span></code>, <code><span title="aethergraph.services.memory.facade.distillation.DistillationMixin">DistillationMixin</span></code>, <code><span title="aethergraph.services.memory.facade.rag.RAGMixin">RAGMixin</span></code></p>
+
+
+
+        <p>MemoryFacade coordinates core memory services for a specific run/session.
+Functionality is split across mixins in the <code>facade/</code> directory.</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h3 id="aethergraph.services.memory.facade.core.MemoryFacade-functions">Functions<a href="#aethergraph.services.memory.facade.core.MemoryFacade-functions" class="headerlink" title="Permanent link">&para;</a></h3>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="aethergraph.services.memory.facade.core.MemoryFacade.record" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">record</span><span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">severity</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inputs_ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outputs_ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">signal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+<a href="#aethergraph.services.memory.facade.core.MemoryFacade.record" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Convenience wrapper around record_raw() with common fields.</p>
 <ul>
-<li>
-<p><strong>Three core services</strong></p>
-</li>
-<li>
-<p><strong>HotLog</strong>: append/recent for fast, transient access (TTL, ring buffer).</p>
-</li>
-<li><strong>Persistence</strong>: durable append/replay (e.g., FS JSONL, S3, DB).</li>
-<li><strong>Indices</strong>: fast lookups (e.g., last by name/topic, latest refs by kind), updated by <code>write_result()</code>.</li>
-<li><strong>Scope binding</strong>: Instance carries <code>{run_id, graph_id, node_id, agent_id}</code> and stamps them on events.</li>
-<li><strong>Signal heuristic</strong>: If not provided, <code>record_raw()</code> estimates a <code>signal</code> (0.0–1.0) from text length, metrics, and severity.</li>
-<li><strong>RAG integration</strong>: Optional <code>RAGFacade</code> for corpora, upserts, search, and QA; gated by configuration.</li>
+<li>kind     : logical kind (e.g. "user_msg", "tool_call", "chat_turn")</li>
+<li>data     : JSON-serializable content, or string</li>
+<li>tags     : optional list of labels</li>
+<li>severity : 1=low, 2=medium, 3=high</li>
+<li>stage    : optional stage (user/assistant/system/etc.)</li>
+<li>inputs_ref / outputs_ref : optional Value[] references</li>
+<li>metrics  : numeric map (latency, tokens, etc.)</li>
+<li>signal   : optional override for signal strength</li>
+<li>text     : optional preview text override (if None, derived from data)</li>
 </ul>
-<h3 id="event-schema-contract-excerpt">Event Schema (contract excerpt)<a class="headerlink" href="#event-schema-contract-excerpt" title="Permanent link">&para;</a></h3>
-<p>Essential <code>Event</code> fields used by this facade (not exhaustive):</p>
-<div class="highlight"><pre><span></span><code>Event(
-  event_id: str, ts: str, kind: str, stage: str | None, severity: int,
-  text: str | None, metrics: dict[str, Any] | None, signal: float | None,
-  tool: str | None, tags: list[str], entities: list[str],
-  inputs: list[dict] | None, outputs: list[dict] | None,
-  run_id: str, graph_id: str | None, node_id: str | None, agent_id: str | None,
-)
-</code></pre></div>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Returns</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>record_raw(*, base, text=None, metrics=None, sources=None)</code></td>
-<td>Append normalized event to HotLog + Persistence</td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None)</code></td>
-<td>Convenience wrapper that stringifies <code>data</code></td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3)</code></td>
-<td>Record a typed tool/agent result and update indices</td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>recent(*, kinds=None, limit=50)</code></td>
-<td>Recent events from HotLog</td>
-<td><code>list[Event]</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>recent_data(*, kinds, limit=50)</code></td>
-<td>Recent events → decoded JSON/text list</td>
-<td><code>list[Any]</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_upsert(*, corpus_id, docs, topic=None)</code></td>
-<td>Upsert docs into RAG</td>
-<td><code>dict</code> stats</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None)</code></td>
-<td>Get/create corpus id</td>
-<td><code>str</code> corpus_id</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_status(*, corpus_id)</code></td>
-<td>Corpus stats</td>
-<td><code>dict</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_snapshot(*, corpus_id, title, labels=None)</code></td>
-<td>Export corpus as artifact bundle and log result</td>
-<td><code>dict</code> bundle</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_promote_events(*, corpus_id, events=None, where=None, policy=None)</code></td>
-<td>Convert events → docs → upsert</td>
-<td><code>dict</code> stats</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid")</code></td>
-<td>Hybrid/dense search</td>
-<td><code>list[dict]</code> hits</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6)</code></td>
-<td>Answer with citations + log</td>
-<td><code>dict</code> answer</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>last_by_name(name)</code></td>
-<td>Latest output value by name (fast)</td>
-<td><code>dict             | Any   | None</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>last_outputs_by_topic(topic)</code></td>
-<td>Latest outputs map for a topic</td>
-<td><code>dict[str, Any]   | None</code></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<details>
-<summary>record_raw(*, base, text=None, metrics=None, sources=None) -&gt; Event</summary>
-<p><strong>Description:</strong> Append a normalized <code>Event</code> to <strong>HotLog</strong> (fast) and <strong>Persistence</strong> (durable). Stamps missing scope fields and computes a lightweight <code>signal</code> if absent.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>base: dict[str, Any]</code> – Must include classification fields like <code>kind</code>, <code>stage</code>, <code>severity</code>, <code>tool</code> (optional), <code>tags</code>, <code>entities</code>, <code>inputs</code>, <code>outputs</code>. Missing scope fields are added.</li>
-<li><code>text: str | None</code> – Optional human-readable message.</li>
-<li><code>metrics: dict[str, Any] | None</code> – Numeric map (latency, token counts, costs, etc.).</li>
-<li><code>sources: list[str] | None</code> – Upstream event_ids this event derives from.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>Does <strong>not</strong> update <code>indices</code> automatically. Use <code>write_result()</code> for index updates.</li>
-</ul>
-</details>
-<details>
-<summary>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None) -&gt; Event</summary>
-<p><strong>Description:</strong> Convenience wrapper around <code>record_raw()</code>; stringifies <code>data</code> to <code>text</code> (JSON if possible).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kind: str</code></li>
-<li><code>data: Any</code> – Will be stringified; if non-serializable, a warning is logged (when logger is set).</li>
-<li><code>tags: list[str] | None</code></li>
-<li><code>entities: list[str] | None</code></li>
-<li><code>severity: int</code></li>
-<li><code>stage: str | None</code></li>
-<li><code>inputs_ref: list[dict] | None</code></li>
-<li><code>outputs_ref: list[dict] | None</code></li>
-<li><code>metrics: dict[str, Any] | None</code></li>
-<li><code>sources: list[str] | None</code></li>
-<li><code>signal: float | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
-</details>
-<details>
-<summary>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3) -&gt; Event</summary>
-<p><strong>Description:</strong> Record a typed <strong>tool/agent result</strong> (<code>kind="tool_result"</code>) and update <strong>Indices</strong> (latest-by-name, latest refs by kind, last outputs-by-topic).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>topic: str</code> – Tool/agent/flow identifier (used in indices).</li>
-<li><code>inputs: list[dict] | None</code> – List of typed values (<code>Value</code>-like dicts).</li>
-<li><code>outputs: list[dict] | None</code> – <strong>Primary source</strong> for index updates.</li>
-<li><code>tags: list[str] | None</code></li>
-<li><code>metrics: dict[str, float] | None</code></li>
-<li><code>message: str | None</code></li>
-<li><code>severity: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
-</details>
-<details>
-<summary>recent(*, kinds=None, limit=50) -&gt; list[Event]</summary>
-<p><strong>Description:</strong> Get recent events from <strong>HotLog</strong> (most recent last).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kinds: list[str] | None</code></li>
-<li><code>limit: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[Event]</code></li>
-</ul>
-</details>
-<details>
-<summary>recent_data(*, kinds, limit=50) -&gt; list[Any]</summary>
-<p><strong>Description:</strong> Convenience wrapper returning decoded <code>data</code> payloads (prefers JSON decode; falls back to raw text).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kinds: list[str]</code></li>
-<li><code>limit: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[Any]</code></li>
-</ul>
-</details>
-<hr />
-<details>
-<summary>rag_upsert(*, corpus_id, docs, topic=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Upsert documents into a <strong>RAG</strong> corpus via <code>RAGFacade</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>docs: Sequence[dict[str, Any]]</code> – Each doc should include <code>text</code> and optional <code>title</code>, <code>labels</code>.</li>
-<li><code>topic: str | None</code> – Reserved for future logging (not used in current function body).</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Stats from index (e.g., <code>added</code>, <code>chunks</code>).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code> configured; otherwise raises <code>RuntimeError</code>.</p>
-</details>
-<details>
-<summary>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None) -&gt; str</summary>
-<p><strong>Description:</strong> Return a corpus id, optionally creating it. If <code>corpus_id</code> is omitted, a stable id is derived from <code>key</code> (or <code>run_id</code>).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str | None</code></li>
-<li><code>key: str | None</code> – If not provided, <code>run_id</code> is used.</li>
-<li><code>create_if_missing: bool</code></li>
-<li><code>labels: dict | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – Corpus id.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code> configured.</p>
-</details>
-<details>
-<summary>rag_status(*, corpus_id) -&gt; dict</summary>
-<p><strong>Description:</strong> Lightweight corpus stats.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code></li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
-</details>
-<details>
-<summary>rag_snapshot(*, corpus_id, title, labels=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Export corpus to an <strong>artifact bundle</strong> and log a <code>tool_result</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>title: str</code></li>
-<li><code>labels: dict | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Bundle descriptor <code>{ uri, ... }</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Uses <code>write_result()</code> to record bundle URI.</p>
-</details>
-<details>
-<summary>rag_promote_events(*, corpus_id, events=None, where=None, policy=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Select events (by <code>where</code> or <code>recent</code>) → convert to docs → upsert into RAG.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>events: list[Event] | None</code></li>
-<li><code>where: dict | None</code> – e.g., <code>{ "kinds": ["tool_result"], "min_signal": 0.25, "limit": 200 }</code>.</li>
-<li><code>policy: dict | None</code> – e.g., <code>{ "min_signal": float }</code>.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Upsert stats (e.g., <code>added</code>, <code>chunks</code>).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Also logs a <code>tool_result</code> with counts.</p>
-</details>
-<details>
-<summary>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid") -&gt; list[dict]</summary>
-<p><strong>Description:</strong> Search a RAG corpus and return serializable hits.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>query: str</code></li>
-<li><code>k: int</code></li>
-<li><code>filters: dict | None</code></li>
-<li><code>mode: Literal["hybrid", "dense"]</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[dict]</code> – Each hit includes <code>chunk_id</code>, <code>doc_id</code>, <code>corpus_id</code>, <code>score</code>, <code>text</code>, <code>meta</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
-</details>
-<details>
-<summary>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6) -&gt; dict</summary>
-<p><strong>Description:</strong> Answer with citations using RAG + optional LLM; logs the answer as a <code>tool_result</code> (with usage metrics when available).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>question: str</code></li>
-<li><code>style: Literal["concise", "detailed"]</code></li>
-<li><code>with_citations: bool</code></li>
-<li><code>k: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Includes <code>answer</code>, <code>citations</code>/<code>resolved_citations</code>, and <code>usage</code> (if provided by LLM).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Outputs are flattened into <code>write_result()</code> for indexing.</p>
-</details>
-<hr />
-<details>
-<summary>last_by_name(name) -&gt; dict | Any | None</summary>
-<p><strong>Description:</strong> Return the <strong>latest output value</strong> by <code>name</code> from <strong>Indices</strong> (fast path). Useful for grabbing a single named value most recently produced by any tool that wrote it via <code>write_result()</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict | Any | None</code> – Store-dependent value or <code>None</code> if not found.</li>
-</ul>
-</details>
-<details>
-<summary>last_outputs_by_topic(topic) -&gt; dict[str, Any] | None</summary>
-<p><strong>Description:</strong> Return the <strong>latest outputs map</strong> for a given <code>topic</code> (tool/flow/agent) from <strong>Indices</strong>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>topic: str</code> – The identifier you passed as <code>topic</code> to <code>write_result()</code>.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict[str, Any] | None</code> – Name→value map of last outputs, or <code>None</code> if not found.</li>
-</ul>
-</details>
-<h2 id="behavioral-notes">Behavioral Notes<a class="headerlink" href="#behavioral-notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Indices updates:</strong> Only <code>write_result()</code> updates indices by default; this keeps ad-hoc <code>record_*</code> logs cheap.</li>
-<li><strong>Event ordering:</strong> HotLog returns most recent last; consumers may reverse if needed.</li>
-<li><strong>RAG gating:</strong> All <code>rag_*</code> methods raise <code>RuntimeError</code> if <code>self.rag</code> is not configured.</li>
-<li><strong>Unused parameters:</strong> Current <code>record()</code> will log a warning on unserializable <code>data</code> if a logger is provided; otherwise it silently stringifies.</li>
-</ul>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="aethergraph.services.memory.facade.core.MemoryFacade.record_raw" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">record_raw</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+<a href="#aethergraph.services.memory.facade.core.MemoryFacade.record_raw" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div><!-- ## 2. Chat Operations
+Methods for handling conversational history (from `ChatMixin`).
+
+::: aethergraph.services.memory.facade.MemoryFacade
+    options:
+      heading_level: 3
+      show_root_heading: false
+      show_source: false
+      members:
+        - record_chat
+        - recent_chat
+        - chat_history_for_llm
+
+## 3. RAG & Retrieval
+Methods for vector search and document upserts (from `RAGMixin`).
+
+::: aethergraph.services.memory.facade.MemoryFacade
+    options:
+      heading_level: 3
+      show_root_heading: false
+      show_source: false
+      members:
+        - rag_upsert
+        - rag_search
+        - rag_answer
+        - rag_status -->
 
 
 

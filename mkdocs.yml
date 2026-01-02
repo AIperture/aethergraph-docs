@@ -154,19 +154,21 @@ markdown_extensions:
 
 
 plugins:
-  - search
-  # Enable when you add Protocols/interfaces for auto API docs:
-  # - mkdocstrings:
-  #     handlers:
-  #       python:
-  #         options:
-  #           docstring_style: google
-  #           show_source: false
-  #           separate_signature: true
-  #           show_if_no_docstring: true
-
-# Optional: mike (versioned docs) – uncomment if you use mike
-# extra:
-#   version:
-#     provider: mike
-#     default: latest
+- search
+- mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: ["../aethergraph/src"]
+          options:
+            show_root_heading: true
+            show_source: true
+            # This is critical for Mixins:
+            show_if_no_docstring: true 
+            docstring_style: google
+            merge_init_into_class: true
+            show_category_heading: true
+            preload_modules: ["aethergraph"]
+            members_order: source
+            inherited_members: true
+            filters: ["!^_[^_]"] # Exclude privates like _internal
