@@ -6,265 +6,163 @@
 
 ---
 
-## Quick Reference
+## 1. MCP Clients
+Three MCP clients can be established: 
 
-| Method                               | Purpose                               | Returns              |
-| ------------------------------------ | ------------------------------------- | -------------------- |
-| `register(name, client)`             | Add/replace an MCP client             | `None`               |
-| `remove(name)`                       | Unregister a client                   | `None`               |
-| `has(name)`                          | Check if a client exists              | `bool`               |
-| `names()` / `list_clients()`         | List registered client names          | `list[str]`          |
-| `get(name="default")`                | Get a client by name (or error)       | `MCPClient`          |
-| `open(name)` / `close(name)`         | Open/close a single client            | `None`               |
-| `open_all()` / `close_all()`         | Open/close all clients                | `None`               |
-| `call(name, tool, params=None)`      | Invoke a tool on a client             | `dict` (tool result) |
-| `list_tools(name)`                   | Enumerate tools on a client           | `list[MCPTool]`      |
-| `list_resources(name)`               | Enumerate resources                   | `list[MCPResource]`  |
-| `read_resource(name, uri)`           | Fetch a resource by URI               | `dict`               |
-| `set_header(name, key, value)`       | (WS) Set/override a header at runtime | `None`               |
-| `persist_secret(secret_name, value)` | Persist a secret via secrets provider | `None`               |
+??? quote "HttpMCPClient(name, client)"
+    ::: aethergraph.services.mcp.http_client.HttpMCPClient
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+            members: [] 
+
+??? quote "WsMCPClient(name, client)"
+    ::: aethergraph.services.mcp.ws_client.WsMCPClient
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+            members: [] 
+
+??? quote "StdioMCPClient(name, client)"
+    ::: aethergraph.services.mcp.stdio_client.StdioMCPClient
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+            members: []
+---
+## 2. Registration
+??? quote "register_mcp_client(name, client)"
+    ::: aethergraph.core.runtime.runtime_services.register_mcp_client
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "list_mcp_clients(name, client)"
+    ::: aethergraph.core.runtime.runtime_services.list_mcp_clients
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
 ---
+## 3. Service Methods
+
+??? quote "register(name, client)"
+    ::: aethergraph.services.mcp.service.MCPService.register
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "remove(name)"
+    ::: aethergraph.services.mcp.service.MCPService.remove
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "has(name)"
+    ::: aethergraph.services.mcp.service.MCPService.has
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "names()"
+    ::: aethergraph.services.mcp.service.MCPService.names
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "list_clients()"
+    ::: aethergraph.services.mcp.service.MCPService.list_clients
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "get(name='default')"
+    ::: aethergraph.services.mcp.service.MCPService.get
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "open(name)"
+    ::: aethergraph.services.mcp.service.MCPService.open
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "close(name)"
+    ::: aethergraph.services.mcp.service.MCPService.close
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "open_all()"
+    ::: aethergraph.services.mcp.service.MCPService.open_all
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "close_all()"
+    ::: aethergraph.services.mcp.service.MCPService.close_all
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "call(name, tool, params=None)"
+    ::: aethergraph.services.mcp.service.MCPService.call
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "list_tools(name)"
+    ::: aethergraph.services.mcp.service.MCPService.list_tools
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "list_resources(name)"
+    ::: aethergraph.services.mcp.service.MCPService.list_resources
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "read_resource(name, uri)"
+    ::: aethergraph.services.mcp.service.MCPService.read_resource
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "set_header(name, key, value)"
+    ::: aethergraph.services.mcp.service.MCPService.set_header
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
+
+??? quote "persist_secret(secret_name, value)"
+    ::: aethergraph.services.mcp.service.MCPService.persist_secret
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-## Methods
-
-<details markdown="1">
-<summary>register(name, client) -> None</summary>
-
-**Description:** Register or replace an MCP client under `name`.
-
-**Inputs:**
-
-* `name: str`
-* `client: MCPClientProtocol`
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>remove(name) -> None</summary>
-
-**Description:** Unregister a client if present.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>has(name) -> bool</summary>
-
-**Description:** Check whether a client is registered.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `bool`
-
-</details>
-
-<details markdown="1">
-<summary>names() / list_clients() -> list[str]</summary>
-
-**Description:** Return all registered client names.
-
-**Inputs:**
-
-* —
-
-**Returns:**
-
-* `list[str]`
-
-</details>
-
-<details markdown="1">
-<summary>get(name="default") -> MCPClientProtocol</summary>
-
-**Description:** Return a client by name or raise `KeyError` if missing.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `MCPClientProtocol`
-
-</details>
-
-<details markdown="1">
-<summary>open(name) -> None</summary>
-
-**Description:** Ensure the client connection is open.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>close(name) -> None</summary>
-
-**Description:** Close the client connection; logs a warning on failure.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>open_all() -> None</summary>
-
-**Description:** Open all registered clients.
-
-**Inputs:**
-
-* —
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>close_all() -> None</summary>
-
-**Description:** Close all registered clients (best‑effort).
-
-**Inputs:**
-
-* —
-
-**Returns:**
-
-* `None`
-
-</details>
-
-<details markdown="1">
-<summary>call(name, tool, params=None) -> dict</summary>
-
-**Description:** Lazy‑open the client and invoke an MCP tool.
-
-**Inputs:**
-
-* `name: str`
-* `tool: str` – Tool identifier on the target MCP server.
-* `params: dict[str, Any] | None`
-
-**Returns:**
-
-* `dict` – Tool response.
-
-**Notes:** Clients also self‑reconnect on demand.
-
-</details>
-
-<details markdown="1">
-<summary>list_tools(name) -> list[MCPTool]</summary>
-
-**Description:** List available tools exposed by the MCP server.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `list[MCPTool]`
-
-</details>
-
-<details markdown="1">
-<summary>list_resources(name) -> list[MCPResource]</summary>
-
-**Description:** List available resources exposed by the MCP server.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `list[MCPResource]`
-
-</details>
-
-<details markdown="1">
-<summary>read_resource(name, uri) -> dict</summary>
-
-**Description:** Read a resource by URI from the MCP server.
-
-**Inputs:**
-
-* `name: str`
-* `uri: str`
-
-**Returns:**
-
-* `dict`
-
-</details>
-
-<details markdown="1">
-<summary>set_header(name, key, value) -> None</summary>
-
-**Description:** For **WebSocket** clients, set/override a header at runtime (useful in notebooks/demos).
-
-**Inputs:**
-
-* `name: str`
-* `key: str`
-* `value: str`
-
-**Returns:**
-
-* `None`
-
-**Notes:** Raises `RuntimeError` if the client does not support headers.
-
-</details>
-
-<details markdown="1">
-<summary>persist_secret(secret_name, value) -> None</summary>
-
-**Description:** Persist a secret via the bound secrets provider (if writable).
-
-**Inputs:**
-
-* `secret_name: str`
-* `value: str`
-
-**Returns:**
-
-* `None`
-
-**Notes:** Raises `RuntimeError` when no writable secrets provider is configured.
-
-</details>
 
 ---
 

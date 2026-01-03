@@ -12,22 +12,6 @@ Register your service **after the sidecar starts**, then access it anywhere via 
 
 ---
 
-## Quick Reference
-
-| Thing                                     | What it does                                                                     |
-| ----------------------------------------- | -------------------------------------------------------------------------------- |
-| `Service`                                 | Base class to subclass for context‑aware services (lifecycle, binding, helpers). |
-| `register_context_service(name, service)` | Registers an instance under `context.<name>` (global registry).                  |
-| `context.svc(name)`                       | Returns a **bound** service for `name`.                                          |
-| `context.<name>()`                        | Ergonomic accessor: returns the bound service when called **with no args**.      |
-| `Service.bind(context=...)`               | Binds the current `NodeContext` into the service (used by the runtime).          |
-| `Service.ctx()`                           | Retrieve the current bound context from within the service.                      |
-| `Service.start()` / `Service.close()`     | Async lifecycle hooks (optional).                                                |
-| `Service.critical()`                      | Decorator for async critical sections (mutex).                                   |
-| `Service.run_blocking(fn, *args, **kw)`   | Run a blocking function in a thread pool.                                        |
-| `_ServiceHandle`                          | Transparent wrapper returned by `context.<name>`; forwards attrs/calls.          |
-
----
 
 ## Minimal Flow
 
@@ -39,14 +23,6 @@ class MyCache(Service):
     def __init__(self):
         super().__init__()
         self._data = {}
-
-    async def start(self):
-        # e.g., open connections
-        return None
-
-    async def close(self):
-        # e.g., close connections
-        return None
 
     def get(self, k, default=None):
         return self._data.get(k, default)
@@ -74,73 +50,46 @@ async def do_work(*, context):
 
 ---
 
-## Methods & Helpers
+## API Reference
+### 1. Register External Services
+??? quote "register_context_service(name, service)"
+    ::: aethergraph.core.runtime.runtime_services.register_context_service
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-<details markdown="1">
-<summary><code>class Service</code> – subclass this for custom services</summary>
+??? quote "get_ext_context_service(name)"
+    ::: aethergraph.core.runtime.runtime_services.get_ext_context_service
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-**Lifecycle**
+??? quote "list_ext_context_services()"
+    ::: aethergraph.core.runtime.runtime_services.list_ext_context_services
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-* `async def start(self) -> None` – optional startup hook.
-* `async def close(self) -> None` – optional shutdown hook.
 
-**Binding**
+### 2. Access External Services
 
-* `def bind(self, *, context) -> Service` – stores the `NodeContext` and returns a bound handle.
-* `def ctx(self)` – access the current bound `NodeContext`.
+??? quote "context.<service_name\>(*args)"
+    ::: aethergraph.core.runtime.node_context.NodeContext.__getattr__
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-**Concurrency & Utilities**
 
-* `def critical(self)` – decorator for an async mutex around a method.
-* `async def run_blocking(self, fn, *a, **kw)` – run CPU/IO‑bound sync code in a thread.
-
-</details>
-
-<details markdown="1">
-<summary><code>register_context_service(name, service)</code></summary>
-
-**Description:** Put a **singleton** instance into the global registry so it becomes available as `context.<name>`.
-
-**Inputs:**
-
-* `name: str` – the attribute exposed on `context`.
-* `service: Service` – an instance (not a class).
-
-**Returns:**
-
-* `None`
-
-**Notes:** Call **after** `start_server(...)` to ensure the container/registry exists.
-
-</details>
-
-<details markdown="1">
-<summary><code>context.svc(name) -> Service</code></summary>
-
-**Description:** Generic accessor to retrieve a **bound** service by name. Raises `KeyError` if not registered.
-
-**Inputs:**
-
-* `name: str`
-
-**Returns:**
-
-* `Service`
-
-</details>
-
-<details markdown="1">
-<summary><code>context.&lt;name&gt;()</code> (no‑arg call)</summary>
-
-**Description:** The ergonomic way to get your bound service instance: calling the attribute **with no arguments** returns the underlying `Service`.
-
-**Returns:**
-
-* `Service`
-
-**Notes:** If your service itself is callable, `context.&lt;name&gt;(…)` forwards to `service.__call__` (normal function call behaviour).
-
-</details>
+??? quote "context.svc(name)"
+    ::: aethergraph.core.runtime.node_context.NodeContext.svc
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
 ---
 

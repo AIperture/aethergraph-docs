@@ -83,7 +83,7 @@ The `ArtifactFacade` wraps an `AsyncArtifactStore` (persistence) and an `AsyncAr
             show_root_heading: false
             show_root_full_path: false
             show_source: false  
-
+ 
 ??? quote "ingest_file(staged_path, *, kind, ...)"
     ::: aethergraph.services.artifacts.facade.ArtifactFacade.ingest_file
         options:
@@ -128,14 +128,14 @@ The `ArtifactFacade` wraps an `AsyncArtifactStore` (persistence) and an `AsyncAr
             show_source: false  
 
 
-??? quote "load_text(artifact_id, *, ...)"
+??? quote "load_text(uri)"
     ::: aethergraph.services.artifacts.facade.ArtifactFacade.load_text
         options:
             show_root_heading: false
             show_root_full_path: false
             show_source: false  
 
-??? quote "load_json(artifact_id, *, ...)"
+??? quote "load_json(uri)"
     ::: aethergraph.services.artifacts.facade.ArtifactFacade.load_json
         options:
             show_root_heading: false

@@ -98,7 +98,7 @@ Convenience method for recording chat-related memory events.
 
 
 
-## Tool-related Memory
+## 3. Tool-related Memory
 
 
 ??? quote "record_tool_result(tool, inputs, ...)"
@@ -125,7 +125,7 @@ Convenience method for recording chat-related memory events.
 
 
 
-## Memory Distillation 
+## 4. Memory Distillation 
 
 ??? quote "distill_long_term(scope_id, *, summary_tag, ...)"
     ::: aethergraph.services.memory.facade.MemoryFacade.distill_long_term
@@ -164,7 +164,7 @@ Convenience method for recording chat-related memory events.
             show_root_full_path: false
             show_source: false  
 
-## Vector Memory
+## 5. Vector Memory
 ??? quote "rag_remember_events(*, key='default', where=None, policy=None)"
     ::: aethergraph.services.memory.facade.MemoryFacade.rag_remember_events
         options:
@@ -193,7 +193,7 @@ Convenience method for recording chat-related memory events.
             show_root_full_path: false
             show_source: false
 
-## Utilities
+## 6. Utilities
 
 ??? quote "chat_history_for_llm(*, limit, include_system_summary, ...)"
     ::: aethergraph.services.memory.facade.MemoryFacade.chat_history_for_llm 

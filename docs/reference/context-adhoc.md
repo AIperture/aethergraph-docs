@@ -35,45 +35,19 @@ async with open_session(run_id="adhoc-demo", graph_id="adhoc", node_id="adhoc") 
 
 ## API Reference
 
+???+ quote "open_session(run_id, graph_id, node_id, **rt_overrides)"
+    ::: aethergraph.core.runtime.ad_hoc_context.open_session
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
-
-
-<details markdown="1">
-<summary>open_session(*, run_id: str | None = None, graph_id: str = "adhoc", node_id: str = "adhoc", **rt_overrides)</summary>
-
-**Description:** pen a temporary, fully wired `NodeContext` for ad‑hoc use.
-
-**Inputs:**
-
-* `run_id: str`
-* `run_id: str`
-* `node_id: str`
-* `rt_overrides` — runtime overrides. See graph runner doc for details.
-
-**Returns:**
-
-* `None`
-
-**Note:** Handles setup and implicit cleanup at exit.
-
-</details>
-
-<details markdown="1">
-<summary>build_adhoc_context(*, run_id: str | None = None, graph_id: str = "adhoc", node_id: str = "adhoc", **rt_overrides)</summary>
-
-**Inputs:**
-
-* `run_id: str`
-* `run_id: str`
-* `node_id: str`
-* `rt_overrides` — runtime overrides. See graph runner doc for details.
-
-**Returns:** 
-
-* `NodeContext` (caller manages any cleanup).
-
-</details>
-
+??? quote "build_adhoc_context(run_id, graph_id, node_id, **rt_overrides)"
+    ::: aethergraph.core.runtime.ad_hoc_context.build_adhoc_context
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
 ---
 

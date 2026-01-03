@@ -95,9 +95,9 @@ nav:
   - Reference:
   #     - Decorators: reference/decorators.md
       - Graph API:
-          - decorator @tool: reference/graph-tool.md
-          - decorator @graph_fn: reference/graph-graph-fn.md
-          - decorator @graphify: reference/graph-graphify.md
+          - tool decorator: reference/graph-tool.md
+          - graph decorator: reference/graphify-graphfn.md
+          # - decorator @graphify: reference/graph-graphify.md
           - TaskGraph: reference/graph-task-graph.md
       - Runner API:
           - run & run_async: reference/runner-api.md
@@ -110,6 +110,8 @@ nav:
           - context.llm(): reference/context-llm.md
           - context.rag(): reference/context-rag.md
           - context.mcp(): reference/context-mcp.md
+          - context.viz(): reference/context-viz.md
+          - context run management: reference/context-runner.md
           - context extension: reference/context-extension.md
           - context outside graph: reference/context-adhoc.md
 
