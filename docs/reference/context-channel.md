@@ -103,7 +103,7 @@ Ask method automatic implemented continuation so that the agent will resume runn
             show_source: false  
 
 
-### 3. Streaming 
+## 3. Streaming 
 
 ??? quote "stream(channel)"
     ::: aethergraph.services.channel.session.ChannelSession.stream
@@ -112,7 +112,7 @@ Ask method automatic implemented continuation so that the agent will resume runn
             show_root_full_path: false 
             show_source: false  
 
-### 4. Utilities
+## 4. Utilities
 
 ??? quote "get_latest_uploads(*, clear)"
     ::: aethergraph.services.channel.session.ChannelSession.get_latest_uploads

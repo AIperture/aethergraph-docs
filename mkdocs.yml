@@ -129,6 +129,7 @@ nav:
       #   - Installation: setup/installation.md
       #   - Configuration: setup/configuration.md
       #   - Sidecar Server Setup: setup/sidecar-server-setup.md
+      - Use Aethergraph UI: ui-integration/design-agent-ui.md
       - LLM Setup: llm-setup/llm-setup.md
       - Channel Setup:
         - Channels Overview: channel-setup/introduction.md
