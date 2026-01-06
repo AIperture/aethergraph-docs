@@ -81,17 +81,8 @@ nav:
       - 5. Add Intelligence - LLM & RAG: tutorials/t5-add-intelligence-llm-rag.md
       - 6. Use External Tools - MCP Example: tutorials/t6-use-external-tools-mcp.md
       - 7. Plug In Your World - Custom Services: tutorials/t7-extend-runtime-custom-services.md
-      # - Design Your Own Waits (Coming Soon): tutorials/t8-design-your-own-waits.md
-  # - Recipes:
-  #     - Submit + Poll + Notify: recipes/job-submit-poll.md
-  #     - Iterative Data Analysis: recipes/data-analysis-loop.md
-  #     - Mini Memory-RAG: recipes/memory-rag-mini.md
   - Examples: 
       - Example List: examples/example-list.md
-      # - Common Patterns:
-      #     - Channel Cheat Sheet: examples/channel.md
-      #     - Memory and Artifacts: examples/memory-artifact.md
-      #     - LLM: examples/llm.md
   - Reference:
   #     - Decorators: reference/decorators.md
       - Graph API:
@@ -121,15 +112,12 @@ nav:
 
       - Built-in @tools:
           - channel tools: reference/tool-channel.md
-  #     - Tools Facade: reference/tools-facade.md
-  #     - Config: reference/config.md
-  #     - REST API: reference/rest-api.md
   - Setup:
-      # - General Guides:
-      #   - Installation: setup/installation.md
-      #   - Configuration: setup/configuration.md
-      #   - Sidecar Server Setup: setup/sidecar-server-setup.md
-      - Use Aethergraph UI: ui-integration/design-agent-ui.md
+      - Use Aethergraph UI:
+        - Introduction: ui/overview.md
+        - Start the server: ui/server.md
+        - Agents & Apps: ui/agents-apps.md
+        - Notes & troubleshooting: ui/ui-notes.md
       - LLM Setup: llm-setup/llm-setup.md
       - Channel Setup:
         - Channels Overview: channel-setup/introduction.md
@@ -138,11 +126,6 @@ nav:
         - Telegram Setup: channel-setup/telegram-setup.md
         - Webhook Setup: channel-setup/webhook-setup.md
         - File Setup: channel-setup/file-setup.md
-      # - LLM Setup:
-      #   - Introduction: llm-setup/introduction.md
-      #   - Installation: llm-setup/installation.md
-      #   - Configuration: llm-setup/configuration.md
-      #   - Usage: llm-setup/usage.md
 
 markdown_extensions:
   - admonition
