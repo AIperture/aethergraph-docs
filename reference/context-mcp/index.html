@@ -18,7 +18,7 @@
         <link rel="prev" href="../context-rag/">
       
       
-        <link rel="next" href="../context-extension/">
+        <link rel="next" href="../context-viz/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -51,6 +51,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../../assets/extra.css">
     
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1391,18 +1370,216 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
+  <a href="#1-mcp-clients" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick Reference
+      1. MCP Clients
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#aethergraph.services.mcp.http_client.HttpMCPClient" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      HttpMCPClient
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.ws_client.WsMCPClient" class="md-nav__link">
+    <span class="md-ellipsis">
+      WsMCPClient
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.stdio_client.StdioMCPClient" class="md-nav__link">
+    <span class="md-ellipsis">
+      StdioMCPClient
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Registration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.runtime_services.register_mcp_client" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_mcp_client
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.runtime_services.list_mcp_clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_mcp_clients
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-service-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Service Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.register" class="md-nav__link">
+    <span class="md-ellipsis">
+      register
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.remove" class="md-nav__link">
+    <span class="md-ellipsis">
+      remove
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.has" class="md-nav__link">
+    <span class="md-ellipsis">
+      has
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.names" class="md-nav__link">
+    <span class="md-ellipsis">
+      names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.list_clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_clients
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.get" class="md-nav__link">
+    <span class="md-ellipsis">
+      get
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.open" class="md-nav__link">
+    <span class="md-ellipsis">
+      open
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.close" class="md-nav__link">
+    <span class="md-ellipsis">
+      close
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.open_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      open_all
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.close_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      close_all
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.call" class="md-nav__link">
+    <span class="md-ellipsis">
+      call
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.list_tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.list_resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.read_resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      read_resource
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.set_header" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_header
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.mcp.service.MCPService.persist_secret" class="md-nav__link">
+    <span class="md-ellipsis">
+      persist_secret
     </span>
   </a>
   
@@ -1430,6 +1607,52 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1716,6 +1939,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1752,10 +2117,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1768,8 +2133,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1953,275 +2318,1797 @@
 <p>Register clients after the sidecar starts. Example below uses the helper <code>register_mcp_client()</code>.</p>
 </blockquote>
 <hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>register(name, client)</code></td>
-<td>Add/replace an MCP client</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>remove(name)</code></td>
-<td>Unregister a client</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>has(name)</code></td>
-<td>Check if a client exists</td>
-<td><code>bool</code></td>
-</tr>
-<tr>
-<td><code>names()</code> / <code>list_clients()</code></td>
-<td>List registered client names</td>
-<td><code>list[str]</code></td>
-</tr>
-<tr>
-<td><code>get(name="default")</code></td>
-<td>Get a client by name (or error)</td>
-<td><code>MCPClient</code></td>
-</tr>
-<tr>
-<td><code>open(name)</code> / <code>close(name)</code></td>
-<td>Open/close a single client</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>open_all()</code> / <code>close_all()</code></td>
-<td>Open/close all clients</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>call(name, tool, params=None)</code></td>
-<td>Invoke a tool on a client</td>
-<td><code>dict</code> (tool result)</td>
-</tr>
-<tr>
-<td><code>list_tools(name)</code></td>
-<td>Enumerate tools on a client</td>
-<td><code>list[MCPTool]</code></td>
-</tr>
-<tr>
-<td><code>list_resources(name)</code></td>
-<td>Enumerate resources</td>
-<td><code>list[MCPResource]</code></td>
-</tr>
-<tr>
-<td><code>read_resource(name, uri)</code></td>
-<td>Fetch a resource by URI</td>
-<td><code>dict</code></td>
-</tr>
-<tr>
-<td><code>set_header(name, key, value)</code></td>
-<td>(WS) Set/override a header at runtime</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>persist_secret(secret_name, value)</code></td>
-<td>Persist a secret via secrets provider</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
+<h2 id="1-mcp-clients">1. MCP Clients<a class="headerlink" href="#1-mcp-clients" title="Permanent link">&para;</a></h2>
+<p>Three MCP clients can be established: </p>
+<details class="quote">
+<summary>HttpMCPClient(name, client)</summary>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="aethergraph.services.mcp.http_client.HttpMCPClient"></a>
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="aethergraph.contracts.services.mcp.MCPClientProtocol">MCPClientProtocol</span></code></p>
+
+
+
+        <p>Initialize the HTTP client service with base URL, headers, and timeout.</p>
+<p>This constructor sets up the base URL for all requests, applies default and custom headers,
+and configures the request timeout. It also initializes internal state for the asynchronous
+HTTP client and concurrency control.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with default headers:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">HttpMCPClient</span><span class="p">(</span><span class="s2">&quot;https://api.example.com&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Custom headers and timeout:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">HttpMCPClient</span><span class="p">(</span>
+    <span class="s2">&quot;https://api.example.com&quot;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer &lt;token&gt;&quot;</span><span class="p">},</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>base_url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The root URL for all HTTP requests (e.g., "https://api.example.com").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>headers</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of additional HTTP headers to include with each request.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>The &#34;Content-Type</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>application/json" header is always set by default.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum time (in seconds) to wait for a response before timing out.</p>
+              </div>
+            </td>
+            <td>
+                  <code>60.0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>None</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initializes the HttpMCPClient instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>Ensure that the base_url does not have a trailing slash; it will be added automatically.</li>
+<li>The client uses asynchronous HTTP requests for non-blocking operations.</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>WsMCPClient(name, client)</summary>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="aethergraph.services.mcp.ws_client.WsMCPClient"></a>
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="aethergraph.contracts.services.mcp.MCPClientProtocol">MCPClientProtocol</span></code></p>
+
+
+
+        <p>Initialize the WebSocket MCP client with URL, headers, and connection parameters.
+This class manages a WebSocket connection to an MCP (Modular Control Protocol) server,
+handling connection lifecycle, pinging for keepalive, and concurrency for sending JSON-RPC
+requests. It provides methods to list tools, call tools, list resources, and read resources
+via the MCP protocol.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with default headers:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">WsMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">WsMCPClient</span><span class="p">(</span><span class="s2">&quot;wss://mcp.example.com/ws&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">list_tools</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Custom headers and ping interval:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">WsMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">WsMCPClient</span><span class="p">(</span>
+    <span class="s2">&quot;wss://mcp.example.com/ws&quot;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer &lt;token&gt;&quot;</span><span class="p">},</span>
+    <span class="n">ping_interval</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The WebSocket URL of the MCP server (e.g., "wss://mcp.example.com/ws").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>headers</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of additional HTTP headers to include in the WebSocket handshake.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time (in seconds) to wait for connection and responses.</p>
+              </div>
+            </td>
+            <td>
+                  <code>60.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ping_interval</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Interval (in seconds) between WebSocket ping frames for keepalive.</p>
+              </div>
+            </td>
+            <td>
+                  <code>20.0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ping_timeout</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time (in seconds) to wait for a ping response before considering the connection dead.</p>
+              </div>
+            </td>
+            <td>
+                  <code>10.0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>None</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initializes the WsMCPClient instance and prepares internal state.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>StdioMCPClient(name, client)</summary>
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="aethergraph.services.mcp.stdio_client.StdioMCPClient"></a>
+    <div class="doc doc-contents first">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="aethergraph.contracts.services.mcp.MCPClientProtocol">MCPClientProtocol</span></code></p>
+
+
+
+        <p>Initialize the MCP client service to communicate with a subprocess over stdio using JSON-RPC 2.0.</p>
+<p>This class launches a subprocess (typically an MCP server), manages its lifecycle, and provides
+asynchronous methods to interact with it using JSON-RPC 2.0 over standard input/output streams.
+It handles command execution, environment setup, request/response serialization, and concurrency
+control for safe multi-call usage.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with default environment:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdioMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">StdioMCPClient</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;mcp_server.py&quot;</span><span class="p">])</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">list_tools</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Custom environment and timeout:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">StdioMCPClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">StdioMCPClient</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;mcp_server.py&quot;</span><span class="p">],</span>
+    <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;MY_ENV_VAR&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>cmd</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Command to start the MCP server subprocess (list of str).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>env</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of environment variables for the subprocess.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Timeout in seconds for each RPC call.</p>
+              </div>
+            </td>
+            <td>
+                  <code>60.0</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>None</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initializes the StdioMCPClient instance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>The subprocess should adhere to the JSON-RPC 2.0 specification over stdio.</li>
+<li>Ensure proper error handling in the subprocess to avoid deadlocks.</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div></details>
 <hr />
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<details>
-<summary>register(name, client) -&gt; None</summary>
-<p><strong>Description:</strong> Register or replace an MCP client under <code>name</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-<li><code>client: MCPClientProtocol</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>remove(name) -&gt; None</summary>
-<p><strong>Description:</strong> Unregister a client if present.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>has(name) -&gt; bool</summary>
-<p><strong>Description:</strong> Check whether a client is registered.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>bool</code></li>
-</ul>
-</details>
-<details>
-<summary>names() / list_clients() -&gt; list[str]</summary>
-<p><strong>Description:</strong> Return all registered client names.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li>—</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[str]</code></li>
-</ul>
-</details>
-<details>
-<summary>get(name="default") -&gt; MCPClientProtocol</summary>
-<p><strong>Description:</strong> Return a client by name or raise <code>KeyError</code> if missing.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>MCPClientProtocol</code></li>
-</ul>
-</details>
-<details>
-<summary>open(name) -&gt; None</summary>
-<p><strong>Description:</strong> Ensure the client connection is open.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>close(name) -&gt; None</summary>
-<p><strong>Description:</strong> Close the client connection; logs a warning on failure.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>open_all() -&gt; None</summary>
-<p><strong>Description:</strong> Open all registered clients.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li>—</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>close_all() -&gt; None</summary>
-<p><strong>Description:</strong> Close all registered clients (best‑effort).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li>—</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>call(name, tool, params=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Lazy‑open the client and invoke an MCP tool.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-<li><code>tool: str</code> – Tool identifier on the target MCP server.</li>
-<li><code>params: dict[str, Any] | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Tool response.</li>
-</ul>
-<p><strong>Notes:</strong> Clients also self‑reconnect on demand.</p>
-</details>
-<details>
-<summary>list_tools(name) -&gt; list[MCPTool]</summary>
-<p><strong>Description:</strong> List available tools exposed by the MCP server.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[MCPTool]</code></li>
-</ul>
-</details>
-<details>
-<summary>list_resources(name) -&gt; list[MCPResource]</summary>
-<p><strong>Description:</strong> List available resources exposed by the MCP server.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[MCPResource]</code></li>
-</ul>
-</details>
-<details>
-<summary>read_resource(name, uri) -&gt; dict</summary>
-<p><strong>Description:</strong> Read a resource by URI from the MCP server.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-<li><code>uri: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code></li>
-</ul>
-</details>
-<details>
-<summary>set_header(name, key, value) -&gt; None</summary>
-<p><strong>Description:</strong> For <strong>WebSocket</strong> clients, set/override a header at runtime (useful in notebooks/demos).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-<li><code>key: str</code></li>
-<li><code>value: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-<p><strong>Notes:</strong> Raises <code>RuntimeError</code> if the client does not support headers.</p>
-</details>
-<details>
-<summary>persist_secret(secret_name, value) -&gt; None</summary>
-<p><strong>Description:</strong> Persist a secret via the bound secrets provider (if writable).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>secret_name: str</code></li>
-<li><code>value: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-<p><strong>Notes:</strong> Raises <code>RuntimeError</code> when no writable secrets provider is configured.</p>
-</details>
+<h2 id="2-registration">2. Registration<a class="headerlink" href="#2-registration" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>register_mcp_client(name, client)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.runtime_services.register_mcp_client"></a>
+    <div class="doc doc-contents first">
+
+        <p>Register a new MCP client with the current MCP service.</p>
+<p>This function adds a client instance to the MCP service under the specified name,
+allowing it to be accessed and managed by the MCP infrastructure.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_mcp_client</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">HttpMCPClient</span>
+<span class="n">my_client</span> <span class="o">=</span> <span class="n">HttpMCPClient</span><span class="p">(</span><span class="s2">&quot;https://mcp.example.com&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">register_mcp_client</span><span class="p">(</span><span class="s2">&quot;myclient&quot;</span><span class="p">,</span> <span class="n">my_client</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique name to associate with the MCP client.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>client</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The client instance to register.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no MCP service has been installed via set_mcp_service().</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list_mcp_clients(name, client)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.runtime_services.list_mcp_clients"></a>
+    <div class="doc doc-contents first">
+
+        <p>List all registered MCP client names in the current MCP service.</p>
+<p>This function returns a list of all client names that have been registered
+with the MCP service, allowing for discovery and management of available clients.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_mcp_clients</span>
+<span class="n">clients</span> <span class="o">=</span> <span class="n">list_mcp_clients</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clients</span><span class="p">)</span>
+</code></pre></div>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of strings representing the names of registered MCP clients.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns an empty list if no MCP service is installed or no clients are registered.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<hr />
+<h2 id="3-service-methods">3. Service Methods<a class="headerlink" href="#3-service-methods" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>register(name, client)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.register"></a>
+    <div class="doc doc-contents first">
+
+        <p>Register a new MCP client under a given name.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s2">&quot;myserver&quot;</span><span class="p">,</span> <span class="n">my_client</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name to register the client under.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>client</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.contracts.services.mcp.MCPClientProtocol">MCPClientProtocol</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The MCPClientProtocol instance to register.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>remove(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.remove"></a>
+    <div class="doc doc-contents first">
+
+        <p>Remove a registered MCP client by name.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;myserver&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client to remove.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>has(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.has"></a>
+    <div class="doc doc-contents first">
+
+        <p>Check if a client with the given name is registered.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client exists&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name to check.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bool</code></td>            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>True if the client exists, False otherwise.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>names()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.names"></a>
+    <div class="doc doc-contents first">
+
+        <p>Get a list of all registered client names.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+</code></pre></div>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[str]: List of registered client names.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list_clients()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.list_clients"></a>
+    <div class="doc doc-contents first">
+
+        <p>List all registered client names.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">clients</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">list_clients</span><span class="p">()</span>
+</code></pre></div>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[str]: List of registered client names.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>get(name='default')</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.get"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve a registered MCP client by name.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;default&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>MCPClientProtocol</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.mcp.MCPClientProtocol">MCPClientProtocol</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The registered client.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="KeyError">KeyError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the client is not found.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>open(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.open"></a>
+    <div class="doc doc-contents first">
+
+        <p>Open the connection for a specific MCP client.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client to open.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>close(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.close"></a>
+    <div class="doc doc-contents first">
+
+        <p>Close the connection for a specific MCP client.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client to close.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>open_all()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.open_all"></a>
+    <div class="doc doc-contents first">
+
+        <p>Open all registered MCP client connections.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">open_all</span><span class="p">()</span>
+</code></pre></div>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>close_all()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.close_all"></a>
+    <div class="doc doc-contents first">
+
+        <p>Close all registered MCP client connections.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">close_all</span><span class="p">()</span>
+</code></pre></div>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>call(name, tool, params=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.call"></a>
+    <div class="doc doc-contents first">
+
+        <p>Call a tool on a specific MCP client, opening the connection if needed.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client to use.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tool name to call.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>params</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of parameters for the tool.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: The result from the tool call.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list_tools(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.list_tools"></a>
+    <div class="doc doc-contents first">
+
+        <p>List all tools available on a specific MCP client.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">list_tools</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.mcp.MCPTool">MCPTool</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[MCPTool]: List of available tools.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list_resources(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.list_resources"></a>
+    <div class="doc doc-contents first">
+
+        <p>List all resources available on a specific MCP client.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">resources</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">list_resources</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.mcp.MCPResource">MCPResource</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[MCPResource]: List of available resources.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>read_resource(name, uri)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.read_resource"></a>
+    <div class="doc doc-contents first">
+
+        <p>Read a resource from a specific MCP client.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">read_resource</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;resource://foo/bar&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URI of the resource to read.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: The resource data.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>set_header(name, key, value)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.set_header"></a>
+    <div class="doc doc-contents first">
+
+        <p>Set or override a header for a websocket client at runtime.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer token&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the client.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The header key.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>value</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The header value.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the client does not support headers.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>persist_secret(secret_name, value)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.mcp.service.MCPService.persist_secret"></a>
+    <div class="doc doc-contents first">
+
+        <p>Persist a secret using the configured secrets provider.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">mcp</span><span class="p">()</span><span class="o">.</span><span class="n">persist_secret</span><span class="p">(</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;my-secret-value&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>secret_name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the secret.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>value</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The value to persist.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the secrets provider is not writable.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
 <hr />
 <h2 id="registering-clients-after-sidecar-starts">Registering Clients (after sidecar starts)<a class="headerlink" href="#registering-clients-after-sidecar-starts" title="Permanent link">&para;</a></h2>
 <p>Start the sidecar, then register one or more MCP clients:</p>
@@ -2334,13 +4221,13 @@
         
         
           
-          <a href="../context-extension/" class="md-footer__link md-footer__link--next" aria-label="Next: context extension">
+          <a href="../context-viz/" class="md-footer__link md-footer__link--next" aria-label="Next: context.viz()">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                context extension
+                context.viz()
               </div>
             </div>
             <div class="md-footer__button md-icon">

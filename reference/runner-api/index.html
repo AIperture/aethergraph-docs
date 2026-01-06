@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1157,93 +1136,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-function-shapes" class="md-nav__link">
+  <a href="#runner-apis" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Function Shapes
+      Runner APIs
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Function Shapes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run_async" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.graph_runner.run_async" class="md-nav__link">
     <span class="md-ellipsis">
       run_async
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#run-sync-adapter" class="md-nav__link">
-    <span class="md-ellipsis">
-      run (sync adapter)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#2-graphfunction-convenience-await-my_graph_fn" class="md-nav__link">
+  <a href="#aethergraph.core.runtime.graph_runner.run" class="md-nav__link">
     <span class="md-ellipsis">
-      2. GraphFunction Convenience – await my_graph_fn(...)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-runtime-overrides-rt_overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Runtime overrides (**rt_overrides)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Runtime overrides (**rt_overrides)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#core-overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core overrides
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-scheduler-behavior-execution-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Scheduler Behavior (Execution Model)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-run-vs-resume-async" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Run vs Resume (async)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Summary
+      run
     </span>
   </a>
   
@@ -1482,6 +1395,52 @@
   
   <span class="md-ellipsis">
     context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
     
   </span>
   
@@ -1773,6 +1732,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1809,10 +1910,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1825,8 +1926,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -2005,213 +2106,362 @@
 
 
 <h1 id="runner-api-run_async-run">Runner API – <code>run_async</code> &amp; <code>run</code><a class="headerlink" href="#runner-api-run_async-run" title="Permanent link">&para;</a></h1>
-<p>The runner is the <strong>unified entry point</strong> to execute either:</p>
+<p>The runner serves as the <strong>unified entry point</strong> for executing:</p>
 <ul>
-<li>a <strong><code>GraphFunction</code></strong> (from <code>@graph_fn</code>), or</li>
-<li>a <strong>static <code>TaskGraph</code></strong> (built via <code>graphify</code> / builder / storage).</li>
+<li>a <strong><code>GraphFunction</code></strong> (created with <code>@graph_fn</code>), or</li>
+<li>a <strong>static <code>TaskGraph</code></strong> (constructed via <code>graphify</code>, builder, or storage).</li>
 </ul>
-<p>Under the hood it builds a <code>RuntimeEnv</code>, wires services, and drives a <code>ForwardScheduler</code> with configurable <strong>retry</strong> and <strong>concurrency</strong>.</p>
+<p>Internally, it initializes a <code>RuntimeEnv</code>, configures services, and manages a <code>ForwardScheduler</code> with customizable <strong>retry</strong> and <strong>concurrency</strong> options.</p>
 <hr />
-<h2 id="1-function-shapes">1. Function Shapes<a class="headerlink" href="#1-function-shapes" title="Permanent link">&para;</a></h2>
-<h3 id="run_async"><code>run_async</code><a class="headerlink" href="#run_async" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_async</span><span class="p">(</span>
-    <span class="n">target</span><span class="p">,</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">rt_overrides</span><span class="p">,</span>
-<span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Generic async runner for TaskGraph or GraphFunction.</span>
-<span class="sd">    - GraphFunction → delegates to gf.run(env=..., **inputs)</span>
-<span class="sd">    - TaskGraph/builder → schedules and resolves graph-level outputs</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-</code></pre></div>
-<p><strong>Accepted <code>target</code> types</strong></p>
-<ul>
-<li><code>GraphFunction</code> instance (<code>@graph_fn</code> result)</li>
-<li><code>TaskGraph</code> instance </li>
-<li><strong>Builder</strong> with <code>.build()</code> returning a <code>TaskGraph</code></li>
-<li><strong>Callable</strong> returning a <code>TaskGraph</code> when called with no args</li>
-</ul>
-<p><strong>Inputs</strong></p>
-<ul>
-<li>
-<p><code>inputs: dict[str, Any] | None</code>
-  Graph-level inputs (must match the graph’s declared <code>required</code> / <code>optional</code> IO). Defaults to <code>{}</code>.</p>
-</li>
-<li>
-<p><code>**rt_overrides</code> – runtime overrides (see <a href="#3-runtime-overrides-rt_overrides">Runtime overrides</a>).</p>
-</li>
-</ul>
-<p><strong>Returns</strong></p>
-<ul>
-<li>For a <strong><code>GraphFunction</code> target</strong>: <code>dict</code> matching its declared or inferred <code>outputs</code> list.</li>
-<li>
-<p>For a <strong>TaskGraph target</strong>:</p>
-<ul>
-<li>If the graph exposes <strong>exactly one</strong> output → that value directly.</li>
-<li>Otherwise → <code>dict[name, value]</code> for all exposed outputs. (In <code>@graphify</code> it is the declared <code>outputs</code> list)</li>
-</ul>
-</li>
-<li>
-<p>May raise <code>GraphHasPendingWaits</code> if the run quiesces with unresolved waits and outputs cannot yet be resolved.</p>
-</li>
-</ul>
-<hr />
-<h3 id="run-sync-adapter"><code>run</code> (sync adapter)<a class="headerlink" href="#run-sync-adapter" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span>
-    <span class="n">target</span><span class="p">,</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">rt_overrides</span><span class="p">,</span>
-<span class="p">):</span>
-    <span class="o">...</span>
-</code></pre></div>
-<ul>
-<li>Thin synchronous wrapper around <code>run_async</code>, using a background event loop thread.</li>
-<li>Same <code>target</code>, <code>inputs</code>, and <code>rt_overrides</code> semantics.</li>
-<li>Returns the <strong>same result shape</strong> as <code>run_async(...)</code> but <strong>blocks</strong> the current thread.</li>
-</ul>
-<blockquote>
-<p>Use <code>run(...)</code> in <strong>scripts / notebooks</strong> where you don’t want to manage an event loop yourself. Prefer <code>run_async(...)</code> in async applications or services.</p>
-</blockquote>
-<hr />
-<h2 id="2-graphfunction-convenience-await-my_graph_fn">2. GraphFunction Convenience – <code>await my_graph_fn(...)</code><a class="headerlink" href="#2-graphfunction-convenience-await-my_graph_fn" title="Permanent link">&para;</a></h2>
-<p>For <code>@graph_fn</code> agents, you <strong>don’t have to call the runner directly</strong>.</p>
-<p><code>GraphFunction</code> implements <code>__call__</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GraphFunction</span><span class="p">:</span>
-    <span class="o">...</span>
+<h2 id="runner-apis">Runner APIs<a class="headerlink" href="#runner-apis" title="Permanent link">&para;</a></h2>
+<p>Use these APIs to start new runs. For nested execution of graphs or agents, refer to the <a href="../context-runner/">Context Run API</a>.</p>
+<details class="quote" open="open">
+<summary>run_async(target, inputs, identity, **rt_overrides)</summary>
 
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Async call to run the graph function.</span>
-<span class="sd">        Usage:</span>
-<span class="sd">           result = await my_graph_fn(input1=value1, input2=value2)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">..runtime.graph_runner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_async</span>
-        <span class="k">return</span> <span class="k">await</span> <span class="n">run_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
-</code></pre></div>
-<p>So you can simply:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># my_graph_fn is created via @graph_fn(...)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">my_graph_fn</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-<p>Behind the scenes this:</p>
-<ul>
-<li>Builds a <code>RuntimeEnv</code> and <code>ForwardScheduler</code> via <code>run_async</code>.</li>
-<li>Creates a <strong>fresh TaskGraph</strong> for this call.</li>
-<li>Injects <code>NodeContext</code> if the function signature includes <code>context</code>.</li>
-</ul>
-<blockquote>
-<p>Use <code>await my_graph_fn(...)</code> for <strong>day-to-day agent usage</strong>; reach for <code>run_async(...)</code> when you need <strong>fine-grained control</strong> over runtime overrides or when running <strong>static TaskGraphs</strong>.</p>
-</blockquote>
-<hr />
-<h2 id="3-runtime-overrides-rt_overrides">3. Runtime overrides (<code>**rt_overrides</code>)<a class="headerlink" href="#3-runtime-overrides-rt_overrides" title="Permanent link">&para;</a></h2>
-<p>The <code>run_async</code> / <code>run</code> API accepts <strong>extra keyword arguments</strong> to customize the runtime. These are passed to <code>_build_env(...)</code>, which:</p>
-<ol>
-<li>Creates a default container via <code>build_default_container()</code>.</li>
-<li>Applies overrides onto the container and env.</li>
-</ol>
-<h3 id="core-overrides">Core overrides<a class="headerlink" href="#core-overrides" title="Permanent link">&para;</a></h3>
-<p>These are the most important knobs:</p>
-<ul>
-<li>
-<p><code>run_id: str</code>
-  Explicit run identifier (otherwise a random <code>run-&lt;hex&gt;</code> is generated). Used for <strong>persistence</strong>, <strong>resume</strong>, and <strong>continuations</strong>.</p>
-</li>
-<li>
-<p><code>retry: RetryPolicy</code>
-  Custom retry behavior for node execution. Defaults to a new <code>RetryPolicy()</code> when not provided.</p>
-</li>
-<li>
-<p><code>max_concurrency: int</code>
-  Upper bound on <strong>parallel node execution</strong> used by the scheduler. Defaults to <code>getattr(owner, "max_concurrency", 4)</code> – where <code>owner</code> is the <code>GraphFunction</code> or <code>TaskGraph</code>.</p>
-</li>
-</ul>
-<p>In addition, any override where the <strong>name matches a container attribute</strong> is applied directly:</p>
-<div class="highlight"><pre><span></span><code><span class="n">container</span> <span class="o">=</span> <span class="n">_get_container</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rt_overrides</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-        <span class="nb">setattr</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-</code></pre></div>
-<p>Typical examples include (depending on your container):</p>
-<ul>
-<li><code>state_store=...</code> – custom state store for snapshots / resume.</li>
-<li><code>artifacts=...</code> – custom artifact store.</li>
-<li><code>llm=...</code>, <code>memory=...</code>, <code>rag=...</code>, <code>kv=...</code> – swapped service instances.</li>
-<li><code>continuation_store=...</code> – custom continuation backend.</li>
-</ul>
-<blockquote>
-<p><strong>Rule of thumb:</strong>
-Use explicit overrides (<code>run_id</code>, <code>retry</code>, <code>max_concurrency</code>) most often; use container attribute overrides when you need to plug in <strong>custom services</strong> for a particular run.</p>
-</blockquote>
-<hr />
-<h2 id="4-scheduler-behavior-execution-model">4. Scheduler Behavior (Execution Model)<a class="headerlink" href="#4-scheduler-behavior-execution-model" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Currently, Scheduler API is not exposed. Here we list the function shape for completeness </p>
-</blockquote>
-<p><code>run_async</code> builds a <code>ForwardScheduler</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sched</span> <span class="o">=</span> <span class="n">ForwardScheduler</span><span class="p">(</span>
-    <span class="n">graph</span><span class="p">,</span>
-    <span class="n">env</span><span class="p">,</span>
-    <span class="n">retry_policy</span><span class="o">=</span><span class="n">retry</span><span class="p">,</span>
-    <span class="n">max_concurrency</span><span class="o">=</span><span class="n">max_conc</span><span class="p">,</span>
-    <span class="n">skip_dep_on_failure</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">stop_on_first_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">,</span>
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.graph_runner.run_async"></a>
+    <div class="doc doc-contents first">
+
+        <p>Execute a TaskGraph or GraphFunction asynchronously with optional persistence and resumability.</p>
+<p>This method handles environment setup, cold-resume from persisted state (if available),
+input validation, scheduling, and output resolution. It supports both fresh runs and
+resuming incomplete runs, automatically wiring up persistence observers and enforcing
+snapshot policies.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Running a graph function:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_async</span><span class="p">(</span><span class="n">my_graph_fn</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+</code></pre></div></p>
+<p>Running a TaskGraph with custom run ID and identity:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">run_async</span><span class="p">(</span>
+    <span class="n">my_task_graph</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">},</span>
+    <span class="n">run_id</span><span class="o">=</span><span class="s2">&quot;custom-run-123&quot;</span><span class="p">,</span>
+    <span class="n">identity</span><span class="o">=</span><span class="n">my_identity</span><span class="p">,</span>     <span class="c1"># Only used with API requests. Ignored when running locally.</span>
+    <span class="n">max_concurrency</span><span class="o">=</span><span class="mi">8</span>
 <span class="p">)</span>
-</code></pre></div>
-<p><strong>Key parameters</strong></p>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>target</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The TaskGraph, GraphFunction, or builder to execute.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>inputs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dictionary of input values for the graph.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>identity</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.api.v1.deps.RequestIdentity">RequestIdentity</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional RequestIdentity for user/session context.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**rt_overrides</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional runtime overrides for environment and execution. Recognized runtime overrides include:</p>
 <ul>
-<li><code>max_concurrency: int</code> – how many <strong>ready</strong> nodes can run concurrently.</li>
-<li><code>stop_on_first_error: bool</code> – whether to stop scheduling when the first node fails (<code>True</code> in the default runner).</li>
-<li><code>skip_dep_on_failure: bool</code> – whether to skip downstream nodes whose dependencies failed (<code>True</code> by default).</li>
+<li>run_id (str): Custom run identifier.</li>
+<li>session_id (str): Session identifier for grouping runs.</li>
+<li>agent_id (str): Agent identifier for provenance.</li>
+<li>app_id (str): Application identifier for provenance.</li>
+<li>retry (RetryPolicy): Custom retry policy.</li>
+<li>max_concurrency (int): Maximum number of concurrent tasks.</li>
+<li>Any additional container attributes supported by your environment.</li>
 </ul>
-<p><strong>Execution semantics (high level)</strong></p>
-<ul>
-<li>The scheduler maintains a queue of <strong>ready nodes</strong> (all dependencies completed).</li>
-<li>It launches nodes in <strong>parallel</strong> up to <code>max_concurrency</code>.</li>
-<li>If a node <strong>waits</strong> (e.g., external continuation), it may park and allow other ready nodes to proceed.</li>
-<li>At the end of the run, the runner resolves graph-level outputs via <code>io_signature</code> bindings; if some outputs are unresolved due to waits, it raises <code>GraphHasPendingWaits</code>.</li>
-</ul>
-<blockquote>
-<p>More advanced scheduling / resume controls are exposed via the Scheduler and Recovery APIs; this section only covers the knobs surfaced through <code>run_async</code>.</p>
-</blockquote>
-<hr />
-<h2 id="5-run-vs-resume-async">5. Run vs Resume (async)<a class="headerlink" href="#5-run-vs-resume-async" title="Permanent link">&para;</a></h2>
-<p>There is also a helper:</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_or_resume_async</span><span class="p">(</span>
-    <span class="n">target</span><span class="p">,</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">run_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">rt_overrides</span><span class="p">,</span>
-<span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    If state exists for run_id → cold resume, else fresh run.</span>
-<span class="sd">    Exactly the same signature as run_async plus optional run_id.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-</code></pre></div>
-<ul>
-<li>If a <code>state_store</code> is configured and snapshots exist for the given <code>run_id</code>, the graph is <strong>recovered</strong> and resumed.</li>
-<li>If not, it behaves like a fresh <code>run_async(...)</code> call (with the given <code>run_id</code> if provided).</li>
-</ul>
-<p>Use this when you:</p>
-<ul>
-<li>Know the <code>run_id</code> you want to continue, but</li>
-<li>Don’t want to manually check whether state exists.</li>
-</ul>
-<hr />
-<h2 id="6-summary">6. Summary<a class="headerlink" href="#6-summary" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>run_async(target, inputs, **rt_overrides)</code> is the <strong>core runner</strong> for both <code>GraphFunction</code> agents and static <code>TaskGraph</code>s.</li>
-<li><code>run(...)</code> is a <strong>sync adapter</strong> around <code>run_async</code> for scripts / notebooks.</li>
-<li><code>GraphFunction</code> supports direct <code>await my_graph_fn(...)</code>, which simply delegates to <code>run_async(self, inputs)</code>.</li>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The resolved outputs of the graph, or a status dict if waiting on continuations.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="aethergraph.contracts.errors.errors.GraphHasPendingWaits">GraphHasPendingWaits</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the graph is waiting on external events and outputs are not ready.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="TypeError">TypeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the target is not a valid TaskGraph or GraphFunction.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>Speficially for GraphFunctions, you can directly use <code>await graph_fn(**inputs)</code> without needing <code>run_async</code>.</li>
+<li><code>graph_fn</code> is not resumable; use TaskGraphs for persistence and recovery features.</li>
 <li>
-<p>You can control runtime behavior via:</p>
+<p>when using <code>graph</code> for persistence/resumability, ensure your outputs are JSON-serializable, for examples:</p>
+<ul>
+<li>primitive types (str, int, float, bool, None)</li>
+<li>
+<p>lists/dicts of primitive types</p>
 </li>
 <li>
-<p><code>run_id</code>, <code>retry</code>, <code>max_concurrency</code>,</p>
+<p>graph that can be resumed with JSON-serializable outputs:
+<div class="highlight"><pre><span></span><code><span class="nd">@graphify</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_graph</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span> <span class="c1"># valid JSON-serializable output</span>
+</code></pre></div></p>
 </li>
-<li>and container-level overrides (e.g., <code>state_store</code>, <code>artifacts</code>, <code>llm</code>, <code>memory</code>).</li>
-<li>Execution is handled by a <code>ForwardScheduler</code> that runs ready nodes concurrently up to <code>max_concurrency</code>, stopping on first error and skipping dependents of failed nodes by default.</li>
+<li>graph that cannot be resumed due to non-JSON-serializable outputs:
+<div class="highlight"><pre><span></span><code><span class="nd">@graphify</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_graph</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;chekpoint&quot;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)}</span> <span class="c1"># invalid outputs for resuming (but valid for fresh runs)</span>
+</code></pre></div></li>
+<li>Despite this, you can still use <code>graph</code> without persistence features; just avoid resuming such graphs.</li>
 </ul>
+</li>
+</ul>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote" open="open">
+<summary>run(target, inputs, identity, **rt_overrides)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.graph_runner.run"></a>
+    <div class="doc doc-contents first">
+
+        <p>Execute a target graph node synchronously with the provided inputs.</p>
+<p>This function submits the execution of a target node (or graph) to the event loop,
+allowing for asynchronous execution while providing a synchronous interface.
+Runtime configuration overrides can be supplied as keyword arguments.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Running a graph node with default inputs:
+<div class="highlight"><pre><span></span><code><span class="n">future</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">my_node</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Running with custom inputs and runtime overrides:
+<div class="highlight"><pre><span></span><code><span class="n">future</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">my_node</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">},</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>target</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The graph node or callable to execute.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>inputs</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of input values to pass to the node.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>identity</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.api.v1.deps.RequestIdentity">RequestIdentity</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional RequestIdentity for user/session context.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**rt_overrides</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments to override runtime configuration.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>concurrent.futures.Future: A future representing the asynchronous execution of the node.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>This function is suitable for use in synchronous contexts where asynchronous execution is desired.</li>
+<li>It is recommended to use asynchronous execution directly when possible for better performance and responsiveness.</li>
+</ul>
+</details>
+
+    </div>
+
+</div></details>
 
 
 

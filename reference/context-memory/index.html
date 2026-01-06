@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1276,51 +1255,270 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concepts-defaults" class="md-nav__link">
+  <a href="#1-core-recording" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts &amp; Defaults
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concepts &amp; Defaults">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#event-schema-contract-excerpt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Event Schema (contract excerpt)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
+      1. Core Recording
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_raw" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      record_raw
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#behavioral-notes" class="md-nav__link">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record" class="md-nav__link">
     <span class="md-ellipsis">
-      Behavioral Notes
+      record
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.recent" class="md-nav__link">
+    <span class="md-ellipsis">
+      recent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.recent_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      recent_data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.search" class="md-nav__link">
+    <span class="md-ellipsis">
+      search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-chat-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Chat Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_chat_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_chat_user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_chat_assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_chat_assistant
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_chat_system" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_chat_system
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.recent_chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      recent_chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tool-related-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tool-related Memory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.record_tool_result" class="md-nav__link">
+    <span class="md-ellipsis">
+      record_tool_result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.recent_tool_results" class="md-nav__link">
+    <span class="md-ellipsis">
+      recent_tool_results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.recent_tool_result_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      recent_tool_result_data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-memory-distillation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Memory Distillation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.distill_long_term" class="md-nav__link">
+    <span class="md-ellipsis">
+      distill_long_term
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.distill_meta_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      distill_meta_summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.load_recent_summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_recent_summaries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.load_last_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_last_summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.soft_hydrate_last_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      soft_hydrate_last_summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vector-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Vector Memory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.rag_remember_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag_remember_events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.rag_remember_docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag_remember_docs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.rag_search_by_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag_search_by_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.rag_answer_by_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      rag_answer_by_key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Utilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.chat_history_for_llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      chat_history_for_llm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.memory.facade.MemoryFacade.build_prompt_segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_prompt_segments
     </span>
   </a>
   
@@ -1440,6 +1638,52 @@
   
   <span class="md-ellipsis">
     context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
     
   </span>
   
@@ -1731,6 +1975,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1767,10 +2153,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1783,8 +2169,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1963,374 +2349,3645 @@
 
 
 <h1 id="contextmemory-memoryfacade-api-reference"><code>context.memory()</code> – MemoryFacade API Reference<a class="headerlink" href="#contextmemory-memoryfacade-api-reference" title="Permanent link">&para;</a></h1>
-<p><code>MemoryFacade</code> coordinates <strong>HotLog</strong> (fast recent events), <strong>Persistence</strong> (durable JSONL event log + JSON blobs), and <strong>Indices</strong> (derived KV views), with optional <strong>Artifacts</strong> and <strong>RAG</strong> helpers. All public methods are async.</p>
-<hr />
-<h2 id="concepts-defaults">Concepts &amp; Defaults<a class="headerlink" href="#concepts-defaults" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><strong>Three core services</strong></p>
-</li>
-<li>
-<p><strong>HotLog</strong>: append/recent for fast, transient access (TTL, ring buffer).</p>
-</li>
-<li><strong>Persistence</strong>: durable append/replay (e.g., FS JSONL, S3, DB).</li>
-<li><strong>Indices</strong>: fast lookups (e.g., last by name/topic, latest refs by kind), updated by <code>write_result()</code>.</li>
-<li><strong>Scope binding</strong>: Instance carries <code>{run_id, graph_id, node_id, agent_id}</code> and stamps them on events.</li>
-<li><strong>Signal heuristic</strong>: If not provided, <code>record_raw()</code> estimates a <code>signal</code> (0.0–1.0) from text length, metrics, and severity.</li>
-<li><strong>RAG integration</strong>: Optional <code>RAGFacade</code> for corpora, upserts, search, and QA; gated by configuration.</li>
-</ul>
-<h3 id="event-schema-contract-excerpt">Event Schema (contract excerpt)<a class="headerlink" href="#event-schema-contract-excerpt" title="Permanent link">&para;</a></h3>
-<p>Essential <code>Event</code> fields used by this facade (not exhaustive):</p>
-<div class="highlight"><pre><span></span><code>Event(
-  event_id: str, ts: str, kind: str, stage: str | None, severity: int,
-  text: str | None, metrics: dict[str, Any] | None, signal: float | None,
-  tool: str | None, tags: list[str], entities: list[str],
-  inputs: list[dict] | None, outputs: list[dict] | None,
-  run_id: str, graph_id: str | None, node_id: str | None, agent_id: str | None,
-)
+<p><code>MemoryFacade</code> coordinates <strong>HotLog</strong> (fast recent events), <strong>Persistence</strong> (durable JSONL), and <strong>Indices</strong> (derived KV views).</p>
+<p>It is accessed via <code>node_context.memory</code> but aggregates functionality from several internal mixins.</p>
+<p>Methods for vector-memory storage and search is under development.</p>
+<!-- # Memory Contracts -->
+
+<!-- ???+ quote "Event Schema"
+    ::: aethergraph.contracts.services.memory.Event
+        options:  
+            show_root_heading: true   # Show "class Event"
+            show_root_full_path: false # Show just "Event"
+            show_category_heading: false
+            members: []  # <-- TRICK: Hide methods, show only attributes/docstring
+
+--- -->
+
+<h2 id="1-core-recording">1. Core Recording<a class="headerlink" href="#1-core-recording" title="Permanent link">&para;</a></h2>
+<p>Basic event logging and raw data access for general messages/memory.  </p>
+<details class="quote">
+<summary>record_raw(*, base, text, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_raw"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record an unstructured event with optional preview text and metrics.</p>
+<p>This method generates a stable event ID, populates standard fields
+(e.g., <code>run_id</code>, <code>scope_id</code>, <code>severity</code>, <code>signal</code>), and appends the
+event to both the HotLog and Persistence layers. Additionally, it
+records a metering event for tracking purposes.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with minimal fields:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_raw</span><span class="p">(</span>
+    <span class="n">base</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;user_action&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;User clicked a button.&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Including metrics and additional fields:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_raw</span><span class="p">(</span>
+    <span class="n">base</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;tool_call&quot;</span><span class="p">,</span> <span class="s2">&quot;stage&quot;</span><span class="p">:</span> <span class="s2">&quot;execution&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Tool executed successfully.&quot;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;latency&quot;</span><span class="p">:</span> <span class="mf">0.123</span><span class="p">,</span> <span class="s2">&quot;tokens_used&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>base</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing event fields such as <code>kind</code>, <code>stage</code>,
+<code>data</code>, <code>tags</code>, <code>severity</code>, etc.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional preview text for the event. If None, it is derived
+from the <code>data</code> field in <code>base</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of numeric metrics (e.g., latency,
+token usage) to include in the event.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully constructed and persisted <code>Event</code> object.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>record(kind, data, tags, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record an event with common fields.</p>
+<p>This method standardizes event creation by populating fields such as
+<code>kind</code>, <code>severity</code>, <code>tags</code>, and <code>metrics</code>. It also supports optional
+references for inputs and outputs, and allows for signal strength
+overrides.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage for a user action:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;user_action&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;clicked_button&quot;</span><span class="p">},</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ui&quot;</span><span class="p">,</span> <span class="s2">&quot;interaction&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Recording a tool execution with metrics:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;tool_call&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tool&quot;</span><span class="p">:</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;weather&quot;</span><span class="p">},</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;latency&quot;</span><span class="p">:</span> <span class="mf">0.123</span><span class="p">,</span> <span class="s2">&quot;tokens_used&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">},</span>
+    <span class="n">severity</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Logical kind of event (e.g., <code>"user_msg"</code>, <code>"tool_call"</code>, <code>"chat_turn"</code>).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>JSON-serializable content or string providing event details.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-3) indicating importance. Defaults to 2.</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>stage</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional stage of the event (e.g., <code>"user"</code>, <code>"assistant"</code>, <code>"system"</code>). Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>inputs_ref</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional references for input values. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>outputs_ref</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional references for output values. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary of numeric metrics (e.g., latency, token usage). Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Manual override for the signal strength (0.0 to 1.0). If None, it is calculated heuristically.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional preview text override. If None, it is derived from <code>data</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully constructed and persisted <code>Event</code> object.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>recent(kinds, limit)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.recent"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve recent events.</p>
+<p>This method fetches a list of recent events, optionally filtered by kinds.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kinds</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of event kinds to filter by. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of events to retrieve. Defaults to 50.</p>
+              </div>
+            </td>
+            <td>
+                  <code>50</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.memory.Event">Event</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Event]: A list of recent events.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>This method interacts with the underlying HotLog service to fetch events
+associated with the current timeline. The events are returned in chronological order,
+with the most recent events appearing last in the list. Memory out of the limit will be discarded
+in the HotLog layer (but persistent in the Persistence layer). Memory in persistence cannot be retrieved
+via this method.</p>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>recent_data(kinds, limit)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.recent_data"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve recent event data.</p>
+<p>This method fetches the data or text of recent events, optionally filtered by kinds and tags.
+Unlike <code>recent()</code>, which returns full Event objects, this method extracts and returns only the
+data or text content of the events. This is useful for scenarios where only the event payloads are needed.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kinds</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of event kinds to filter by. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of tags to filter events by. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of events to retrieve. Defaults to 50.</p>
+              </div>
+            </td>
+            <td>
+                  <code>50</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Any]: A list of event data or text.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>This method first retrieves recent events using the <code>recent()</code> method and then filters them
+based on the provided tags. It extracts the <code>data</code> attribute if available; otherwise, it
+attempts to parse the <code>text</code> attribute as JSON. If parsing fails, the raw text is returned.</p>
+<p>Memory out of the limit will be discarded in the HotLog layer (but persistent in the Persistence layer).
+Memory in persistence cannot be retrieved via this method.</p>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>search(query, kinds, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.search"></a>
+    <div class="doc doc-contents first">
+
+        <p>Search for events based on a query.</p>
+<p>This method searches for events that match a query, optionally filtered by kinds and tags.
+Note that this implementation currently performs a lexical search. Embedding-based search
+is planned for future development.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>query</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The search query string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kinds</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of event kinds to filter by. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of tags to filter events by. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of events to retrieve. Defaults to 100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>use_embedding</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to use embedding-based search. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.memory.Event">Event</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Event]: A list of events matching the query.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>This method retrieves recent events using the <code>recent()</code> method and filters them
+based on the provided tags. It performs a simple lexical search on the event text.
+Embedding-based search functionality is not yet implemented.</p>
+<p>Memory out of the limit will be discarded in the HotLog layer (but persistent in the Persistence layer).
+Memory in persistence cannot be retrieved via this method.</p>
+</details>
+
+    </div>
+
+</div></details>
+<h2 id="2-chat-operations">2. Chat Operations<a class="headerlink" href="#2-chat-operations" title="Permanent link">&para;</a></h2>
+<p>Convenience method for recording chat-related memory events.</p>
+<details class="quote">
+<summary>record_chat(role, text, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_chat"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record a single chat turn in a normalized format.</p>
+<p>This method automatically handles timestamping, standardizes the <code>role</code>,
+and dispatches the event to the configured persistence layer.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage for a user message:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello graph!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Recording a tool output with extra metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat</span><span class="p">(</span>
+    <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Search results found.&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;weather&quot;</span><span class="p">,</span> <span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>role</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;user&#39;, &#39;assistant&#39;, &#39;system&#39;, &#39;tool&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The semantic role of the speaker. Must be one of:
+<code>"user"</code>, <code>"assistant"</code>, <code>"system"</code>, or <code>"tool"</code>.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content of the message.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization. The tag <code>"chat"</code>
+is automatically appended to this list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arbitrary JSON-serializable dictionary containing extra
+context (e.g., token counts, model names).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-3) indicating importance.
+(1=Low, 2=Normal, 3=High).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Manual override for the signal strength (0.0 to 1.0).
+If None, it is calculated heuristically.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Event</code> object containing the generated ID and timestamp.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>record_chat_user(text, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_chat_user"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record a user chat turn in a normalized format.</p>
+<p>This method automatically handles timestamping, standardizes the <code>role</code>,
+and dispatches the event to the configured persistence layer.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage for a user message:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_user</span><span class="p">(</span><span class="s2">&quot;Hello, how are you doing?&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Recording a user message with extra metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_user</span><span class="p">(</span>
+    <span class="s2">&quot;I need help with my account.&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;support&quot;</span><span class="p">,</span> <span class="s2">&quot;account&quot;</span><span class="p">],</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;issue&quot;</span><span class="p">:</span> <span class="s2">&quot;login failure&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content of the user's message.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization. The tag <code>"chat"</code>
+is automatically appended to this list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arbitrary JSON-serializable dictionary containing extra
+context (e.g., user metadata, session details).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-3) indicating importance.
+(1=Low, 2=Normal, 3=High). Defaults to 2.</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Manual override for the signal strength (0.0 to 1.0).
+If None, it is calculated heuristically.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Event</code> object containing the generated ID and timestamp.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>record_chat_assistant(text, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_chat_assistant"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record an assistant chat turn in a normalized format.</p>
+<p>This method automatically handles timestamping, standardizes the <code>role</code>,
+and dispatches the event to the configured persistence layer.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage for an assistant message:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_assistant</span><span class="p">(</span><span class="s2">&quot;How can I assist you?&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Recording an assistant message with extra metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_assistant</span><span class="p">(</span>
+    <span class="s2">&quot;Here are the search results.&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;search&quot;</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">],</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;latest news&quot;</span><span class="p">,</span> <span class="s2">&quot;results_count&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content of the assistant's message.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization. The tag <code>"chat"</code>
+is automatically appended to this list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arbitrary JSON-serializable dictionary containing extra
+context (e.g., token counts, model names).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-3) indicating importance.
+(1=Low, 2=Normal, 3=High).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Manual override for the signal strength (0.0 to 1.0).
+If None, it is calculated heuristically.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Event</code> object containing the generated ID and timestamp.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>record_chat_system(text, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_chat_system"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record a system message in a normalized format.</p>
+<p>This method automatically handles timestamping, standardizes the <code>role</code>,
+and dispatches the event to the configured persistence layer.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage for a system message:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_system</span><span class="p">(</span><span class="s2">&quot;System initialized.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Recording a system message with extra metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_chat_system</span><span class="p">(</span>
+    <span class="s2">&quot;Configuration updated.&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;config&quot;</span><span class="p">,</span> <span class="s2">&quot;update&quot;</span><span class="p">],</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content of the system message.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization. The tag <code>"chat"</code>
+is automatically appended to this list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arbitrary JSON-serializable dictionary containing extra
+context (e.g., configuration details, system state).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-3) indicating importance.
+(1=Low, 2=Normal, 3=High). Defaults to 1.</p>
+              </div>
+            </td>
+            <td>
+                  <code>1</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Manual override for the signal strength (0.0 to 1.0).
+If None, it is calculated heuristically.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Event</code> object containing the generated ID and timestamp.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>recent_chat(*, limit, roles)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.recent_chat"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve the most recent chat turns as a normalized list.</p>
+<p>This method fetches the last <code>limit</code> chat events of type <code>chat.turn</code>
+and returns them in a standardized format. Each item in the returned
+list contains the timestamp, role, text, and tags associated with the
+chat event.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Fetch the last 10 chat turns:
+<div class="highlight"><pre><span></span><code><span class="n">recent_chats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent_chat</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Fetch the last 20 chat turns for specific roles:
+<div class="highlight"><pre><span></span><code><span class="n">recent_chats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent_chat</span><span class="p">(</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">roles</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;assistant&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of chat events to retrieve. Defaults to 50.</p>
+              </div>
+            </td>
+            <td>
+                  <code>50</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>roles</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Sequence">Sequence</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An optional sequence of roles to filter by (e.g., <code>["user", "assistant"]</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[dict[str, Any]]: A list of chat events, each represented as a dictionary</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>with the following keys:
+- "ts": The timestamp of the event.
+- "role": The role of the speaker (e.g., "user", "assistant").
+- "text": The text content of the chat message.
+- "tags": A list of tags associated with the event.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="3-tool-related-memory">3. Tool-related Memory<a class="headerlink" href="#3-tool-related-memory" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>record_tool_result(tool, inputs, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.record_tool_result"></a>
+    <div class="doc doc-contents first">
+
+        <p>Record the result of a tool execution in a normalized format.</p>
+<p>This method provides the method to log tool execution results with standardized metadata.
+Interally, it constructs an <code>Event</code> object encapsulating details about the tool execution,
+including inputs, outputs, tags, metrics, and a descriptive message.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Recording a tool result with inputs and outputs:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_tool_result</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;data_cleaner&quot;</span><span class="p">,</span>
+    <span class="n">inputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;raw_data&quot;</span><span class="p">:</span> <span class="s2">&quot;some raw input&quot;</span><span class="p">}],</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;cleaned_data&quot;</span><span class="p">:</span> <span class="s2">&quot;processed output&quot;</span><span class="p">}],</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;cleaning&quot;</span><span class="p">],</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;execution_time&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">},</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Tool executed successfully.&quot;</span><span class="p">,</span>
+    <span class="n">severity</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Logging a tool result with minimal metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record_tool_result</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;simple_logger&quot;</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Logged an event.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the tool that generated the result.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>inputs</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of dictionaries representing the tool's input data.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>outputs</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of dictionaries representing the tool's output data.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of string labels for categorization.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary of numerical metrics (e.g., execution time, accuracy).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>message</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A descriptive message about the tool's execution or result.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An integer (1-5) indicating the importance or severity of the result.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Event</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.memory.Event">Event</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Event</code> object containing the generated ID and timestamp.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>recent_tool_results(*, tool, limit, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.recent_tool_results"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve recent tool execution results for a specific tool.</p>
+<p>This method filters and returns the most recent <code>tool_result</code> events
+associated with the specified tool, allowing you to analyze or process
+the results of tool executions.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Fetching the 5 most recent results for a tool:
+<div class="highlight"><pre><span></span><code><span class="n">recent_results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent_tool_results</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;data_cleaner&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">recent_results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Retrieving all available results for a tool (up to the default limit):
+<div class="highlight"><pre><span></span><code><span class="n">recent_results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent_tool_results</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;simple_logger&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the tool whose results are being queried.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of results to return (default is 10).</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.memory.Event">Event</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Event]: A list of <code>Event</code> objects representing the recent</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.memory.Event">Event</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>tool_result</code> events for the specified tool, ordered by recency.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>recent_tool_result_data(*, tool, limit, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.recent_tool_result_data"></a>
+    <div class="doc doc-contents first">
+
+        <p>Return a simplified view over recent tool_result events.</p>
+<p>This method provides a developer-friendly way to retrieve recent tool execution results
+in a normalized format, including metadata such as timestamps, inputs, outputs, and tags.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Fetching recent tool result data:
+<div class="highlight"><pre><span></span><code><span class="n">recent_data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent_tool_result_data</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;data_cleaner&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">recent_data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the tool whose results are being queried.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of recent results to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[dict[str, Any]]: A list of dictionaries, each containing:
+- "ts": The timestamp of the event.
+- "tool": The name of the tool.
+- "message": A descriptive message about the tool's execution.
+- "inputs": The input data provided to the tool.
+- "outputs": The output data generated by the tool.
+- "tags": A list of string labels associated with the event.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="4-memory-distillation">4. Memory Distillation<a class="headerlink" href="#4-memory-distillation" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>distill_long_term(scope_id, *, summary_tag, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.distill_long_term"></a>
+    <div class="doc doc-contents first">
+
+        <p>Distill long-term memory summaries based on specified criteria.
+This method generates a long-term memory summary by either using a
+Long-Term Summarizer or an LLM-based Long-Term Summarizer, depending
+on the <code>use_llm</code> flag. The summaries are filtered and configured
+based on the provided arguments.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Using the default summarizer:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_long_term</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;scope_123&quot;</span><span class="p">,</span>
+    <span class="n">include_kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;note&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">],</span>
+    <span class="n">max_events</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
 </code></pre></div>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Returns</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>record_raw(*, base, text=None, metrics=None, sources=None)</code></td>
-<td>Append normalized event to HotLog + Persistence</td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None)</code></td>
-<td>Convenience wrapper that stringifies <code>data</code></td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3)</code></td>
-<td>Record a typed tool/agent result and update indices</td>
-<td><code>Event</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>recent(*, kinds=None, limit=50)</code></td>
-<td>Recent events from HotLog</td>
-<td><code>list[Event]</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>recent_data(*, kinds, limit=50)</code></td>
-<td>Recent events → decoded JSON/text list</td>
-<td><code>list[Any]</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_upsert(*, corpus_id, docs, topic=None)</code></td>
-<td>Upsert docs into RAG</td>
-<td><code>dict</code> stats</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None)</code></td>
-<td>Get/create corpus id</td>
-<td><code>str</code> corpus_id</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_status(*, corpus_id)</code></td>
-<td>Corpus stats</td>
-<td><code>dict</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_snapshot(*, corpus_id, title, labels=None)</code></td>
-<td>Export corpus as artifact bundle and log result</td>
-<td><code>dict</code> bundle</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_promote_events(*, corpus_id, events=None, where=None, policy=None)</code></td>
-<td>Convert events → docs → upsert</td>
-<td><code>dict</code> stats</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid")</code></td>
-<td>Hybrid/dense search</td>
-<td><code>list[dict]</code> hits</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6)</code></td>
-<td>Answer with citations + log</td>
-<td><code>dict</code> answer</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>last_by_name(name)</code></td>
-<td>Latest output value by name (fast)</td>
-<td><code>dict             | Any   | None</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>last_outputs_by_topic(topic)</code></td>
-<td>Latest outputs map for a topic</td>
-<td><code>dict[str, Any]   | None</code></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<details>
-<summary>record_raw(*, base, text=None, metrics=None, sources=None) -&gt; Event</summary>
-<p><strong>Description:</strong> Append a normalized <code>Event</code> to <strong>HotLog</strong> (fast) and <strong>Persistence</strong> (durable). Stamps missing scope fields and computes a lightweight <code>signal</code> if absent.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>base: dict[str, Any]</code> – Must include classification fields like <code>kind</code>, <code>stage</code>, <code>severity</code>, <code>tool</code> (optional), <code>tags</code>, <code>entities</code>, <code>inputs</code>, <code>outputs</code>. Missing scope fields are added.</li>
-<li><code>text: str | None</code> – Optional human-readable message.</li>
-<li><code>metrics: dict[str, Any] | None</code> – Numeric map (latency, token counts, costs, etc.).</li>
-<li><code>sources: list[str] | None</code> – Upstream event_ids this event derives from.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>Does <strong>not</strong> update <code>indices</code> automatically. Use <code>write_result()</code> for index updates.</li>
-</ul>
+Using an LLM-based summarizer:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_long_term</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;scope_456&quot;</span><span class="p">,</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;custom_summary&quot;</span><span class="p">,</span>
+    <span class="n">min_signal</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The scope ID for the memory to summarize. If None,
+defaults to the instance's <code>memory_scope_id</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A tag to categorize the generated summary. Defaults
+to <code>"session"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The kind of summary to generate. Defaults to
+<code>"long_term_summary"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;long_term_summary&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>include_kinds</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of memory kinds to include in the summary.
+If None, all kinds are included.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>include_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of tags to filter the memories. If None, no
+tag filtering is applied.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_events</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of events to include in the
+summary. Defaults to 200.</p>
+              </div>
+            </td>
+            <td>
+                  <code>200</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>min_signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The minimum signal threshold for filtering events.
+If None, the default signal threshold is used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>use_llm</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to use an LLM-based summarizer. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: A dictionary containing the generated summary.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example-return-value" open>
+  <summary>Example return value</summary>
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;file://mem/scope_123/summaries/long_term/2023-10-01T12:00:00Z.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;summary_kind&quot;</span><span class="p">:</span> <span class="s2">&quot;long_term_summary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;summary_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;session&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time_window&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-09-01&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-09-30&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;num_events&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+    <span class="s2">&quot;included_kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;note&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;included_tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;important&quot;</span><span class="p">,</span> <span class="s2">&quot;meeting&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
 </details>
-<details>
-<summary>record(kind, data, tags=None, entities=None, severity=2, stage=None, inputs_ref=None, outputs_ref=None, metrics=None, sources=None, signal=None) -&gt; Event</summary>
-<p><strong>Description:</strong> Convenience wrapper around <code>record_raw()</code>; stringifies <code>data</code> to <code>text</code> (JSON if possible).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kind: str</code></li>
-<li><code>data: Any</code> – Will be stringified; if non-serializable, a warning is logged (when logger is set).</li>
-<li><code>tags: list[str] | None</code></li>
-<li><code>entities: list[str] | None</code></li>
-<li><code>severity: int</code></li>
-<li><code>stage: str | None</code></li>
-<li><code>inputs_ref: list[dict] | None</code></li>
-<li><code>outputs_ref: list[dict] | None</code></li>
-<li><code>metrics: dict[str, Any] | None</code></li>
-<li><code>sources: list[str] | None</code></li>
-<li><code>signal: float | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>distill_meta_summary(scope_id, *, summary_kind, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.distill_meta_summary"></a>
+    <div class="doc doc-contents first">
+
+        <p>Generate a meta-summary by distilling existing summary events.</p>
+<p>This method creates a meta-summary by processing existing long-term
+summaries. It uses an LLM-based summarizer to generate a higher-level
+summary based on the provided arguments.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Using the default configuration:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_meta_summary</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;scope_123&quot;</span><span class="p">,</span>
+    <span class="n">source_kind</span><span class="o">=</span><span class="s2">&quot;long_term_summary&quot;</span><span class="p">,</span>
+    <span class="n">source_tag</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Customizing the summary kind and tag:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">distill_meta_summary</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;scope_456&quot;</span><span class="p">,</span>
+    <span class="n">summary_kind</span><span class="o">=</span><span class="s2">&quot;meta_summary&quot;</span><span class="p">,</span>
+    <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;weekly&quot;</span><span class="p">,</span>
+    <span class="n">max_summaries</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The scope ID for the memory to summarize. If None,
+defaults to the instance's <code>memory_scope_id</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>source_kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The kind of source summaries to process. Defaults to
+<code>"long_term_summary"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;long_term_summary&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>source_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A tag to filter the source summaries. Defaults to
+<code>"session"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The kind of meta-summary to generate. Defaults to
+<code>"meta_summary"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;meta_summary&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A tag to categorize the generated meta-summary.
+Defaults to <code>"meta"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;meta&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_summaries</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of source summaries to process.
+Defaults to 20.</p>
+              </div>
+            </td>
+            <td>
+                  <code>20</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>min_signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The minimum signal threshold for filtering summaries.
+If None, the default signal threshold is used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>use_llm</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to use an LLM-based summarizer. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: A dictionary containing the generated meta-summary.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example-return-value" open>
+  <summary>Example return value</summary>
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;file://mem/scope_123/summaries/meta/2023-10-01T12:00:00Z.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;summary_kind&quot;</span><span class="p">:</span> <span class="s2">&quot;meta_summary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;summary_tag&quot;</span><span class="p">:</span> <span class="s2">&quot;meta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time_window&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-09-01&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-09-30&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;num_source_summaries&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
 </details>
-<details>
-<summary>write_result(*, topic, inputs=None, outputs=None, tags=None, metrics=None, message=None, severity=3) -&gt; Event</summary>
-<p><strong>Description:</strong> Record a typed <strong>tool/agent result</strong> (<code>kind="tool_result"</code>) and update <strong>Indices</strong> (latest-by-name, latest refs by kind, last outputs-by-topic).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>topic: str</code> – Tool/agent/flow identifier (used in indices).</li>
-<li><code>inputs: list[dict] | None</code> – List of typed values (<code>Value</code>-like dicts).</li>
-<li><code>outputs: list[dict] | None</code> – <strong>Primary source</strong> for index updates.</li>
-<li><code>tags: list[str] | None</code></li>
-<li><code>metrics: dict[str, float] | None</code></li>
-<li><code>message: str | None</code></li>
-<li><code>severity: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Event</code></li>
-</ul>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_recent_summaries(scope_id, *,  summary_tag, limit)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.load_recent_summaries"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load the most recent JSON summaries for the specified scope and tag.</p>
+<p>This method retrieves up to <code>limit</code> summaries from the <code>DocStore</code>
+based on the provided <code>scope_id</code> and <code>summary_tag</code>. Summaries are
+identified using the following pattern:
+<code>mem/{scope_id}/summaries/{summary_tag}/{ts}</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Load the last three session summaries:
+<div class="highlight"><pre><span></span><code><span class="n">summaries</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">load_recent_summaries</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;user123&quot;</span><span class="p">,</span>
+    <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Load the last two project summaries:
+<div class="highlight"><pre><span></span><code><span class="n">summaries</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">load_recent_summaries</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;project456&quot;</span><span class="p">,</span>
+    <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The memory scope ID. If None, defaults to the current memory scope.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tag used to filter summaries (e.g., "session", "project").
+Defaults to "session".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of summaries to return. Defaults to 3.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[dict[str, Any]]: A list of summary dictionaries, ordered from oldest to newest.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_last_summary(scope_id, *,  summary_tag)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.load_last_summary"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load the most recent JSON summary for the specified memory scope and tag.</p>
+<p>This method retrieves the latest summary document from the <code>DocStore</code>
+based on the provided <code>scope_id</code> and <code>summary_tag</code>. Summaries are
+identified using the following pattern:
+<code>mem/{scope_id}/summaries/{summary_tag}/{ts}</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Load the last session summary:
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">load_last_summary</span><span class="p">(</span><span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;user123&quot;</span><span class="p">,</span> <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Load the last project summary:
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">load_last_summary</span><span class="p">(</span><span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;project456&quot;</span><span class="p">,</span> <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The memory scope ID. If None, defaults to the current memory scope.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tag used to filter summaries (e.g., "session", "project").
+Defaults to "session".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any] | None: The most recent summary as a dictionary, or None if no summary is found.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>soft_hydrate_last_summary(scope_id, *, summary_tag, summary_kind)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.soft_hydrate_last_summary"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load the most recent summary for the specified scope and tag, and log a hydrate event.</p>
+<p>This method retrieves the latest summary document from the <code>DocStore</code> based on the
+provided <code>scope_id</code> and <code>summary_tag</code>. If a summary is found, it logs a hydrate
+event into the current run's HotLog and Persistence layers.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Hydrate the last session summary:
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">soft_hydrate_last_summary</span><span class="p">(</span>
+    <span class="n">scope_id</span><span class="o">=</span><span class="s2">&quot;user123&quot;</span><span class="p">,</span>
+    <span class="n">summary_tag</span><span class="o">=</span><span class="s2">&quot;session&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The memory scope ID. If None, defaults to the current memory scope.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tag used to filter summaries (e.g., "session", "project").
+Defaults to "session".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The kind of summary (e.g., "long_term_summary", "project_summary").
+Defaults to "long_term_summary".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;long_term_summary&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any] | None: The loaded summary dictionary if found, otherwise None.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="side-effects" open>
+  <summary>Side Effects</summary>
+  <p>Appends a hydrate event to HotLog and Persistence for the current timeline.</p>
 </details>
-<details>
-<summary>recent(*, kinds=None, limit=50) -&gt; list[Event]</summary>
-<p><strong>Description:</strong> Get recent events from <strong>HotLog</strong> (most recent last).</p>
-<p><strong>Inputs:</strong></p>
+
+    </div>
+
+</div></details>
+<h2 id="5-vector-memory">5. Vector Memory<a class="headerlink" href="#5-vector-memory" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>rag_remember_events(*, key='default', where=None, policy=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.rag_remember_events"></a>
+    <div class="doc doc-contents first">
+
+        <p>Bind a RAG corpus by logical key and promote events into it.</p>
+<p>This method allows you to associate a logical key with a RAG corpus and
+promote events into it based on filtering criteria.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Promote events into a session corpus:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_remember_events</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;session&quot;</span><span class="p">,</span>
+    <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tool_result&quot;</span><span class="p">],</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
+    <span class="n">policy</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;min_signal&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Logical key for the RAG corpus. Defaults to <code>"default"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;default&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>where</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Filtering criteria for selecting events.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Promotion policy, such as minimum signal threshold.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing the promotion results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>rag_remember_docs(docs, *, key='default', labels=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.rag_remember_docs"></a>
+    <div class="doc doc-contents first">
+
+        <p>Bind a RAG corpus by key and upsert documents into it.</p>
+<p>This method allows you to associate a logical key with a RAG corpus and
+upsert a sequence of documents into it.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Upsert documents into a corpus:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_remember_docs</span><span class="p">(</span>
+    <span class="n">docs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Document 1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Document 2&quot;</span><span class="p">}],</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;knowledge_base&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;reference&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>docs</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Sequence">Sequence</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A sequence of documents to upsert.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Logical key for the RAG corpus. Defaults to <code>"default"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;default&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Metadata labels to associate with the corpus.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing the upsert results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>rag_search_by_key(*, key='default', query, k=8, filters=None, mode='hybrid')</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.rag_search_by_key"></a>
+    <div class="doc doc-contents first">
+
+        <p>Resolve a corpus by logical key and perform a search query.</p>
+<p>This method allows you to search within a RAG corpus identified by a
+logical key.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Perform a search query:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_search_by_key</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;knowledge_base&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">,</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Logical key for the RAG corpus. Defaults to <code>"default"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;default&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>query</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The search query string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>k</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of top results to return. Defaults to 8.</p>
+              </div>
+            </td>
+            <td>
+                  <code>8</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filters</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional filters for the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>mode</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;hybrid&#39;, &#39;dense&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Search mode, either <code>"hybrid"</code> or <code>"dense"</code>. Defaults to <code>"hybrid"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;hybrid&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[dict]: A list of search results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>rag_answer_by_key(*, key='default', question, style='concise', with_citations=True, k=6)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.rag_answer_by_key"></a>
+    <div class="doc doc-contents first">
+
+        <p>Perform RAG QA over a corpus referenced by a logical key.</p>
+<p>This method allows you to ask a question and retrieve an answer from a
+RAG corpus identified by a logical key.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Ask a question:
+<div class="highlight"><pre><span></span><code><span class="n">answer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_answer_by_key</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;knowledge_base&quot;</span><span class="p">,</span>
+    <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;detailed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Logical key for the RAG corpus. Defaults to <code>"default"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;default&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>question</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The question to ask.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>style</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;concise&#39;, &#39;detailed&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Answer style, either <code>"concise"</code> or <code>"detailed"</code>. Defaults to <code>"concise"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;concise&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>with_citations</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to include citations in the answer. Defaults to <code>True</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>k</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of top results to consider. Defaults to 6.</p>
+              </div>
+            </td>
+            <td>
+                  <code>6</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing the answer and related metadata.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="6-utilities">6. Utilities<a class="headerlink" href="#6-utilities" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>chat_history_for_llm(*, limit, include_system_summary, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.chat_history_for_llm"></a>
+    <div class="doc doc-contents first">
+
+        <p>Build a ready-to-send OpenAI-style chat message list.</p>
+<p>This method constructs a dictionary containing a summary of previous
+context and a list of chat messages formatted for use with OpenAI-style
+chat models. It includes options to limit the number of messages and
+incorporate long-term summaries.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with default parameters:
+<div class="highlight"><pre><span></span><code><span class="n">history</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">chat_history_for_llm</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Including a system summary and limiting messages:
+<div class="highlight"><pre><span></span><code><span class="n">history</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">chat_history_for_llm</span><span class="p">(</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">include_system_summary</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of recent chat messages to include. Defaults to 20.</p>
+              </div>
+            </td>
+            <td>
+                  <code>20</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>include_system_summary</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to include a system summary of previous
+context. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tag used to filter summaries. Defaults to "session".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_scope_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An optional scope ID for filtering summaries. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_summaries</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of summaries to load. Defaults to 3.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: A dictionary with the following structure:
+- "summary": A combined long-term summary or an empty string.
+- "messages": A list of chat messages, each represented as a dictionary
+  with "role" and "content" keys.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Example of returned structure:
+<div class="highlight"><pre><span></span><code>    <span class="p">{</span>
+        <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;Summary of previous context...&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Summary of previous context...&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello!&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hi there! How can I help?&quot;</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div></p>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>build_prompt_segments(*, recent_chat_limit, include_long_term, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.memory.facade.MemoryFacade.build_prompt_segments"></a>
+    <div class="doc doc-contents first">
+
+        <p>Assemble memory context for prompts, including long-term summaries,
+recent chat history, and recent tool usage.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Build prompt segments with default settings:
+<div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">build_prompt_segments</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Include recent tool usage and filter by a specific tool:
+<div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">build_prompt_segments</span><span class="p">(</span>
+    <span class="n">include_recent_tools</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;search&quot;</span><span class="p">,</span>
+    <span class="n">tool_limit</span><span class="o">=</span><span class="mi">5</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>recent_chat_limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of recent chat messages to include.
+Defaults to 12.</p>
+              </div>
+            </td>
+            <td>
+                  <code>12</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>include_long_term</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to include long-term memory summaries.
+Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>summary_tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The tag used to filter long-term summaries.
+Defaults to "session".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;session&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_summaries</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of long-term summaries to include.
+Defaults to 3.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>include_recent_tools</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to include recent tool usage.
+Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The specific tool to filter recent tool usage.
+Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tool_limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of recent tool events to include.
+Defaults to 10.</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict[str, Any]: A dictionary containing the following keys:</p>
 <ul>
-<li><code>kinds: list[str] | None</code></li>
-<li><code>limit: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
+<li>
+<p>"long_term" (str): Combined long-term summary text or an empty
+  string if not included.</p>
+</li>
+<li>
+<p>"recent_chat" (list[dict[str, Any]]): A list of recent chat
+  messages, each represented as a dictionary with the following keys:</p>
 <ul>
-<li><code>list[Event]</code></li>
+<li>"ts" (str): Timestamp of the message.</li>
+<li>"role" (str): Role of the sender (e.g., "user", "assistant").</li>
+<li>"text" (str): The content of the message.</li>
+<li>"tags" (list[str]): Tags associated with the message.</li>
 </ul>
-</details>
-<details>
-<summary>recent_data(*, kinds, limit=50) -&gt; list[Any]</summary>
-<p><strong>Description:</strong> Convenience wrapper returning decoded <code>data</code> payloads (prefers JSON decode; falls back to raw text).</p>
-<p><strong>Inputs:</strong></p>
+</li>
+<li>
+<p>"recent_tools" (list[dict[str, Any]]): A list of recent tool
+  usage events, each represented as a dictionary with the following keys:</p>
 <ul>
-<li><code>kinds: list[str]</code></li>
-<li><code>limit: int</code></li>
+<li>"ts" (str): Timestamp of the tool event.</li>
+<li>"tool" (str): Name of the tool used.</li>
+<li>"message" (str): Message or description of the tool event.</li>
+<li>"inputs" (Any): Inputs provided to the tool.</li>
+<li>"outputs" (Any): Outputs generated by the tool.</li>
+<li>"tags" (list[str]): Tags associated with the tool event.</li>
 </ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[Any]</code></li>
+</li>
 </ul>
-</details>
-<hr />
-<details>
-<summary>rag_upsert(*, corpus_id, docs, topic=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Upsert documents into a <strong>RAG</strong> corpus via <code>RAGFacade</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>docs: Sequence[dict[str, Any]]</code> – Each doc should include <code>text</code> and optional <code>title</code>, <code>labels</code>.</li>
-<li><code>topic: str | None</code> – Reserved for future logging (not used in current function body).</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Stats from index (e.g., <code>added</code>, <code>chunks</code>).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code> configured; otherwise raises <code>RuntimeError</code>.</p>
-</details>
-<details>
-<summary>rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None) -&gt; str</summary>
-<p><strong>Description:</strong> Return a corpus id, optionally creating it. If <code>corpus_id</code> is omitted, a stable id is derived from <code>key</code> (or <code>run_id</code>).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str | None</code></li>
-<li><code>key: str | None</code> – If not provided, <code>run_id</code> is used.</li>
-<li><code>create_if_missing: bool</code></li>
-<li><code>labels: dict | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – Corpus id.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code> configured.</p>
-</details>
-<details>
-<summary>rag_status(*, corpus_id) -&gt; dict</summary>
-<p><strong>Description:</strong> Lightweight corpus stats.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code></li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
-</details>
-<details>
-<summary>rag_snapshot(*, corpus_id, title, labels=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Export corpus to an <strong>artifact bundle</strong> and log a <code>tool_result</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>title: str</code></li>
-<li><code>labels: dict | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Bundle descriptor <code>{ uri, ... }</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Uses <code>write_result()</code> to record bundle URI.</p>
-</details>
-<details>
-<summary>rag_promote_events(*, corpus_id, events=None, where=None, policy=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Select events (by <code>where</code> or <code>recent</code>) → convert to docs → upsert into RAG.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>events: list[Event] | None</code></li>
-<li><code>where: dict | None</code> – e.g., <code>{ "kinds": ["tool_result"], "min_signal": 0.25, "limit": 200 }</code>.</li>
-<li><code>policy: dict | None</code> – e.g., <code>{ "min_signal": float }</code>.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Upsert stats (e.g., <code>added</code>, <code>chunks</code>).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Also logs a <code>tool_result</code> with counts.</p>
-</details>
-<details>
-<summary>rag_search(*, corpus_id, query, k=8, filters=None, mode="hybrid") -&gt; list[dict]</summary>
-<p><strong>Description:</strong> Search a RAG corpus and return serializable hits.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>query: str</code></li>
-<li><code>k: int</code></li>
-<li><code>filters: dict | None</code></li>
-<li><code>mode: Literal["hybrid", "dense"]</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[dict]</code> – Each hit includes <code>chunk_id</code>, <code>doc_id</code>, <code>corpus_id</code>, <code>score</code>, <code>text</code>, <code>meta</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>.</p>
-</details>
-<details>
-<summary>rag_answer(*, corpus_id, question, style="concise", with_citations=True, k=6) -&gt; dict</summary>
-<p><strong>Description:</strong> Answer with citations using RAG + optional LLM; logs the answer as a <code>tool_result</code> (with usage metrics when available).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>corpus_id: str</code></li>
-<li><code>question: str</code></li>
-<li><code>style: Literal["concise", "detailed"]</code></li>
-<li><code>with_citations: bool</code></li>
-<li><code>k: int</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict</code> – Includes <code>answer</code>, <code>citations</code>/<code>resolved_citations</code>, and <code>usage</code> (if provided by LLM).</li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>self.rag</code>. Outputs are flattened into <code>write_result()</code> for indexing.</p>
-</details>
-<hr />
-<details>
-<summary>last_by_name(name) -&gt; dict | Any | None</summary>
-<p><strong>Description:</strong> Return the <strong>latest output value</strong> by <code>name</code> from <strong>Indices</strong> (fast path). Useful for grabbing a single named value most recently produced by any tool that wrote it via <code>write_result()</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict | Any | None</code> – Store-dependent value or <code>None</code> if not found.</li>
-</ul>
-</details>
-<details>
-<summary>last_outputs_by_topic(topic) -&gt; dict[str, Any] | None</summary>
-<p><strong>Description:</strong> Return the <strong>latest outputs map</strong> for a given <code>topic</code> (tool/flow/agent) from <strong>Indices</strong>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>topic: str</code> – The identifier you passed as <code>topic</code> to <code>write_result()</code>.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>dict[str, Any] | None</code> – Name→value map of last outputs, or <code>None</code> if not found.</li>
-</ul>
-</details>
-<h2 id="behavioral-notes">Behavioral Notes<a class="headerlink" href="#behavioral-notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Indices updates:</strong> Only <code>write_result()</code> updates indices by default; this keeps ad-hoc <code>record_*</code> logs cheap.</li>
-<li><strong>Event ordering:</strong> HotLog returns most recent last; consumers may reverse if needed.</li>
-<li><strong>RAG gating:</strong> All <code>rag_*</code> methods raise <code>RuntimeError</code> if <code>self.rag</code> is not configured.</li>
-<li><strong>Unused parameters:</strong> Current <code>record()</code> will log a warning on unserializable <code>data</code> if a logger is provided; otherwise it silently stringifies.</li>
-</ul>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<!-- ??? quote "rag_upsert(*, corpus_id, docs, topic=None)"
+    ::: aethergraph.services.memory.facade.MemoryFacade.rag_upsert
+        options:
+            show_root_heading: false
+            show_root_full_path: false
+            show_source: false
+
+??? quote "rag_bind(*, corpus_id=None, key=None, create_if_missing=True, labels=None)"
+    ::: aethergraph.services.memory.facade.MemoryFacade.rag_bind
+        options:
+            show_root_heading: false
+            show_root_full_path: false
+            show_source: false
+
+??? quote "rag_promote_events(*, corpus_id, events=None, where=None, policy=None)"
+    ::: aethergraph.services.memory.facade.MemoryFacade.rag_promote_events
+        options:
+            show_root_heading: false
+            show_root_full_path: false
+            show_source: false
+
+??? quote "rag_answer(*, corpus_id, question, style='concise', with_citations=True, k=6)"
+    ::: aethergraph.services.memory.facade.MemoryFacade.rag_answer
+        options:
+            show_root_heading: false
+            show_root_full_path: false
+            show_source: false
+
+??? quote "rag_search(*, corpus_id, query, k=8, filters=None, mode='hybrid')"
+    ::: aethergraph.services.memory.facade.MemoryFacade.rag_search
+        options:
+            show_root_heading: false
+            show_root_full_path: false
+            show_source: false -->
 
 
 

@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1253,42 +1232,234 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#concepts-defaults" class="md-nav__link">
+  <a href="#1-save-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Concepts &amp; Defaults
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Concepts &amp; Defaults">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#artifact-schema-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Artifact Schema (contract)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
+      1. Save API
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.save_file" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      save_file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.save_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      save_text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.save_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      save_json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      writer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-search-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Search API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.get_by_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_by_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.list" class="md-nav__link">
+    <span class="md-ellipsis">
+      list
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.search" class="md-nav__link">
+    <span class="md-ellipsis">
+      search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.best" class="md-nav__link">
+    <span class="md-ellipsis">
+      best
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.pin" class="md-nav__link">
+    <span class="md-ellipsis">
+      pin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-stageingest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Stage/Ingest API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.stage_path" class="md-nav__link">
+    <span class="md-ellipsis">
+      stage_path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.stage_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      stage_dir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.ingest_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      ingest_file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.ingest_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      ingest_dir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-load-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Load API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_bytes_by_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_bytes_by_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_text_by_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_text_by_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_json_by_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_json_by_id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.load_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      load_json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Helpers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.as_local_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_local_dir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.artifacts.facade.ArtifactFacade.as_local_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      as_local_file
     </span>
   </a>
   
@@ -1431,6 +1602,52 @@
   
   <span class="md-ellipsis">
     context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
     
   </span>
   
@@ -1722,6 +1939,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1758,10 +2117,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1774,8 +2133,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1956,488 +2315,2760 @@
 <h1 id="contextartifacts-artifactfacade-api-reference"><code>context.artifacts()</code> – ArtifactFacade API Reference<a class="headerlink" href="#contextartifacts-artifactfacade-api-reference" title="Permanent link">&para;</a></h1>
 <p>The <code>ArtifactFacade</code> wraps an <code>AsyncArtifactStore</code> (persistence) and an <code>AsyncArtifactIndex</code> (search/metadata) and automatically indexes artifacts you create within a node/run.</p>
 <hr />
-<h2 id="concepts-defaults">Concepts &amp; Defaults<a class="headerlink" href="#concepts-defaults" title="Permanent link">&para;</a></h2>
+<h2 id="1-save-api">1. Save API<a class="headerlink" href="#1-save-api" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>save_file(path, *, kind, labels, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.save_file"></a>
+    <div class="doc doc-contents first">
+
+        <p>Save an existing file and index it.</p>
+<p>This method saves a file to the artifact store, associates it with the current
+execution context, and records it in the artifact index. It supports adding
+metadata such as labels, metrics, and a suggested URI for logical organization.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with a file path:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/output.txt&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;logs&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Saving a file with a custom name and pinning it:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/data.csv&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;data_backup.csv&quot;</span><span class="p">,</span>
+    <span class="n">pin</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The local file path to save.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A string representing the artifact type (e.g., "text", "dataset").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary of metadata labels to associate with the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary of numerical metrics to associate with the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>suggested_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A logical URI for the artifact (e.g., "s3://bucket/file").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A custom name for the artifact, used as the <code>filename</code> label.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pin</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A boolean indicating whether to pin the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cleanup</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A boolean indicating whether to delete the local file after saving.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Artifact</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The saved <code>Artifact</code> object containing metadata and identifiers.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>The <code>name</code> parameter is used to set the <code>filename</code> label for the artifact.
+If both <code>name</code> and <code>suggested_uri</code> are provided, <code>name</code> takes precedence for the filename.</p>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>save_text(payload, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.save_text"></a>
+    <div class="doc doc-contents first">
+
+        <p>This method stages the text as a temporary <code>.txt</code> file, writes the payload,
+and persists it as an artifact with associated metadata. It is accessed via
+<code>context.artifacts().save_text(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to save a text artifact:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_text</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Saving with custom metadata and logical filename:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_text</span><span class="p">(</span>
+    <span class="s2">&quot;Experiment results&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;results.txt&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;A1&quot;</span><span class="p">},</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="mf">0.98</span><span class="p">},</span>
+    <span class="n">pin</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>payload</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text content to be saved as an artifact.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>suggested_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional logical URI for the artifact. If not provided,</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional logical filename for the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact kind, defaults to <code>"text"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;text&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of string labels for categorization.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of numeric metrics for tracking.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pin</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, pins the artifact for retention.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Artifact</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Artifact</code> object containing metadata and storage reference.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>save_json(payload, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.save_json"></a>
+    <div class="doc doc-contents first">
+
+        <p>Save a JSON payload as an artifact with full context metadata.</p>
+<p>This method stages the JSON data as a temporary <code>.json</code> file, writes the payload,
+and persists it as an artifact with associated metadata. It is accessed via
+<code>context.artifacts().save_json(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to save a JSON artifact:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_json</span><span class="p">({</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">})</span>
+</code></pre></div></p>
+<p>Saving with custom metadata and logical filename:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_json</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]},</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;results.json&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="s2">&quot;A1&quot;</span><span class="p">},</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="mf">0.98</span><span class="p">},</span>
+    <span class="n">pin</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>payload</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The JSON-serializable dictionary to be saved as an artifact.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>suggested_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional logical URI for the artifact. If not provided,
+the <code>name</code> will be used if available.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional logical filename for the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact kind, defaults to <code>"json"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;json&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of string labels for categorization.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of numeric metrics for tracking.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pin</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, pins the artifact for retention.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Artifact</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Artifact</code> object containing metadata and storage reference.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>writer(*, kind, planned_ext, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.writer"></a>
+    <div class="doc doc-contents first">
+
+        <p>Async context manager for streaming artifact writes.</p>
+<p>This method yields a writer object that supports:</p>
 <ul>
-<li><strong>Store vs Index:</strong> <code>store</code> persists bytes/objects; <code>index</code> stores searchable metadata and supports ranking, pinning, and scoping.</li>
-<li><strong>Automatic indexing:</strong> <code>ingest</code>, <code>save*</code>, <code>writer</code>, and <code>ingest_dir</code> all <strong>upsert</strong> into the index and <strong>record an occurrence</strong>.</li>
-<li><strong>Scoping:</strong> Many queries default to the <strong>current run</strong>; you can widen to <code>"graph"</code>, <code>"node"</code>, or <code>"all"</code>.</li>
-<li><strong><code>last_artifact</code>:</strong> Updated to the most recently created/ingested artifact when applicable; <code>None</code> otherwise (e.g., no write in <code>writer</code>).</li>
-<li><strong><code>suggested_uri</code>:</strong> A hint for stores that support friendly paths; stores may ignore or normalize it.</li>
-<li><strong><code>pin</code>:</strong> Marks an artifact as pinned in the index to prevent GC or to highlight in UIs (store behavior may vary).</li>
+<li><code>writer.write(bytes)</code> for streaming data</li>
+<li><code>writer.add_labels(...)</code> to attach metadata</li>
+<li><code>writer.add_metrics(...)</code> to record metrics</li>
 </ul>
-<h3 id="artifact-schema-contract">Artifact Schema (contract)<a class="headerlink" href="#artifact-schema-contract" title="Permanent link">&para;</a></h3>
-<p>A minimal summary of <code>Artifact</code> fields for reference:</p>
-<div class="highlight"><pre><span></span><code>Artifact(
-  artifact_id: str,
-  uri: str,
-  kind: str,
-  bytes: int,
-  sha256: str,
-  mime: str | None,
-  run_id: str, graph_id: str, node_id: str,
-  tool_name: str, tool_version: str,
-  created_at: str,
-  labels: dict[str, Any],
-  metrics: dict[str, Any],
-  preview_uri: str | None = None,
-  pinned: bool = False,
-)
+<p>After the context exits, the writer's artifact is finalized and recorded in the index.
+Accessed via <code>context.artifacts().writer(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to stream a file artifact:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;binary&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;some data&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Streaming with custom file extension and pinning:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+    <span class="n">planned_ext</span><span class="o">=</span><span class="s2">&quot;.log&quot;</span><span class="p">,</span>
+    <span class="n">pin</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Log entry 1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">add_labels</span><span class="p">({</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s1">&#39;app&#39;</span><span class="p">})</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">add_metrics</span><span class="p">({</span><span class="s2">&quot;lines&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact type (e.g., "binary", "log", "text").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>planned_ext</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional file extension for the staged artifact (e.g., ".txt").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pin</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, pins the artifact for retention.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="collections.abc.AsyncIterator">AsyncIterator</span>[<span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AsyncIterator[Any]: Yields a writer object for streaming data and metadata.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="2-search-api">2. Search API<a class="headerlink" href="#2-search-api" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>get_by_id(artifact_id)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.get_by_id"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve a single artifact by its unique identifier.</p>
+<p>This asynchronous method queries the configured artifact index for the specified
+<code>artifact_id</code>. If the index is not set up, a <code>RuntimeError</code> is raised. The method
+is typically accessed via <code>context.artifacts().get_by_id(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Fetching an artifact by ID:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="s2">&quot;artifact_123&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">artifact</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the artifact to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Artifact | None: The matching <code>Artifact</code> object if found, otherwise <code>None</code>.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list(*, view)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.list"></a>
+    <div class="doc doc-contents first">
+
+        <p>List artifacts scoped to the current run, graph, or node.</p>
+<p>This method provides a quick way to enumerate artifacts associated with the current
+execution context. The <code>view</code> parameter controls the scope of the listing:</p>
+<ul>
+<li><code>"node"</code>: artifacts for the current run, graph, and node</li>
+<li><code>"graph"</code>: artifacts for the current run and graph</li>
+<li><code>"run"</code>: artifacts for the current run (default)</li>
+<li><code>"all"</code>: all artifacts (tenant-scoped if applicable)</li>
+</ul>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>List all artifacts for the current run:
+<div class="highlight"><pre><span></span><code><span class="n">artifacts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artifacts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">artifact_id</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
+</code></pre></div></p>
+<p>List artifacts for the current node:
+<div class="highlight"><pre><span></span><code><span class="n">node_artifacts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>List all tenant-visible artifacts:
+<div class="highlight"><pre><span></span><code><span class="n">all_artifacts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">view</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>view</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.services.artifacts.facade.ArtifactView">ArtifactView</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The scope for listing artifacts. Must be one of:
+<code>"node"</code>, <code>"graph"</code>, <code>"run"</code>, or <code>"all"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;run&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="aethergraph.services.artifacts.facade.ArtifactFacade.list" href="#aethergraph.services.artifacts.facade.ArtifactFacade.list">list</a>[<span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Artifact]: A list of <code>Artifact</code> objects matching the specified scope.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>search(*, kind, labels, metric, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.search"></a>
+    <div class="doc doc-contents first">
+
+        <p>Search for artifacts with flexible scoping and filtering.</p>
+<p>This method allows you to query artifacts by type, labels, metrics, and other
+criteria. It automatically applies view-based scoping and merges any additional
+scope labels provided. The search is dispatched to the underlying index.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to find all artifacts of a given kind:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Searching with specific labels and metric optimization:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;finance&quot;</span><span class="p">},</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Returns</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>stage(ext="")</code></td>
-<td>Plan a staging file path</td>
-<td><code>str</code> path</td>
-<td></td>
-</tr>
-<tr>
-<td><code>ingest(staged_path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False)</code></td>
-<td>Ingest a staged file and index it</td>
-<td><code>Artifact</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>save(path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False)</code></td>
-<td>Save an existing file and index it</td>
-<td><code>Artifact</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>save_text(payload, *, suggested_uri=None)</code></td>
-<td>Save small text as an artifact</td>
-<td><code>Artifact</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>save_json(payload, *, suggested_uri=None)</code></td>
-<td>Save JSON-serializable object</td>
-<td><code>Artifact</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>writer(*, kind, planned_ext=None, pin=False)</code></td>
-<td>Open a write context (yields writer)</td>
-<td><em>(context manager)</em></td>
-<td></td>
-</tr>
-<tr>
-<td><code>stage_dir(suffix="")</code></td>
-<td>Plan a staging directory</td>
-<td><code>str</code> path</td>
-<td></td>
-</tr>
-<tr>
-<td><code>ingest_dir(staged_dir, **kw)</code></td>
-<td>Ingest a whole directory</td>
-<td><code>Artifact</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>tmp_path(suffix="")</code></td>
-<td>Alias to plan a staging file path</td>
-<td><code>str</code> path</td>
-<td></td>
-</tr>
-<tr>
-<td><code>load_bytes(uri)</code></td>
-<td>Read raw bytes</td>
-<td><code>bytes</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>load_text(uri, *, encoding="utf-8", errors="strict")</code></td>
-<td>Read text</td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>load_json(uri, *, encoding="utf-8", errors="strict")</code></td>
-<td>Read JSON</td>
-<td><code>Any</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>load_artifact(uri)</code></td>
-<td>Load Artifact metadata/object</td>
-<td><code>Artifact           | Any</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>load_artifact_bytes(uri)</code></td>
-<td>Read bytes from artifact URI</td>
-<td><code>bytes</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>list(*, scope="run")</code></td>
-<td>List artifacts by scope</td>
-<td><code>list[Artifact]</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>search(*, kind=None, labels=None, metric=None, mode=None, scope="run", extra_scope_labels=None)</code></td>
-<td>Search with filters/metrics</td>
-<td><code>list[Artifact]</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>best(*, kind, metric, mode, scope="run", filters=None)</code></td>
-<td>Best-scoring artifact</td>
-<td><code>Artifact           | None</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>pin(artifact_id, pinned=True)</code></td>
-<td>Pin/unpin in the index</td>
-<td><code>None</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>to_local_path(uri_or_path, *, must_exist=True)</code></td>
-<td>Resolve to local path (file:// only)</td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>to_local_file(uri_or_path, *, must_exist=True)</code></td>
-<td>Resolve &amp; assert file</td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>to_local_dir(uri_or_path, *, must_exist=True)</code></td>
-<td>Resolve &amp; assert dir</td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<details>
-<summary>stage(ext="") -&gt; str</summary>
-<p><strong>Description:</strong> Plan a <strong>staging file</strong> location for temporary writes outside the index. Use with external writers, then call <code>ingest()</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>ext: str</code> – Optional extension (e.g., <code>.png</code>, <code>.txt</code>).</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – Path to a writable staging file.</li>
-</ul>
-<p><strong>Notes:</strong> Staging does not create or index the artifact; call <code>ingest()</code> afterward.</p>
-</details>
-<details>
-<summary>ingest(staged_path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False) -&gt; Artifact</summary>
-<p><strong>Description:</strong> Ingest a previously <strong>staged file</strong> into the store, then <strong>upsert</strong> &amp; <strong>record occurrence</strong> in the index.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>staged_path: str</code></li>
-<li><code>kind: str</code> – Domain tag (e.g., <code>"image"</code>, <code>"report"</code>).</li>
-<li><code>labels: dict | None</code></li>
-<li><code>metrics: dict | None</code></li>
-<li><code>suggested_uri: str | None</code></li>
-<li><code>pin: bool</code> – Mark as pinned in the index.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact</code></li>
-</ul>
-<p><strong>Notes:</strong> Sets <code>last_artifact</code> to the newly ingested item.</p>
-</details>
-<details>
-<summary>save(path, *, kind, labels=None, metrics=None, suggested_uri=None, pin=False) -&gt; Artifact</summary>
-<p><strong>Description:</strong> Save an <strong>existing file</strong> to the store and index it.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>path: str</code></li>
-<li><code>kind: str</code></li>
-<li><code>labels: dict | None</code></li>
-<li><code>metrics: dict | None</code></li>
-<li><code>suggested_uri: str | None</code></li>
-<li><code>pin: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact</code></li>
-</ul>
-<p><strong>Notes:</strong> Updates <code>last_artifact</code>.</p>
-</details>
-<details>
-<summary>save_text(payload, *, suggested_uri=None) -&gt; Artifact</summary>
-<p><strong>Description:</strong> Save a <strong>small text blob</strong>; store chooses encoding/URI. Indexed automatically.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>payload: str</code></li>
-<li><code>suggested_uri: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact</code></li>
-</ul>
-<p><strong>Notes:</strong> Prefer <code>save()</code> for large files; stores may have size limits for text.</p>
-</details>
-<details>
-<summary>save_json(payload, *, suggested_uri=None) -&gt; Artifact</summary>
-<p><strong>Description:</strong> Save a <strong>JSON-serializable object</strong>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>payload: dict</code></li>
-<li><code>suggested_uri: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact</code></li>
-</ul>
-<p><strong>Notes:</strong> Useful for configs, specs, and structured reports.</p>
-</details>
-<details>
-<summary>writer(*, kind, planned_ext=None, pin=False) -&gt; Async CM (yields writer)</summary>
-<p><strong>Description:</strong> Open a <strong>writer context</strong> provided by the store; write bytes within the block. On exit, the created artifact (if any) is indexed.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kind: str</code></li>
-<li><code>planned_ext: str | None</code> – Hint for file extension.</li>
-<li><code>pin: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><em>(Context Manager)</em> – Yields a <code>writer</code> implementing <code>write(...)</code> (store-specific).</li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>If the writer actually creates an artifact, it will be available as <code>writer._artifact</code> on exit and set as <code>last_artifact</code>.</li>
-<li>Use this when you don’t have the data on disk yet and want the store to manage file lifecycle.</li>
-</ul>
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">planned_ext</span><span class="o">=</span><span class="s2">&quot;.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">w</span><span class="p">:</span>
-    <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
-<span class="c1"># last_artifact now refers to the saved report</span>
-</code></pre></div>
-</details>
-<details>
-<summary>stage_dir(suffix="") -&gt; str</summary>
-<p><strong>Description:</strong> Plan a <strong>staging directory</strong> path. Use with tools that emit multiple files before ingestion.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>suffix: str</code> – Optional suffix/name.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – Path to a staging directory.</li>
+Extending scope with extra labels:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">extra_scope_labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;alpha&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The type of artifact to search for (e.g., "model", "dataset").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Dictionary of label key-value pairs to filter artifacts.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metric</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of a metric to optimize (e.g., "accuracy").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>mode</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;max&#39;, &#39;min&#39;] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optimization mode for the metric, either "max" or "min".</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>view</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.services.artifacts.facade.ArtifactView">ArtifactView</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact view context, which determines default scoping.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;run&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>extra_scope_labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional labels to further scope the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>limit</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum number of results to return.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="aethergraph.services.artifacts.facade.ArtifactFacade.list" href="#aethergraph.services.artifacts.facade.ArtifactFacade.list">list</a>[<span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[Artifact]: A list of matching <code>Artifact</code> objects.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>The <code>view</code> parameter controls the base scoping of the search. Additional labels provided
+    in <code>extra_scope_labels</code> are merged on top of the view-based labels.</li>
+<li>If both <code>labels</code> and <code>extra_scope_labels</code> are provided, they are combined for filtering.</li>
 </ul>
 </details>
-<details>
-<summary>ingest_dir(staged_dir, **kw) -&gt; Artifact</summary>
-<p><strong>Description:</strong> Ingest a <strong>directory</strong> (e.g., a report folder) into the store and index it.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>staged_dir: str</code></li>
-<li><code>**kw</code> – Store/index-specific options (e.g., <code>kind</code>, <code>labels</code>, <code>metrics</code>, <code>pin</code>).</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact</code></li>
-</ul>
-<p><strong>Notes:</strong> Updates <code>last_artifact</code>.</p>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>best(*, kind, metric, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.best"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve the best artifact by optimizing a specified metric.</p>
+<p>This method searches for artifacts of a given kind and returns the one that
+maximizes or minimizes the specified metric, scoped by the provided view and filters.
+It is accessed via <code>context.artifacts().best(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Find the best model by accuracy for the current run:
+<div class="highlight"><pre><span></span><code><span class="n">best_model</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">best</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Find the lowest-loss dataset for the current graph:
+<div class="highlight"><pre><span></span><code><span class="n">best_dataset</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">best</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;loss&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="s2">&quot;graph&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Apply additional label filters:
+<div class="highlight"><pre><span></span><code><span class="n">best_artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">best</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">,</span>
+    <span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;finance&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The type of artifact to search for (e.g., "model", "dataset").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metric</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The metric name to optimize (e.g., "accuracy", "loss").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>mode</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;max&#39;, &#39;min&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optimization mode, either <code>"max"</code> for highest or <code>"min"</code> for lowest value.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>view</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.services.artifacts.facade.ArtifactView">ArtifactView</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact view context, which determines default scoping.
+Must be one of <code>"node"</code>, <code>"graph"</code>, <code>"run"</code>, or <code>"all"</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;run&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filters</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional label filters to further restrict the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Artifact | None: The best matching <code>Artifact</code> object, or <code>None</code> if no match is found.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>pin(artifact_id, pinned)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.pin"></a>
+    <div class="doc doc-contents first">
+
+        <p>Mark or unmark an artifact as pinned for retention.</p>
+<p>This asynchronous method updates the <code>pinned</code> status of the specified artifact
+in the artifact index. Pinning an artifact ensures it is retained and not subject
+to automatic cleanup. It is accessed via <code>context.artifacts().pin(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Pin an artifact for retention:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">pin</span><span class="p">(</span><span class="s2">&quot;artifact_123&quot;</span><span class="p">,</span> <span class="n">pinned</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Unpin an artifact to allow cleanup:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">pin</span><span class="p">(</span><span class="s2">&quot;artifact_456&quot;</span><span class="p">,</span> <span class="n">pinned</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the artifact to update.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pinned</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Boolean indicating whether to pin (<code>True</code>) or unpin (<code>False</code>) the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="3-stageingest-api">3. Stage/Ingest API<a class="headerlink" href="#3-stageingest-api" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>stage_path(ext)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.stage_path"></a>
+    <div class="doc doc-contents first">
+
+        <p>Plan a staging file path for artifact creation.</p>
+<p>This method requests a temporary file path from the underlying artifact store,
+suitable for staging a new artifact. The file extension can be specified to
+guide downstream handling (e.g., ".txt", ".json").</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Stage a temporary text file:
+<div class="highlight"><pre><span></span><code><span class="n">staged_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">stage_path</span><span class="p">(</span><span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Stage a file with a custom extension:
+<div class="highlight"><pre><span></span><code><span class="n">staged_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">stage_path</span><span class="p">(</span><span class="s2">&quot;.log&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ext</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional file extension for the staged file (e.g., ".txt", ".json").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The planned staging file path as a string.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>stage_dir(suffix)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.stage_dir"></a>
+    <div class="doc doc-contents first">
+
+        <p>Plan a staging directory for artifact creation.</p>
+<p>This method requests a temporary directory path from the underlying artifact store,
+suitable for staging a directory artifact. The suffix can be used to distinguish
+different staging contexts.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Stage a temporary directory:
+<div class="highlight"><pre><span></span><code><span class="n">staged_dir</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">stage_dir</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Stage a directory with a custom suffix:
+<div class="highlight"><pre><span></span><code><span class="n">staged_dir</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">stage_dir</span><span class="p">(</span><span class="s2">&quot;_images&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>suffix</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional string to append to the directory name for uniqueness.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The planned staging directory path as a string.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>ingest_file(staged_path, *, kind, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.ingest_file"></a>
+    <div class="doc doc-contents first">
+
+        <p>Ingest a staged file as an artifact and record it in the index.</p>
+<p>This method takes a file that has been staged locally, persists it in the
+artifact store, and records its metadata in the artifact index. It supports
+adding labels, metrics, and logical URIs for organization.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Ingest a staged model file:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">ingest_file</span><span class="p">(</span>
+    <span class="n">staged_path</span><span class="o">=</span><span class="s2">&quot;/tmp/model.bin&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;model&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;vision&quot;</span><span class="p">},</span>
+    <span class="n">pin</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Ingest with a suggested URI:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">ingest_file</span><span class="p">(</span>
+    <span class="n">staged_path</span><span class="o">=</span><span class="s2">&quot;/tmp/data.csv&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="n">suggested_uri</span><span class="o">=</span><span class="s2">&quot;s3://bucket/data.csv&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>staged_path</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The local path to the staged file.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>kind</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact type (e.g., "model", "dataset").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of metadata labels.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>metrics</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of numeric metrics.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>suggested_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional logical URI for the artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pin</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, pins the artifact for retention.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Artifact</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Artifact</code> object with metadata and identifiers.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>The <code>staged_path</code> must point to an existing file. The method will handle
+cleanup of the staged file if configured in the underlying store.
+If you already have a file at a specific URI (e.g. "s3://bucket/file" or local file path), consider using <code>save_file</code> instead.</p>
 </details>
-<details>
-<summary>tmp_path(suffix="") -&gt; str</summary>
-<p><strong>Description:</strong> Convenience alias to plan a <strong>staging file</strong> path.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>suffix: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code></li>
-</ul>
-</details>
-<details>
-<summary>load_bytes(uri) -&gt; bytes</summary>
-<p><strong>Description:</strong> Load <strong>raw bytes</strong> from an artifact URI.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>bytes</code></li>
-</ul>
-</details>
-<details>
-<summary>load_text(uri, *, encoding="utf-8", errors="strict") -&gt; str</summary>
-<p><strong>Description:</strong> Load <strong>text</strong> from an artifact URI.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri: str</code></li>
-<li><code>encoding: str</code></li>
-<li><code>errors: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code></li>
-</ul>
-</details>
-<details>
-<summary>load_json(uri, *, encoding="utf-8", errors="strict") -&gt; Any</summary>
-<p><strong>Description:</strong> Load <strong>JSON</strong> from an artifact URI.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri: str</code></li>
-<li><code>encoding: str</code></li>
-<li><code>errors: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Any</code></li>
-</ul>
-</details>
-<details>
-<summary>load_artifact(uri) -&gt; Artifact | Any</summary>
-<p><strong>Description:</strong> Load an <strong>Artifact</strong> or store-specific artifact object from URI.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact | Any</code></li>
-</ul>
-</details>
-<details>
-<summary>load_artifact_bytes(uri) -&gt; bytes</summary>
-<p><strong>Description:</strong> Load <strong>bytes</strong> from an artifact URI (explicit artifact pathway).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>bytes</code></li>
-</ul>
-</details>
-<details>
-<summary>list(*, scope="run") -&gt; list[Artifact]</summary>
-<p><strong>Description:</strong> Quick listing of artifacts <strong>scoped</strong> to <code>"run"</code> by default.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>scope: Literal["node", "run", "graph", "all"]</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[Artifact]</code></li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li><code>node</code> → labels <code>(run_id, graph_id, node_id)</code>; <code>graph</code> → <code>(run_id, graph_id)</code>; <code>run</code> → by <code>run_id</code>; <code>all</code> → no implicit filters.</li>
-</ul>
-</details>
-<details>
-<summary>search(*, kind=None, labels=None, metric=None, mode=None, scope="run", extra_scope_labels=None) -&gt; list[Artifact]</summary>
-<p><strong>Description:</strong> Search the index with optional <strong>kind</strong>, <strong>labels</strong>, and <strong>metric ranking</strong>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kind: str | None</code></li>
-<li><code>labels: dict[str, Any] | None</code></li>
-<li><code>metric: str | None</code></li>
-<li><code>mode: Literal["max", "min"] | None</code></li>
-<li><code>scope: Literal["node", "run", "graph", "all"]</code></li>
-<li><code>extra_scope_labels: dict[str, Any] | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[Artifact]</code></li>
-</ul>
-<p><strong>Notes:</strong> Applies scope labels automatically when scope is <code>node</code> or <code>graph</code>. <code>extra_scope_labels</code> lets you add more filters.</p>
-</details>
-<details>
-<summary>best(*, kind, metric, mode, scope="run", filters=None) -&gt; Artifact | None</summary>
-<p><strong>Description:</strong> Return the <strong>best-scoring</strong> artifact for a metric (e.g., highest accuracy).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>kind: str</code></li>
-<li><code>metric: str</code></li>
-<li><code>mode: Literal["max", "min"]</code></li>
-<li><code>scope: Literal["node", "run", "graph", "all"]</code></li>
-<li><code>filters: dict[str, Any] | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Artifact | None</code></li>
-</ul>
-<p><strong>Notes:</strong> Applies scope filters automatically for <code>node</code> or <code>graph</code>.</p>
-</details>
-<details>
-<summary>pin(artifact_id, pinned=True) -&gt; None</summary>
-<p><strong>Description:</strong> Pin or unpin an artifact in the index.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>artifact_id: str</code></li>
-<li><code>pinned: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-</details>
-<details>
-<summary>to_local_path(uri_or_path, *, must_exist=True) -&gt; str</summary>
-<p><strong>Description:</strong> Resolve a <strong>file://</strong> URI or local path to an absolute native path.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri_or_path: str | Path | Artifact</code></li>
-<li><code>must_exist: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – Absolute path or input string for non-file schemes.</li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>If the input uses a non-file scheme (e.g., <code>s3://</code>, <code>http://</code>), the string is returned unchanged.</li>
-<li>Raises <code>FileNotFoundError</code> if <code>must_exist=True</code> and path missing.</li>
-</ul>
-</details>
-<details>
-<summary>to_local_file(uri_or_path, *, must_exist=True) -&gt; str</summary>
-<p><strong>Description:</strong> Resolve to a <strong>file path</strong> and assert it is a file.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri_or_path: str | Path | Artifact</code></li>
-<li><code>must_exist: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code></li>
-</ul>
-<p><strong>Notes:</strong> Raises <code>IsADirectoryError</code> if path is a directory when <code>must_exist=True</code>.</p>
-</details>
-<details>
-<summary>to_local_dir(uri_or_path, *, must_exist=True) -&gt; str</summary>
-<p><strong>Description:</strong> Resolve to a <strong>directory path</strong> and assert it is a directory.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>uri_or_path: str | Path | Artifact</code></li>
-<li><code>must_exist: bool</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code></li>
-</ul>
-<p><strong>Notes:</strong> Raises <code>NotADirectoryError</code> if path is a file when <code>must_exist=True</code>.</p>
-</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>ingest_dir(staged_path, **kwargs)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.ingest_dir"></a>
+    <div class="doc doc-contents first">
+
+        <p>Ingest a staged directory as a directory artifact and record it in the index.</p>
+<p>This method takes a directory that has been staged locally, persists its contents
+in the artifact store (optionally creating a manifest or archive), and records
+its metadata in the artifact index. Additional keyword arguments are passed to
+the store's ingest logic.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Ingest a staged directory with manifest:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">ingest_dir</span><span class="p">(</span>
+    <span class="n">staged_dir</span><span class="o">=</span><span class="s2">&quot;/tmp/output_dir&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;directory&quot;</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;images&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Ingest with custom metrics:
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">ingest_dir</span><span class="p">(</span>
+    <span class="n">staged_dir</span><span class="o">=</span><span class="s2">&quot;/tmp/logs&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;log_dir&quot;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;file_count&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>staged_dir</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The local path to the staged directory.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional keyword arguments for artifact metadata (e.g., kind, labels, metrics).</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Artifact</code></td>            <td>
+                  <code><span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The fully persisted <code>Artifact</code> object with metadata and identifiers.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="4-load-api">4. Load API<a class="headerlink" href="#4-load-api" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>load_bytes_by_id(artifact_id)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_bytes_by_id"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load raw bytes for a file-like artifact by its unique identifier.</p>
+<p>This asynchronous method retrieves the artifact metadata from the index using
+the provided <code>artifact_id</code>, then loads the underlying bytes from the artifact store.
+It is accessed via <code>context.artifacts().load_bytes_by_id(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load bytes for an artifact:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_bytes_by_id</span><span class="p">(</span><span class="s2">&quot;artifact_123&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Handling missing artifacts:
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_bytes_by_id</span><span class="p">(</span><span class="s2">&quot;artifact_456&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Artifact not found.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the artifact to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bytes</code></td>            <td>
+                  <code><span title="bytes">bytes</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The raw byte content of the artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="FileNotFoundError">FileNotFoundError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the artifact is not found or missing a URI.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_text_by_id(artifact_id, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_text_by_id"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load the text content of an artifact by its unique identifier.</p>
+<p>This asynchronous method retrieves the raw bytes for the specified <code>artifact_id</code>
+and decodes them into a string using the provided encoding. It is accessed via
+<code>context.artifacts().load_text_by_id(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load text from an artifact:
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_text_by_id</span><span class="p">(</span><span class="s2">&quot;artifact_123&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Loading with custom encoding and error handling:
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_text_by_id</span><span class="p">(</span>
+    <span class="s2">&quot;artifact_456&quot;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-16&quot;</span><span class="p">,</span>
+    <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the artifact to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>encoding</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text encoding to use for decoding bytes (default: <code>"utf-8"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;utf-8&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>errors</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Error handling strategy for decoding (default: <code>"strict"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;strict&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The decoded text content of the artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="FileNotFoundError">FileNotFoundError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the artifact is not found or missing a URI.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_json_by_id(artifact_id, *, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_json_by_id"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load and parse a JSON artifact by its unique identifier.</p>
+<p>This asynchronous method retrieves the raw text content for the specified
+<code>artifact_id</code>, decodes it using the provided encoding, and parses it as JSON.
+It is accessed via <code>context.artifacts().load_json_by_id(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load a JSON artifact:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_json_by_id</span><span class="p">(</span><span class="s2">&quot;artifact_123&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">])</span>
+</code></pre></div></p>
+<p>Loading with custom encoding and error handling:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_json_by_id</span><span class="p">(</span>
+    <span class="s2">&quot;artifact_456&quot;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-16&quot;</span><span class="p">,</span>
+    <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the artifact to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>encoding</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text encoding to use for decoding bytes (default: <code>"utf-8"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;utf-8&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>errors</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Error handling strategy for decoding (default: <code>"strict"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;strict&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Any</code></td>            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The parsed JSON object from the artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="FileNotFoundError">FileNotFoundError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the artifact is not found or missing a URI.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="json.JSONDecodeError">JSONDecodeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the artifact content is not valid JSON.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_bytes(uri)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_bytes"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load raw bytes from a file or URI in a backend-agnostic way.</p>
+<p>This method retrieves the byte content from the specified <code>uri</code>, supporting both
+local files and remote storage backends. It is accessed via <code>context.artifacts().load_bytes(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load bytes from a local file:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_bytes</span><span class="p">(</span><span class="s2">&quot;file:///tmp/model.bin&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Loading bytes from an S3 URI:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_bytes</span><span class="p">(</span><span class="s2">&quot;s3://bucket/data.bin&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URI or path of the file to load. Supports local files and remote storage backends.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bytes</code></td>            <td>
+                  <code><span title="bytes">bytes</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The raw byte content of the file or artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_text(uri)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_text"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load the text content from a file or URI in a backend-agnostic way.</p>
+<p>This method retrieves the raw bytes from the specified <code>uri</code>, decodes them into a string
+using the provided encoding, and returns the text. It is accessed via <code>context.artifacts().load_text(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load text from a local file:
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_text</span><span class="p">(</span><span class="s2">&quot;file:///tmp/output.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Loading text from an S3 URI with custom encoding:
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_text</span><span class="p">(</span>
+    <span class="s2">&quot;s3://bucket/data.txt&quot;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-16&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URI or path of the file to load. Supports local files and remote storage backends.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>encoding</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text encoding to use for decoding bytes (default: <code>"utf-8"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;utf-8&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>errors</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Error handling strategy for decoding (default: <code>"strict"</code>).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;strict&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The decoded text content of the file or artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>load_json(uri)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.load_json"></a>
+    <div class="doc doc-contents first">
+
+        <p>Load and parse a JSON file from the specified URI.</p>
+<p>This asynchronous method retrieves the file contents as text, then parses
+the text into a Python object using the standard <code>json</code> library. It is
+typically accessed via <code>context.artifacts().load_json(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to load a JSON file:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="s2">&quot;file:///path/to/data.json&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Specifying a custom encoding:
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span>
+    <span class="s2">&quot;file:///path/to/data.json&quot;</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-16&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URI of the JSON file to load. Supports local and remote paths.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>encoding</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text encoding to use when reading the file (default: "utf-8").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;utf-8&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>errors</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The error handling scheme for decoding (default: "strict").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;strict&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Any</code></td>            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The parsed Python object loaded from the JSON file.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="5-helpers">5. Helpers<a class="headerlink" href="#5-helpers" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>as_local_dir(artifact_or_uri, *, must_exist)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.as_local_dir"></a>
+    <div class="doc doc-contents first">
+
+        <p>Ensure an artifact representing a directory is available as a local path.</p>
+<p>This method provides a backend-agnostic way to access directory artifacts as local filesystem paths.
+For local filesystems, it returns the underlying CAS directory. For remote backends (e.g., S3),
+it downloads the directory contents to a staging location and returns the path.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to access a local directory artifact:
+<div class="highlight"><pre><span></span><code><span class="n">local_dir</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">as_local_dir</span><span class="p">(</span><span class="s2">&quot;file:///tmp/output_dir&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">local_dir</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Handling missing directories:
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">local_dir</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">as_local_dir</span><span class="p">(</span><span class="s2">&quot;s3://bucket/data_dir&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory not found.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_or_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact object, URI string, or Path representing the directory.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>must_exist</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, raises FileNotFoundError if the local path does not exist.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The resolved local filesystem path to the directory artifact.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="FileNotFoundError">FileNotFoundError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the resolved local directory does not exist and <code>must_exist</code> is True.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>as_local_file(artifact_or_uri, *, must_exist)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.artifacts.facade.ArtifactFacade.as_local_file"></a>
+    <div class="doc doc-contents first">
+
+        <p>This method transparently handles local and remote artifact URIs, downloading remote files
+to a staging location if necessary. It is typically accessed via <code>context.artifacts().as_local_file(...)</code>.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Using a local file path:
+<div class="highlight"><pre><span></span><code><span class="n">local_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">as_local_file</span><span class="p">(</span><span class="s2">&quot;/tmp/data.csv&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Using an S3 URI:
+<div class="highlight"><pre><span></span><code><span class="n">local_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">as_local_file</span><span class="p">(</span><span class="s2">&quot;s3://bucket/key.csv&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Using an Artifact object:
+<div class="highlight"><pre><span></span><code><span class="n">local_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">as_local_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_or_uri</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="aethergraph.contracts.services.artifacts.Artifact">Artifact</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The artifact to resolve, which may be a string URI, Path, or Artifact object.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>must_exist</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, raises FileNotFoundError if the file does not exist or is not a file.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The absolute path to the local file containing the artifact's data.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
 
 
 

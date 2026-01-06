@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1364,6 +1343,52 @@
   
   
     <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../context-extension/" class="md-nav__link">
         
   
@@ -1464,6 +1489,24 @@
   <a href="#api-reference" class="md-nav__link">
     <span class="md-ellipsis">
       API Reference
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.ad_hoc_context.open_session" class="md-nav__link">
+    <span class="md-ellipsis">
+      open_session
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.ad_hoc_context.build_adhoc_context" class="md-nav__link">
+    <span class="md-ellipsis">
+      build_adhoc_context
     </span>
   </a>
   
@@ -1722,6 +1765,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1758,10 +1943,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1774,8 +1959,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1985,36 +2170,183 @@
 </blockquote>
 <hr />
 <h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
-<details>
-<summary>open_session(*, run_id: str | None = None, graph_id: str = "adhoc", node_id: str = "adhoc", **rt_overrides)</summary>
-<p><strong>Description:</strong> pen a temporary, fully wired <code>NodeContext</code> for ad‑hoc use.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>run_id: str</code></li>
-<li><code>run_id: str</code></li>
-<li><code>node_id: str</code></li>
-<li><code>rt_overrides</code> — runtime overrides. See graph runner doc for details.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-<p><strong>Note:</strong> Handles setup and implicit cleanup at exit.</p>
+<details class="quote" open="open">
+<summary>open_session(run_id, graph_id, node_id, **rt_overrides)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.ad_hoc_context.open_session"></a>
+    <div class="doc doc-contents first">
+
+        <p>Open an ad-hoc session context for advanced or scripting use.</p>
+<p>This asynchronous context manager yields a temporary context that mimics a <code>NodeContext</code>
+without requiring a real graph run. It is intended for advanced scenarios where a lightweight,
+ephemeral execution environment is needed, such as scripting, testing, or prototyping.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to open an ad-hoc session:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">open_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+    <span class="c1"># Use ctx as you would a NodeContext</span>
+    <span class="o">...</span>
+</code></pre></div></p>
+<p>Overriding runtime parameters:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">open_session</span><span class="p">(</span><span class="n">graph_id</span><span class="o">=</span><span class="s2">&quot;mygraph&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="o">=</span><span class="s2">&quot;customnode&quot;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ctx</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>run_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional unique identifier for the run. If None, a random or default value is used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>graph_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Identifier for the graph context. Defaults to "adhoc".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;adhoc&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>node_id</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Identifier for the node context. Defaults to "adhoc".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;adhoc&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**rt_overrides</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Arbitrary keyword arguments to override runtime context parameters.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Yields:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>NodeContext</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An ad-hoc context object suitable for advanced scripting or testing.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>This context does not persist state or artifacts beyond its lifetime. Use only for
+non-production, ephemeral tasks.</p>
 </details>
-<details>
-<summary>build_adhoc_context(*, run_id: str | None = None, graph_id: str = "adhoc", node_id: str = "adhoc", **rt_overrides)</summary>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>run_id: str</code></li>
-<li><code>run_id: str</code></li>
-<li><code>node_id: str</code></li>
-<li><code>rt_overrides</code> — runtime overrides. See graph runner doc for details.</li>
-</ul>
-<p><strong>Returns:</strong> </p>
-<ul>
-<li><code>NodeContext</code> (caller manages any cleanup).</li>
-</ul>
-</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>build_adhoc_context(run_id, graph_id, node_id, **rt_overrides)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.ad_hoc_context.build_adhoc_context"></a>
+    <div class="doc doc-contents first">
+
+        <p>Build an ad-hoc execution context for running a single node outside of a scheduled graph.
+This function creates a minimal runtime environment suitable for quick, one-off executions,
+such as testing or interactive exploration. It generates a temporary run and graph context,
+instantiates an ad-hoc node, and returns a node-specific execution context.
+Examples:
+    Basic usage with default parameters:
+    <div class="highlight"><pre><span></span><code><span class="n">node_ctx</span> <span class="o">=</span> <span class="k">await</span> <span class="n">build_adhoc_context</span><span class="p">()</span>
+</code></pre></div>
+    Customizing the run and session IDs:
+    <div class="highlight"><pre><span></span><code><span class="n">node_ctx</span> <span class="o">=</span> <span class="k">await</span> <span class="n">build_adhoc_context</span><span class="p">(</span><span class="n">run_id</span><span class="o">=</span><span class="s2">&quot;test-run&quot;</span><span class="p">,</span> <span class="n">session_id</span><span class="o">=</span><span class="s2">&quot;dev-session&quot;</span><span class="p">)</span>
+</code></pre></div>
+    Overriding runtime parameters:
+    <div class="highlight"><pre><span></span><code><span class="n">node_ctx</span> <span class="o">=</span> <span class="k">await</span> <span class="n">build_adhoc_context</span><span class="p">(</span><span class="n">max_concurrency</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+Args:
+    run_id: Optional string to uniquely identify this run. If not provided,
+        a random ID is generated.
+    session_id: Optional string to associate this context with a session.
+    graph_id: Identifier for the graph. Defaults to <code>"adhoc"</code>.
+    node_id: Identifier for the node. Defaults to <code>"adhoc"</code>.
+    **rt_overrides: Additional runtime overrides, such as <code>max_concurrency</code>.
+Returns:
+    NodeExecutionContext: The execution context for the ad-hoc node, ready for use.</p>
+
+
+    </div>
+
+</div></details>
 <hr />
 <h2 id="notes-gotchas">Notes &amp; gotchas<a class="headerlink" href="#notes-gotchas" title="Permanent link">&para;</a></h2>
 <ul>

@@ -52,6 +52,8 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../../assets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1239,36 +1218,171 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
+  <a href="#0-channel-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Quick Reference
+      0. Channel Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" class="md-nav__link">
+  <a href="#aethergraph.core.runtime.node_context.NodeContext.channel" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods
+      channel
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#continuations-racefree-waiting-behavioral-notes" class="md-nav__link">
+  <a href="#aethergraph.core.runtime.node_context.NodeContext.ui_run_channel" class="md-nav__link">
     <span class="md-ellipsis">
-      Continuations &amp; Race‑Free Waiting (behavioral notes)
+      ui_run_channel
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#event-types-emitted" class="md-nav__link">
+  <a href="#aethergraph.core.runtime.node_context.NodeContext.ui_session_channel" class="md-nav__link">
     <span class="md-ellipsis">
-      Event Types (emitted)
+      ui_session_channel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-send-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Send Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send" class="md-nav__link">
+    <span class="md-ellipsis">
+      send
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_image" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_image
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ask-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Ask Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.ask_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      ask_text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.wait_text" class="md-nav__link">
+    <span class="md-ellipsis">
+      wait_text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.ask_approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      ask_approval
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.ask_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      ask_files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Streaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      stream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Utilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.get_latest_uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_latest_uploads
     </span>
   </a>
   
@@ -1434,6 +1548,52 @@
   
   <span class="md-ellipsis">
     context.mcp()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
     
   </span>
   
@@ -1725,6 +1885,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1761,10 +2063,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1777,8 +2079,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -1965,347 +2267,1638 @@
 <li>Events are published after <strong>alias → canonical</strong> key resolution.</li>
 </ul>
 <hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h2 id="0-channel-setup">0. Channel Setup<a class="headerlink" href="#0-channel-setup" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>context.channel(channel_key)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.node_context.NodeContext.channel"></a>
+    <div class="doc doc-contents first">
+
+        <p>Set up a new ChannelSession for the current node context.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel_key</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An optional key to specify a particular channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>ChannelSession</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>An instance representing the session for the specified channel.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>Supported channel key formats include:</p>
 <table>
 <thead>
 <tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Returns</th>
+<th>Channel Type</th>
+<th>Format Example</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>send(event, *, channel=None)</code></td>
-<td>Publish a pre-built <code>OutEvent</code></td>
-<td><code>None</code></td>
+<td>Console</td>
+<td><code>console:stdin</code></td>
+<td>Console input/output</td>
 </tr>
 <tr>
-<td><code>send_text(text, *, meta=None, channel=None)</code></td>
-<td>Send a plain text message</td>
-<td><code>None</code></td>
+<td>Slack</td>
+<td><code>slack:team/{team_id}:chan/{channel_id}</code></td>
+<td>Needs additional configuration</td>
 </tr>
 <tr>
-<td><code>send_rich(text=None, *, rich=None, meta=None, channel=None)</code></td>
-<td>Send structured content + optional text</td>
-<td><code>None</code></td>
+<td>Telegram</td>
+<td><code>tg:chat/{chat_id}</code></td>
+<td>Needs additional configuration</td>
 </tr>
 <tr>
-<td><code>send_image(url=None, *, alt="image", title=None, channel=None)</code></td>
-<td>Send an image</td>
-<td><code>None</code></td>
+<td>UI Session</td>
+<td><code>ui:session/{session_id}</code></td>
+<td>Requires AG web UI</td>
 </tr>
 <tr>
-<td><code>send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)</code></td>
-<td>Upload/send a file</td>
-<td><code>None</code></td>
+<td>UI Run</td>
+<td><code>ui:run/{run_id}</code></td>
+<td>Requires AG web UI</td>
 </tr>
 <tr>
-<td><code>send_buttons(text, buttons, *, meta=None, channel=None)</code></td>
-<td>Send message with buttons</td>
-<td><code>None</code></td>
+<td>Webhook</td>
+<td><code>webhook:{unique_identifier}</code></td>
+<td>For Slack, Discord, Zapier, etc.</td>
 </tr>
 <tr>
-<td><code>ask_text(prompt, *, timeout_s=3600, silent=False, channel=None)</code></td>
-<td>Prompt for free‑form text</td>
-<td><code>str</code></td>
-</tr>
-<tr>
-<td><code>wait_text(*, timeout_s=3600, channel=None)</code></td>
-<td>Alias of <code>ask_text(None, silent=True)</code></td>
-<td><code>str</code></td>
-</tr>
-<tr>
-<td><code>ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None)</code></td>
-<td>Choice/confirmation</td>
-<td><code>{approved, choice}</code></td>
-</tr>
-<tr>
-<td><code>ask_files(*, prompt, accept=None, multiple=True, timeout_s=3600, channel=None)</code></td>
-<td>Prompt for uploads</td>
-<td><code>{text, files}</code></td>
-</tr>
-<tr>
-<td><code>ask_text_or_files(*, prompt, timeout_s=3600, channel=None)</code></td>
-<td>Text <strong>or</strong> files</td>
-<td><code>{text, files}</code></td>
-</tr>
-<tr>
-<td><code>get_latest_uploads(*, clear=True)</code></td>
-<td>Read inbox uploads (Ephemeral KV)</td>
-<td><code>list[FileRef]</code></td>
-</tr>
-<tr>
-<td><code>stream(channel=None)</code></td>
-<td>Streaming text (ctx manager)</td>
-<td><code>StreamSender</code></td>
-</tr>
-<tr>
-<td><code>progress(*, title="Working...", total=None, key_suffix="progress", channel=None)</code></td>
-<td>Progress UI (ctx manager)</td>
-<td><code>ProgressSender</code></td>
+<td>File-based channel</td>
+<td><code>file:path/to/directory</code></td>
+<td>File system based channels</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<details>
-<summary>send(event, *, channel=None)</summary>
-<p><strong>Description:</strong> Publish a pre‑built <code>OutEvent</code> to the channel.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>event: OutEvent</code> – If missing <code>channel</code>, resolver fills it.</li>
-<li><code>channel: str | None</code> – Optional override.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Notes:</strong> Use when you need full control of the event payload/type.</p>
 </details>
-<details>
-<summary>send_text(text, *, meta=None, channel=None)</summary>
-<p><strong>Description:</strong> Send a plain text message.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>text: str</code></li>
-<li><code>meta: dict[str, Any] | None</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Emits:</strong></p>
-<ul>
-<li><code>agent.message</code> with <code>text</code>, optional <code>meta</code>.</li>
-</ul>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>context.ui_run_channel.channel()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.node_context.NodeContext.ui_run_channel"></a>
+    <div class="doc doc-contents first">
+
+        <p>Creates a new ChannelSession for the current node context with session key as
+<code>ui:run/&lt;run_id&gt;</code>.</p>
+<p>This method is a convenience helper for the AG UI to get the default run channel.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>ChannelSession</code></td>            <td>
+                  <code><span title="aethergraph.services.channel.session.ChannelSession">ChannelSession</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The channel session associated with the current run.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>context.ui_session_channel.channel()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.node_context.NodeContext.ui_session_channel"></a>
+    <div class="doc doc-contents first">
+
+        <p>Creates a new ChannelSession for the current node context with session key as
+<code>ui:session/&lt;session_id&gt;</code>.</p>
+<p>This method is a convenience helper for the AG UI to get the default session channel.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>ChannelSession</code></td>            <td>
+                  <code><span title="aethergraph.services.channel.session.ChannelSession">ChannelSession</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The channel session associated with the current session.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="1-send-methods">1. Send Methods<a class="headerlink" href="#1-send-methods" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>send(event, *, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send a single outbound event to the configured channel.</p>
+<p>This method ensures the event is associated with the correct channel,
+merges context-derived metadata, and publishes the event via the channel bus.
+This is the core low-level send method; higher-level convenience methods
+(e.g., <code>send_text</code>, <code>send_rich</code>, etc.) build on top of this and are recommended
+for common use cases.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to send a pre-constructed event:
+<div class="highlight"><pre><span></span><code><span class="n">event</span> <span class="o">=</span> <span class="n">OutEvent</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;agent.message&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Sending to a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>event</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.contracts.services.channel.OutEvent">OutEvent</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The <code>OutEvent</code> instance to send. If <code>event.channel</code> is not set,
+it will be resolved automatically.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or event's channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Notes:
+for AG WebUI, you can set meta with
+<div class="highlight"><pre><span></span><code>    <span class="p">{</span>
+        <span class="s2">&quot;agent_id&quot;</span><span class="p">:</span> <span class="s2">&quot;agent-123&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Analyst&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div>
+to override the sender's display name and avatar in the chat.</p>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>send_text(text, *, meta, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_text"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send a plain text message to the configured channel.</p>
+<p>This method constructs a normalized outbound event, merges context-derived metadata,
+and dispatches the message via the channel bus.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to send a text message:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Sending with additional metadata and to a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span>
+    <span class="s2">&quot;Status update.&quot;</span><span class="p">,</span>
+    <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">},</span>
+    <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content to send.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>meta</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of metadata to include with the event.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Notes:
+for AG WebUI, you can set meta with
+<div class="highlight"><pre><span></span><code>    <span class="p">{</span>
+        <span class="s2">&quot;agent_id&quot;</span><span class="p">:</span> <span class="s2">&quot;agent-123&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Analyst&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div></p>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>send_image(url, *, alt, title, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_image"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send an image message to the configured channel.</p>
+<p>This method constructs and dispatches an outbound event containing image metadata,
+including the image URL, alternative text, and an optional title. Context-derived
+metadata is automatically merged, and the event is published via the channel bus.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to send an image:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_image</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/image.png&quot;</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;Sample image&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Sending with a custom title and to a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_image</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;User profile photo&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Profile&quot;</span><span class="p">,</span>
+    <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URL of the image to send. If None, an empty string is used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>alt</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Alternative text describing the image (for accessibility).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;image&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>title</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional title to display with the image.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>The capability to render images depends on the client adapter.</p>
 </details>
-<details>
-<summary>send_rich(text=None, *, rich=None, meta=None, channel=None)</summary>
-<p><strong>Description:</strong> Send a message with a rich structured payload (cards/blocks), plus optional text.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>text: str | None</code></li>
-<li><code>rich: dict[str, Any] | None</code></li>
-<li><code>meta: dict[str, Any] | None</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Emits:</strong></p>
-<ul>
-<li><code>agent.message</code> with <code>text</code>, <code>rich</code>, <code>meta</code>.</li>
-</ul>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>send_file(url, *, file_bytes, filename, title, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_file"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send a file to the configured channel in a normalized format.</p>
+<p>This method constructs and dispatches an outbound event containing file metadata,
+including the file URL, raw bytes, filename, and an optional title. Context-derived
+metadata is automatically merged, and the event is published via the channel bus.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to send a file by URL:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_file</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/report.pdf&quot;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Monthly Report&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Sending a file from bytes:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_file</span><span class="p">(</span>
+    <span class="n">file_bytes</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;binarydata...&quot;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;data.bin&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Raw Data&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The URL of the file to send. If None, only file_bytes will be used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>file_bytes</code>
+            </td>
+            <td>
+                  <code><span title="bytes">bytes</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional raw bytes of the file to send.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filename</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The display name of the file (defaults to "file.bin").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;file.bin&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>title</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional title to display with the file.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>The capability to handle file uploads depends on the client adapter.
+If both <code>url</code> and <code>file_bytes</code> are provided, both will be included in the event.</p>
 </details>
-<details>
-<summary>send_image(url=None, *, alt="image", title=None, channel=None)</summary>
-<p><strong>Description:</strong> Send an image by URL.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>url: str | None</code></li>
-<li><code>alt: str</code></li>
-<li><code>title: str | None</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Emits:</strong></p>
-<ul>
-<li><code>agent.message</code> with <code>image={url, alt, title}</code>.</li>
-</ul>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>send_buttons(text, buttons, *, meta, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_buttons"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send a message with interactive buttons to the configured channel.</p>
+<p>This method constructs and dispatches an outbound event containing a text prompt and a list of interactive buttons. Context-derived metadata is automatically merged, and the event is published via the channel bus.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to send a button prompt:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span>
+<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_buttons</span><span class="p">(</span>
+    <span class="s2">&quot;Choose an option:&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">),</span> <span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;no&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Sending with additional metadata and to a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_buttons</span><span class="p">(</span>
+    <span class="s2">&quot;Select your role:&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Admin&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">),</span> <span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">)],</span>
+    <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">},</span>
+    <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The primary text content to display above the buttons.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>buttons</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.channel.Button">Button</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of <code>Button</code> objects representing the interactive options.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>meta</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of metadata to include with the event.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h2 id="2-ask-methods">2. Ask Methods<a class="headerlink" href="#2-ask-methods" title="Permanent link">&para;</a></h2>
+<p>Ask method automatic implemented continuation so that the agent will resume running when triggered from external channels. </p>
+<details class="quote">
+<summary>ask_text(prompt, *, timeout_s, silent, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.ask_text"></a>
+    <div class="doc doc-contents first">
+
+        <p>Prompt the user for a text response in a normalized format.</p>
+<p>This method sends a prompt to the configured channel, waits for a user reply, and returns the text input.
+It automatically handles context metadata, timeout, and channel resolution.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to prompt for user input:
+<div class="highlight"><pre><span></span><code><span class="n">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Prompting with a custom timeout and silent mode:
+<div class="highlight"><pre><span></span><code><span class="n">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span>
+    <span class="s2">&quot;Enter your feedback.&quot;</span><span class="p">,</span>
+    <span class="n">timeout_s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+    <span class="n">silent</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text prompt to display to the user. If None, a generic prompt may be shown.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout_s</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time in seconds to wait for a response (default: 3600).</p>
+              </div>
+            </td>
+            <td>
+                  <code>3600</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>silent</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, suppresses prompt display in some adapters (back-compat; default: False).</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The user's text response, or an empty string if no input was received.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>wait_text(*, timeout_s, silent, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.wait_text"></a>
+    <div class="doc doc-contents first">
+
+        <p>Wait for a single text response from the user in a normalized format.</p>
+<p>This method prompts the user for input (with no explicit prompt), waits for a reply,
+and returns the text. It automatically handles context metadata, timeout, and channel resolution.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to wait for user input:
+<div class="highlight"><pre><span></span><code><span class="n">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">wait_text</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Waiting with a custom timeout and specific channel:
+<div class="highlight"><pre><span></span><code><span class="n">reply</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">wait_text</span><span class="p">(</span>
+    <span class="n">timeout_s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+    <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout_s</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time in seconds to wait for a response (default: 3600).</p>
+              </div>
+            </td>
+            <td>
+                  <code>3600</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The user's text response, or an empty string if no input was received.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>ask_approval(prompt, options, *, timeout_s, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.ask_approval"></a>
+    <div class="doc doc-contents first">
+
+        <p>Prompt the user for approval or rejection in a normalized format.</p>
+<p>This method sends an approval prompt with customizable options (buttons) to the configured channel,
+waits for the user's selection, and returns a normalized result indicating approval status and choice.
+Context metadata, timeout, and channel resolution are handled automatically.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to prompt for approval:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span><span class="s2">&quot;Do you approve this action?&quot;</span><span class="p">)</span>
+<span class="c1"># result: { &quot;approved&quot;: True/False, &quot;choice&quot;: &quot;Approve&quot;/&quot;Reject&quot; }</span>
+</code></pre></div></p>
+<p>Prompting with custom options and timeout:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span>
+    <span class="s2">&quot;Proceed with deployment?&quot;</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;Defer&quot;</span><span class="p">],</span>
+    <span class="n">timeout_s</span><span class="o">=</span><span class="mi">120</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text prompt to display to the user.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>options</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Iterable">Iterable</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Iterable of button labels for user choices (defaults to "Approve" and "Reject").</p>
+              </div>
+            </td>
+            <td>
+                  <code>(&#39;Approve&#39;, &#39;Reject&#39;)</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout_s</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time in seconds to wait for a response (default: 3600).</p>
+              </div>
+            </td>
+            <td>
+                  <code>3600</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing:
+- "approved": bool indicating if the <strong>first</strong> option was selected (True if approved, False otherwise).
+- "choice": The label of the button selected by the user (str or None).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="warning" open>
+  <summary>Warning</summary>
+  <p>The returned "choices" are determined by the external adapter and may vary. To be robust, make sure
+to use <code>choices.lower()</code> and strip whitespace when comparing.</p>
 </details>
-<details>
-<summary>send_file(url=None, *, file_bytes=None, filename="file.bin", title=None, channel=None)</summary>
-<p><strong>Description:</strong> Upload/send a file.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>url: str | None</code></li>
-<li><code>file_bytes: bytes | None</code></li>
-<li><code>filename: str</code></li>
-<li><code>title: str | None</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Emits:</strong></p>
-<ul>
-<li><code>file.upload</code> with <code>file={filename, url?, bytes?}</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Adapters decide whether to fetch <code>url</code> or accept <code>bytes</code>.</p>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>ask_files(prompt, *, accept, multiple, timeout_s, channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.ask_files"></a>
+    <div class="doc doc-contents first">
+
+        <p>Prompt the user to upload one or more files, optionally with a text comment.</p>
+<p>This method sends a file upload request to the configured channel, allowing the user to select files
+and optionally enter accompanying text. The <code>accept</code> parameter provides hints to the client UI about
+which file types are preferred, but is not enforced server-side. The method waits for the user's response
+and returns a normalized result containing both text and file references.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to prompt for file upload:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_files</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Please upload your report.&quot;</span>
+<span class="p">)</span>
+<span class="c1"># result: { &quot;text&quot;: &quot;...&quot;, &quot;files&quot;: [FileRef(...), ...] }</span>
+</code></pre></div></p>
+<p>Restricting to images and allowing multiple files:
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">ask_files</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Upload images for review.&quot;</span><span class="p">,</span>
+    <span class="n">accept</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span> <span class="s2">&quot;.jpg&quot;</span><span class="p">],</span>
+    <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The text prompt to display to the user above the file picker.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>accept</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of MIME types or file extensions to suggest allowed file types (e.g., "image/png", ".pdf", ".jpg").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>multiple</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, allows the user to select multiple files (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout_s</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum time in seconds to wait for a response (default: 3600).</p>
+              </div>
+            </td>
+            <td>
+                  <code>3600</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>dict</code></td>            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary containing:
+- "text": str, the user's comment or description (may be empty).
+- "files": List[FileRef], references to the uploaded files (empty if none).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>On console adapters, file upload is not supported; only text will be returned.
+The <code>accept</code> parameter is a UI hint and does not guarantee file type enforcement.</p>
 </details>
-<details>
-<summary>send_buttons(text, buttons, *, meta=None, channel=None)</summary>
-<p><strong>Description:</strong> Send a message with inline buttons/links.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>text: str</code></li>
-<li><code>buttons: list[Button]</code></li>
-<li><code>meta: dict[str, Any] | None</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code> (async)</li>
-</ul>
-<p><strong>Emits:</strong></p>
-<ul>
-<li><code>link.buttons</code> with <code>text</code>, <code>buttons</code>, <code>meta</code>.</li>
-</ul>
-</details>
-<details>
-<summary>ask_text(prompt, *, timeout_s=3600, silent=False, channel=None) -&gt; str</summary>
-<p><strong>Description:</strong> Ask the user for a free‑form text reply. Race‑free via continuations.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>prompt: str | None</code></li>
-<li><code>timeout_s: int</code></li>
-<li><code>silent: bool</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code> – User’s response text (empty string if none)</li>
-</ul>
-<p><strong>Notes:</strong> Creates continuation <code>kind="user_input"</code> and awaits resolution; adapters may inline‑resolve.</p>
-</details>
-<details>
-<summary>wait_text(*, timeout_s=3600, channel=None) -&gt; str</summary>
-<p><strong>Description:</strong> Alias for <code>ask_text(prompt=None, silent=True)</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>timeout_s: int</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>str</code></li>
-</ul>
-</details>
-<details>
-<summary>ask_approval(prompt, options=("Approve","Reject"), *, timeout_s=3600, channel=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Ask the user to choose from options (approval/confirmation). Normalizes to <code>{approved, choice}</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>prompt: str</code></li>
-<li><code>options: Iterable[str]</code></li>
-<li><code>timeout_s: int</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>{ "approved": bool, "choice": Any }</code></li>
-</ul>
-<p><strong>Notes:</strong> Continuation <code>kind="approval"</code> with payload <code>{prompt:{title, buttons}}</code>. If adapter doesn’t set explicit approval, first option means approved (case‑insensitive comparison).</p>
-</details>
-<details>
-<summary>ask_files(*, prompt, accept=None, multiple=True, timeout_s=3600, channel=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Ask for file upload(s), optionally with text.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>prompt: str</code></li>
-<li><code>accept: list[str] | None</code> (MIME or extensions, client hints)</li>
-<li><code>multiple: bool</code></li>
-<li><code>timeout_s: int</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>{ "text": str, "files": list[FileRef] }</code> (empty <code>files</code> on console‑only flows)</li>
-</ul>
-<p><strong>Notes:</strong> Continuation <code>kind="user_files"</code>.</p>
-</details>
-<details>
-<summary>ask_text_or_files(*, prompt, timeout_s=3600, channel=None) -&gt; dict</summary>
-<p><strong>Description:</strong> Ask for either a text reply or file upload(s).</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>prompt: str</code></li>
-<li><code>timeout_s: int</code></li>
-<li><code>channel: str | None</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>{ "text": str, "files": list[FileRef] }</code></li>
-</ul>
-<p><strong>Notes:</strong> Continuation <code>kind="user_input_or_files"</code>.</p>
-</details>
-<details>
-<summary>get_latest_uploads(*, clear=True) -&gt; list[FileRef]</summary>
-<p><strong>Description:</strong> Retrieve recent uploads captured in the channel inbox (Ephemeral KV), optionally clearing them.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>clear: bool</code> – If <code>True</code>, pops and clears; otherwise returns without clearing.</li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>list[FileRef]</code></li>
-</ul>
-<p><strong>Notes:</strong> Requires <code>services.kv</code>. Raises <code>RuntimeError</code> if unavailable. Inbox key: <code>inbox://&lt;resolved-channel-key&gt;</code>.</p>
-</details>
-<details>
-<summary>stream(channel=None) -&gt; Async CM yielding StreamSender</summary>
-<p><strong>Description:</strong> Incrementally stream text to a single upserted message; adapters rewrite one message.</p>
-<p><strong>Usage:</strong></p>
+
+    </div>
+
+</div></details>
+<h2 id="3-streaming">3. Streaming<a class="headerlink" href="#3-streaming" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>stream(channel)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.stream"></a>
+    <div class="doc doc-contents first">
+
+        <p>Stream a sequence of text deltas to the configured channel in a normalized format.</p>
+<p>This method provides a context manager for streaming incremental message updates (such as LLM generation)
+to the target channel. It automatically handles context metadata, upsert keys, and dispatches start, update,
+and end events to the channel bus. The caller is responsible for sending deltas and ending the stream.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to stream LLM output:
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
-    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>  <span class="c1"># optional</span>
-</code></pre></div>
-<p><strong>StreamSender Methods:</strong></p>
-<ul>
-<li><code>start()</code> → emit <code>agent.stream.start</code> (auto‑called by first <code>delta</code>).</li>
-<li><code>delta(text_piece: str)</code> → append chunk; emits <code>agent.message.update</code> with full concatenated text (buffered) using upsert key <code>&lt;run_id&gt;:&lt;node_id&gt;:stream</code>.</li>
-<li><code>end(full_text: str | None = None)</code> → optional final text, then <code>agent.stream.end</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Pass <code>channel=...</code> to target a specific channel.</p>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Streaming to a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Generating results...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">full_text</span><span class="o">=</span><span class="s2">&quot;Results complete.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to target a specific channel for this stream.
+If None, uses the session-bound or default channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="collections.abc.AsyncIterator">AsyncIterator</span>[<span title="aethergraph.services.channel.session.ChannelSession._StreamSender">_StreamSender</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AsyncIterator[_StreamSender]: An async context manager yielding a <code>_StreamSender</code> object
+for sending deltas and ending the stream.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>The caller must explicitly call <code>end()</code> to finalize the stream. No auto-end is performed.
+The adapter may have specific behaviors for rendering streamed content (update vs. append).</p>
 </details>
-<details>
-<summary>progress(*, title="Working...", total=None, key_suffix="progress", channel=None) -&gt; Async CM yielding ProgressSender</summary>
-<p><strong>Description:</strong> Report task progress with start/update/end events.</p>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Downloading&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-    <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">current</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inc</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;phase 1&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">p</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">subtitle</span><span class="o">=</span><span class="s2">&quot;Done.&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>ProgressSender Methods:</strong></p>
-<ul>
-<li><code>start(subtitle: str | None = None)</code> → <code>agent.progress.start</code>.</li>
-<li>
-<p><code>update(*, current=None, inc=None, subtitle=None, percent=None, eta_seconds=None)</code> → <code>agent.progress.update</code>.</p>
-</li>
-<li>
-<p><code>percent</code> sets <code>current</code> when <code>total</code> known; <code>inc</code> increments; <code>current</code> overrides.</p>
-</li>
-<li><code>end(*, subtitle: str | None = "Done.", success: bool = True)</code> → <code>agent.progress.end</code>.</li>
-</ul>
-<p><strong>Notes:</strong> Upserts use key <code>&lt;run_id&gt;:&lt;node_id&gt;:&lt;key_suffix&gt;</code>. Use different <code>key_suffix</code> for multiple bars.</p>
-</details>
-<hr />
-<h2 id="continuations-racefree-waiting-behavioral-notes">Continuations &amp; Race‑Free Waiting (behavioral notes)<a class="headerlink" href="#continuations-racefree-waiting-behavioral-notes" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Create continuation with <code>kind</code>, <code>payload</code>, <code>deadline</code>.</li>
-<li><strong>Prepare wait future before notify</strong> (prevents wait‑before‑resume race).</li>
-<li><code>ChannelBus.notify()</code> may inline‑resolve; if so, future is resolved and continuation cleaned up.</li>
-<li>Bind correlators so webhooks can locate the continuation.</li>
-<li>Await the prepared future until the router resolves it.</li>
-</ol>
-<hr />
-<h2 id="event-types-emitted">Event Types (emitted)<a class="headerlink" href="#event-types-emitted" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>agent.message</code>, <code>agent.message.update</code></li>
-<li><code>file.upload</code></li>
-<li><code>link.buttons</code></li>
-<li><code>agent.stream.start</code>, <code>agent.stream.end</code></li>
-<li><code>agent.progress.start</code>, <code>agent.progress.update</code>, <code>agent.progress.end</code></li>
-</ul>
+
+    </div>
+
+</div></details>
+<h2 id="4-utilities">4. Utilities<a class="headerlink" href="#4-utilities" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>get_latest_uploads(*, clear)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.get_latest_uploads"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve the latest uploaded files from this channel's inbox in a normalized format.</p>
+<p>This method accesses the ephemeral KV store to fetch file uploads associated with the current channel.
+By default, it clears the inbox after retrieval to prevent duplicate processing. If the KV service
+is unavailable in the context, a RuntimeError is raised. This method allows the fetch the files user
+uploaded <strong>not</strong> from an ask_files prompt, but from any prior upload event.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to fetch and clear uploaded files:
+<div class="highlight"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest_uploads</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Fetching files without clearing the inbox:
+<div class="highlight"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">get_latest_uploads</span><span class="p">(</span><span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>clear</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True (default), removes files from the inbox after retrieval.
+If False, files are returned but remain in the inbox.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.services.channel.FileRef">FileRef</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List[FileRef]: A list of <code>FileRef</code> objects representing the uploaded files.
+Returns an empty list if no files are present.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the ephemeral KV service is not available in the current context.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
 
 
 

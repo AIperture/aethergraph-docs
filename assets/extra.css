@@ -1,197 +1,148 @@
-/* AetherGraph – MkDocs Material color/tint-only overrides
-   - Softer accent (blue-adjacent), minimal orange
-   - Subtle brand gradient under top bar
-   - Darker site title
-   - Glassier, fuzzier header with visible search
-*/
+/* ==========================================================================
+   1. GLOBAL COLORS (High Contrast)
+   We override colors here, but NOT font-size, to protect the layout.
+   ========================================================================== */
+:root {
+    /* -- Font Families -- */
+    --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    --md-code-font: "JetBrains Mono", "SFMono-Regular", Consolas, Menlo, monospace;
 
-/* ---------- AetherGraph palette: LIGHT ---------- */
-:root,
-[data-md-color-scheme="aether-light"] {
-  --aeg-brand: #2e90ff;
-  --aeg-brand-light: #5aa7ff;
-  --aeg-brand-dark: #1e73e6;
-
-  /* If you prefer blue-adjacent accent instead of orange */
-  --aeg-accent: #3aa0ff;
-  --aeg-accent-dark: #2b86e8;
-
-  /* Material tokens */
-  --md-primary-fg-color: var(--aeg-brand);
-  --md-primary-fg-color--light: var(--aeg-brand-light);
-  --md-primary-fg-color--dark: var(--aeg-brand-dark);
-  --md-accent-fg-color: var(--aeg-accent);
-
-  /* Tints / surfaces */
-  --aeg-inline-code-fg: #0f172a;
-  --aeg-inline-code-bg: color-mix(in srgb, var(--aeg-brand) 6%, #ffffff);
-  --aeg-code-bg: #f7fafc;
-  --aeg-table-hdr-bg: color-mix(in srgb, var(--aeg-brand) 12%, #ffffff);
-  --aeg-table-border: rgba(15,23,42,0.08);
-
-  /* Glassy header (light) */
-  --aeg-header-bg: linear-gradient(180deg, color-mix(in srgb, var(--aeg-brand) 9%, transparent) 0%, transparent 70%), rgba(255,255,255,0.72);
-  --aeg-header-border: rgba(15,23,42,0.08);
-  --aeg-header-shadow: 0 6px 24px rgba(2,6,23,0.06);
-
-  --aeg-header-ctrl: #0b1220;
-  --aeg-header-ctrl-muted: #334155;
+    /* -- Enterprise Colors (Slate 900/800) -- */
+    --md-typeset-color: #0f172a;            /* Main body text - Darker */
+    --md-default-fg-color--light: #334155;  /* Secondary text - Darker */
+    
+    /* Headers - Absolute Black for hierarchy */
+    --md-typeset-h1-color: #000000;
+    --md-typeset-h2-color: #0f172a;
+    
+    /* Code block backgrounds (Optional: slight cool tint) */
+    --md-code-bg-color: #f8fafc;
 }
 
-/* Toggle icon + header buttons */
-:root .md-header .md-header__button,
-:root .md-header .md-icon {
-  color: var(--aeg-header-ctrl);
-}
-:root .md-header .md-header__button:hover,
-:root .md-header .md-icon:hover {
-  color: var(--md-primary-fg-color); /* nice blue hover */
-}
-/* GitHub block: make the text darker without touching spacing */
-:root .md-header .md-source,
-:root .md-header .md-source a,
-:root .md-header .md-source__repository {
-  color: var(--aeg-header-ctrl) !important;
+/* ==========================================================================
+   2. TEXT DENSITY (The Fix)
+   Target specific text containers instead of the root.
+   This keeps the sidebar attached to the screen edges while shrinking text.
+   ========================================================================== */
+
+/* Shrink body text ONLY, not the layout grid */
+body, .md-typeset {
+    font-size: 0.75rem; /* ~14.8px (Standard Enterprise Size) */
+    line-height: 1.5;
 }
 
-/* Hover: use brand blue for a subtle cue */
-:root .md-header .md-source a:hover {
-  color: var(--md-primary-fg-color) !important;
+/* Shrink Navigation links to match */
+.md-nav__link {
+    font-size: 0.7rem;
 }
 
+/* Make headers dense and tight */
+.md-typeset h1 { margin-top: 1em; font-weight: 700; letter-spacing: -0.02em; font-size: 1.4rem;}
+.md-typeset h2 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 700; letter-spacing: -0.01em; font-size: 1rem;}
+.md-typeset h3 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 600; font-size: 0.9rem;}
 
-/* Search input text/placeholder in light mode */
-:root .md-search__input {
-  color: var(--aeg-header-ctrl);
-}
-:root .md-search__input::placeholder {
-  color: var(--aeg-header-ctrl-muted);
-}
-
-/* ---------- AetherGraph palette: DARK ---------- */
-[data-md-color-scheme="aether-dark"] {
-  --md-primary-fg-color: var(--aeg-brand-light);
-  --md-primary-fg-color--light: #78b6ff;
-  --md-primary-fg-color--dark: var(--aeg-brand);
-  --md-accent-fg-color: #63b4ff;
-
-  --aeg-inline-code-fg: #e5e7eb;
-  --aeg-inline-code-bg: color-mix(in srgb, var(--aeg-brand) 22%, #0b1020);
-  --aeg-code-bg: #0f172a;
-  --aeg-table-hdr-bg: color-mix(in srgb, var(--aeg-brand) 16%, #0b1020);
-  --aeg-table-border: rgba(148,163,184,0.18);
-
-  /* Glassy header (dark) */
-  --aeg-header-bg: linear-gradient(180deg, color-mix(in srgb, var(--aeg-brand) 14%, transparent) 0%, transparent 70%), rgba(10,15,28,0.56);
-  --aeg-header-border: rgba(148,163,184,0.18);
-  --aeg-header-shadow: 0 6px 24px rgba(0,0,0,0.35);
+/* Denser lists */
+.md-typeset li {
+    margin-bottom: 0.25em;
 }
 
-/* Header uses the scheme variables above */
-.md-header {
-  backdrop-filter: saturate(170%) blur(16px);
-  -webkit-backdrop-filter: saturate(170%) blur(16px);
-  background: var(--aeg-header-bg);
-  border-bottom: 1px solid var(--aeg-header-border);
-  box-shadow: var(--aeg-header-shadow);
+/* ==========================================================================
+   3. MKDOCSTRINGS / API SIGNATURES
+   Your specific request for the code blocks.
+   ========================================================================== */
+
+/* The Container */
+/* The Container */
+div.doc-signature {
+    font-family: var(--md-code-font);
+    font-size: 0.85em !important;
+    
+    /* Keep your preferred background */
+    background-color: var(--md-code-bg-color); 
+    
+    /* 1. Stronger Border (Slate 300 instead of 200) */
+    border: 1px solid #cbd5e1; 
+    
+    /* 2. Visual Anchor (Thicker left border to define the block) */
+    border-left: 4px solid #334155; 
+    
+    /* 3. Lift it off the page (Subtle Shadow) */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+
+    border-radius: 4px; /* Slightly tighter radius */
+    padding: 10px 12px;
+    margin-bottom: 1.25em; /* Add a little more space below it */
+    line-height: 1.5;
+
+    /* Ensure long text wraps neatly inside the box */
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
-/* Darker site title for contrast on glass */
-.md-header__title { color: #0b1220; }
-[data-md-color-scheme="aether-dark"] .md-header__title { color: #e5e7eb; }
-
-/* Search remains legible on glass */
-.md-search__input {
-  background: rgba(255,255,255,0.88);
-  border: 1px solid rgba(2,6,23,0.12);
-  box-shadow: 0 2px 10px rgba(2,6,23,0.06);
-}
-[data-md-color-scheme="aether-dark"] .md-search__input {
-  background: rgba(11,16,32,0.72);
-  border: 1px solid rgba(148,163,184,0.25);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+/* Function Name - Keep your settings */
+span.doc-symbol-name {
+    color: #0f172a !important;      
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
 }
 
-/* Links, buttons, code, tables – same as before, now scheme-aware via vars */
-.md-typeset a { color: var(--md-primary-fg-color); text-underline-offset: 2px; }
-.md-typeset a:hover { color: var(--md-primary-fg-color--dark); }
-
-.md-button--primary {
-  background: var(--md-primary-fg-color);
-  border-color: var(--md-primary-fg-color);
-}
-.md-button--primary:hover {
-  background: var(--md-primary-fg-color--dark);
-  border-color: var(--md-primary-fg-color--dark);
+/* Standard Inline Code (`...`) consistency */
+.md-typeset code {
+    background-color: #f1f5f9; /* Slate 100 */
+    color: #0f172a;            /* Dark text */
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 0.85em;
+    border: 1px solid #e2e8f0; /* Subtle border for inline */
+    box-shadow: none;          /* No shadow for inline */
 }
 
-.md-typeset code:not(pre code) {
-  color: var(--aeg-inline-code-fg);
-  background: var(--aeg-inline-code-bg);
-  border: 1px solid rgba(15,23,42,0.08);
-  border-radius: 0.375rem;
-  padding: .1em .35em;
-}
-.md-typeset pre > code {
-  background: var(--aeg-code-bg);
-  border: 1px solid rgba(15,23,42,0.06);
-  border-radius: 0.5rem;
+/* Argument Names */
+span.doc-param-name {
+    color: #1e293b !important;      /* Slate 800 */
+    font-weight: 600;
 }
 
-.md-typeset table:not([class]) th { background: var(--aeg-table-hdr-bg); }
-.md-typeset table:not([class]),
-.md-typeset table:not([class]) td,
-.md-typeset table:not([class]) th { border-color: var(--aeg-table-border); }
-
-
-/* ---------- Admonitions (blue-tinted; no bright orange) ---------- */
-:root .md-typeset .admonition.note,
-:root .md-typeset details.note,
-:root .md-typeset .admonition.info,
-:root .md-typeset details.info,
-:root .md-typeset .admonition.tip,
-:root .md-typeset details.tip {
-  border-color: var(--aeg-brand);
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--aeg-brand) 7%, transparent),
-    transparent
-  );
-}
-:root .md-typeset .admonition > .admonition-title::before {
-  background-color: var(--aeg-brand);
+/* Types */
+span.doc-param-annotation {
+    color: #475569 !important;      /* Slate 600 */
+    font-style: italic;
 }
 
-/* ---------- ToC / sidebar ---------- */
-.md-nav__item .md-nav__link--active,
-.md-nav__link:focus-visible { color: var(--aeg-brand-dark); }
-.md-nav__link:hover { color: var(--aeg-accent); }
-
-/* ---------- Blockquotes / search hover ---------- */
-.md-typeset blockquote {
-  border-left: 3px solid var(--aeg-brand);
-  background: color-mix(in srgb, var(--aeg-brand) 5%, transparent);
-}
-.md-search-result__link:hover,
-.md-search-result__link:focus-visible {
-  background: color-mix(in srgb, var(--aeg-brand) 10%, transparent);
+/* Default Values */
+span.doc-param-default {
+    color: #b45309 !important;      /* Dark Amber */
 }
 
-
-
-/* Footer tint */
-.md-footer__highlight {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--md-primary-fg-color) 6%, transparent),
-    transparent 80%
-  );
-  border-top: 1px solid var(--md-border-color, rgba(15,23,42,0.08));
+/* --- Argument Lists (Cleaning up the table look) --- */
+.md-typeset .doc-utils-table {
+    margin-top: 0.5em;
+    display: block;
+    width: 100%;
 }
-[data-md-color-scheme="aether-dark"] .md-footer__highlight {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent),
-    transparent 80%
-  );
+
+.md-typeset .doc-utils-table tbody {
+    display: block;
+}
+
+.md-typeset .doc-utils-table tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 8px 0;
+}
+
+/* Name/Type Row */
+.md-typeset .doc-utils-table td:first-child {
+    padding: 0 0 4px 0;
+    font-family: var(--md-code-font);
+    font-size: 0.85em;
+    color: #1e293b;
+}
+
+/* Description Row */
+.md-typeset .doc-utils-table td:last-child {
+    padding: 0;
+    color: #334155;
+    line-height: 1.5;
 }

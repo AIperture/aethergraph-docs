@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://your-domain.com/reference/context-extension/">
       
       
-        <link rel="prev" href="../context-mcp/">
+        <link rel="prev" href="../context-runner/">
       
       
         <link rel="next" href="../context-adhoc/">
@@ -51,6 +51,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="../../assets/extra.css">
     
@@ -970,7 +972,7 @@
   
   
   <span class="md-ellipsis">
-    decorator @tool
+    tool decorator
     
   </span>
   
@@ -988,35 +990,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../graph-graph-fn/" class="md-nav__link">
+      <a href="../graphify-graphfn/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    decorator @graph_fn
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../graph-graphify/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    decorator @graphify
+    graph decorator
     
   </span>
   
@@ -1361,6 +1340,52 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-viz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.viz()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context run management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1414,15 +1439,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#minimal-flow" class="md-nav__link">
     <span class="md-ellipsis">
       Minimal Flow
@@ -1432,9 +1448,84 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods-helpers" class="md-nav__link">
+  <a href="#api-reference" class="md-nav__link">
     <span class="md-ellipsis">
-      Methods &amp; Helpers
+      API Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-register-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Register External Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.runtime_services.register_context_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_context_service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.runtime_services.get_ext_context_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_ext_context_service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.runtime_services.list_ext_context_services" class="md-nav__link">
+    <span class="md-ellipsis">
+      list_ext_context_services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="list_ext_context_services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-access-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Access External Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.node_context.NodeContext.__getattr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __getattr__
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.core.runtime.node_context.NodeContext.svc" class="md-nav__link">
+    <span class="md-ellipsis">
+      svc
     </span>
   </a>
   
@@ -1776,6 +1867,148 @@
   
   
   
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Aethergraph UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Use Aethergraph UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start the server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/agents-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Notes & troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../llm-setup/llm-setup/" class="md-nav__link">
         
@@ -1812,10 +2045,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
             
   
   
@@ -1828,8 +2061,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
             <span class="md-nav__icon md-icon"></span>
             Channel Setup
           </label>
@@ -2016,58 +2249,6 @@
 </blockquote>
 <p>Register your service <strong>after the sidecar starts</strong>, then access it anywhere via the context: <code>context.&lt;name&gt;()</code>.</p>
 <hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Thing</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Service</code></td>
-<td>Base class to subclass for context‑aware services (lifecycle, binding, helpers).</td>
-</tr>
-<tr>
-<td><code>register_context_service(name, service)</code></td>
-<td>Registers an instance under <code>context.&lt;name&gt;</code> (global registry).</td>
-</tr>
-<tr>
-<td><code>context.svc(name)</code></td>
-<td>Returns a <strong>bound</strong> service for <code>name</code>.</td>
-</tr>
-<tr>
-<td><code>context.&lt;name&gt;()</code></td>
-<td>Ergonomic accessor: returns the bound service when called <strong>with no args</strong>.</td>
-</tr>
-<tr>
-<td><code>Service.bind(context=...)</code></td>
-<td>Binds the current <code>NodeContext</code> into the service (used by the runtime).</td>
-</tr>
-<tr>
-<td><code>Service.ctx()</code></td>
-<td>Retrieve the current bound context from within the service.</td>
-</tr>
-<tr>
-<td><code>Service.start()</code> / <code>Service.close()</code></td>
-<td>Async lifecycle hooks (optional).</td>
-</tr>
-<tr>
-<td><code>Service.critical()</code></td>
-<td>Decorator for async critical sections (mutex).</td>
-</tr>
-<tr>
-<td><code>Service.run_blocking(fn, *args, **kw)</code></td>
-<td>Run a blocking function in a thread pool.</td>
-</tr>
-<tr>
-<td><code>_ServiceHandle</code></td>
-<td>Transparent wrapper returned by <code>context.&lt;name&gt;</code>; forwards attrs/calls.</td>
-</tr>
-</tbody>
-</table>
-<hr />
 <h2 id="minimal-flow">Minimal Flow<a class="headerlink" href="#minimal-flow" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">start_server</span><span class="p">,</span> <span class="n">Service</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.runtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_context_service</span>
@@ -2076,14 +2257,6 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># e.g., open connections</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># e.g., close connections</span>
-        <span class="k">return</span> <span class="kc">None</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
@@ -2109,60 +2282,554 @@
 <li>The returned <code>_ServiceHandle</code> forwards attribute access and calls. A <strong>no‑arg call</strong> returns the underlying service instance for convenience.</li>
 </ul>
 <hr />
-<h2 id="methods-helpers">Methods &amp; Helpers<a class="headerlink" href="#methods-helpers" title="Permanent link">&para;</a></h2>
-<details>
-<summary><code>class Service</code> – subclass this for custom services</summary>
-<p><strong>Lifecycle</strong></p>
-<ul>
-<li><code>async def start(self) -&gt; None</code> – optional startup hook.</li>
-<li><code>async def close(self) -&gt; None</code> – optional shutdown hook.</li>
-</ul>
-<p><strong>Binding</strong></p>
-<ul>
-<li><code>def bind(self, *, context) -&gt; Service</code> – stores the <code>NodeContext</code> and returns a bound handle.</li>
-<li><code>def ctx(self)</code> – access the current bound <code>NodeContext</code>.</li>
-</ul>
-<p><strong>Concurrency &amp; Utilities</strong></p>
-<ul>
-<li><code>def critical(self)</code> – decorator for an async mutex around a method.</li>
-<li><code>async def run_blocking(self, fn, *a, **kw)</code> – run CPU/IO‑bound sync code in a thread.</li>
+<h2 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h2>
+<h3 id="1-register-external-services">1. Register External Services<a class="headerlink" href="#1-register-external-services" title="Permanent link">&para;</a></h3>
+<details class="quote">
+<summary>register_context_service(name, service)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.runtime_services.register_context_service"></a>
+    <div class="doc doc-contents first">
+
+        <p>Register an external service for NodeContext access.</p>
+<p>This function attaches an external service to the current service container
+under the specified name. If no container is installed yet, the service is
+stashed in a pending registry and will be attached automatically when
+install_services() is called.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Register a custom database service:
+<div class="highlight"><pre><span></span><code><span class="n">register_context_service</span><span class="p">(</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span> <span class="n">MyDatabaseService</span><span class="p">())</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier for the external service.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>service</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.core.runtime.base_service.Service">Service</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The service instance to register.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>If called before install_services(), the service will be attached later.</li>
+<li>Services are accessible via NodeContext.ext_services[name].</li>
 </ul>
 </details>
-<details>
-<summary><code>register_context_service(name, service)</code></summary>
-<p><strong>Description:</strong> Put a <strong>singleton</strong> instance into the global registry so it becomes available as <code>context.&lt;name&gt;</code>.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code> – the attribute exposed on <code>context</code>.</li>
-<li><code>service: Service</code> – an instance (not a class).</li>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>get_ext_context_service(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.runtime_services.get_ext_context_service"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve an external context service by name.</p>
+<p>This function returns the external service registered under the given name
+from the current service container's ext_services registry.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Access a registered service:
+<div class="highlight"><pre><span></span><code><span class="n">mydb</span> <span class="o">=</span> <span class="n">get_ext_context_service</span><span class="p">(</span><span class="s2">&quot;mydb&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The string name of the external service to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="aethergraph.core.runtime.base_service.Service">Service</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The service instance registered under the given name, or None if not found.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no services container is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>list_ext_context_services()</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.runtime_services.list_ext_context_services"></a>
+    <div class="doc doc-contents first">
+
+        <p>List all registered external context service names.</p>
+<p>This function returns a list of all names for services currently registered
+in the ext_services registry of the current service container.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>List all available external services:
+<div class="highlight"><pre><span></span><code><span class="n">services</span> <span class="o">=</span> <span class="n">list_ext_context_services</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">services</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of strings representing the names of all registered external services.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Returns an empty list if no services are registered.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no services container is installed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
+<h3 id="2-access-external-services">2. Access External Services<a class="headerlink" href="#2-access-external-services" title="Permanent link">&para;</a></h3>
+<details class="quote">
+<summary>context.&lt;service_name&gt;(*args)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.node_context.NodeContext.__getattr__"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve and bind an external context service by name. This allows accessing services as attributes on the context object.</p>
+<p>This method overrides attribute access to dynamically resolve external services registered in the context.
+If a service with the requested name exists, it is retrieved and wrapped in a <code>_ServiceHandle</code> for ergonomic access.
+The returned handle allows attribute access, direct retrieval, and call forwarding if the service is callable.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="c1"># Retrieve a database service and run a query</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">database</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access a logger service and log a message</span>
+<span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello from node!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Forward arguments to a callable service</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">some_tool</span><span class="p">(</span><span class="s2">&quot;input text&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the service to resolve as an attribute.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>_ServiceHandle</code></td>            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A callable handle to the resolved service.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="AttributeError">AttributeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If no service with the given name exists in the context.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="usage" open>
+  <summary>Usage</summary>
+  <ul>
+<li>
+<p>You can access external services directly as attributes on the context object.
+For example, if you have registered a service named "my_service", you can use:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the service instance</span>
+<span class="n">svc</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">my_service</span><span class="p">()</span>
+
+<span class="c1"># Call the service if it&#39;s callable</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">my_service</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">)</span>
+
+<span class="c1"># Access service attributes</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">my_service</span><span class="o">.</span><span class="n">some_attribute</span>
+</code></pre></div>
+</li>
+<li>
+<p>In your Service, you can use <code>self.ctx</code> to access the node context if needed. For example:
+    <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyService</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">my_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span>  <span class="c1"># Access the NodeContext</span>
+        <span class="c1"># Use context information as needed</span>
+        <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;Hello from MyService!&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
 </ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>None</code></li>
-</ul>
-<p><strong>Notes:</strong> Call <strong>after</strong> <code>start_server(...)</code> to ensure the container/registry exists.</p>
 </details>
-<details>
-<summary><code>context.svc(name) -&gt; Service</code></summary>
-<p><strong>Description:</strong> Generic accessor to retrieve a <strong>bound</strong> service by name. Raises <code>KeyError</code> if not registered.</p>
-<p><strong>Inputs:</strong></p>
-<ul>
-<li><code>name: str</code></li>
-</ul>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Service</code></li>
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>If the service is not registered, an AttributeError is raised.</li>
+<li>If the service is callable, calling <code>context.service_name(args)</code> will forward the call.</li>
+<li>If you call <code>context.service_name()</code> with no arguments, you get the underlying service instance.</li>
+<li>Attribute access (e.g., <code>context.service_name.some_attr</code>) is delegated to the service.</li>
 </ul>
 </details>
-<details>
-<summary><code>context.&lt;name&gt;()</code> (no‑arg call)</summary>
-<p><strong>Description:</strong> The ergonomic way to get your bound service instance: calling the attribute <strong>with no arguments</strong> returns the underlying <code>Service</code>.</p>
-<p><strong>Returns:</strong></p>
-<ul>
-<li><code>Service</code></li>
-</ul>
-<p><strong>Notes:</strong> If your service itself is callable, <code>context.&amp;lt;name&amp;gt;(…)</code> forwards to <code>service.__call__</code> (normal function call behaviour).</p>
-</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>context.svc(name)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.core.runtime.node_context.NodeContext.svc"></a>
+    <div class="doc doc-contents first">
+
+        <p>Retrieve and bind an external context service by name. This method is equivalent to <code>context.&lt;service_name&gt;()</code>.
+User can use either <code>context.svc("service_name")</code> or <code>context.service_name()</code> to access the service.</p>
+<p>This method accesses a registered external service, optionally binding it to the current
+node context if the service supports context binding via a <code>bind</code> method.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to access a service:
+<div class="highlight"><pre><span></span><code><span class="n">db</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">svc</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Accessing a service that requires context binding:
+<div class="highlight"><pre><span></span><code><span class="n">logger</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">svc</span><span class="p">(</span><span class="s2">&quot;logger&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Node started.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The unique string identifier of the external service to retrieve.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>Any</code></td>            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The external service instance, bound to the current context if applicable.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="KeyError">KeyError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the requested service is not registered in the external context.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div></details>
 <hr />
 <h2 id="patterns">Patterns<a class="headerlink" href="#patterns" title="Permanent link">&para;</a></h2>
 <h3 id="1-contextaware-logging-artifacts">1) Context‑Aware Logging &amp; Artifacts<a class="headerlink" href="#1-contextaware-logging-artifacts" title="Permanent link">&para;</a></h3>
@@ -2270,7 +2937,7 @@ Provide them to your service constructor, or pull from env. For dynamic secrets,
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../context-mcp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: context.mcp()">
+          <a href="../context-runner/" class="md-footer__link md-footer__link--prev" aria-label="Previous: context run management">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2280,7 +2947,7 @@ Provide them to your service constructor, or pull from env. For dynamic secrets,
                 Previous
               </span>
               <div class="md-ellipsis">
-                context.mcp()
+                context run management
               </div>
             </div>
           </a>
