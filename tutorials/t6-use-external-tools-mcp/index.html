@@ -2281,12 +2281,13 @@
 </tbody>
 </table>
 <p>You can register any number of them:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp.ws_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">WsMCPClient</span>
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.services.mcp.ws_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">WsMCPClient</span>
 <span class="n">mcp</span> <span class="o">=</span> <span class="n">MCPService</span><span class="p">({</span>
     <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="n">WsMCPClient</span><span class="p">(</span><span class="s2">&quot;wss://example.com/mcp&quot;</span><span class="p">),</span>
     <span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="n">StdioMCPClient</span><span class="p">([</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;my_local_tool.py&quot;</span><span class="p">])</span>
 <span class="p">})</span>
 </code></pre></div>
+See all MCP-related methods in <a href="../../reference/context-mcp/">API reference</a></p>
 <hr />
 <h2 id="6-combined-example-http-tool-call-in-graph">6. Combined Example — HTTP Tool Call in Graph<a class="headerlink" href="#6-combined-example-http-tool-call-in-graph" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>

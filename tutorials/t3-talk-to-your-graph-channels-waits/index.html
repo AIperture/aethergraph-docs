@@ -2168,7 +2168,7 @@
 
 <span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;greet&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:#research&quot;</span><span class="p">)</span>   <span class="c1"># pick a target channel</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span> 
     <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Starting demo…&quot;</span><span class="p">)</span>
     <span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="s2">&quot;Your name?&quot;</span><span class="p">)</span>    <span class="c1"># cooperative wait</span>
     <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nice to meet you, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>

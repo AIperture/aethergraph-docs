@@ -864,22 +864,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-endtoend-save-log-and-recall" class="md-nav__link">
+  <a href="#4-practical-recipes" class="md-nav__link">
     <span class="md-ellipsis">
-      4. End‑to‑end: save, log, and recall
+      4. Practical recipes
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-practical-recipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Practical recipes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Practical recipes">
+    <nav class="md-nav" aria-label="4. Practical recipes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -924,45 +915,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-minimal-reference-schemas-helpers" class="md-nav__link">
+  <a href="#5-minimal-reference-schemas-helpers" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Minimal reference (schemas &amp; helpers)
+      5. Minimal reference (schemas &amp; helpers)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-when-to-use-what" class="md-nav__link">
+  <a href="#6-when-to-use-what" class="md-nav__link">
     <span class="md-ellipsis">
-      7. When to use what
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-rag-turning-history-into-answers-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. RAG: turning history into answers (optional)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-troubleshooting-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Troubleshooting &amp; tips
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
+      6. When to use what
     </span>
   </a>
   
@@ -2295,7 +2259,7 @@
 <p>This tutorial focus on the how Aethergraph can memorize what happened before. Learn how to <strong>save outputs</strong>, <strong>log results/events</strong>, and <strong>recall them later</strong> using AetherGraph’s two persistence pillars:</p>
 <ul>
 <li><strong>Artifacts</strong> — durable assets (files/dirs/JSON/text) stored by <strong>content address (CAS URI)</strong> with labels &amp; metrics for ranking and search.</li>
-<li><strong>Memory</strong> — a structured <strong>event &amp; result log</strong> with fast “what’s the latest?” recall (e.g., <code>last_by_name</code>), plus simple recent‑history queries.</li>
+<li><strong>Memory</strong> — a structured <strong>event &amp; result log</strong> with fast “what’s the latest?” simple recent‑history queries.</li>
 </ul>
 <p>We’ll build this up step‑by‑step with short, copy‑ready snippets.</p>
 <hr />
@@ -2310,16 +2274,15 @@
 <hr />
 <h2 id="1-save-something-get-a-uri-open-it-later">1. Save something → get a URI → open it later<a class="headerlink" href="#1-save-something-get-a-uri-open-it-later" title="Permanent link">&para;</a></h2>
 <h3 id="a-ingest-an-existing-file">A. Ingest an existing file<a class="headerlink" href="#a-ingest-an-existing-file" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span>
     <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span>                 <span class="c1"># a short noun; you’ll filter/rank by this</span>
-    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">},</span>          <span class="c1"># 1–3 filters you actually plan to query</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">},</span>           <span class="c1"># 1–3 filters you actually plan to query</span>
     <span class="c1"># metrics={&quot;bleu&quot;: 31.2},      # optional if you’ll rank later</span>
 <span class="p">)</span>
-<span class="n">uri</span> <span class="o">=</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span>                       <span class="c1"># stable CAS URI</span>
 
 <span class="c1"># When you need a real path again:</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">arts</span><span class="o">.</span><span class="n">to_local_path</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">as_local_file</span><span class="p">(</span><span class="n">art</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Why CAS?</strong> It prevents accidental overwrites and gives you a stable handle you can pass around (in Memory, dashboards, etc.).</p>
 <h3 id="b-streamwrite-no-temp-file-atomically">B. Stream‑write (no temp file), atomically<a class="headerlink" href="#b-streamwrite-no-temp-file-atomically" title="Permanent link">&para;</a></h3>
@@ -2334,17 +2297,16 @@
 <h2 id="2-record-results-youll-want-to-recall-fast">2. Record results you’ll want to recall fast<a class="headerlink" href="#2-record-results-youll-want-to-recall-fast" title="Permanent link">&para;</a></h2>
 <p>Use <strong>Memory</strong> for structured results and lightweight logs.</p>
 <h3 id="a-record-a-typed-result-fast-recall-by-name">A. Record a typed result (fast recall by name)<a class="headerlink" href="#a-record-a-typed-result-fast-recall-by-name" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
-    <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;train.step&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">record_tool_result</span><span class="p">(</span>
+    <span class="n">tool</span><span class="o">=</span><span class="s2">&quot;train.step&quot;</span><span class="p">,</span>
     <span class="n">outputs</span><span class="o">=</span><span class="p">[</span>
         <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;val_acc&quot;</span><span class="p">,</span>  <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.912</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ckpt_uri&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span>    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">uri</span><span class="p">},</span>
     <span class="p">],</span>
 <span class="p">)</span>
 
-<span class="n">last_acc</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">last_by_name</span><span class="p">(</span><span class="s2">&quot;val_acc&quot;</span><span class="p">)</span>
+<span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent_tool_results</span><span class="p">(</span><span class="n">tool</span><span class="o">=</span><span class="s2">&quot;train.step&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># retrieve the last tool result events</span>
 </code></pre></div>
-<p><code>write_result</code> indexes named values so <code>last_by_name("val_acc")</code> is O(1) to fetch the latest.</p>
 <h3 id="b-log-arbitrary-events-structured-but-lightweight">B. Log arbitrary events (structured but lightweight)<a class="headerlink" href="#b-log-arbitrary-events-structured-but-lightweight" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">record</span><span class="p">(</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;train_log&quot;</span><span class="p">,</span>
@@ -2357,9 +2319,6 @@
 <p>Need only the decoded payloads?</p>
 <div class="highlight"><pre><span></span><code><span class="n">logs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">recent_data</span><span class="p">(</span><span class="n">kinds</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train_log&quot;</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># this returns the `data` saved in memory, not Event</span>
 </code></pre></div>
-<blockquote>
-<p>Use <code>record</code> for progress/trace breadcrumbs. Use <code>write_result</code> for small named values you’ll query later.</p>
-</blockquote>
 <hr />
 <h2 id="3-search-filter-and-rank-artifacts">3. Search, filter, and rank artifacts<a class="headerlink" href="#3-search-filter-and-rank-artifacts" title="Permanent link">&para;</a></h2>
 <h3 id="a-search-by-labels-you-saved-earlier">A. Search by labels you saved earlier<a class="headerlink" href="#a-search-by-labels-you-saved-earlier" title="Permanent link">&para;</a></h3>
@@ -2376,46 +2335,13 @@
     <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;run&quot;</span><span class="p">,</span>        <span class="c1"># limit to current run | graph | node</span>
 <span class="p">)</span>
 <span class="k">if</span> <span class="n">best</span><span class="p">:</span>
-    <span class="n">best_path</span> <span class="o">=</span> <span class="n">arts</span><span class="o">.</span><span class="n">to_local_path</span><span class="p">(</span><span class="n">best</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span>
+    <span class="n">best_path</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">as_local_file</span><span class="p">(</span><span class="n">best</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Attach <code>metrics={"val_acc": ...}</code> when saving to enable ranking later.</p>
 </blockquote>
 <hr />
-<h2 id="4-endtoend-save-log-and-recall">4. End‑to‑end: save, log, and recall<a class="headerlink" href="#4-endtoend-save-log-and-recall" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;train_epoch&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ckpt_uri&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">train_epoch</span><span class="p">(</span><span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">arts</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span>
-    <span class="n">mem</span>  <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
-
-    <span class="c1"># 1) Export a checkpoint to a temp path you control</span>
-    <span class="n">tmp_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/ckpt.bin&quot;</span>
-
-    <span class="c1"># 2) Ingest it as an Artifact</span>
-    <span class="n">ckpt</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
-        <span class="n">path</span><span class="o">=</span><span class="n">tmp_path</span><span class="p">,</span>
-        <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;checkpoint&quot;</span><span class="p">,</span>
-        <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="n">epoch</span><span class="p">},</span>
-        <span class="c1"># metrics={&quot;val_acc&quot;: val_acc},</span>
-    <span class="p">)</span>
-
-    <span class="c1"># 3) Record the important values for quick recall</span>
-    <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">write_result</span><span class="p">(</span>
-        <span class="n">topic</span><span class="o">=</span><span class="s2">&quot;train.epoch&quot;</span><span class="p">,</span>
-        <span class="n">outputs</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;epoch&quot;</span><span class="p">,</span>    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">epoch</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ckpt_uri&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span>    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">uri</span><span class="p">},</span>
-        <span class="p">],</span>
-    <span class="p">)</span>
-
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ckpt_uri&quot;</span><span class="p">:</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
-</code></pre></div>
-<p>Now, any later node can do:</p>
-<div class="highlight"><pre><span></span><code><span class="n">latest_uri</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">last_by_name</span><span class="p">(</span><span class="s2">&quot;ckpt_uri&quot;</span><span class="p">)</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">to_local_path</span><span class="p">(</span><span class="n">latest_uri</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h2 id="5-practical-recipes">5. Practical recipes<a class="headerlink" href="#5-practical-recipes" title="Permanent link">&para;</a></h2>
+<h2 id="4-practical-recipes">4. Practical recipes<a class="headerlink" href="#4-practical-recipes" title="Permanent link">&para;</a></h2>
 <h3 id="a-save-small-jsontext-directly">A. Save small JSON/Text directly<a class="headerlink" href="#a-save-small-jsontext-directly" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">cfg_art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">save_json</span><span class="p">({</span><span class="s2">&quot;lr&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s2">&quot;batch&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">})</span>
 <span class="n">log_art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">arts</span><span class="o">.</span><span class="n">save_text</span><span class="p">(</span><span class="s2">&quot;training finished ok&quot;</span><span class="p">)</span>
@@ -2432,7 +2358,7 @@
 <li><strong>All events are persisted</strong> for later inspection, but only a rolling window stays hot in KV for speed.</li>
 </ul>
 <hr />
-<h2 id="6-minimal-reference-schemas-helpers">6. Minimal reference (schemas &amp; helpers)<a class="headerlink" href="#6-minimal-reference-schemas-helpers" title="Permanent link">&para;</a></h2>
+<h2 id="5-minimal-reference-schemas-helpers">5. Minimal reference (schemas &amp; helpers)<a class="headerlink" href="#5-minimal-reference-schemas-helpers" title="Permanent link">&para;</a></h2>
 <p>You rarely need all fields. Here are the <strong>useful bits</strong> to recognize in code and logs.</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Artifact</span><span class="p">:</span>
@@ -2460,7 +2386,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">recent_data</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">kinds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <hr />
-<h2 id="7-when-to-use-what">7. When to use what<a class="headerlink" href="#7-when-to-use-what" title="Permanent link">&para;</a></h2>
+<h2 id="6-when-to-use-what">6. When to use what<a class="headerlink" href="#6-when-to-use-what" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2472,18 +2398,13 @@
 <tbody>
 <tr>
 <td>Keep a file/dir for later</td>
-<td><code>artifacts.save(...)</code> / <code>writer(...)</code></td>
+<td><code>artifacts.save_file(...)</code> / <code>writer(...)</code></td>
 <td>Durable, deduped, indexed</td>
 </tr>
 <tr>
 <td>Store small JSON/Text</td>
 <td><code>artifacts.save_json/text</code></td>
 <td>Convenience, still indexed</td>
-</tr>
-<tr>
-<td>Quick recall of named values</td>
-<td><code>memory.write_result</code> → <code>last_by_name</code></td>
-<td>O(1) latest lookups</td>
 </tr>
 <tr>
 <td>Log structured progress/events</td>
@@ -2502,40 +2423,6 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="8-rag-turning-history-into-answers-optional">8. RAG: turning history into answers (optional)<a class="headerlink" href="#8-rag-turning-history-into-answers-optional" title="Permanent link">&para;</a></h2>
-<p>Memory ships with a <strong>RAG facade</strong> so you can promote events/results into a searchable corpus.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;make_rag_corpus&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">make_rag_corpus</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">mem</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span>
-
-    <span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span>
-        <span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
-        <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tool_result&quot;</span><span class="p">],</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
-    <span class="p">)</span>
-    <span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span>
-    <span class="n">snap</span> <span class="o">=</span> <span class="k">await</span> <span class="n">mem</span><span class="o">.</span><span class="n">rag_snapshot</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Weekly knowledge snapshot&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">ans</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;answer&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="s2">&quot;snapshot_uri&quot;</span><span class="p">:</span> <span class="n">snap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;uri&quot;</span><span class="p">)}</span>
-</code></pre></div>
-<p>Use this if you want citations and cross‑run Q&amp;A on top of your logs.</p>
-<hr />
-<h2 id="9-troubleshooting-tips">9. Troubleshooting &amp; tips<a class="headerlink" href="#9-troubleshooting-tips" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>I saved without labels/metrics — can I still search?</strong> Yes. You can list by scope and filter in Python. Add labels/metrics next time for richer queries.</li>
-<li><strong>URIs vs paths?</strong> Always store/share <strong>URIs</strong>. Resolve to a path only when you need to read the bytes: <code>arts.to_local_path(uri)</code>.</li>
-<li><strong>Performance:</strong> Keep Memory results tiny and focused (a few named values). Put large blobs in Artifacts.</li>
-<li><strong>Naming:</strong> Re‑use a small stable set of <code>kind</code> values (e.g., <code>checkpoint</code>, <code>report</code>, <code>plot</code>). It pays off in search and dashboards.</li>
-</ul>
-<hr />
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Artifacts</strong>: durable results with CAS URIs, plus <strong>labels/metrics</strong> for search &amp; ranking.</li>
-<li><strong>Memory</strong>: structured <strong>results &amp; events</strong> for instant recall (<code>last_by_name</code>, <code>recent</code>).</li>
-<li>Use them together: save outputs as Artifacts, then record the important URIs and numbers with <code>write_result</code> for fast retrieval.</li>
-<li>Optional: promote Memory into <strong>RAG</strong> to get searchable, cited answers across runs.</li>
-</ul>
-<p><strong>See also:</strong> <code>context.artifacts()</code> · <code>context.memory()</code> · RAG helpers (<code>rag_bind</code>, <code>rag_promote_events</code>, <code>rag_answer</code>, <code>rag_snapshot</code>)</p>
 
 
 

@@ -2148,7 +2148,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ok&quot;</span><span class="p">:</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;preflight&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Why/When:</strong> feature flags, locks/counters, short-lived coordination.</p>
-<p><strong>Default backend:</strong> in-memory KV. </p>
+<p><strong>Default backend:</strong> <a href="../../reference/context-kv/">in-memory KV</a> </p>
 <hr />
 <h2 id="2-logger-structured-logs-with-provenance">2. Logger — Structured Logs with Provenance<a class="headerlink" href="#2-logger-structured-logs-with-provenance" title="Permanent link">&para;</a></h2>
 <p>Structured logging with <code>{run_id, graph_id, node_id}</code> automatically injected.</p>
@@ -2165,18 +2165,18 @@
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;done&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Why/When:</strong> lifecycle traces, metrics, error reporting.</p>
-<p><strong>Default backend:</strong> Python <code>logging</code>.</p>
+<p><strong>Default backend:</strong> Python <a href="../../reference/context-logger/"><code>logging</code></a>.</p>
 <hr />
 <h2 id="3-llm-unified-chat-embeddings-optional">3. LLM — Unified Chat &amp; Embeddings <em>(optional)</em><a class="headerlink" href="#3-llm-unified-chat-embeddings-optional" title="Permanent link">&para;</a></h2>
 <p>Provider-agnostic interface for chat/completions and embeddings. Requires configuration (API keys, profile).</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;llm_demo&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;reply&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">llm_demo</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+    <span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">([{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}])</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;reply&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]}</span>
 </code></pre></div>
 <p><strong>Why/When:</strong> summarization, drafting, tool-use planning, embeddings.</p>
-<p><strong>Backends:</strong> OpenAI, Anthropic, local, etc.</p>
+<p><strong>Backends:</strong> <a href="../../reference/context-llm/">OpenAI, Anthropic, local, etc.</a></p>
 <hr />
 <h2 id="4-rag-longterm-semantic-recall-optional">4. RAG — Long‑Term Semantic Recall <em>(optional)</em><a class="headerlink" href="#4-rag-longterm-semantic-recall-optional" title="Permanent link">&para;</a></h2>
 <p>Aethergraph provides basic RAG for fast prototype. Build searchable corpora from events/docs; retrieve or answer with citations. Requires an LLM for answering.</p>
@@ -2192,7 +2192,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;answer&quot;</span><span class="p">:</span> <span class="n">ans</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]}</span>
 </code></pre></div>
 <p><strong>Why/When:</strong> semantic search, project recall, retrieval‑augmented QA.</p>
-<p><strong>Default backend:</strong> Sqlite Vector DB, switchable to FAISS. </p>
+<p><strong>Default backend:</strong> <a href="../../reference/context-rag/">Sqlite Vector DB, switchable to FAISS</a></p>
 <hr />
 <h2 id="5-mcp-external-tool-bridges-optional">5. MCP — External Tool Bridges <em>(optional)</em><a class="headerlink" href="#5-mcp-external-tool-bridges-optional" title="Permanent link">&para;</a></h2>
 <p>Connect to external tool servers over stdio/WebSocket/HTTP via <strong>Model Context Protocol (MCP)</strong>.</p>
@@ -2203,6 +2203,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;hits&quot;</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;items&quot;</span><span class="p">,</span> <span class="p">[])}</span>
 </code></pre></div>
 <p><strong>Why/When:</strong> integrate non-Python tools or remote services with structured contracts.</p>
+<p><strong>Default backend:</strong> <a href="../../reference/context-mcp/">HttpServer, WsServer, StdioServer</a></p>
 <hr />
 <h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
 <ul>

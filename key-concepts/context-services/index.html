@@ -506,6 +506,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#run-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#utility-helpers" class="md-nav__link">
     <span class="md-ellipsis">
       Utility Helpers
@@ -2283,34 +2292,34 @@
 <tr>
 <th>Method</th>
 <th>Purpose</th>
-<th></th>
+<th>API reference</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>context.channel()</code></td>
 <td>Message and interaction bus — send/receive text/approval/files, show progress, or streaming events.</td>
-<td></td>
+<td><a href="../../reference/context-channel/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.memory()</code></td>
 <td>Memory façade — record events, write typed results, query history, or manage RAG-ready logs.</td>
-<td></td>
+<td><a href="../../reference/context-memory/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.artifacts()</code></td>
 <td>Artifact store façade — save/retrieve files, track outputs, and query files by labels/metrics artifacts.</td>
-<td></td>
+<td><a href="../../reference/context-artifacts/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.kv()</code></td>
 <td>Lightweight key–value store for ephemeral coordination and small caches.</td>
-<td></td>
+<td><a href="../../reference/context-kv/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.logger()</code></td>
 <td>Structured logger with <code>{run_id, graph_id, node_id}</code> metadata automatically included.</td>
-<td></td>
+<td><a href="../../reference/context-logger/">Link</a></td>
 </tr>
 </tbody>
 </table>
@@ -2321,20 +2330,62 @@
 <tr>
 <th>Method</th>
 <th>Purpose</th>
+<th>API reference</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>context.llm()</code></td>
-<td>Access an LLM client for chat, embeddings, or raw apis access (OpenAI, Anthropic, Google, or local backends, etc.).</td>
+<td>Access an LLM client for chat, embeddings, or raw APIs (OpenAI, Anthropic, Google, or local backends, etc.).</td>
+<td><a href="../../reference/context-llm/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.rag()</code></td>
 <td>Retrieval-augmented generation façade — build corpora, upsert documents, search, and answer queries.</td>
+<td><a href="../../reference/context-rag/">Link</a></td>
 </tr>
 <tr>
 <td><code>context.mcp()</code></td>
 <td>Connect to external MCP tool servers via stdio, WebSocket, or HTTP.</td>
+<td><a href="../../reference/context-mcp/">Link</a></td>
+</tr>
+<tr>
+<td><code>context.viz()</code></td>
+<td>Display real-time plots in Aethergraph UI (need UI <a href="../../ui/overview/">setup</a>).</td>
+<td><a href="../../reference/context-viz/">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="run-management">Run Management<a class="headerlink" href="#run-management" title="Permanent link">&para;</a></h3>
+<p>Create and manage nested runs inside a graph. </p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>API reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>context.spawn_run()</code></td>
+<td>Spawn a non-blocking run in the background in a fire-and-forget manner</td>
+<td><a href="../../reference/context-runner/">Link</a></td>
+</tr>
+<tr>
+<td><code>context.wait_run()</code></td>
+<td>Wait for the spawned runs</td>
+<td><a href="../../reference/context-runner/">Link</a></td>
+</tr>
+<tr>
+<td><code>context.run_and_wait()</code></td>
+<td>Create runs and wait for them in a blocking manner</td>
+<td><a href="../../reference/context-runner/">Link</a></td>
+</tr>
+<tr>
+<td><code>context.cancel_run()</code></td>
+<td>Cancel a run with best effort</td>
+<td><a href="../../reference/context-runner/">Link</a></td>
 </tr>
 </tbody>
 </table>
@@ -2369,7 +2420,7 @@
 </code></pre></div>
 <h3 id="2-artifacts-memory">2 Artifacts + Memory<a class="headerlink" href="#2-artifacts-memory" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># save and return an artifact </span>
-<span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">})</span> 
+<span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">})</span> 
 <span class="c1"># save and return an event  </span>
 <span class="n">evt</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;checkpoint&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="s2">&quot;experiment A saved&quot;</span><span class="p">})</span> 
 
@@ -2413,9 +2464,9 @@
 <hr />
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[<code>context.channel()</code>] — cooperative waits, streaming, progress updates</li>
-<li>[<code>context.memory()</code>] — event log, typed results, summaries, and RAG helpers</li>
-<li>[<code>context.artifacts()</code>] — content-addressable storage and retrieval</li>
+<li><a href="../../reference/context-channel/"><code>context.channel()</code></a> — cooperative waits, streaming, progress updates</li>
+<li><a href="../../reference/context-memory/"><code>context.memory()</code></a> — event log, typed results, summaries, and RAG helpers</li>
+<li><a href="../../reference/context-artifacts/"><code>context.artifacts()</code></a> — content-addressable storage and retrieval</li>
 </ul>
 
 

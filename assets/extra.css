@@ -145,4 +145,147 @@ span.doc-param-default {
     padding: 0;
     color: #334155;
     line-height: 1.5;
+}/* ==========================================================================
+   1. BRANDING & COLORS (The AetherGraph Theme)
+   Deep Blue structure with Vibrant Orange accents.
+   ========================================================================== */
+:root {
+    /* -- Core Brand Palette -- */
+    --aether-dark:   #0f172a; /* Slate 900 (Deep Space Blue) */
+    --aether-blue:   #334155; /* Slate 700 (Lighter Blue for UI elements) */
+    --graph-orange:  #f97316; /* Orange 500 (Vibrant Accent) */
+    --graph-amber:   #fff7ed; /* Orange 50 (Very light background tint) */
+
+    /* -- Material MkDocs Overrides -- */
+    /* Header Background */
+    --md-primary-fg-color:        var(--aether-dark);
+    --md-primary-fg-color--light: var(--aether-blue);
+    --md-primary-fg-color--dark:  #020617; /* Slate 950 */
+
+    /* Accent Color (Buttons, scrollbars, active states) */
+    --md-accent-fg-color:         var(--graph-orange);
+    
+    /* Text Colors (High Contrast) */
+    --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    --md-code-font: "JetBrains Mono", "SFMono-Regular", Consolas, Menlo, monospace;
+    
+    --md-typeset-color:           #0f172a; /* Main body text */
+    --md-default-fg-color--light: #334155; /* Secondary text */
+
+    /* Code block backgrounds */
+    --md-code-bg-color: #f8fafc; /* Slate 50 */
+}
+
+/* ==========================================================================
+   2. TEXT DENSITY (Your Preferred Settings)
+   ========================================================================== */
+
+/* Shrink body text ONLY */
+body, .md-typeset {
+    font-size: 0.75rem; 
+    line-height: 1.5;
+}
+
+/* Shrink Navigation links */
+.md-nav__link {
+    font-size: 0.7rem;
+}
+
+/* Dense Headers */
+.md-typeset h1 { margin-top: 1em; font-weight: 700; letter-spacing: -0.02em; font-size: 1.4rem; color: #000000; }
+.md-typeset h2 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 700; letter-spacing: -0.01em; font-size: 1rem; color: #0f172a; }
+.md-typeset h3 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 600; font-size: 0.9rem; }
+
+/* Dense Lists */
+.md-typeset li { margin-bottom: 0.25em; }
+
+/* ==========================================================================
+   3. MKDOCSTRINGS / API SIGNATURES (Your Preferred Settings)
+   ========================================================================== */
+
+div.doc-signature {
+    font-family: var(--md-code-font);
+    font-size: 0.85em !important;
+    background-color: var(--md-code-bg-color); 
+    border: 1px solid #cbd5e1; 
+    border-left: 4px solid var(--aether-blue); /* Updated to match theme */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+    border-radius: 4px; 
+    padding: 10px 12px;
+    margin-bottom: 1.25em; 
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+span.doc-symbol-name { color: #0f172a !important; font-weight: 700 !important; font-size: 1.1em !important; }
+.md-typeset code { background-color: #f1f5f9; color: #0f172a; border-radius: 4px; padding: 2px 5px; font-size: 0.85em; border: 1px solid #e2e8f0; box-shadow: none; }
+span.doc-param-name { color: #1e293b !important; font-weight: 600; }
+span.doc-param-annotation { color: #475569 !important; font-style: italic; }
+span.doc-param-default { color: #b45309 !important; }
+
+/* Table Cleanup */
+.md-typeset .doc-utils-table { margin-top: 0.5em; display: block; width: 100%; }
+.md-typeset .doc-utils-table tbody { display: block; }
+.md-typeset .doc-utils-table tr { display: flex; flex-direction: column; border-bottom: 1px solid #f1f5f9; padding: 8px 0; }
+.md-typeset .doc-utils-table td:first-child { padding: 0 0 4px 0; font-family: var(--md-code-font); font-size: 0.85em; color: #1e293b; }
+.md-typeset .doc-utils-table td:last-child { padding: 0; color: #334155; line-height: 1.5; }
+
+/* ==========================================================================
+   4. UI POLISH & BRANDING (New Section)
+   Specific overrides to make the AetherGraph brand pop.
+   ========================================================================== */
+
+/* 4.1 LINKS: Standard blue, but turns Aether Orange on hover */
+.md-typeset a {
+    color: #2563eb; /* Standard readable blue */
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+.md-typeset a:hover {
+    color: var(--graph-orange); /* Brand Orange on hover */
+}
+
+/* 4.2 HEADER: Subtle gradient to make it feel premium */
+.md-header {
+    background: linear-gradient(to right, #0f172a, #1e293b);
+}
+
+/* 4.3 NAVIGATION SIDEBAR: Active Item Styling */
+/* When you click a link in the sidebar, give it an orange accent border */
+.md-nav__item .md-nav__link--active {
+    color: var(--aether-dark);
+    font-weight: 600;
+    border-left: 3px solid var(--graph-orange); /* The Orange Marker */
+    padding-left: 10px; /* Offset text to make room for border */
+    margin-left: -13px; /* Pull back to align */
+}
+
+/* 4.4 TABS (If you use them): Orange underline for active tab */
+.md-tabs__link--active, .md-tabs__link:hover {
+    color: var(--graph-orange);
+}
+
+/* 4.5 ALERTS / ADMONITIONS: Branding the info boxes */
+/* Info box = Blue */
+.md-typeset .admonition.info {
+    border-color: var(--aether-blue);
+}
+.md-typeset .admonition.info .admonition-title {
+    background-color: rgba(51, 65, 85, 0.1); /* Very faint blue bg */
+    color: var(--aether-dark);
+}
+
+/* Tip box = Orange/Amber (The "Spark") */
+.md-typeset .admonition.tip {
+    border-color: var(--graph-orange);
+}
+.md-typeset .admonition.tip .admonition-title {
+    background-color: var(--graph-amber);
+    color: #c2410c; /* Darker orange for text */
+}
+
+/* 4.6 SEARCH BAR: Focus state */
+.md-search__input:focus {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly brighter when typing */
 }

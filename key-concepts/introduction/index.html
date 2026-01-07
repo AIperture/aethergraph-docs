@@ -2201,11 +2201,13 @@
 </ol>
 <p><strong>NodeContext services</strong> include (built‑ins plus anything you add):</p>
 <ul>
-<li><strong>Channels</strong> (Slack, Console/Web, …) for I/O and interaction</li>
+<li><strong>Channels</strong> (Slack, Console/Web, native UI …) for I/O and interaction</li>
 <li><strong>Artifacts</strong> (blob store) for large files and generated assets</li>
 <li><strong>Memory</strong> (history + summaries + optional RAG)</li>
 <li><strong>KV &amp; Logger</strong> for quick state and observability</li>
 <li><strong>LLM / MCP / RAG</strong> bridges for model calls and tool use</li>
+<li><strong>Visualization</strong> (only with Aethergraph UI) for automatic presentation of run plots</li>
+<li><strong>Run Management</strong> for nested graph calling with and wihtout blocking</li>
 <li><strong>Your custom services</strong> registered at runtime</li>
 </ul>
 <p>The system is <strong>pythonic</strong>, <strong>reactive</strong>, and <strong>extensible</strong>: author graphs directly in Python, then let context services handle communication, persistence, and orchestration details.</p>

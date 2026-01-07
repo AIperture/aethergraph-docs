@@ -615,33 +615,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#common-issues-fixes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues &amp; Fixes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes-on-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes on Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    <span class="md-ellipsis">
-      Takeaways
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2147,8 +2120,8 @@ Always start the server before registering services and running agents</p>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">start_server</span><span class="p">,</span> <span class="n">stop_server</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="n">start_server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># FastAPI + Uvicorn in a background thread</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sidecar:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">start_server</span><span class="p">()</span>  <span class="c1"># FastAPI + Uvicorn in a background thread</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sidecar:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>  <span class="c1"># Default to 127.0.0.1:8745</span>
 
 <span class="c1"># ... run @graph_fn / @graphify normally ...</span>
 
@@ -2156,7 +2129,7 @@ Always start the server before registering services and running agents</p>
 </code></pre></div>
 <p><strong>Tips</strong></p>
 <ul>
-<li>Use <code>port=0</code> to pick a free port automatically. </li>
+<li>If using Aethergraph UI, keep the same port everytime to retrieve the history and persist data. </li>
 <li>Start it once per process; reuse the base URL across adapters/UI.</li>
 </ul>
 <hr />
@@ -2174,39 +2147,19 @@ Always start the server before registering services and running agents</p>
 <li>
 <p><strong>Launch Uvicorn</strong> — run the app in a background thread and return the <strong>base URL</strong>.</p>
 </li>
+<li><strong>Launch UI</strong> -- start the UI when possible for inspection of graph and agent runs. </li>
 </ol>
 <blockquote>
-<p>It is safe to use <code>start_server()</code> in Jupyter notebook</p>
+<p>It is safe to use <code>start_server()</code> in Jupyter notebook
+When using UI, use CLI to serve the project with <code>--reload</code> for best DX.</p>
 </blockquote>
 <hr />
 <h2 id="minimal-api">Minimal API<a class="headerlink" href="#minimal-api" title="Permanent link">&para;</a></h2>
-<p><code>start_server(host="127.0.0.1", port=8000, ...) -&gt; str</code></p>
+<p><code>start_server() -&gt; str</code></p>
 <p>Starts the sidecar <strong>in‑process</strong> and returns the base URL.</p>
-<p><code>start-server_async(...) -&gt; str</code></p>
-<p>Async‑friendly variant (still hosts the server in a thread), convenient inside async apps/tests.</p>
 <p><code>stop_server() -&gt; None</code></p>
 <p>Stops the background server. Useful for teardown in tests/CI.</p>
-<hr />
-<h2 id="common-issues-fixes">Common Issues &amp; Fixes<a class="headerlink" href="#common-issues-fixes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>No reply after <code>ask_text()</code></strong> → The adapter isn’t posting <strong>resume</strong> events to the sidecar. Verify the sidecar base URL and token in the adapter config.</li>
-<li><strong>CORS blocked</strong> in web UI → Allow your UI origin in sidecar settings (CORS <code>allow_origins</code>).</li>
-<li><strong>Port busy</strong> → Use <code>port=0</code> or pick an open port.</li>
-<li><strong>Service not available</strong> (e.g., LLM/RAG) → Ensure your <code>create_app()</code> wires those services or provide the required credentials.</li>
-</ul>
-<hr />
-<h2 id="notes-on-architecture">Notes on Architecture<a class="headerlink" href="#notes-on-architecture" title="Permanent link">&para;</a></h2>
-<ul>
-<li>The sidecar runs its <strong>own event loop/thread</strong>; your agents/tools run on the <strong>main loop</strong>. They communicate via the ChannelBus/HTTP hooks.</li>
-<li>External context services you register as <strong>instances</strong> run on the <strong>main loop</strong>, so <code>asyncio</code> locks work as expected.</li>
-</ul>
-<hr />
-<h2 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link">&para;</a></h2>
-<ul>
-<li>The sidecar is your <strong>local control plane</strong>: services + continuations + adapters.</li>
-<li>Start it with <code>start()</code> when you need <strong>interactions, persistence, or shared wiring</strong>.</li>
-<li>Your agent code stays <strong>plain Python</strong> either way; the sidecar simply adds I/O and resumability.</li>
-</ul>
+<p>Full API for server management is listed <a href="../../reference/runtime-server/">here</a></p>
 
 
 
