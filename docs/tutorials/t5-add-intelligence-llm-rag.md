@@ -17,8 +17,8 @@ This tutorial adds language models and retrieval‑augmented generation (RAG) to
 * **RAG**: a corpus of documents (from files and/or Memory events) that are chunked, embedded, and retrieved to ground LLM answers.
 
 ```python
-llm = context.llm(profile="default")   # chat & embed
-rag = context.rag()                     # corpora, upsert, search, answer
+llm = context.llm()    # chat & embed & image generation
+rag = context.rag()    # corpora, upsert, search, answer
 ```
 
 ---
@@ -113,9 +113,9 @@ vectors = await context.llm(profile="my_openai").embed([
 
 > RAG needs an **embed model** configured on the chosen profile.
 
-### Optional reasoning knobs
+### Optional knobs
 
-Some models (e.g., GPT‑5) accept reasoning parameters such as `reasoning_effort="low|medium|high"` via `llm.chat(..., reasoning_effort=...)`.
+The `chat()` API allows various parameters for reasoning, json output etc. See the [API reference](../reference/context-llm.md) for detailed usage. 
 
 ---
 
@@ -196,19 +196,8 @@ await context.rag().upsert_docs(
 
 Behind the scenes: documents are stored as Artifacts, parsed, chunked, embedded, and added to the vector index.
 
-### C) Promote Memory events into RAG
 
-```python
-corpus = await context.memory().rag_bind()
-await context.memory().rag_promote_events(
-    corpus_id=corpus,
-    where={"kinds": ["tool_result"], "limit": 200},
-)
-```
-
-You can promote any custom `kind` you recorded for later vector-based search and answer in a same `corpus_id`.
-
-### D) Search, retrieve, answer (with citations)
+### C) Search, retrieve, answer (with citations)
 
 ```python
 hits = await context.rag().search("my_docs", "key findings", k=8, mode="hybrid")
@@ -224,7 +213,7 @@ ans  = await context.rag().answer(
 
 Use `resolved_citations` to map snippets back to Artifact URIs for auditability.
 
-### E) Choosing the LLM for RAG
+### D) Choosing the LLM for RAG
 
 RAG uses a dedicated **RAG LLM client** that must have **both** `model` **and** `embed_model` set.
 
@@ -237,7 +226,7 @@ RAG uses a dedicated **RAG LLM client** that must have **both** `model` **and** 
 
 If you don’t set one, it falls back to the default LLM profile (ensure that profile also has an `embed_model`).
 
-### F) Corpus management (ops)
+### E) Corpus management (ops)
 
 For maintenance and ops you can:
 
@@ -246,7 +235,7 @@ For maintenance and ops you can:
 * **Re‑embed** to refresh vectors after changing embed model or chunking.
 * **Stats** to view counts of docs/chunks and corpus metadata.
 
-These live on the same facade: `rag.list_corpora()`, `rag.list_docs(...)`, `rag.delete_docs(...)`, `rag.reembed(...)`, `rag.stats(...)`.
+These live on the same facade: `rag.list_corpora()`, `rag.list_docs(...)`, `rag.delete_docs(...)`, `rag.reembed(...)`, `rag.stats(...)`. See [API reference](../reference/context-rag.md) for details.
 
 ---
 
@@ -254,16 +243,6 @@ These live on the same facade: `rag.list_corpora()`, `rag.list_docs(...)`, `rag.
 
 * **Switch providers** by changing `profile=` in `context.llm(...)` without touching your code elsewhere.
 * **Save docs as Artifacts** (e.g., `save_text`, `save(path=...)`) and ingest by `{"path": local_path}` so RAG can cite their URIs.
-* **Log LLM outputs** with `context.memory().record(...)` or `write_result(...)` to enable recency views, distillation, and RAG promotion later.
-
----
-
-## 7. Troubleshooting
-
-* **Auth/Endpoints**: Check keys; for Azure, confirm deployment + endpoint. For LM Studio, the base URL must include `/v1`.
-* **No citations or odd snippets**: Verify parsing (PDFs can be tricky). Consider storing originals as Artifacts alongside parsed text.
-* **Answers miss context**: Increase `k`, adjust chunk sizes, or broaden your `where` filter when promoting events.
-* **Latency/Cost**: Keep chunks compact, and filter ingestion to what you’ll actually ask about.
 
 ---
 
@@ -271,6 +250,3 @@ These live on the same facade: `rag.list_corpora()`, `rag.list_docs(...)`, `rag.
 
 * Configure **LLM profiles** via `.env` or runtime registration, then use `llm.chat()` / `llm.embed()`.
 * Build RAG corpora from **files** and **Memory events**, then call `rag.answer(..., with_citations=True)` for grounded responses.
-* Use **Artifacts + Memory** for provenance so you can trace *what the model answered* and *why*.
-
-**See also:** `context.llm()` · `context.rag()` · `context.memory().rag_*` · `register_llm_client` · `set_rag_llm_client` · `llm.raw`

@@ -21,7 +21,7 @@ async def kv_demo(*, context):
 
 **Why/When:** feature flags, locks/counters, short-lived coordination.
 
-**Default backend:** in-memory KV. 
+**Default backend:** [in-memory KV](../reference/context-kv.md) 
 
 ---
 
@@ -45,7 +45,7 @@ async def log_demo(*, context):
 
 **Why/When:** lifecycle traces, metrics, error reporting.
 
-**Default backend:** Python `logging`.
+**Default backend:** Python [`logging`](../reference/context-logger.md).
 
 ---
 
@@ -56,14 +56,14 @@ Provider-agnostic interface for chat/completions and embeddings. Requires config
 ```python
 @graph_fn(name="llm_demo", outputs=["reply"])
 async def llm_demo(prompt: str, *, context):
-    llm = context.llm(profile="default")
+    llm = context.llm()
     msg = await llm.chat([{"role": "user", "content": prompt}])
     return {"reply": msg["content"]}
 ```
 
 **Why/When:** summarization, drafting, tool-use planning, embeddings.
 
-**Backends:** OpenAI, Anthropic, local, etc.
+**Backends:** [OpenAI, Anthropic, local, etc.](../reference/context-llm.md)
 
 ---
 
@@ -86,7 +86,7 @@ async def rag_demo(q: str, *, context):
 
 **Why/When:** semantic search, project recall, retrieval‑augmented QA.
 
-**Default backend:** Sqlite Vector DB, switchable to FAISS. 
+**Default backend:** [Sqlite Vector DB, switchable to FAISS](../reference/context-rag.md)
 
 
 ---
@@ -104,6 +104,8 @@ async def mcp_demo(*, context):
 ```
 
 **Why/When:** integrate non-Python tools or remote services with structured contracts.
+
+**Default backend:** [HttpServer, WsServer, StdioServer](../reference/context-mcp.md)
 
 ---
 

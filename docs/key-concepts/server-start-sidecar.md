@@ -16,8 +16,8 @@ The **AetherGraph sidecar** is a lightweight process that boots your runtime ser
 ```python
 from aethergraph import start_server, stop_server
 
-url = start_server(host="127.0.0.1", port=0)  # FastAPI + Uvicorn in a background thread
-print("sidecar:", url)
+url = start_server()  # FastAPI + Uvicorn in a background thread
+print("sidecar:", url)  # Default to 127.0.0.1:8745
 
 # ... run @graph_fn / @graphify normally ...
 
@@ -26,7 +26,7 @@ stop_server()  # optional (handy in tests/CI)
 
 **Tips**
 
-* Use `port=0` to pick a free port automatically. 
+* If using Aethergraph UI, keep the same port everytime to retrieve the history and persist data. 
 * Start it once per process; reuse the base URL across adapters/UI.
 
 ---
@@ -41,46 +41,21 @@ stop_server()  # optional (handy in tests/CI)
     * **Adapters**: chat/events, uploads, progress streams
 
 4. **Launch Uvicorn** — run the app in a background thread and return the **base URL**.
+5. **Launch UI** -- start the UI when possible for inspection of graph and agent runs. 
 
 > It is safe to use `start_server()` in Jupyter notebook
+> When using UI, use CLI to serve the project with `--reload` for best DX.
 
 ---
 
 ## Minimal API
 
-`start_server(host="127.0.0.1", port=8000, ...) -> str`
+`start_server() -> str`
 
 Starts the sidecar **in‑process** and returns the base URL.
-
-`start-server_async(...) -> str`
-
-Async‑friendly variant (still hosts the server in a thread), convenient inside async apps/tests.
 
 `stop_server() -> None`
 
 Stops the background server. Useful for teardown in tests/CI.
 
----
-
-
-## Common Issues & Fixes
-
-* **No reply after `ask_text()`** → The adapter isn’t posting **resume** events to the sidecar. Verify the sidecar base URL and token in the adapter config.
-* **CORS blocked** in web UI → Allow your UI origin in sidecar settings (CORS `allow_origins`).
-* **Port busy** → Use `port=0` or pick an open port.
-* **Service not available** (e.g., LLM/RAG) → Ensure your `create_app()` wires those services or provide the required credentials.
-
----
-
-## Notes on Architecture
-
-* The sidecar runs its **own event loop/thread**; your agents/tools run on the **main loop**. They communicate via the ChannelBus/HTTP hooks.
-* External context services you register as **instances** run on the **main loop**, so `asyncio` locks work as expected.
-
----
-
-## Takeaways
-
-* The sidecar is your **local control plane**: services + continuations + adapters.
-* Start it with `start()` when you need **interactions, persistence, or shared wiring**.
-* Your agent code stays **plain Python** either way; the sidecar simply adds I/O and resumability.
+Full API for server management is listed [here](../reference/runtime-server.md)

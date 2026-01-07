@@ -122,6 +122,7 @@ mcp = MCPService({
     "local": StdioMCPClient(["python", "my_local_tool.py"])
 })
 ```
+See all MCP-related methods in [API reference](../reference/context-mcp.md)
 
 ---
 

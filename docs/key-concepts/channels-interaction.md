@@ -12,14 +12,19 @@ A **channel** is how an agent *communicates* with the outside world — Slack, T
 
 A **channel** is a routing target for interaction. It allows you to interact with an Agent inside a Python function. 
 
-You can specify a channel key or alias (e.g., `"slack:#research"`) or rely on the system default. See [*Channel Setup*](../channel-setup/introduction.md) for non-console key setup. 
+You can specify a channel key or alias (e.g., `"slack:team/T:chan/C[:thread/TS]"`) or rely on the system default. See [*Channel Setup*](../channel-setup/introduction.md) for non-console key setup. 
 
 ### Resolution Order
 
-1. **Per-call override:** `await context.channel().send_text("hi", channel="slack:#alerts")`
-2. **Bound session key:** `ch = context.channel("slack:#research"); await ch.send_text("hi")`
+1. **Per-call override:** `await context.channel().send_text("hi", channel="slack:team/T:chan/C[:thread/TS]")`
+2. **Bound session key:** `ch = context.channel("slack:team/T:chan/C[:thread/TS]"); await ch.send_text("hi")`
 3. **Bus default:** taken from `services.channels.get_default_channel_key()`
 4. **Fallback:** `console:stdin`
+
+When using **Aethergraph UI**
+
+- Use `context.ui_run_channel()` to get the run workspace channel adapter (equivalent to `context.channel("ui:run/run_id"))
+- Use `context.ui_session_channel()` to get the session workspace channel adapter (equivalent to `context.channel("ui:session/session_id))
 
 ---
 
@@ -30,7 +35,7 @@ from aethergraph import graph_fn
 
 @graph_fn(name="channel_demo")
 async def channel_demo(*, context):
-    ch = context.channel("slack:#research")
+    ch = context.channel()
     await ch.send_text("Starting experiment…")
     resp = await ch.ask_approval("Proceed?", options=["Yes", "No"])
     if resp["approved"]:
@@ -52,7 +57,6 @@ async def channel_demo(*, context):
 | `ask_approval()`    | Request approval or a choice.                     |
 | `send_buttons()` | Send buttons to UI with links | 
 | `stream()`                                                                   | Open a streaming session for incremental updates. |
-| `progress()`  |  Stream a progress bar | 
 | `get_last_uploads()` | Fetch uploaded files from UI at anytime | 
 
 > All `ask_*` methods use event-driven continuations, ensuring replies are properly correlated to their originating node.
@@ -71,7 +75,7 @@ import asyncio
 
 @graph_fn(name="concurrent_asks")
 async def concurrent_asks(*, context):
-    ch = context.channel("slack:#research")
+    ch = context.channel()
 
     async def one(tag):
         name = await ch.ask_text(f"[{tag}] What’s your name?")
@@ -91,7 +95,7 @@ The channel interface can be extended to support **any platform** with a compati
 * For **notification-only** channels, the API is straightforward — send events, no continuations.
 * For **interactive channels** (e.g., Slack, Telegram, Web), resumptions rely on correlation IDs and continuation stores.
 
-In the OSS edition, AetherGraph currently includes built-in support for **Console**, **Slack**, **Telegram**, and generic **Webhooks**. We will release adapter protocal API for extension and support for additional adapters in future releases.
+In the OSS edition, AetherGraph currently includes built-in support for **Console**, **Slack**, **Telegram**,  **Webhooks**, and **native Aethergraph UI**. We will release adapter protocal API for extension and support for additional adapters in future releases.
 
 ---
 

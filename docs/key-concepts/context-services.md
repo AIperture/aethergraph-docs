@@ -67,24 +67,37 @@ class NodeContext:
 AetherGraph organizes its context services into **core**, **optional**, and **utility** layers.
 
 ### Core Services
-
-| Method                    | Purpose                                                                                     |                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `context.channel()`       | Message and interaction bus — send/receive text/approval/files, show progress, or streaming events. |
-| `context.memory()`        | Memory façade — record events, write typed results, query history, or manage RAG-ready logs.      |                                                                                                                            |
-| `context.artifacts()`     | Artifact store façade — save/retrieve files, track outputs, and query files by labels/metrics artifacts. |                                                                                                                            |
-| `context.kv()`            | Lightweight key–value store for ephemeral coordination and small caches.                    |                                                                                                                            |
-| `context.logger()`        | Structured logger with `{run_id, graph_id, node_id}` metadata automatically included.       |                                                                                                                            |
+| Method                    | Purpose                                                                                     | API reference |
+| ------------------------- | ------------------------------------------------------------------------------------------- | ------------- |
+| `context.channel()`       | Message and interaction bus — send/receive text/approval/files, show progress, or streaming events. |   [Link](../reference/context-channel.md)            |
+| `context.memory()`        | Memory façade — record events, write typed results, query history, or manage RAG-ready logs.      |     [Link](../reference/context-memory.md)              |
+| `context.artifacts()`     | Artifact store façade — save/retrieve files, track outputs, and query files by labels/metrics artifacts. |         [Link](../reference/context-artifacts.md)          |
+| `context.kv()`            | Lightweight key–value store for ephemeral coordination and small caches.                    |       [Link](../reference/context-kv.md)            |
+| `context.logger()`        | Structured logger with `{run_id, graph_id, node_id}` metadata automatically included.       |       [Link](../reference/context-logger.md)            |
 
 ### Optional Services (config-dependent)
 
 Optional services require API keys or runtime configuration. They are injected dynamically when available.
 
-| Method                           | Purpose                                                                                              |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `context.llm()` | Access an LLM client for chat, embeddings, or raw apis access (OpenAI, Anthropic, Google, or local backends, etc.).                  |
-| `context.rag()`                  | Retrieval-augmented generation façade — build corpora, upsert documents, search, and answer queries. |
-| `context.mcp()`              | Connect to external MCP tool servers via stdio, WebSocket, or HTTP.                                  |
+| Method                | Purpose                                                                                                         | API reference |
+| --------------------- | --------------------------------------------------------------------------------------------------------------- | ------------- |
+| `context.llm()`       | Access an LLM client for chat, embeddings, or raw APIs (OpenAI, Anthropic, Google, or local backends, etc.).    |   [Link](../reference/context-llm.md)            |
+| `context.rag()`       | Retrieval-augmented generation façade — build corpora, upsert documents, search, and answer queries.            |   [Link](../reference/context-rag.md)            |
+| `context.mcp()`       | Connect to external MCP tool servers via stdio, WebSocket, or HTTP.                                             |   [Link](../reference/context-mcp.md)            |
+| `context.viz()`       | Display real-time plots in Aethergraph UI (need UI [setup](../ui/overview.md)).                                 |   [Link](../reference/context-viz.md)            |
+
+
+### Run Management
+
+Create and manage nested runs inside a graph. 
+
+| Method                      | Purpose                                                                                   | API reference |
+| --------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
+| `context.spawn_run()`       | Spawn a non-blocking run in the background in a fire-and-forget manner                   |   [Link](../reference/context-runner.md)            |
+| `context.wait_run()`        | Wait for the spawned runs                                                                |   [Link](../reference/context-runner.md)             |
+| `context.run_and_wait()`    | Create runs and wait for them in a blocking manner                                       |   [Link](../reference/context-runner.md)             |
+| `context.cancel_run()`      | Cancel a run with best effort                                                            |   [Link](../reference/context-runner.md)             |
+
 
 ### Utility Helpers
 
@@ -112,7 +125,7 @@ await context.channel().send(f"you provided the dataset path {text}")
 
 ```python
 # save and return an artifact 
-art = await context.artifacts().save(path="/tmp/report.pdf", kind="report", labels={"exp": "A"}) 
+art = await context.artifacts().save_file(path="/tmp/report.pdf", kind="report", labels={"exp": "A"}) 
 # save and return an event  
 evt = await context.memory().record(kind="checkpoint", data={"info": "experiment A saved"}) 
 
@@ -169,6 +182,6 @@ See *External Context Services* for API details and examples.
 
 ## See Also
 
-* [`context.channel()`] — cooperative waits, streaming, progress updates
-* [`context.memory()`] — event log, typed results, summaries, and RAG helpers
-* [`context.artifacts()`] — content-addressable storage and retrieval
+* [`context.channel()`](../reference/context-channel.md) — cooperative waits, streaming, progress updates
+* [`context.memory()`](../reference/context-memory.md) — event log, typed results, summaries, and RAG helpers
+* [`context.artifacts()`](../reference/context-artifacts.md) — content-addressable storage and retrieval

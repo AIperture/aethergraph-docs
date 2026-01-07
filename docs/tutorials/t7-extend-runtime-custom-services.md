@@ -56,24 +56,12 @@ from aethergraph.services.runtime.base import Service
 class Trainer(Service):
     async def submit(self, spec: dict) -> str:
         """Submit a training job to your cluster/scheduler."""
-        ctx = self.ctx()  # NodeContext bound at call time
-        ctx.logger().info("trainer.submit", extra={"spec": spec})
-
         job_id = await self._submit_to_cluster(spec)  # implement backend call
-
-        # Optional: record to Memory for traceability
-        await ctx.memory().write_result(
-            topic="trainer.submit",
-            outputs=[{"name": "job_id", "kind": "text", "value": job_id}],
-        )
         return job_id
 
     async def inspect_job(self, job_id: str) -> dict:
-        status = await self._query_cluster(job_id)
+        status = await self._query_cluster(job_id)    # implement backend call
         return {"job_id": job_id, "status": status}
-
-    async def _submit_to_cluster(self, spec: dict) -> str: ...
-    async def _query_cluster(self, job_id: str) -> str: ...
 ```
 
 **Notes**

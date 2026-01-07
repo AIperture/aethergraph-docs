@@ -15,11 +15,13 @@ AetherGraph departs from most agent frameworks in two fundamental ways:
 
 **NodeContext services** include (built‑ins plus anything you add):
 
-* **Channels** (Slack, Console/Web, …) for I/O and interaction
+* **Channels** (Slack, Console/Web, native UI …) for I/O and interaction
 * **Artifacts** (blob store) for large files and generated assets
 * **Memory** (history + summaries + optional RAG)
 * **KV & Logger** for quick state and observability
 * **LLM / MCP / RAG** bridges for model calls and tool use
+* **Visualization** (only with Aethergraph UI) for automatic presentation of run plots
+* **Run Management** for nested graph calling with and wihtout blocking
 * **Your custom services** registered at runtime
 
 The system is **pythonic**, **reactive**, and **extensible**: author graphs directly in Python, then let context services handle communication, persistence, and orchestration details.

@@ -13,6 +13,7 @@ AetherGraph ships with multiple **channels** for delivering messages and (option
 * **Telegram (`tg:`)** – Mobile‑friendly prompts and notifications. Polling (local) or webhook (advanced). Experimental for `ask_*`.
 * **File (`file:`)** – Write‑only logs/transcripts to disk under your workspace. Zero setup.
 * **Webhook (`webhook:`)** – Write‑only JSON POST to any incoming webhook (Slack Incoming, Discord, Zapier, etc.). Zero setup in AetherGraph.
+* **Aethergraph UI** – Built-in channels with most supported features for runs and sessions with no additional config. 
 
 ---
 
@@ -27,6 +28,7 @@ Legend: ✅ supported • 📝 forwarded/logged only • ✖️ not supported
 | Telegram | `tg:chat/<id>[:topic/<thread_id>]`     | ✖️      | ✅    | ✅ (experimental)     | ✅                  | ✅     | ✅    | ✅              | ✅ (experimental) |
 | File     | `file:logs/experiment_01.txt`          | ✖️      | ✅    | ✖️                   | 📝                 | 📝    | 📝   | 📝             | N/A              |
 | Webhook  | `webhook:https://hooks.zapier.com/...` | ✖️      | ✅    | ✖️                   | 📝                 | 📝    | 📝   | 📝             | N/A              |
+| AG UI    | use `context.ui_session_channel()` or `context.ui_run_channel()` for fast access | ✖️ | ✅    | ✅                    | ✅ 📝                 | 📝    | 📝   | ✅              | ✅ | 
 
 **Notes**
 

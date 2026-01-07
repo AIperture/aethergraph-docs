@@ -15,7 +15,7 @@ from aethergraph import graph_fn
 
 @graph_fn(name="greet")
 async def greet(*, context):
-    ch = context.channel("slack:#research")   # pick a target channel
+    ch = context.channel() 
     await ch.send_text("Starting demo…")
     name = await ch.ask_text("Your name?")    # cooperative wait
     await ch.send_text(f"Nice to meet you, {name}!")

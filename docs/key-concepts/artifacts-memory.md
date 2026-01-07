@@ -47,14 +47,14 @@ Most Python workflows scatter outputs across temp folders and logs with no consi
 
 | Method                                                            | Purpose                                                                      |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `stage()` / `stage_dir()`                                         | Reserve a temp path for producing files/dirs safely.                         |
-| `save()`          | Save an existing path and index it. Returns an artifact with `uri`.          |
+| `save_file()`          | Save an existing path and index it. Returns an artifact with `uri`.          |
 | `save_text()`                 | Store small text payloads.                                                   |
 | `save_json()`                     | Store a JSON payload.                                                        |
 | `writer()`                                       | Context manager to stream‑write binary content; atomically indexes on close. |
 | `list()` / `search()` / `best()` | Query and rank artifacts by descriptors or metrics.                          |
 | `pin()`                                                | Mark as retained (skip cleanup policies).                                    |
-| `to_local_path()`                                              | Resolve a CAS URI to a local filesystem path.                                |
+
+[`context.artifacts()` API link](../reference/context-artifacts.md)
 
 ### Examples
 
@@ -63,7 +63,7 @@ Most Python workflows scatter outputs across temp folders and logs with no consi
 ```python
 @graph_fn(name="produce_artifact", outputs=["report_uri"])
 async def produce_artifact(*, context):
-    art = await context.artifacts().save(
+    art = await context.artifacts().save_file(
         path="/tmp/report.pdf", kind="report", labels={"exp": "A"}
     )
     return {"report_uri": art.uri}
@@ -106,12 +106,14 @@ async def search_reports(*, context):
 
 | Method                                                            | Purpose                                             |
 | ----------------------------------------------------------------- | --------------------------------------------------- |
-| `record_raw()`                       | Append a low‑level event.                           |
 | `record()`                          | Convenience structured logging.                     |
-| `write_result()`       | Log a typed output; updates indices.                |
+| `record_chat()` / `record_chat_user()` / `record_chat_assistant()`      | Log a chat event (wrapper of `record()` with kind as `chat`)              |
+| `record_tool_result()`       | Log a tool event with typed inputs/outputs (wrapper of `record()` with kind as `tool_result`)              |
 | `recent()` / `recent_data()`                                    | Fetch most recent events / event data                       |
-| `last_by_name()`                                              | Get the latest output value by name.                |
-| `rag_bind()` / `rag_promote_events()` / `rag_answer()` | RAG lifecycle helpers (requires LLM).               |
+| `distill_*()`                                    | Distillation of memory with persistence                |
+| `rag_remember_events()` / `rag_search_by_key()` / `rag_answer_by_key()` | RAG lifecycle helpers (requires LLM, API may change in future versions).               |
+
+[`context.memory()` API link](../reference/context-memory.md)
 
 ### Examples
 
@@ -134,9 +136,16 @@ recent = await context.memory().recent(limit=10) # return list of events
 **Promote to RAG**
 
 ```python
-corpus = await context.memory().rag_bind()
-await context.memory().rag_promote_events(corpus_id=corpus)
-ans = await context.memory().rag_answer(corpus_id=corpus, question="What was the best run?")
+await context.memory().rag_remember_events(
+    key="knowledge_base",
+    where={"kinds": ["tool_result"], "limit": 200},
+    policy={"min_signal": 0.25},
+)
+ans = await context.memory().rag_answer_by_key(
+    key="knowledge_base",
+    question="What is the result of last tool?",
+    style="detailed",
+)
 ```
 
 ---

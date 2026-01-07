@@ -18,14 +18,14 @@ A `ChannelSession` provides message I/O, user prompts, streaming text, and progr
             show_root_full_path: false 
             show_source: false  
 
-??? quote "context.ui_run_channel.channel()"
+??? quote "context.ui_run_channel()"
     ::: aethergraph.core.runtime.node_context.NodeContext.ui_run_channel
         options:
             show_root_heading: false
             show_root_full_path: false 
             show_source: false  
 
-??? quote "context.ui_session_channel.channel()"
+??? quote "context.ui_session_channel()"
     ::: aethergraph.core.runtime.node_context.NodeContext.ui_session_channel
         options:
             show_root_heading: false

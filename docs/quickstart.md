@@ -24,8 +24,7 @@ AetherGraph ships a lightweight sidecar that wires up core services (logger, art
 # quickstart_server.py
 from aethergraph import start_server
 
-url = start_server(port=0)
-print("AetherGraph server:", url)
+url = start_server()
 ```
 
 Run it:
@@ -34,7 +33,7 @@ Run it:
 python quickstart_server.py
 ```
 
-You should see an HTTP URL like `http://127.0.0.1:54321` printed. (Random free port by default.)
+You should see a default HTTP URL `http://127.0.0.1:8745` printed with UI (if available) and API urls. 
 
 ---
 
@@ -51,7 +50,7 @@ from aethergraph import start_server
 start_server()
 
 # 2) Define a small graph function
-@graph_fn(name="hello.world", inputs=["name"], outputs=["greeting"], version="0.1.0")
+@graph_fn(name="hello.world", inputs=["name"], outputs=["greeting"])
 async def hello_world(name: str, *, context: NodeContext):
     # Use the channel to send a message (console by default)
     await context.channel().send_text(f"👋 Hello, {name}! Running graph…")
@@ -91,7 +90,7 @@ Result: {"greeting": "Hello, Researcher. Nice to meet you from AetherGraph."}
 * **`@graph_fn`** built a tiny task graph from your function and executed it.
 * **`context.channel()`** used the default channel (console) to emit a message.
 
-> Tip: You can override the channel at call‑site with `context.channel("slack:#research")`, once you’ve configured a Slack adapter.
+> Tip: You can override the channel at call‑site with `context.channel(channel_key=...)`, once you’ve configured adapters like Slack, Telegram or Aethergraph UI.
 
 ---
 
