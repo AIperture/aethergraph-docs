@@ -39,7 +39,14 @@ Supported providers: `openai`, `azure`, `anthropic`, `google`, `openrouter`, `lm
         options:
             show_root_heading: false
             show_root_full_path: false 
-            show_source: false  
+            show_source: false
+
+??? quote "chat_stream(messages, *, reasoning_effort, max_output_tokens, ...)"
+    ::: aethergraph.services.llm.generic_client.GenericLLMClient.chat_stream
+        options:
+            show_root_heading: false
+            show_root_full_path: false 
+            show_source: false 
 
 ??? quote "generate_image(prompt, *, model, n, ...)"
     ::: aethergraph.services.llm.generic_client.GenericLLMClient.generate_image

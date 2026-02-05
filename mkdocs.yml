@@ -120,6 +120,7 @@ nav:
         - Introduction: ui/overview.md
         - Start the server: ui/server.md
         - Agents & Apps: ui/agents-apps.md
+        - Rich Card in Chat: ui/ui-rich-card.md
         - Notes & troubleshooting: ui/ui-notes.md
       - LLM Setup: llm-setup/llm-setup.md
       - Channel Setup:
