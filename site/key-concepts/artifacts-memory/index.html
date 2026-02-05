@@ -2288,11 +2288,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>stage()</code> / <code>stage_dir()</code></td>
-<td>Reserve a temp path for producing files/dirs safely.</td>
-</tr>
-<tr>
-<td><code>save()</code></td>
+<td><code>save_file()</code></td>
 <td>Save an existing path and index it. Returns an artifact with <code>uri</code>.</td>
 </tr>
 <tr>
@@ -2315,17 +2311,14 @@
 <td><code>pin()</code></td>
 <td>Mark as retained (skip cleanup policies).</td>
 </tr>
-<tr>
-<td><code>to_local_path()</code></td>
-<td>Resolve a CAS URI to a local filesystem path.</td>
-</tr>
 </tbody>
 </table>
+<p><a href="../../reference/context-artifacts/"><code>context.artifacts()</code> API link</a></p>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <p><strong>Save a file</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;produce_artifact&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;report_uri&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">produce_artifact</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+    <span class="n">art</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">artifacts</span><span class="p">()</span><span class="o">.</span><span class="n">save_file</span><span class="p">(</span>
         <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/tmp/report.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;report&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;report_uri&quot;</span><span class="p">:</span> <span class="n">art</span><span class="o">.</span><span class="n">uri</span><span class="p">}</span>
@@ -2364,31 +2357,32 @@
 </thead>
 <tbody>
 <tr>
-<td><code>record_raw()</code></td>
-<td>Append a low‑level event.</td>
-</tr>
-<tr>
 <td><code>record()</code></td>
 <td>Convenience structured logging.</td>
 </tr>
 <tr>
-<td><code>write_result()</code></td>
-<td>Log a typed output; updates indices.</td>
+<td><code>record_chat()</code> / <code>record_chat_user()</code> / <code>record_chat_assistant()</code></td>
+<td>Log a chat event (wrapper of <code>record()</code> with kind as <code>chat</code>)</td>
+</tr>
+<tr>
+<td><code>record_tool_result()</code></td>
+<td>Log a tool event with typed inputs/outputs (wrapper of <code>record()</code> with kind as <code>tool_result</code>)</td>
 </tr>
 <tr>
 <td><code>recent()</code> / <code>recent_data()</code></td>
 <td>Fetch most recent events / event data</td>
 </tr>
 <tr>
-<td><code>last_by_name()</code></td>
-<td>Get the latest output value by name.</td>
+<td><code>distill_*()</code></td>
+<td>Distillation of memory with persistence</td>
 </tr>
 <tr>
-<td><code>rag_bind()</code> / <code>rag_promote_events()</code> / <code>rag_answer()</code></td>
-<td>RAG lifecycle helpers (requires LLM).</td>
+<td><code>rag_remember_events()</code> / <code>rag_search_by_key()</code> / <code>rag_answer_by_key()</code></td>
+<td>RAG lifecycle helpers (requires LLM, API may change in future versions).</td>
 </tr>
 </tbody>
 </table>
+<p><a href="../../reference/context-memory/"><code>context.memory()</code> API link</a></p>
 <h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
 <p><strong>Record an event</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;remember_output&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
@@ -2401,9 +2395,16 @@
 <div class="highlight"><pre><span></span><code><span class="n">recent</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">recent</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># return list of events</span>
 </code></pre></div>
 <p><strong>Promote to RAG</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">()</span>
-<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">)</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_answer</span><span class="p">(</span><span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What was the best run?&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_remember_events</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;knowledge_base&quot;</span><span class="p">,</span>
+    <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tool_result&quot;</span><span class="p">],</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
+    <span class="n">policy</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;min_signal&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_answer_by_key</span><span class="p">(</span>
+    <span class="n">key</span><span class="o">=</span><span class="s2">&quot;knowledge_base&quot;</span><span class="p">,</span>
+    <span class="n">question</span><span class="o">=</span><span class="s2">&quot;What is the result of last tool?&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;detailed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="4-artifacts-memory-better-together">4. Artifacts × Memory — Better Together<a class="headerlink" href="#4-artifacts-memory-better-together" title="Permanent link">&para;</a></h2>

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   1. GLOBAL COLORS (High Contrast)
+   We override colors here, but NOT font-size, to protect the layout.
+   ========================================================================== */
+:root {
+    /* -- Font Families -- */
+    --md-text-font: "Inter", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    --md-code-font: "JetBrains Mono", "SFMono-Regular", Consolas, Menlo, monospace;
+
+    /* -- Enterprise Colors (Slate 900/800) -- */
+    --md-typeset-color: #0f172a;            /* Main body text - Darker */
+    --md-default-fg-color--light: #334155;  /* Secondary text - Darker */
+    
+    /* Headers - Absolute Black for hierarchy */
+    --md-typeset-h1-color: #000000;
+    --md-typeset-h2-color: #0f172a;
+    
+    /* Code block backgrounds (Optional: slight cool tint) */
+    --md-code-bg-color: #f8fafc;
+}
+
+/* ==========================================================================
+   2. TEXT DENSITY (The Fix)
+   Target specific text containers instead of the root.
+   This keeps the sidebar attached to the screen edges while shrinking text.
+   ========================================================================== */
+
+/* Shrink body text ONLY, not the layout grid */
+body, .md-typeset {
+    font-size: 0.75rem; /* ~14.8px (Standard Enterprise Size) */
+    line-height: 1.5;
+}
+
+/* Shrink Navigation links to match */
+.md-nav__link {
+    font-size: 0.7rem;
+}
+
+/* Make headers dense and tight */
+.md-typeset h1 { margin-top: 1em; font-weight: 700; letter-spacing: -0.02em; font-size: 1.4rem;}
+.md-typeset h2 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 700; letter-spacing: -0.01em; font-size: 1rem;}
+.md-typeset h3 { margin-top: 1.25em; margin-bottom: 0.5em; font-weight: 600; font-size: 0.9rem;}
+
+/* Denser lists */
+.md-typeset li {
+    margin-bottom: 0.25em;
+}
+
+/* ==========================================================================
+   3. MKDOCSTRINGS / API SIGNATURES
+   Your specific request for the code blocks.
+   ========================================================================== */
+
+/* The Container */
+/* The Container */
+div.doc-signature {
+    font-family: var(--md-code-font);
+    font-size: 0.85em !important;
+    
+    /* Keep your preferred background */
+    background-color: var(--md-code-bg-color); 
+    
+    /* 1. Stronger Border (Slate 300 instead of 200) */
+    border: 1px solid #cbd5e1; 
+    
+    /* 2. Visual Anchor (Thicker left border to define the block) */
+    border-left: 4px solid #334155; 
+    
+    /* 3. Lift it off the page (Subtle Shadow) */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+
+    border-radius: 4px; /* Slightly tighter radius */
+    padding: 10px 12px;
+    margin-bottom: 1.25em; /* Add a little more space below it */
+    line-height: 1.5;
+
+    /* Ensure long text wraps neatly inside the box */
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Function Name - Keep your settings */
+span.doc-symbol-name {
+    color: #0f172a !important;      
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
+}
+
+/* Standard Inline Code (`...`) consistency */
+.md-typeset code {
+    background-color: #f1f5f9; /* Slate 100 */
+    color: #0f172a;            /* Dark text */
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 0.85em;
+    border: 1px solid #e2e8f0; /* Subtle border for inline */
+    box-shadow: none;          /* No shadow for inline */
+}
+
+/* Argument Names */
+span.doc-param-name {
+    color: #1e293b !important;      /* Slate 800 */
+    font-weight: 600;
+}
+
+/* Types */
+span.doc-param-annotation {
+    color: #475569 !important;      /* Slate 600 */
+    font-style: italic;
+}
+
+/* Default Values */
+span.doc-param-default {
+    color: #b45309 !important;      /* Dark Amber */
+}
+
+/* --- Argument Lists (Cleaning up the table look) --- */
+.md-typeset .doc-utils-table {
+    margin-top: 0.5em;
+    display: block;
+    width: 100%;
+}
+
+.md-typeset .doc-utils-table tbody {
+    display: block;
+}
+
+.md-typeset .doc-utils-table tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 8px 0;
+}
+
+/* Name/Type Row */
+.md-typeset .doc-utils-table td:first-child {
+    padding: 0 0 4px 0;
+    font-family: var(--md-code-font);
+    font-size: 0.85em;
+    color: #1e293b;
+}
+
+/* Description Row */
+.md-typeset .doc-utils-table td:last-child {
+    padding: 0;
+    color: #334155;
+    line-height: 1.5;
+}

@@ -2140,13 +2140,12 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># quickstart_server.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">start_server</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="n">start_server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AetherGraph server:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">start_server</span><span class="p">()</span>
 </code></pre></div>
 <p>Run it:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>quickstart_server.py
 </code></pre></div>
-<p>You should see an HTTP URL like <code>http://127.0.0.1:54321</code> printed. (Random free port by default.)</p>
+<p>You should see a default HTTP URL <code>http://127.0.0.1:8745</code> printed with UI (if available) and API urls. </p>
 <hr />
 <h2 id="3-your-first-graph-function">3. Your first graph function<a class="headerlink" href="#3-your-first-graph-function" title="Permanent link">&para;</a></h2>
 <p><code>@graph_fn</code> turns an ordinary async Python function into a runnable graph entrypoint. If you include a <code>context</code> parameter, you get access to built‑in services like <code>context.channel()</code> and <code>context.memory()</code>.</p>
@@ -2158,7 +2157,7 @@
 <span class="n">start_server</span><span class="p">()</span>
 
 <span class="c1"># 2) Define a small graph function</span>
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello.world&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;greeting&quot;</span><span class="p">],</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">)</span>
+<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hello.world&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;greeting&quot;</span><span class="p">])</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
     <span class="c1"># Use the channel to send a message (console by default)</span>
     <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;👋 Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">! Running graph…&quot;</span><span class="p">)</span>
@@ -2191,7 +2190,7 @@
 <li><strong><code>context.channel()</code></strong> used the default channel (console) to emit a message.</li>
 </ul>
 <blockquote>
-<p>Tip: You can override the channel at call‑site with <code>context.channel("slack:#research")</code>, once you’ve configured a Slack adapter.</p>
+<p>Tip: You can override the channel at call‑site with <code>context.channel(channel_key=...)</code>, once you’ve configured adapters like Slack, Telegram or Aethergraph UI.</p>
 </blockquote>
 <hr />
 <h2 id="5-next-steps">5. Next steps<a class="headerlink" href="#5-next-steps" title="Permanent link">&para;</a></h2>

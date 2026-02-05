@@ -2156,21 +2156,26 @@
 <hr />
 <h2 id="1-what-is-a-channel">1. What Is a Channel?<a class="headerlink" href="#1-what-is-a-channel" title="Permanent link">&para;</a></h2>
 <p>A <strong>channel</strong> is a routing target for interaction. It allows you to interact with an Agent inside a Python function. </p>
-<p>You can specify a channel key or alias (e.g., <code>"slack:#research"</code>) or rely on the system default. See <a href="../../channel-setup/introduction/"><em>Channel Setup</em></a> for non-console key setup. </p>
+<p>You can specify a channel key or alias (e.g., <code>"slack:team/T:chan/C[:thread/TS]"</code>) or rely on the system default. See <a href="../../channel-setup/introduction/"><em>Channel Setup</em></a> for non-console key setup. </p>
 <h3 id="resolution-order">Resolution Order<a class="headerlink" href="#resolution-order" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Per-call override:</strong> <code>await context.channel().send_text("hi", channel="slack:#alerts")</code></li>
-<li><strong>Bound session key:</strong> <code>ch = context.channel("slack:#research"); await ch.send_text("hi")</code></li>
+<li><strong>Per-call override:</strong> <code>await context.channel().send_text("hi", channel="slack:team/T:chan/C[:thread/TS]")</code></li>
+<li><strong>Bound session key:</strong> <code>ch = context.channel("slack:team/T:chan/C[:thread/TS]"); await ch.send_text("hi")</code></li>
 <li><strong>Bus default:</strong> taken from <code>services.channels.get_default_channel_key()</code></li>
 <li><strong>Fallback:</strong> <code>console:stdin</code></li>
 </ol>
+<p>When using <strong>Aethergraph UI</strong></p>
+<ul>
+<li>Use <code>context.ui_run_channel()</code> to get the run workspace channel adapter (equivalent to `context.channel("ui:run/run_id"))</li>
+<li>Use <code>context.ui_session_channel()</code> to get the session workspace channel adapter (equivalent to `context.channel("ui:session/session_id))</li>
+</ul>
 <hr />
 <h2 id="2-quick-start">2. Quick Start<a class="headerlink" href="#2-quick-start" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span>
 
 <span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;channel_demo&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">channel_demo</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:#research&quot;</span><span class="p">)</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>
     <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="s2">&quot;Starting experiment…&quot;</span><span class="p">)</span>
     <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_approval</span><span class="p">(</span><span class="s2">&quot;Proceed?&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">resp</span><span class="p">[</span><span class="s2">&quot;approved&quot;</span><span class="p">]:</span>
@@ -2213,10 +2218,6 @@
 <td>Open a streaming session for incremental updates.</td>
 </tr>
 <tr>
-<td><code>progress()</code></td>
-<td>Stream a progress bar</td>
-</tr>
-<tr>
 <td><code>get_last_uploads()</code></td>
 <td>Fetch uploaded files from UI at anytime</td>
 </tr>
@@ -2233,7 +2234,7 @@
 
 <span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;concurrent_asks&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">concurrent_asks</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s2">&quot;slack:#research&quot;</span><span class="p">)</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span>
 
     <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">one</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
         <span class="n">name</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ch</span><span class="o">.</span><span class="n">ask_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">] What’s your name?&quot;</span><span class="p">)</span>
@@ -2250,7 +2251,7 @@
 <li>For <strong>notification-only</strong> channels, the API is straightforward — send events, no continuations.</li>
 <li>For <strong>interactive channels</strong> (e.g., Slack, Telegram, Web), resumptions rely on correlation IDs and continuation stores.</li>
 </ul>
-<p>In the OSS edition, AetherGraph currently includes built-in support for <strong>Console</strong>, <strong>Slack</strong>, <strong>Telegram</strong>, and generic <strong>Webhooks</strong>. We will release adapter protocal API for extension and support for additional adapters in future releases.</p>
+<p>In the OSS edition, AetherGraph currently includes built-in support for <strong>Console</strong>, <strong>Slack</strong>, <strong>Telegram</strong>,  <strong>Webhooks</strong>, and <strong>native Aethergraph UI</strong>. We will release adapter protocal API for extension and support for additional adapters in future releases.</p>
 <hr />
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <ul>

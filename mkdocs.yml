@@ -96,6 +96,9 @@ nav:
           - context.channel(): reference/context-channel.md
           - context.artifacts(): reference/context-artifacts.md
           - context.memory(): reference/context-memory.md
+          - context.indices(): reference/context-indices.md
+          - context.planner(): reference/context-planner.md
+          - context.skills(): reference/context-skills.md
           - context.logger(): reference/context-logger.md
           - context.kv(): reference/context-kv.md
           - context.llm(): reference/context-llm.md

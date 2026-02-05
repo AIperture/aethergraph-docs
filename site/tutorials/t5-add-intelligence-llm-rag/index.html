@@ -867,9 +867,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#optional-reasoning-knobs" class="md-nav__link">
+  <a href="#optional-knobs" class="md-nav__link">
     <span class="md-ellipsis">
-      Optional reasoning knobs
+      Optional knobs
     </span>
   </a>
   
@@ -918,36 +918,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-promote-memory-events-into-rag" class="md-nav__link">
+  <a href="#c-search-retrieve-answer-with-citations" class="md-nav__link">
     <span class="md-ellipsis">
-      C) Promote Memory events into RAG
+      C) Search, retrieve, answer (with citations)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#d-search-retrieve-answer-with-citations" class="md-nav__link">
+  <a href="#d-choosing-the-llm-for-rag" class="md-nav__link">
     <span class="md-ellipsis">
-      D) Search, retrieve, answer (with citations)
+      D) Choosing the LLM for RAG
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#e-choosing-the-llm-for-rag" class="md-nav__link">
+  <a href="#e-corpus-management-ops" class="md-nav__link">
     <span class="md-ellipsis">
-      E) Choosing the LLM for RAG
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#f-corpus-management-ops" class="md-nav__link">
-    <span class="md-ellipsis">
-      F) Corpus management (ops)
+      E) Corpus management (ops)
     </span>
   </a>
   
@@ -962,15 +953,6 @@
   <a href="#6-practical-recipes" class="md-nav__link">
     <span class="md-ellipsis">
       6. Practical recipes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Troubleshooting
     </span>
   </a>
   
@@ -2302,8 +2284,8 @@
 <li><strong>LLM</strong>: a provider‑agnostic client you access via <code>context.llm(...)</code> for chat and embeddings.</li>
 <li><strong>RAG</strong>: a corpus of documents (from files and/or Memory events) that are chunked, embedded, and retrieved to ground LLM answers.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">(</span><span class="n">profile</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>   <span class="c1"># chat &amp; embed</span>
-<span class="n">rag</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span>                     <span class="c1"># corpora, upsert, search, answer</span>
+<div class="highlight"><pre><span></span><code><span class="n">llm</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span>    <span class="c1"># chat &amp; embed &amp; image generation</span>
+<span class="n">rag</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span>    <span class="c1"># corpora, upsert, search, answer</span>
 </code></pre></div>
 <hr />
 <h2 id="1-prerequisites">1. Prerequisites<a class="headerlink" href="#1-prerequisites" title="Permanent link">&para;</a></h2>
@@ -2372,8 +2354,8 @@ AETHERGRAPH_LLM__MY_OPENAI__EMBED_MODEL=text-embedding-3-small  # needed for llm
 <blockquote>
 <p>RAG needs an <strong>embed model</strong> configured on the chosen profile.</p>
 </blockquote>
-<h3 id="optional-reasoning-knobs">Optional reasoning knobs<a class="headerlink" href="#optional-reasoning-knobs" title="Permanent link">&para;</a></h3>
-<p>Some models (e.g., GPT‑5) accept reasoning parameters such as <code>reasoning_effort="low|medium|high"</code> via <code>llm.chat(..., reasoning_effort=...)</code>.</p>
+<h3 id="optional-knobs">Optional knobs<a class="headerlink" href="#optional-knobs" title="Permanent link">&para;</a></h3>
+<p>The <code>chat()</code> API allows various parameters for reasoning, json output etc. See the <a href="../../reference/context-llm/">API reference</a> for detailed usage. </p>
 <hr />
 <h2 id="4-raw-api-escape-hatch">4. Raw API escape hatch<a class="headerlink" href="#4-raw-api-escape-hatch" title="Permanent link">&para;</a></h2>
 <p>For power users who need endpoints not yet covered by the high‑level client (such as low-level inputs, VLM models, custom models):</p>
@@ -2443,15 +2425,7 @@ AETHERGRAPH_RAG__DIM=1536             # embedding dimension (e.g., OpenAI text-e
 </li>
 </ul>
 <p>Behind the scenes: documents are stored as Artifacts, parsed, chunked, embedded, and added to the vector index.</p>
-<h3 id="c-promote-memory-events-into-rag">C) Promote Memory events into RAG<a class="headerlink" href="#c-promote-memory-events-into-rag" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">corpus</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_bind</span><span class="p">()</span>
-<span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">memory</span><span class="p">()</span><span class="o">.</span><span class="n">rag_promote_events</span><span class="p">(</span>
-    <span class="n">corpus_id</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
-    <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kinds&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tool_result&quot;</span><span class="p">],</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>You can promote any custom <code>kind</code> you recorded for later vector-based search and answer in a same <code>corpus_id</code>.</p>
-<h3 id="d-search-retrieve-answer-with-citations">D) Search, retrieve, answer (with citations)<a class="headerlink" href="#d-search-retrieve-answer-with-citations" title="Permanent link">&para;</a></h3>
+<h3 id="c-search-retrieve-answer-with-citations">C) Search, retrieve, answer (with citations)<a class="headerlink" href="#c-search-retrieve-answer-with-citations" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;my_docs&quot;</span><span class="p">,</span> <span class="s2">&quot;key findings&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;hybrid&quot;</span><span class="p">)</span>
 <span class="n">ans</span>  <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">rag</span><span class="p">()</span><span class="o">.</span><span class="n">answer</span><span class="p">(</span>
     <span class="n">corpus_id</span><span class="o">=</span><span class="s2">&quot;my_docs&quot;</span><span class="p">,</span>
@@ -2463,14 +2437,14 @@ AETHERGRAPH_RAG__DIM=1536             # embedding dimension (e.g., OpenAI text-e
 <span class="c1"># ans → { &quot;answer&quot;: str, &quot;citations&quot;: [...], &quot;resolved_citations&quot;: [...], &quot;usage&quot;: {...} }</span>
 </code></pre></div>
 <p>Use <code>resolved_citations</code> to map snippets back to Artifact URIs for auditability.</p>
-<h3 id="e-choosing-the-llm-for-rag">E) Choosing the LLM for RAG<a class="headerlink" href="#e-choosing-the-llm-for-rag" title="Permanent link">&para;</a></h3>
+<h3 id="d-choosing-the-llm-for-rag">D) Choosing the LLM for RAG<a class="headerlink" href="#d-choosing-the-llm-for-rag" title="Permanent link">&para;</a></h3>
 <p>RAG uses a dedicated <strong>RAG LLM client</strong> that must have <strong>both</strong> <code>model</code> <strong>and</strong> <code>embed_model</code> set.</p>
 <p><strong>Runtime:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph.llm</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_rag_llm_client</span>
 <span class="n">set_rag_llm_client</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="s2">&quot;openai&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span> <span class="n">embed_model</span><span class="o">=</span><span class="s2">&quot;text-embedding-3-small&quot;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sk-…&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>If you don’t set one, it falls back to the default LLM profile (ensure that profile also has an <code>embed_model</code>).</p>
-<h3 id="f-corpus-management-ops">F) Corpus management (ops)<a class="headerlink" href="#f-corpus-management-ops" title="Permanent link">&para;</a></h3>
+<h3 id="e-corpus-management-ops">E) Corpus management (ops)<a class="headerlink" href="#e-corpus-management-ops" title="Permanent link">&para;</a></h3>
 <p>For maintenance and ops you can:</p>
 <ul>
 <li><strong>List corpora / docs</strong> to inspect what’s indexed.</li>
@@ -2478,30 +2452,19 @@ AETHERGRAPH_RAG__DIM=1536             # embedding dimension (e.g., OpenAI text-e
 <li><strong>Re‑embed</strong> to refresh vectors after changing embed model or chunking.</li>
 <li><strong>Stats</strong> to view counts of docs/chunks and corpus metadata.</li>
 </ul>
-<p>These live on the same facade: <code>rag.list_corpora()</code>, <code>rag.list_docs(...)</code>, <code>rag.delete_docs(...)</code>, <code>rag.reembed(...)</code>, <code>rag.stats(...)</code>.</p>
+<p>These live on the same facade: <code>rag.list_corpora()</code>, <code>rag.list_docs(...)</code>, <code>rag.delete_docs(...)</code>, <code>rag.reembed(...)</code>, <code>rag.stats(...)</code>. See <a href="../../reference/context-rag/">API reference</a> for details.</p>
 <hr />
 <h2 id="6-practical-recipes">6. Practical recipes<a class="headerlink" href="#6-practical-recipes" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Switch providers</strong> by changing <code>profile=</code> in <code>context.llm(...)</code> without touching your code elsewhere.</li>
 <li><strong>Save docs as Artifacts</strong> (e.g., <code>save_text</code>, <code>save(path=...)</code>) and ingest by <code>{"path": local_path}</code> so RAG can cite their URIs.</li>
-<li><strong>Log LLM outputs</strong> with <code>context.memory().record(...)</code> or <code>write_result(...)</code> to enable recency views, distillation, and RAG promotion later.</li>
-</ul>
-<hr />
-<h2 id="7-troubleshooting">7. Troubleshooting<a class="headerlink" href="#7-troubleshooting" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Auth/Endpoints</strong>: Check keys; for Azure, confirm deployment + endpoint. For LM Studio, the base URL must include <code>/v1</code>.</li>
-<li><strong>No citations or odd snippets</strong>: Verify parsing (PDFs can be tricky). Consider storing originals as Artifacts alongside parsed text.</li>
-<li><strong>Answers miss context</strong>: Increase <code>k</code>, adjust chunk sizes, or broaden your <code>where</code> filter when promoting events.</li>
-<li><strong>Latency/Cost</strong>: Keep chunks compact, and filter ingestion to what you’ll actually ask about.</li>
 </ul>
 <hr />
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Configure <strong>LLM profiles</strong> via <code>.env</code> or runtime registration, then use <code>llm.chat()</code> / <code>llm.embed()</code>.</li>
 <li>Build RAG corpora from <strong>files</strong> and <strong>Memory events</strong>, then call <code>rag.answer(..., with_citations=True)</code> for grounded responses.</li>
-<li>Use <strong>Artifacts + Memory</strong> for provenance so you can trace <em>what the model answered</em> and <em>why</em>.</li>
 </ul>
-<p><strong>See also:</strong> <code>context.llm()</code> · <code>context.rag()</code> · <code>context.memory().rag_*</code> · <code>register_llm_client</code> · <code>set_rag_llm_client</code> · <code>llm.raw</code></p>
 
 
 

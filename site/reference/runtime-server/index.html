@@ -2547,8 +2547,8 @@ port selection, workspace isolation, and dynamic loading of user graphs/apps.</p
 <li>Launching the server via CLI keeps it running persistently for API clients to connect like AetherGraph UI.</li>
 <li>In local mode, the server port will automatically be consistent with UI connections.</li>
 <li>use <code>--reload</code> for development to auto-restart on code changes. This will use uvicorn's reload feature.</li>
-<li>When switching ports, the UI will not show previous runs/artifacts unless the server is reused. This is 
-    because the server URL is tied to the frontend hash. Keep the server in a same port (default 8745) for local dev. 
+<li>When switching ports, the UI will not show previous runs/artifacts unless the server is reused. This is
+    because the server URL is tied to the frontend hash. Keep the server in a same port (default 8745) for local dev.
     Later the UI can support dynamic port discovery via server.json.</li>
 </ul>
 </details>
