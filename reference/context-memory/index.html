@@ -18,7 +18,7 @@
         <link rel="prev" href="../context-artifacts/">
       
       
-        <link rel="next" href="../context-logger/">
+        <link rel="next" href="../context-indices/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -1540,6 +1540,75 @@
   
   
     <li class="md-nav__item">
+      <a href="../context-indices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.indices()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-planner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.planner()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.skills()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../context-logger/" class="md-nav__link">
         
   
@@ -2070,6 +2139,29 @@
   
   <span class="md-ellipsis">
     Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-rich-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rich Card in Chat
     
   </span>
   
@@ -3736,7 +3828,8 @@ If None, it is calculated heuristically.</p>
 <p>This method fetches the last <code>limit</code> chat events of type <code>chat.turn</code>
 and returns them in a standardized format. Each item in the returned
 list contains the timestamp, role, text, and tags associated with the
-chat event.</p>
+chat event. If <code>tags</code> is provided, over-fetch and filter because HotLog doesn't filter by tags.
+Returned messages are chronological, with the most recent last.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
@@ -6034,13 +6127,13 @@ Defaults to 10.</p>
         
         
           
-          <a href="../context-logger/" class="md-footer__link md-footer__link--next" aria-label="Next: context.logger()">
+          <a href="../context-indices/" class="md-footer__link md-footer__link--next" aria-label="Next: context.indices()">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                context.logger()
+                context.indices()
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -1228,6 +1228,75 @@
   
   
     <li class="md-nav__item">
+      <a href="../context-indices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.indices()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-planner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.planner()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.skills()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../context-logger/" class="md-nav__link">
         
   
@@ -1372,6 +1441,15 @@
   <a href="#aethergraph.services.llm.generic_client.GenericLLMClient.chat" class="md-nav__link">
     <span class="md-ellipsis">
       chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.llm.generic_client.GenericLLMClient.chat_stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      chat_stream
     </span>
   </a>
   
@@ -1890,6 +1968,29 @@
   
   <span class="md-ellipsis">
     Agents & Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/ui-rich-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rich Card in Chat
     
   </span>
   
@@ -2714,7 +2815,11 @@ validation and flexible output formats.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Additional provider-specific keyword arguments.</p>
+                <p>Additional provider-specific keyword arguments.
+Common cross-provider options include:
+- model: override default model name.
+- tools: OpenAI-style tools / functions description.
+- tool_choice: tool selection strategy (e.g., "auto", "none", or provider-specific dict).</p>
               </div>
             </td>
             <td>
@@ -2797,6 +2902,310 @@ validation and flexible output formats.</p>
 <li>This method centralizes handling of different LLM providers, ensuring consistent behavior.</li>
 <li>Structured output support allows for robust integration with downstream systems.</li>
 <li>Rate limiting and metering help manage resource usage effectively.</li>
+</ul>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>chat_stream(messages, *, reasoning_effort, max_output_tokens, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.llm.generic_client.GenericLLMClient.chat_stream"></a>
+    <div class="doc doc-contents first">
+
+        <p>Stream a chat request to the LLM provider and return the accumulated response.</p>
+<p>This method handles provider-specific streaming paths, falling back to non-streaming
+chat() if streaming is not implemented. It supports real-time delta updates via
+a callback function and returns the full response text and usage statistics at the end.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with a list of messages:
+<div class="highlight"><pre><span></span><code><span class="n">response</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat_stream</span><span class="p">(</span>
+<span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, assistant!&quot;</span><span class="p">}]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Using a delta callback for real-time updates:
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_delta</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">response</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">llm</span><span class="p">()</span><span class="o">.</span><span class="n">chat_stream</span><span class="p">(</span>
+    <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me a joke.&quot;</span><span class="p">}],</span>
+    <span class="n">on_delta</span><span class="o">=</span><span class="n">on_delta</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>messages</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of message dicts, each with "role" and "content" keys.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>reasoning_effort</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional string to control model reasoning depth.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>max_output_tokens</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional maximum number of output tokens.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_format</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.services.llm.types.ChatOutputFormat">ChatOutputFormat</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Output format, e.g., "text" or "json".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;text&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>json_schema</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional JSON schema for validating structured output.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>schema_name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name for the root schema object (default: "output").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;output&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>strict_schema</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, enforce strict schema validation.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>validate_json</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, validate JSON output against schema.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>fail_on_unsupported</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, raise error for unsupported features.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>on_delta</code>
+            </td>
+            <td>
+                  <code><span title="aethergraph.services.llm.generic_client.DeltaCallback">DeltaCallback</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional callback function to handle real-time text deltas.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kw</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Additional provider-specific keyword arguments.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="str">str</span>, <span title="dict">dict</span>[<span title="str">str</span>, <span title="int">int</span>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>tuple[str, dict[str, int]]: The accumulated response text and usage statistics.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="NotImplementedError">NotImplementedError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the provider is not supported.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="RuntimeError">RuntimeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>For various errors including invalid JSON output or rate limit violations.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="aethergraph.services.llm.types.LLMUnsupportedFeatureError">LLMUnsupportedFeatureError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If a requested feature is unsupported by the provider.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>This method centralizes handling of streaming and non-streaming paths for LLM providers.</li>
+<li>The <code>on_delta</code> callback allows for real-time updates, making it suitable for interactive applications.</li>
+<li>Rate limiting and usage metering are applied consistently across providers.</li>
+<li>Currently, only OpenAI's Responses API streaming is implemented; other providers will fall back to the non-streaming <code>chat()</code> method.</li>
 </ul>
 </details>
 

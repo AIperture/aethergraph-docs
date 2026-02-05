@@ -12,9 +12,13 @@
         <meta name="author" content="AIperture">
       
       
-        <link rel="canonical" href="https://your-domain.com/reference/graph-graph-fn/">
+        <link rel="canonical" href="https://your-domain.com/reference/context-indices/">
       
       
+        <link rel="prev" href="../context-memory/">
+      
+      
+        <link rel="next" href="../context-planner/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>@graph_fn – Graph Function API - AetherGraph</title>
+        <title>context.indices() - AetherGraph</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graph_fn-graph-function-api" class="md-skip">
+        <a href="#contextindices-global-index-api-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              @graph_fn – Graph Function API
+              context.indices()
             
           </span>
         </div>
@@ -873,8 +877,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -885,13 +891,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -907,7 +911,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1110,6 +1114,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1119,13 +1125,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -1141,7 +1145,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Context API
@@ -1221,10 +1225,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../context-indices/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    context.indices()
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1235,6 +1261,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-scoped-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      What “scoped” means
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What “scoped” means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#writes-automatic-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writes: automatic metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reads-automatic-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reads: automatic filters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quickstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quickstart
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upsert-a-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upsert a document
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-within-a-corpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search within a corpus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenience helpers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-upsert-any-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Upsert any text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.indices.scoped_indices.ScopedIndices.upsert" class="md-nav__link">
+    <span class="md-ellipsis">
+      upsert
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-search-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Search API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.indices.scoped_indices.ScopedIndices.search" class="md-nav__link">
+    <span class="md-ellipsis">
+      search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.indices.scoped_indices.ScopedIndices.search_events" class="md-nav__link">
+    <span class="md-ellipsis">
+      search_events
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.indices.scoped_indices.ScopedIndices.search_artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      search_artifacts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2124,304 +2299,667 @@
   
 
 
-<h1 id="graph_fn-graph-function-api"><code>@graph_fn</code> – Graph Function API<a class="headerlink" href="#graph_fn-graph-function-api" title="Permanent link">&para;</a></h1>
-<p><code>@graph_fn</code> turns a plain Python function into a <strong>GraphFunction</strong> object – a named, versioned graph entry that still feels like a normal Python callable.</p>
+<h1 id="contextindices-global-index-api-reference"><code>context.indices()</code> – Global Index API Reference<a class="headerlink" href="#contextindices-global-index-api-reference" title="Permanent link">&para;</a></h1>
+<p><code>context.indices()</code> returns a <strong>scope-aware</strong> <code>ScopedIndices</code> wrapper around the global <code>SearchBackend</code>.</p>
+<p>It is the primary API for <strong>writing</strong> and <strong>retrieving</strong> text records (e.g., memory snippets, run events, artifacts)
+while automatically attaching and enforcing <strong>scope metadata</strong>.</p>
+<h2 id="what-scoped-means">What “scoped” means<a class="headerlink" href="#what-scoped-means" title="Permanent link">&para;</a></h2>
+<p>Each <code>ScopedIndices</code> instance carries:</p>
 <ul>
-<li>You write a regular function (usually <code>async</code>) with whatever parameters you want.</li>
-<li>If the function’s signature includes a <code>context</code> parameter, a <strong><code>NodeContext</code></strong> is injected automatically.</li>
-<li>Inside the body, calls to <code>@tool</code> functions are recorded as <strong>nodes</strong>, while plain Python calls just run inline.</li>
+<li><code>scope</code>: a <code>Scope</code> object describing the active org/user/app/session/run/node context.</li>
+<li><code>scope_id</code> (optional): an extra logical partition key (commonly a <code>memory_scope_id</code> for memory-tied corpora).</li>
 </ul>
-<p>This section focuses on the <strong>API surface and contracts</strong>, not on execution details or schedulers.</p>
-<hr />
-<h2 id="1-graphfunction-overview">1. GraphFunction Overview<a class="headerlink" href="#1-graphfunction-overview" title="Permanent link">&para;</a></h2>
-<p>The decorator builds a <code>GraphFunction</code> instance:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GraphFunction</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-        <span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">graph_id</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fn</span> <span class="o">=</span> <span class="n">fn</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span> <span class="ow">or</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">outputs</span> <span class="ow">or</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">registry_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_graph</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_context</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_memory_snapshot</span> <span class="o">=</span> <span class="kc">None</span>
-</code></pre></div>
-<h3 id="key-attributes">Key attributes<a class="headerlink" href="#key-attributes" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Meaning / contract</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>graph_id</code></td>
-<td><code>str</code></td>
-<td>Stable identifier for the graph, usually equal to <code>name</code>. Used for specs, visualization, and provenance.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>str</code></td>
-<td>Human‑readable name of the graph function. Shows up in logs/registry.</td>
-</tr>
-<tr>
-<td><code>fn</code></td>
-<td><code>Callable</code></td>
-<td>The original Python function body you wrote. Used to build the graph and evaluate return values.</td>
-</tr>
-<tr>
-<td><code>inputs</code></td>
-<td><code>list[str]</code></td>
-<td>Declared <strong>graph input names</strong>. Optional; can be empty.</td>
-</tr>
-<tr>
-<td><code>outputs</code></td>
-<td><code>list[str]</code></td>
-<td>Declared <strong>graph output names</strong>. Optional; used for output normalization/validation.</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td><code>str</code></td>
-<td>Version tag for this graph. Included in registry entries and provenance.</td>
-</tr>
-<tr>
-<td><code>registry_key</code></td>
-<td><code>str \| None</code></td>
-<td>Internal hook for registry bookkeeping. Not part of the public contract.</td>
-</tr>
-<tr>
-<td><code>last_graph</code></td>
-<td><code>TaskGraph \| None</code></td>
-<td>Last built graph (for inspection and debugging). May be <code>None</code> if not built yet.</td>
-</tr>
-<tr>
-<td><code>last_context</code></td>
-<td><code>Any</code></td>
-<td>Reserved for runtime use (not a stable API).</td>
-</tr>
-<tr>
-<td><code>last_memory_snapshot</code></td>
-<td><code>Any</code></td>
-<td>Reserved for runtime use (not a stable API).</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Treat <code>graph_id</code>, <code>name</code>, <code>inputs</code>, <code>outputs</code>, <code>version</code>, and <code>last_graph</code> as the <strong>main public surface</strong>; the other fields are implementation details that can change.</p>
-</blockquote>
-<hr />
-<h2 id="2-graph_fn-decorator-definition">2. <code>@graph_fn</code> Decorator – Definition<a class="headerlink" href="#2-graph_fn-decorator-definition" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">graph_fn</span><span class="p">(</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
-    <span class="n">agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">GraphFunction</span><span class="p">]:</span>
-    <span class="o">...</span>
-</code></pre></div>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>str</code></td>
-<td><strong>Yes</strong></td>
-<td>Logical ID for the graph. Also used as the <code>graphfn</code> registry name.</td>
-</tr>
-<tr>
-<td><code>inputs</code></td>
-<td><code>list[str] \| None</code></td>
-<td>No</td>
-<td>Optional list of <strong>named graph inputs</strong>. If omitted, the graph can still accept <code>**inputs</code>, but there is no typed input list in the spec.</td>
-</tr>
-<tr>
-<td><code>outputs</code></td>
-<td><code>list[str] \| None</code></td>
-<td>No</td>
-<td>Optional list of <strong>declared graph outputs</strong>. Used to normalize and validate the function’s return value.</td>
-</tr>
-<tr>
-<td><code>version</code></td>
-<td><code>str</code></td>
-<td>No</td>
-<td>Semantic version for this graph. Defaults to <code>"0.1.0"</code>.</td>
-</tr>
-<tr>
-<td><code>agent</code></td>
-<td><code>str \| None</code></td>
-<td>No</td>
-<td>If provided, additionally registers this <code>GraphFunction</code> in the registry under the <code>agent</code> namespace with the given name.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="what-the-decorator-returns">What the decorator returns<a class="headerlink" href="#what-the-decorator-returns" title="Permanent link">&para;</a></h3>
-<p>Using <code>@graph_fn</code> on a function returns a <strong><code>GraphFunction</code> instance</strong>, not the raw function:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
+<h3 id="writes-automatic-metadata">Writes: automatic metadata<a class="headerlink" href="#writes-automatic-metadata" title="Permanent link">&para;</a></h3>
+<p>On <code>upsert()</code>, <code>ScopedIndices</code> merges your provided <code>metadata</code> with base scope labels
+(e.g. user/org/app/session/run/node identifiers) and drops keys whose values are <code>None</code>.</p>
+<h3 id="reads-automatic-filters">Reads: automatic filters<a class="headerlink" href="#reads-automatic-filters" title="Permanent link">&para;</a></h3>
+<p>On <code>search()</code>, <code>ScopedIndices</code> automatically applies base scope filters (and optional <code>scope_id</code>),
+then merges in any user-provided <code>filters</code> (dropping <code>None</code> values).</p>
+<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
+<h3 id="upsert-a-document">Upsert a document<a class="headerlink" href="#upsert-a-document" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">indices</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
 
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="o">...</span>
-
-<span class="c1"># `example` is now a GraphFunction</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">GraphFunction</span><span class="p">)</span>
-</code></pre></div>
-<p>Internally, the decorator:</p>
-<ol>
-<li>Constructs <code>GraphFunction(name, fn, inputs, outputs, version)</code>.</li>
-<li>Looks up the <strong>current registry</strong> via <code>current_registry()</code>.</li>
-<li>
-<p>If a registry is available, registers the object as:</p>
-<ul>
-<li><code>nspace="graphfn"</code>, <code>name=name</code>, <code>version=version</code>, <code>obj=gf</code>.</li>
-</ul>
-</li>
-<li>
-<p>If <code>agent</code> is provided, also registers:</p>
-<ul>
-<li><code>nspace="agent"</code>, <code>name=agent</code>, <code>version=version</code>, <code>obj=gf</code>.</li>
-</ul>
-</li>
-</ol>
-<p>The <code>agent</code> registration currently serves as metadata for higher‑level agent frameworks; it does <strong>not</strong> change how the graph function runs.</p>
-<hr />
-<h2 id="3-function-shape-context-injection">3. Function Shape &amp; Context Injection<a class="headerlink" href="#3-function-shape-context-injection" title="Permanent link">&para;</a></h2>
-<p>A <code>graph_fn</code> is written like a normal Python function. The only special convention is the optional <code>context</code> parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_fn</span><span class="p">,</span> <span class="n">NodeContext</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;example&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="c1"># `context` is injected automatically</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}</span>
-</code></pre></div>
-<p><strong>Rules:</strong></p>
-<ul>
-<li>You can define any positional/keyword parameters you want (<code>x</code>, <code>y</code>, <code>options</code>, etc.).</li>
-<li>If the function signature contains a parameter named <code>context</code>, the runtime <strong>injects a <code>NodeContext</code></strong> instance when building/executing the graph.</li>
-<li>If <code>context</code> is <strong>not</strong> present in the signature, nothing special is injected.</li>
-</ul>
-<blockquote>
-<p>The injected <code>NodeContext</code> gives you access to runtime services like <code>channel()</code>, <code>memory()</code>, <code>artifacts()</code>, <code>logger()</code>, etc. This is the main way <code>graph_fn</code>s interact with the outside world.</p>
-</blockquote>
-<hr />
-<h2 id="4-tools-vs-plain-callables-inside-a-graph_fn">4. Tools vs Plain Callables Inside a <code>graph_fn</code><a class="headerlink" href="#4-tools-vs-plain-callables-inside-a-graph_fn" title="Permanent link">&para;</a></h2>
-<p>Inside a graph function body, you can freely mix:</p>
-<ol>
-<li><strong>Plain Python code and callables</strong> – executed immediately as normal Python.</li>
-<li><strong><code>@tool</code> functions</strong> – these create graph nodes and tracked edges when invoked.</li>
-</ol>
-<h3 id="plain-callables">Plain callables<a class="headerlink" href="#plain-callables" title="Permanent link">&para;</a></h3>
-<p>Regular functions or methods (not decorated with <code>@tool</code>) behave exactly as in standard Python:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">local_scale</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">factor</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mixed_body&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">mixed_body</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">local_scale</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>          <span class="c1"># plain Python call, no node created</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;scaled&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">}</span>
-</code></pre></div>
-<h3 id="tool-functions-nodes-on-the-fly"><code>@tool</code> functions – nodes on the fly<a class="headerlink" href="#tool-functions-nodes-on-the-fly" title="Permanent link">&para;</a></h3>
-<p>When you call a <code>@tool</code> inside a <code>graph_fn</code>, the decorator’s proxy detects that a graph builder is active, execute the <code>@tool</code>, and return the <code>NodeHandler</code>. You can access the output of the tool as regular <code>@tool</code>. </p>
-<p>Conceptually:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">aethergraph</span><span class="w"> </span><span class="kn">import</span> <span class="n">tool</span>
-
-<span class="nd">@tool</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sum_vec</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">)}</span>
-
-<span class="nd">@graph_fn</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;tool_usage&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">tool_usage</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">NodeContext</span><span class="p">):</span>
-    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)}</span>           <span class="c1"># plain Python</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">sum_vec</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">xs</span><span class="p">)</span>             <span class="c1"># becomes a node (NodeHandle)</span>
-    <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;n=</span><span class="si">{</span><span class="n">stats</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, total=</span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">]}</span>
-</code></pre></div>
-<p><strong>API contract:</strong></p>
-<ul>
-<li>Plain callables inside a <code>graph_fn</code> execute immediately and are <strong>not</strong> tracked as graph nodes.</li>
-<li><code>@tool</code> calls inside a <code>graph_fn</code> become <strong>tracked nodes</strong> with inputs/outputs wired into the <code>TaskGraph</code>.</li>
-<li>You can still treat the <code>@tool</code> call’s result like a dict in your function body; the NodeHandle provides field‑like accessors that match the tool outputs.</li>
-</ul>
-<hr />
-<h2 id="5-output-contract-high-level">5. Output Contract (High Level)<a class="headerlink" href="#5-output-contract-high-level" title="Permanent link">&para;</a></h2>
-<p>The <code>outputs</code> list given to <code>@graph_fn</code> defines the <strong>expected graph outputs</strong>. After your function body returns, the runtime normalizes the return value and enforces this contract.</p>
-<p>Supported return shapes (high‑level):</p>
-<ul>
-<li>A <code>dict[str, Any]</code> – keys may map to literals, <code>NodeHandle</code>s, or internal <code>Ref</code> objects.</li>
-<li>A single <code>NodeHandle</code> – its outputs will be exposed as graph outputs.</li>
-<li>A single literal / <code>Ref</code> – only valid when exactly one output is declared.</li>
-</ul>
-<p>If <code>outputs</code> is not <code>None</code>:</p>
-<ul>
-<li>The normalized result is restricted to exactly those keys (in order).</li>
-<li>Missing keys cause a <code>ValueError</code>.</li>
-</ul>
-<hr />
-<h2 id="6-registry-and-agent-metadata">6. Registry and <code>agent</code> Metadata<a class="headerlink" href="#6-registry-and-agent-metadata" title="Permanent link">&para;</a></h2>
-<p>When a registry is active (<code>current_registry() is not None</code>), <code>@graph_fn</code> registers the created <code>GraphFunction</code> automatically:</p>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
-    <span class="n">nspace</span><span class="o">=</span><span class="s2">&quot;graphfn&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
-    <span class="n">obj</span><span class="o">=</span><span class="n">gf</span><span class="p">,</span>
+<span class="k">await</span> <span class="n">indices</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span>
+    <span class="n">item_id</span><span class="o">=</span><span class="s2">&quot;artifact:123&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Design review notes for v2 surrogate workflow...&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;note&quot;</span><span class="p">,</span> <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;surrogate&quot;</span><span class="p">},</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>If you pass <code>agent="my_agent"</code>, the same object is additionally registered as:</p>
-<div class="highlight"><pre><span></span><code><span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
-    <span class="n">nspace</span><span class="o">=</span><span class="s2">&quot;agent&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
-    <span class="n">obj</span><span class="o">=</span><span class="n">gf</span><span class="p">,</span>
+<h3 id="search-within-a-corpus">Search within a corpus<a class="headerlink" href="#search-within-a-corpus" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">indices</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="k">await</span> <span class="n">indices</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="s2">&quot;surrogate workflow&quot;</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;surrogate&quot;</span><span class="p">},</span>
+    <span class="n">time_window</span><span class="o">=</span><span class="s2">&quot;7d&quot;</span><span class="p">,</span>  <span class="c1"># optional: interpreted as [now - 7d, now]</span>
 <span class="p">)</span>
 </code></pre></div>
-<p><strong>Current usage:</strong></p>
-<ul>
-<li><code>graphfn</code> entries: used to discover graphs by name/version and to attach specs/visualizations.</li>
-<li><code>agent</code> entries: reserved for higher‑level agent orchestration (e.g., routing, multi‑agent systems). At present, it is a <strong>metadata hook</strong> only; the core <code>GraphFunction</code> API does not change.</li>
-</ul>
+<h3 id="convenience-helpers">Convenience helpers<a class="headerlink" href="#convenience-helpers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">indices</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">indices</span><span class="p">()</span>
+
+<span class="n">events</span> <span class="o">=</span> <span class="k">await</span> <span class="n">indices</span><span class="o">.</span><span class="n">search_events</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">time_window</span><span class="o">=</span><span class="s2">&quot;24h&quot;</span><span class="p">)</span>
+<span class="n">artifacts</span> <span class="o">=</span> <span class="k">await</span> <span class="n">indices</span><span class="o">.</span><span class="n">search_artifacts</span><span class="p">(</span><span class="s2">&quot;invoice template&quot;</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Note: <code>time_window</code> is ignored if <code>created_at_min</code> is provided. You can also pass
+<code>created_at_min</code> / <code>created_at_max</code> as UNIX timestamps for precise control.</p>
+</blockquote>
 <hr />
-<h2 id="7-summary">7. Summary<a class="headerlink" href="#7-summary" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>@graph_fn</code> wraps a Python function into a <strong>GraphFunction</strong>: a named, versioned graph entry with optional inputs/outputs.</li>
-<li>The function signature is normal Python; an optional <code>context</code> parameter triggers 
-<strong><code>NodeContext</code> injection</strong>. </li>
-<li>
-<p>Inside the body:</p>
-<ul>
-<li>Plain Python calls execute inline.</li>
-<li><code>@tool</code> calls become <strong>nodes on the fly</strong>, tracked in the underlying <code>TaskGraph</code>.</li>
+<h2 id="1-upsert-any-text">1. Upsert any text<a class="headerlink" href="#1-upsert-any-text" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>upsert(*, corpus, item_id, text, metadata=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.indices.scoped_indices.ScopedIndices.upsert"></a>
+    <div class="doc doc-contents first">
+
+        <p>Upsert (insert or update) a text item with associated metadata into the backend index.
+This method merges base metadata with any provided metadata, strips out keys with None values,
+and delegates the upsert operation to the backend. This ensures that only meaningful metadata
+is stored and that None values are treated as wildcards by the backend.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to upsert a text item:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">service</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;my_corpus&quot;</span><span class="p">,</span>
+    <span class="n">item_id</span><span class="o">=</span><span class="s2">&quot;item123&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Sample document text.&quot;</span>
+</code></pre></div></p>
+<p>Upserting with additional metadata:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">service</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span>
+    <span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;my_corpus&quot;</span><span class="p">,</span>
+    <span class="n">item_id</span><span class="o">=</span><span class="s2">&quot;item123&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Sample document text.&quot;</span><span class="p">,</span>
+    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;news&quot;</span><span class="p">}</span>
+</code></pre></div></p>
+        <p>Args:
+    corpus: The name of the corpus or collection to upsert the item into.
+    item_id: The unique identifier for the item within the corpus.
+    text: The text content to be indexed or updated.
+    metadata: Optional mapping of additional metadata to associate with the item.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <p>Metadata keys with None values are omitted before upserting to the backend.</p>
+</details>
+
+    </div>
+
+</div></details>
+<h2 id="2-search-api">2. Search API<a class="headerlink" href="#2-search-api" title="Permanent link">&para;</a></h2>
+<details class="quote">
+<summary>search(*, corpus, query, top_k=10, filters=None, time_window=None, created_at_min=None, created_at_max=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.indices.scoped_indices.ScopedIndices.search"></a>
+    <div class="doc doc-contents first">
+
+        <p>Perform a search operation on the specified corpus.
+This method executes a search query against the backend, applying optional filters,
+time constraints, and other parameters to refine the results.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to search a corpus:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search</span><span class="p">(</span><span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;documents&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="s2">&quot;machine learning&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Searching with additional filters and time constraints:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search</span><span class="p">(</span>
+<span class="n">corpus</span><span class="o">=</span><span class="s2">&quot;articles&quot;</span><span class="p">,</span>
+<span class="n">query</span><span class="o">=</span><span class="s2">&quot;AI advancements&quot;</span><span class="p">,</span>
+<span class="n">top_k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">},</span>
+<span class="n">time_window</span><span class="o">=</span><span class="s2">&quot;7d&quot;</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>corpus</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the corpus to search within.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>query</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The search query string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>top_k</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of results to return (default: 10).</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filters</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Mapping">Mapping</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of additional filters to apply to the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>time_window</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional human-friendly duration (e.g., "7d", "24h", "30m")</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_min</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional minimum UNIX timestamp (float) for filtering results by creation time.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_max</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional maximum UNIX timestamp (float) for filtering results by creation time.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.storage.search_backend.ScoredItem">ScoredItem</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of <code>ScoredItem</code> objects representing the search results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>If <code>time_window</code> is provided, it is used to calculate the time range unless <code>created_at_min</code> is explicitly set.</li>
+<li>Filters with <code>None</code> values are automatically excluded from the search.</li>
 </ul>
-</li>
-<li>
-<p>Declared <code>outputs</code> define the expected graph outputs and are enforced by the runtime’s normalization logic.</p>
-</li>
-<li>
-<p>When a registry is active, each <code>graph_fn</code> is registered under <code>graphfn</code>, and optionally under <code>agent</code> when <code>agent="..."</code> is provided.</p>
-</li>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>search_events(query, *, top_k=20, filters=None, time_window=None, created_at_min=None, created_at_max=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.indices.scoped_indices.ScopedIndices.search_events"></a>
+    <div class="doc doc-contents first">
+
+        <p>Perform a search for events based on the given query and optional filters.</p>
+<p>This method queries the "event" corpus using the specified parameters to retrieve
+a list of scored items matching the search criteria.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to search for events:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search_events</span><span class="p">(</span><span class="s2">&quot;error logs&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Searching with additional filters and a time window:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search_events</span><span class="p">(</span>
+<span class="s2">&quot;user activity&quot;</span><span class="p">,</span>
+<span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">},</span>
+<span class="n">time_window</span><span class="o">=</span><span class="s2">&quot;last_24_hours&quot;</span><span class="p">,</span>
+<span class="n">created_at_min</span><span class="o">=</span><span class="mf">1672531200.0</span><span class="p">,</span>
+<span class="n">created_at_max</span><span class="o">=</span><span class="mf">1672617600.0</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>query</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The search query string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>top_k</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of results to return (default: 20).</p>
+              </div>
+            </td>
+            <td>
+                  <code>20</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filters</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Mapping">Mapping</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of filters to apply to the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>time_window</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional time window for the search (e.g., "last_24_hours").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_min</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional minimum creation timestamp for filtering results.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_max</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional maximum creation timestamp for filtering results.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.storage.search_backend.ScoredItem">ScoredItem</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of <code>ScoredItem</code> objects representing the search results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+        <p>Notes:
+- The <code>filters</code> parameter allows you to specify key-value pairs to narrow down the search results.
+- The <code>time_window</code> parameter can be used to specify a predefined time range for the search.
+- The <code>created_at_min</code> and <code>created_at_max</code> parameters allow for fine-grained control over the
+  creation time range of the events being searched.</p>
+
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>search_artifacts(query, *, top_k=20, filters=None, time_window=None, created_at_min=None, created_at_max=None)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.indices.scoped_indices.ScopedIndices.search_artifacts"></a>
+    <div class="doc doc-contents first">
+
+        <p>Perform a search for artifacts based on the provided query and optional filters.</p>
+<p>This method queries the "artifact" corpus using the specified parameters and returns
+a list of scored items matching the search criteria.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage to search for artifacts:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search_artifacts</span><span class="p">(</span><span class="s2">&quot;example query&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Searching with additional filters and a time window:
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">search_artifacts</span><span class="p">(</span>
+<span class="s2">&quot;example query&quot;</span><span class="p">,</span>
+<span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;document&quot;</span><span class="p">},</span>
+<span class="n">time_window</span><span class="o">=</span><span class="s2">&quot;last_7_days&quot;</span><span class="p">,</span>
+<span class="n">created_at_min</span><span class="o">=</span><span class="mf">1672531200.0</span><span class="p">,</span>
+<span class="n">created_at_max</span><span class="o">=</span><span class="mf">1672617600.0</span><span class="p">,</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>query</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The search query string.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>top_k</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The maximum number of results to return (default: 20).</p>
+              </div>
+            </td>
+            <td>
+                  <code>20</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filters</code>
+            </td>
+            <td>
+                  <code><span title="collections.abc.Mapping">Mapping</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of filters to apply to the search.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>time_window</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional time window for the search (e.g., "last_7_days").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_min</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional minimum creation timestamp for filtering results.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>created_at_max</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional maximum creation timestamp for filtering results.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="aethergraph.contracts.storage.search_backend.ScoredItem">ScoredItem</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of <code>ScoredItem</code> objects representing the search results.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>The <code>filters</code> parameter allows specifying additional constraints for the search.</li>
+<li>The <code>time_window</code> parameter can be used to limit results to a specific time range.</li>
+<li>The <code>created_at_min</code> and <code>created_at_max</code> parameters allow filtering by creation time.</li>
 </ul>
+</details>
+
+    </div>
+
+</div></details>
 
 
 
@@ -2446,6 +2984,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../context-memory/" class="md-footer__link md-footer__link--prev" aria-label="Previous: context.memory()">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                context.memory()
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../context-planner/" class="md-footer__link md-footer__link--next" aria-label="Next: context.planner()">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                context.planner()
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

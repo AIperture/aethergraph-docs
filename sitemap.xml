@@ -2,318 +2,334 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://your-domain.com/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/concept/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/external-context-services/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/graph_fn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/graphify/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/quickstart/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/server/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tools/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/build-graphs/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/build-graphs/choosing/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/build-graphs/graph_fn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/build-graphs/graphify/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/build-graphs/tool/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/channel-backend-intro/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/console-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/file-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/introduction/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/slack-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/telegram-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/channel-setup/webhook-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/design/server/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/examples/1-chat-with-memory/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/examples/channel/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/examples/example-list/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/examples/llm/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/examples/memory-artifact/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/agent-via-graph-fn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/artifacts-memory/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/channels-interaction/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/concurrency-orchestration/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/context-services/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/event-driven-waits/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/extending-context/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/introduction/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/other-services-overview/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/server-start-sidecar/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/key-concepts/static-graph-agent/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/llm-setup/llm-setup/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/recipes/data-analysis-loop/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/recipes/job-submit-poll/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/recipes/memory-rag-mini/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/config/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-adhoc/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-artifacts/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-channel/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-extension/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
+    </url>
+    <url>
+         <loc>https://your-domain.com/reference/context-indices/</loc>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-kv/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-llm/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-logger/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-mcp/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-memory/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
+    </url>
+    <url>
+         <loc>https://your-domain.com/reference/context-planner/</loc>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-rag/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-runner/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
+    </url>
+    <url>
+         <loc>https://your-domain.com/reference/context-skills/</loc>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/context-viz/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/decorators/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/graph-graph-fn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/graph-graphify/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/graph-task-graph/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/graph-tool/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/graphify-graphfn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/rest-api/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/runner-api/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/runtime-api/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/runtime-server/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/tool-channel/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/reference/tools-facade/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t0-plan/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t1-build-your-first-graph-fn/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t2-static-graph-with-graphify/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t3-talk-to-your-graph-channels-waits/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t4-store-recall-artifacts-memory/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t5-add-intelligence-llm-rag/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t6-use-external-tools-mcp/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t7-extend-runtime-custom-services/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/tutorials/t8-design-your-own-waits/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/ui/agents-apps/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/ui/overview/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/ui/server/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
     </url>
     <url>
          <loc>https://your-domain.com/ui/ui-notes/</loc>
-         <lastmod>2026-01-07</lastmod>
+         <lastmod>2026-02-05</lastmod>
+    </url>
+    <url>
+         <loc>https://your-domain.com/ui/ui-rich-card/</loc>
+         <lastmod>2026-02-05</lastmod>
     </url>
 </urlset>

@@ -1308,6 +1308,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_rich" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_rich
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aethergraph.services.channel.session.ChannelSession.send_phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      send_phase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2-ask-methods" class="md-nav__link">
     <span class="md-ellipsis">
       2. Ask Methods
@@ -1433,6 +1451,75 @@
   
   <span class="md-ellipsis">
     context.memory()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-indices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.indices()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-planner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.planner()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.skills()
     
   </span>
   
@@ -1997,6 +2084,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ui/ui-rich-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rich Card in Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ui/ui-notes/" class="md-nav__link">
         
   
@@ -2475,7 +2585,7 @@
 </div></details>
 <h2 id="1-send-methods">1. Send Methods<a class="headerlink" href="#1-send-methods" title="Permanent link">&para;</a></h2>
 <details class="quote">
-<summary>send(event, *, channel)</summary>
+<summary>send(event, *, channel, ...)</summary>
 
 
 <div class="doc doc-object doc-function">
@@ -2585,7 +2695,7 @@ to override the sender's display name and avatar in the chat.</p>
 
 </div></details>
 <details class="quote">
-<summary>send_text(text, *, meta, channel)</summary>
+<summary>send_text(text, *, meta, channel, ...)</summary>
 
 
 <div class="doc doc-object doc-function">
@@ -2672,6 +2782,102 @@ and dispatches the message via the channel bus.</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log this message to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_role</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;user&#39;, &#39;assistant&#39;, &#39;system&#39;, &#39;tool&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The role to use when logging to memory (default: "assistant").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;assistant&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional structured data to include with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Severity level for the memory log entry (default: 2).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional signal value for the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2709,7 +2915,7 @@ for AG WebUI, you can set meta with
 
 </div></details>
 <details class="quote">
-<summary>send_image(url, *, alt, title, channel)</summary>
+<summary>send_image(url, *, alt, title, channel, ...)</summary>
 
 
 <div class="doc doc-object doc-function">
@@ -2720,24 +2926,32 @@ for AG WebUI, you can set meta with
     <div class="doc doc-contents first">
 
         <p>Send an image message to the configured channel.</p>
-<p>This method constructs and dispatches an outbound event containing image metadata,
-including the image URL, alternative text, and an optional title. Context-derived
-metadata is automatically merged, and the event is published via the channel bus.</p>
+<p>This method constructs a normalized outbound event, merges context-derived metadata,
+and dispatches the image message via the channel bus. The image can be specified
+using a URL or raw bytes, and additional metadata such as alternative text and title
+can be provided.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>Basic usage to send an image:
+    <p>Basic usage to send an image by URL:
 <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_image</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/image.png&quot;</span><span class="p">,</span>
     <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;Sample image&quot;</span>
 <span class="p">)</span>
 </code></pre></div></p>
-<p>Sending with a custom title and to a specific channel:
+<p>Sending an image with a custom title and to a specific channel:
 <div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_image</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://example.com/photo.jpg&quot;</span><span class="p">,</span>
     <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;User profile photo&quot;</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Profile&quot;</span><span class="p">,</span>
     <span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Sending an image from raw bytes:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_image</span><span class="p">(</span>
+    <span class="n">file_bytes</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;binaryimagedata...&quot;</span><span class="p">,</span>
+    <span class="n">alt</span><span class="o">=</span><span class="s2">&quot;Generated image&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Generated Output&quot;</span>
 <span class="p">)</span>
 </code></pre></div></p>
 
@@ -2762,7 +2976,23 @@ metadata is automatically merged, and the event is published via the channel bus
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The URL of the image to send. If None, an empty string is used.</p>
+                <p>The URL of the image to send. If None, raw bytes must be provided.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>file_bytes</code>
+            </td>
+            <td>
+                  <code><span title="bytes">bytes</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional raw bytes of the image to send.</p>
               </div>
             </td>
             <td>
@@ -2817,6 +3047,118 @@ metadata is automatically merged, and the event is published via the channel bus
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>artifact_labels</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of labels to associate with the image artifact.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log this message to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_role</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;user&#39;, &#39;assistant&#39;, &#39;system&#39;, &#39;tool&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The role to use when logging to memory (default: "assistant").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;assistant&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional structured data to include with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Severity level for the memory log entry (default: 2).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional signal value for the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2845,14 +3187,15 @@ metadata is automatically merged, and the event is published via the channel bus
 
 <details class="notes" open>
   <summary>Notes</summary>
-  <p>The capability to render images depends on the client adapter.</p>
+  <p>The capability to render images depends on the client adapter. If both <code>url</code> and
+<code>file_bytes</code> are provided, both will be included in the event.</p>
 </details>
 
     </div>
 
 </div></details>
 <details class="quote">
-<summary>send_file(url, *, file_bytes, filename, title, channel)</summary>
+<summary>send_file(url, *, file_bytes, filename, title, channel, ...)</summary>
 
 
 <div class="doc doc-object doc-function">
@@ -2976,6 +3319,21 @@ metadata is automatically merged, and the event is published via the channel bus
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_*</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameters controlling logging to memory (see <code>send_text</code> for details).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3012,7 +3370,7 @@ If both <code>url</code> and <code>file_bytes</code> are provided, both will be 
 
 </div></details>
 <details class="quote">
-<summary>send_buttons(text, buttons, *, meta, channel)</summary>
+<summary>send_buttons(text, buttons, *, meta, channel, ...)</summary>
 
 
 <div class="doc doc-object doc-function">
@@ -3119,6 +3477,21 @@ If both <code>url</code> and <code>file_bytes</code> are provided, both will be 
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_*</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameters controlling logging to memory (see <code>send_text</code> for details).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3148,6 +3521,469 @@ If both <code>url</code> and <code>file_bytes</code> are provided, both will be 
     </div>
 
 </div></details>
+<details class="quote">
+<summary>send_rich(text, *, rich, meta, channel, ...)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_rich"></a>
+    <div class="doc doc-contents first">
+
+        <p>Send a rich UI message to the configured channel.</p>
+<p>This method constructs a normalized outbound event, merges context-derived metadata,
+and dispatches the message with an optional <code>rich</code> payload for UI-aware adapters.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Sending a single rich block:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_rich</span><span class="p">(</span>
+<span class="n">text</span><span class="o">=</span><span class="s2">&quot;Here is the loss curve:&quot;</span><span class="p">,</span>
+<span class="n">rich</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Training loss&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;engine&quot;</span><span class="p">:</span> <span class="s2">&quot;vega-lite&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="n">loss_vega_spec</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<p>Sending multiple rich blocks:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_rich</span><span class="p">(</span>
+<span class="n">text</span><span class="o">=</span><span class="s2">&quot;Training summary:&quot;</span><span class="p">,</span>
+<span class="n">rich</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;blocks&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Loss&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;engine&quot;</span><span class="p">:</span> <span class="s2">&quot;vega-lite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="n">loss_vega_spec</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;metrics&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Key metrics&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Best val loss&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;0.023&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Epochs&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;20&quot;</span><span class="p">},</span>
+        <span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>text</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional plain text content to send alongside the rich payload.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>rich</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary representing the structured rich payload. This can be a single block</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>meta</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional dictionary of metadata to include with the event.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log this message to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_role</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;user&#39;, &#39;assistant&#39;, &#39;system&#39;, &#39;tool&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The role to use when logging to memory (default: "assistant").</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;assistant&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional structured data to include with the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_severity</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Severity level for the memory log entry (default: 2).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_signal</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional signal value for the memory log entry.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>For AG WebUI, the <code>rich</code> payload is passed through as-is and rendered as UI blocks.</li>
+<li>Other adapters may down-level these blocks to plain text or ignore them.</li>
+</ul>
+</details>
+
+    </div>
+
+</div></details>
+<details class="quote">
+<summary>send_phase(phase, status, *, label, detail, code, channel, key_suffix)</summary>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<a id="aethergraph.services.channel.session.ChannelSession.send_phase"></a>
+    <div class="doc doc-contents first">
+
+        <p>This method constructs a normalized outbound event representing the current
+phase and its status, merges context-derived metadata, and dispatches the
+event via the channel bus.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Sending a phase update with a "pending" status:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_phase</span><span class="p">(</span><span class="s2">&quot;routing&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Sending a phase update with additional details and a specific channel:
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">send_phase</span><span class="p">(</span>
+    <span class="s2">&quot;planning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Planning Phase&quot;</span><span class="p">,</span>
+    <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Calculating optimal routes&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div></p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>phase</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The logical stage name (e.g., "routing", "planning", "reasoning").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>status</code>
+            </td>
+            <td>
+                  <code><span title="typing.Literal">Literal</span>[&#39;pending&#39;, &#39;active&#39;, &#39;done&#39;, &#39;failed&#39;, &#39;skipped&#39;]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The current state of the phase ("pending", "active", "done", "failed", "skipped").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>label</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional custom label for the phase (default: capitalized phase name).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>detail</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional detailed description of the phase (default: empty string).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>code</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional code identifier for the phase.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>channel</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>key_suffix</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional suffix to customize the upsert key (default: "phase:{phase}").</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>None</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>This method will show a phase block in AG WebUI's timeline view if the adapter supports it.</li>
+<li>Other adapters may choose to render this differently or ignore the rich payload.</li>
+<li>All stage, status, label, detail, code fields can be customized without a fixed schema; the UI will treat them as opaque strings for display and filtering.</li>
+<li>The <code>upsert_key</code> ensures stable updates for the same phase within a node/run.</li>
+</ul>
+</details>
+
+    </div>
+
+</div></details>
+<blockquote>
+<p>For the capability and tutorial of AG UI on rich content rendering sent by <code>send_rich()</code>, see <a href="../../ui/ui-rich-card/">Rich Card</a> page for instruction. </p>
+</blockquote>
 <h2 id="2-ask-methods">2. Ask Methods<a class="headerlink" href="#2-ask-methods" title="Permanent link">&para;</a></h2>
 <p>Ask method automatic implemented continuation so that the agent will resume running when triggered from external channels. </p>
 <details class="quote">
@@ -3254,6 +4090,54 @@ It automatically handles context metadata, timeout, and channel resolution.</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log_prompt</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log the prompt to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log_reply</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log the user's reply to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entries.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -3349,6 +4233,38 @@ and returns the text. It automatically handles context metadata, timeout, and ch
             <td>
               <div class="doc-md-description">
                 <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log_reply</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log the user's reply to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entry.</p>
               </div>
             </td>
             <td>
@@ -3485,6 +4401,54 @@ Context metadata, timeout, and channel resolution are handled automatically.</p>
             <td>
               <div class="doc-md-description">
                 <p>Optional explicit channel key to override the default or session-bound channel.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log_prompt</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log the prompt to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_log_reply</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to log the user's reply to memory (default: True).</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory_tags</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional list of tags to associate with the memory log entries.</p>
               </div>
             </td>
             <td>
@@ -3711,7 +4675,7 @@ and end events to the channel bus. The caller is responsible for sending deltas 
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>Basic usage to stream LLM output:
+    <p>Basic usage to stream texts:
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
     <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;world!&quot;</span><span class="p">)</span>
@@ -3720,7 +4684,18 @@ and end events to the channel bus. The caller is responsible for sending deltas 
 <p>Streaming to a specific channel:
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;web:chat&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
     <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="s2">&quot;Generating results...&quot;</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">full_text</span><span class="o">=</span><span class="s2">&quot;Results complete.&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">full_text</span><span class="o">=</span><span class="s2">&quot;Results complete.&quot;</span><span class="p">,</span> <span class="n">memory_tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;llm&quot;</span><span class="p">])</span>
+</code></pre></div></p>
+<p>Streaming with context.llm().stream_chat()
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">with</span> <span class="n">context</span><span class="o">.</span><span class="n">channel</span><span class="p">()</span><span class="o">.</span><span class="n">stream</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="c1"># The `on_delta` callback sends each piece to the stream.</span>
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">on_delta</span><span class="p">(</span><span class="n">piece</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="n">piece</span><span class="p">)</span>
+        <span class="n">resp</span><span class="p">,</span> <span class="n">usage</span> <span class="o">=</span> <span class="k">await</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat_stream</span><span class="p">(</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+            <span class="n">on_delta</span><span class="o">=</span><span class="n">on_delta</span><span class="p">,</span> <span class="c1"># send each delta to the stream as it arrives</span>
+        <span class="p">)</span>
+    <span class="k">await</span> <span class="n">s</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">full_text</span><span class="o">=</span><span class="n">resp</span><span class="p">)</span>
 </code></pre></div></p>
 
 
@@ -3782,8 +4757,10 @@ for sending deltas and ending the stream.</p>
 
 <details class="notes" open>
   <summary>Notes</summary>
-  <p>The caller must explicitly call <code>end()</code> to finalize the stream. No auto-end is performed.
-The adapter may have specific behaviors for rendering streamed content (update vs. append).</p>
+  <ul>
+<li>The caller must explicitly call <code>end()</code> to finalize the stream. No auto-end is performed.</li>
+<li>The adapter may have specific behaviors for rendering streamed content (update vs. append).</li>
+</ul>
 </details>
 
     </div>

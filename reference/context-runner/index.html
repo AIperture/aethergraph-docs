@@ -1228,6 +1228,75 @@
   
   
     <li class="md-nav__item">
+      <a href="../context-indices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.indices()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-planner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.planner()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    context.skills()
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../context-logger/" class="md-nav__link">
         
   
@@ -1880,6 +1949,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ui/ui-rich-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rich Card in Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ui/ui-notes/" class="md-nav__link">
         
   
@@ -2439,7 +2531,7 @@ can be set to limit how long to wait.</p>
 <span class="n">record</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">wait_run</span><span class="p">(</span><span class="n">run_id</span><span class="p">)</span>
 </code></pre></div></p>
 <p>Waiting with a timeout:
-<div class="highlight"><pre><span></span><code><span class="n">record</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">wait_run</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">timeout_s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">record</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">context</span><span class="o">.</span><span class="n">wait_run</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">timeout_s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">return_outputs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></p>
 
 
@@ -2487,6 +2579,22 @@ a TimeoutError if the run does not complete in time.</p>
                   <code>None</code>
             </td>
           </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>return_outputs</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, also return the run's outputs along with the record.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
       </tbody>
     </table>
 
@@ -2507,6 +2615,16 @@ a TimeoutError if the run does not complete in time.</p>
             <td>
               <div class="doc-md-description">
                 <p>The final record of the completed run.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+<td><code>Output</code></td>            <td>
+                  <code><span title="aethergraph.core.runtime.run_types.RunRecord">RunRecord</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>return_outputs</code> is True, returns a tuple of (RunRecord, outputs dict).</p>
               </div>
             </td>
           </tr>
